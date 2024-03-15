@@ -4,33 +4,33 @@ This project follows the Agile Scrum methodology, where we'll be developing in f
 
 # Team
 
-Scrum Master: Sina Borzoo
-Product Owner: Josefine Khazaal
+- Scrum Master: Sina Borzoo
+- Product Owner: Josefine Khazaal
 
 Developers:
 
-Anna Lindroos
-Rikard Edlund
-Jonathan Larsson
-Alexander Råsberg
-Caroline Rebane
-Hao Nguyen
-Walter Sonnesjö
+- Anna Lindroos
+- Rikard Edlund
+- Jonathan Larsson
+- Alexander Råsberg
+- Caroline Rebane
+- Hao Nguyen
+- Walter Sonnesjö
 
 # Technologies Used
 
 Frontend:
 
-HTML
-CSS
-JavaScript
-TypeScript
-React
+- HTML
+- CSS
+- JavaScript
+- TypeScript
+- React
 
 Backend:
 
-API for food recipes
-API for cocktails from The Cocktail DB API
+- API for food recipes
+- API for cocktails from The Cocktail DB API
 
 # License
 
