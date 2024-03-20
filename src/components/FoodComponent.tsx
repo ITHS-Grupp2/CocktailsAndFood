@@ -60,4 +60,4 @@ export function FoodContainer() {
   );
 }
 
-export default FoodContainer;
+export default FoodComponent;
