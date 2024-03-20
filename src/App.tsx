@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Index />}></Route>
         <Route path="/about" element={<About />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/sideselect" element={<SideSelect />} />
