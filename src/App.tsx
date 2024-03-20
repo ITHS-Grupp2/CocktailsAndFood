@@ -5,18 +5,17 @@ import About from "./pages/About";
 import ShoppingCart from "./pages/ShoppingCart";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer";
-import FoodComponent from "./components/FoodComponent";
+import FoodComponent, { FoodContainer } from "./components/FoodComponent";
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Index />}></Route>
         <Route path="/about" element={<About />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
       </Routes>
-      <FoodComponent />
     </>
   );
 }
