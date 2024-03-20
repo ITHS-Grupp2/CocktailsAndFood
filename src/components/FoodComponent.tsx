@@ -1,0 +1,1 @@
+<p>Food Component</p>;
