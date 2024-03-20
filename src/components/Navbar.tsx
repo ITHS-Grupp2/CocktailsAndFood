@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
@@ -9,7 +9,13 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/about">About</Link>
+          <Link to="/productinfoview">Product Info</Link>
+        </li>
+        <li className="navbar-item">
+          <Link to="/sideselect">Side Select</Link>
+        </li>
+        <li className="navbar-item">
+          <Link to="/drinkselect">Drink Select</Link>
         </li>
         <li className="navbar-item">
           <Link to="/shoppingcart">Shopping Cart</Link>
@@ -18,5 +24,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;

@@ -1,4 +1,4 @@
-const ShoppingCart = () => {
+export const ShoppingCart = () => {
   return (
     <div>
       <h1>Shopping Cart</h1>
@@ -6,5 +6,3 @@ const ShoppingCart = () => {
     </div>
   );
 };
-
-export default ShoppingCart;
