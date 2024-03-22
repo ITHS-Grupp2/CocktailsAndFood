@@ -24,6 +24,7 @@ function App() {
         <Route path="/productinfoview" element={<ProductInfoView />} />
       </Routes>
       <Footer />
+
     </>
   );
 }
