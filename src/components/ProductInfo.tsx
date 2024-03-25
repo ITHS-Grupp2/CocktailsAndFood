@@ -1,9 +1,9 @@
 import { Container, Col, Row } from "react-bootstrap";
 import { CartButton } from "./CartButton";
 
-type ProductType = "Cocktail" | "Main" | "Sides";
+export type ProductType = "Cocktail" | "Main" | "Sides";
 
-type ProductInfoData = {
+export type ProductInfoData = {
   id: number;
   productType: ProductType;
   title: string;
