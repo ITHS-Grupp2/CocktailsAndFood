@@ -4,7 +4,7 @@ import { ProductPanel } from "../components/ProductPanel";
 export const SideSelect = () => {
   return (
     <>
-      <ProductPanel label="Select sides" />
+      <ProductPanel panelLabel="Select sides" />
     </>
   );
 };

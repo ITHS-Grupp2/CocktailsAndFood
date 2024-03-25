@@ -1,18 +1,18 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
-export const ProductPanel = (props:{label:string}) => {
+export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
     const rows = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < props.labels.length; i++) {
       rows.push(
         <Col>
-          <Card>Side {i}</Card>
+          <Card>Side {i} {props.labels[i]}</Card>
         </Col>
       );
     }
   
     return (
       <>
-        <h3>{props.label}</h3>
+        <h3>{props.panelLabel}</h3>
         <Container className="m-2">
           {
             <Row md={5} xs={3} className="g-3">

@@ -38,9 +38,11 @@ export function DrinkSelect() {
   };
 
   const cocktails: CocktailProperties[] = [];
+  const labels: string[] = [];
   idArray.filter((drink) => drink !== recommendedDrink);
   idArray.forEach((id) => {
     const cocktailResponse = CocktailFetch(id);
+    labels.push(cocktailResponse.strDrink);
     const c: CocktailProperties = {
       id: cocktailResponse.idDrink,
       title: cocktailResponse.strDrink,
@@ -66,11 +68,7 @@ export function DrinkSelect() {
         information={cocktail.description}
         price={0.99}></ProductInfo>
 
-      <ProductPanel label="Select extra drink" />
-
-      {cocktails.forEach((id) => {
-        <p>{id.title}</p>;
-      })}
+      <ProductPanel panelLabel="Select extra drink" labels={labels} />
 
       <Button>To Checkout</Button>
     </>
