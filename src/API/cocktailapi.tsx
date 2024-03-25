@@ -19,6 +19,8 @@ export const CocktailFetch = (drinkid: number) => {
   return cocktail;
 };
 
+
+
 // {
 //     "drinks":[
 //        {

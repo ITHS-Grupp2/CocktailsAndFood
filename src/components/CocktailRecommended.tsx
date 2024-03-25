@@ -1,10 +1,12 @@
 import { Container, Col, Row, Button } from "react-bootstrap";
 
 import { CocktailFetch } from "../API/cocktailapi";
+import { ProductInfo } from "./ProductInfo";
 
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 type CocktailProperties = {
+  id: number;
   title: string;
   img: string;
   description: string;
@@ -28,6 +30,7 @@ export function CocktailRecommended() {
   };
 
   const cocktail: CocktailProperties = {
+    id: cocktailResponse.idDrink,
     title: cocktailResponse.strDrink,
     img: cocktailResponse.strDrinkThumb,
     description: cocktailResponse.strInstructions,
@@ -35,7 +38,9 @@ export function CocktailRecommended() {
   };
   return (
     <>
-      <h2>{cocktail.title}</h2>
+
+      <ProductInfo id={cocktail.id} productType={"Cocktail"} title={cocktail.title} imgSrc={cocktail.img} ingredients={cocktail.ingredients} information={cocktail.description} price={0.99}></ProductInfo>
+      {/* <h2>{cocktail.title}</h2>
       <Container>
         <Row>
           <Col>
@@ -73,7 +78,7 @@ export function CocktailRecommended() {
             </Row>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 }
