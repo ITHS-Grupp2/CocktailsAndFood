@@ -1,20 +1,37 @@
-import { Container, Col, Row, Button } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
+import { CartButton } from "./CartButton";
 
+type ProductType = "Cocktail" | "Main" | "Sides";
 
-export const ProductInfo = () => {
+type ProductInfoData = {
+  id: number;
+  productType: ProductType;
+  title: string;
+  imgSrc: string;
+  ingredients: string[];
+  information: string;
+  price: number;
+};
+
+export const ProductInfo = (data: ProductInfoData) => {
   return (
     <>
-      <h2>Product Name</h2>
+      <h2>{data?.title}</h2>
       <Container>
         <Row>
           <Col>
-            <img src="https://placehold.co/400x400"></img>
+            <img
+              src={
+                data.imgSrc === "" ? "https://placehold.co/400x400" : data.imgSrc
+              }></img>
             <Row>
               <Col>
-                <span>Price: 200 $</span>
+                <span>Price: {data?.price} $</span>
               </Col>
               <Col>
-                <Button>Add to Cart</Button>
+                <CartButton
+                  productType={data?.productType}
+                  id={data.id}></CartButton>
               </Col>
             </Row>
           </Col>
@@ -30,7 +47,7 @@ export const ProductInfo = () => {
               <p>
                 <strong>More Information</strong>
                 <br />
-                Information about the burger goes here.
+                {data?.information}
               </p>
             </Row>
           </Col>

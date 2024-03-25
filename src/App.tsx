@@ -26,6 +26,7 @@ function App() {
         <Route path="/cocktailpage" element={<CocktailRecommended />}></Route>
       </Routes>
       <Footer />
+
     </>
   );
 }
