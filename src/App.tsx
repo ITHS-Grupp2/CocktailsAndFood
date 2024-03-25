@@ -9,7 +9,6 @@ import { Header } from "./components/Header";
 import { SideSelect } from "./pages/SideSelect";
 import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
-import { CocktailPage, CocktailTest2 } from "./beta/cocktailtest";
 import { CocktailRecommended } from "./components/CocktailRecommended";
 
 function App() {

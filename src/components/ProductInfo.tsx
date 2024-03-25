@@ -1,5 +1,6 @@
 import { Container, Col, Row, Button } from "react-bootstrap";
 
+
 export const ProductInfo = () => {
   return (
     <>

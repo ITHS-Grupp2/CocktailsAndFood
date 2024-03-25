@@ -4,30 +4,43 @@ import { CocktailFetch } from "../API/cocktailapi";
 
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
-
+type CocktailProperties = {
+  title: string;
+  img: string;
+  description: string;
+  ingredients: string[];
+};
 // Lägg till drinkid som parameter för att loopa över senare.
+
 export function CocktailRecommended() {
-  const cocktail = CocktailFetch(12752);
-  const getIngrediens = () => {
-    let ingredienser = [];
+  const cocktailResponse = CocktailFetch(178342);
+  const getIngredient = () => {
+    let ingredientsTemp = [];
     for (let i = 1; i <= 15; i++) {
-      const ingrediens = cocktail[`strIngredient${i}`];
-      if (ingrediens == null) {
+      const ingredient = cocktailResponse[`strIngredient${i}`];
+      if (ingredient == null) {
         break;
       } else {
-        ingredienser.push(ingrediens);
+        ingredientsTemp.push(ingredient);
       }
     }
-    return ingredienser;
+    return ingredientsTemp;
+  };
+
+  const cocktail: CocktailProperties = {
+    title: cocktailResponse.strDrink,
+    img: cocktailResponse.strDrinkThumb,
+    description: cocktailResponse.strInstructions,
+    ingredients: getIngredient(),
   };
   return (
     <>
-      <h2>Product Name</h2>
+      <h2>{cocktail.title}</h2>
       <Container>
         <Row>
           <Col>
             <img
-              src={cocktail.strDrinkThumb}
+              src={cocktail.img}
               style={{ width: "400px", height: "400px" }}
             ></img>
             <Row>
@@ -45,8 +58,8 @@ export function CocktailRecommended() {
                 <strong>Ingredients</strong>
                 <br />
                 <ul>
-                  {getIngrediens().map((item) => (
-                    <li key={item.id}>{...item}</li>
+                  {cocktail.ingredients.map((item, index) => (
+                    <li key={index}>{item}</li>
                   ))}
                 </ul>
               </p>
@@ -55,7 +68,7 @@ export function CocktailRecommended() {
               <p>
                 <strong>More Information</strong>
                 <br />
-                {cocktail.strInstructions}
+                {cocktail.description}
               </p>
             </Row>
           </Col>

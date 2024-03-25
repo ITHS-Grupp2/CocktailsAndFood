@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 
-export const CocktailFetch = (drinkid : number) => {
+export const CocktailFetch = (drinkid: number) => {
   const [cocktail, setCocktail] = useState<any>({ drinks: [] });
   useEffect(() => {
     const fetchCocktail = async () => {
       const response = (
         await fetch(
-            `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkid}&api_key=1`
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkid}&api_key=1`
         )
       ).json();
       const cocktail = await response;
-      const randomDrink = cocktail.drinks[0];
-      setCocktail(randomDrink);
+      const fetchedDrink = cocktail.drinks[0];
+      setCocktail(fetchedDrink);
     };
     fetchCocktail();
   }, []);
+
   return cocktail;
 };
-
-
 
 // {
 //     "drinks":[
