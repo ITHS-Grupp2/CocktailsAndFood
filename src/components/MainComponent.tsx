@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { MainResponse, MainAPI } from "./FoodAPI";
 
-export function FoodComponent() {
+// En funktion som hämtar alla huvudrätter och populerar data-variabeln med dessa.
+export function MainComponent() {
   const [mainCourses, setMainCourses] = useState<MainResponse[]>([]);
 
   useEffect(() => {
@@ -57,4 +58,3 @@ export function FoodComponent() {
     </>
   );
 }
-

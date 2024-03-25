@@ -1,82 +1,70 @@
 import { useEffect, useState } from "react";
 
-type MainResponse = {
-    title: string;
-    description: string;
-    imageUrl: string;
-    price: number;
-    categories: string[];
-    ingredients: string[];
-}
+// En typ som matchar alla relevanta delar från responsen från alla API-calls. Anna
+export type MainResponse = {
+  _id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  price: number;
+  categories: string[];
+  ingredients: string[];
+};
 
-export const MainAPI = () => {
-    const [mainCourses, setMainCourses] = useState<MainResponse[]>([]);
-
-    useEffect(() => {
-        //Hämtar alla recept
-        fetch("https://iths-2024-recept-grupp2-s0124q.reky.se/recipes")
-        .then((res) => res.json())
-        .then((data) => setMainCourses(data));
-    }, []);
-
-    return (
-        <ul>
-            {mainCourses.map((main, index) => (
-                <li key={index}>
-                    {main.title}, {main.description},  
-                    {main.imageUrl}, {main.price}
-                </li>
-            ))}
-        </ul>
+// Hämta alla huvudrätter från API:et asynkront. Anna
+export const MainAPI = async (): Promise<MainResponse[]> => {
+  try {
+    const response = await fetch(
+      "https://iths-2024-recept-grupp2-s0124q.reky.se/categories/main/recipes"
     );
-}
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data: MainResponse[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+};
+
+// Hämta alla sides från API:et asynkront. Anna
+export const SidesAPI = async (): Promise<MainResponse[]> => {
+  try {
+    const response = await fetch(
+      "https://iths-2024-recept-grupp2-s0124q.reky.se/categories/sides/recipes"
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data: MainResponse[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+};
 
 /* //Räcker att använda mallen under för att lägga till nödvändiga värden till API:et
 {
-    "title": "Greasy Burger",
-    "description": "A very greasy burger made of Sweden's fattest cow",
-    "imageUrl": "https://images.pexels.com/photos/580612/pexels-photo-580612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "price": 169,
+    "title": "Mozarella Sticks",
+    "description": "Crispy panko coated cheese sticks",
+    "imageUrl": "https://natashaskitchen.com/wp-content/uploads/2023/05/Cheese-Sticks-SQ.jpg",
+    "price": 5,
     "categories": [
-      "main"
+      "sides"
     ],
     "ingredients": [
         {
-          "name": "Bread",
+          "name": "Panko",
           "amount": 1,
           "unit": "tsk"
         },
         {
-          "name": "Swedish Beef",
+          "name": "Mozarella",
           "amount": 1,
           "unit": "tsk"
-        },
-        {
-          "name": "Mayonnaise",
-          "amount": 100,
-          "unit": "gram"
-        },
-        {
-          "name": "Bacon",
-          "amount": 100,
-          "unit": "gram"
-        },
-        {
-          "name": "Cheddar",
-          "amount": 100,
-          "unit": "gram"
-        },
-        {
-          "name": "Tomato",
-          "amount": 100,
-          "unit": "gram"
-        },
-        {
-          "name": "Sallad",
-          "amount": 100,
-          "unit": "gram"
         }
-  
       ]
   }
   */

@@ -1,10 +1,9 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { ProductPanel } from "../components/ProductPanel";
+import { SidesComponent } from "../components/SidesComponent";
 
 export const SideSelect = () => {
   return (
     <>
-      <ProductPanel label="Select sides" />
+      <SidesComponent />
     </>
   );
 };
