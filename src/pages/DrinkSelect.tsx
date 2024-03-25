@@ -7,7 +7,7 @@ export const DrinkSelect = () => {
     <>
       <h1>Select Drink</h1>
       <h2>Recommended Drink</h2>
-      <ProductInfo />
+      <ProductInfo id={0} productType={"Cocktail"} title={""} imgSrc={""} ingredients={[]} information={""} price={0} />
       <ProductPanel label="Select extra drink" />
       <Button>To Checkout</Button>
     </>
