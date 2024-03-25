@@ -1,9 +1,9 @@
 import { Container, Col, Row } from "react-bootstrap";
 import { CartButton } from "./CartButton";
 
-type ProductType = "Cocktail" | "Main" | "Sides";
+export type ProductType = "Cocktail" | "Main" | "Sides";
 
-type ProductInfoData = {
+export type ProductInfoData = {
   id: number;
   productType: ProductType;
   title: string;
@@ -23,7 +23,8 @@ export const ProductInfo = (data: ProductInfoData) => {
             <img
               src={
                 data.imgSrc === "" ? "https://placehold.co/400x400" : data.imgSrc
-              }></img>
+                
+              }  style={{ width: "400px", height: "400px" }}></img>
             <Row>
               <Col>
                 <span>Price: {data?.price} $</span>
@@ -40,7 +41,9 @@ export const ProductInfo = (data: ProductInfoData) => {
               <p>
                 <strong>Ingredients</strong>
                 <br />
-                Here's room for all the ingredients
+                {data.ingredients.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
               </p>
             </Row>
             <Row>

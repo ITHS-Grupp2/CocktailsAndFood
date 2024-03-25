@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
 
-export const CocktailFetch = (drinkid: number) => {
-  const [cocktail, setCocktail] = useState<any>({ drinks: [] });
+export type Cocktail = {
+  id: number;
+  name: string;
+  img: string;
+  ingredients: string[];
+  instructions: string;
+};
+
+export const CocktailFetch = (drinkid: number): Cocktail => {
+  const [cocktail, setCocktail] = useState<Cocktail>({
+    id: -1,
+    name: "",
+    img: "",
+    ingredients: [],
+    instructions: "",
+  });
+
   useEffect(() => {
     const fetchCocktail = async () => {
       const response = (
@@ -9,15 +24,55 @@ export const CocktailFetch = (drinkid: number) => {
           `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkid}&api_key=1`
         )
       ).json();
-      const cocktail = await response;
-      const fetchedDrink = cocktail.drinks[0];
-      setCocktail(fetchedDrink);
+      const cocktailResponse = await response;
+      const fetchedDrink = cocktailResponse.drinks[0];
+
+      const ProperCocktail: Cocktail = {
+        id: fetchedDrink.idDrink,
+        name: fetchedDrink.strDrink,
+        img: fetchedDrink.strDrinkThumb,
+        ingredients: getIngredients(fetchedDrink),
+        instructions: fetchedDrink.strInstructions,
+      };
+
+      setCocktail(ProperCocktail);
     };
     fetchCocktail();
   }, []);
 
   return cocktail;
 };
+
+const getIngredients = (drink: any): string[] => {
+  const ingredientsTemp = [];
+  for (let i = 1; i <= 15; i++) {
+    const ingredient = drink[`strIngredient${i}`];
+    if (!ingredient) {
+      break;
+    }
+    ingredientsTemp.push(ingredient);
+  }
+  return ingredientsTemp;
+};
+
+// export const CocktailFetch = (drinkid: number) => {
+//   const [cocktail, setCocktail] = useState<any>({ drinks: [] });
+//   useEffect(() => {
+//     const fetchCocktail = async () => {
+//       const response = (
+//         await fetch(
+//           `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkid}&api_key=1`
+//         )
+//       ).json();
+//       const cocktail = await response;
+//       const fetchedDrink = cocktail.drinks[0];
+//       setCocktail(fetchedDrink);
+//     };
+//     fetchCocktail();
+//   }, []);
+
+//   return cocktail;
+// };
 
 // {
 //     "drinks":[

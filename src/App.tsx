@@ -9,7 +9,6 @@ import { Header } from "./components/Header";
 import { SideSelect } from "./pages/SideSelect";
 import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
-import { CocktailRecommended } from "./components/CocktailRecommended";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Route path="/sideselect" element={<SideSelect />} />
         <Route path="/drinkselect" element={<DrinkSelect />} />
         <Route path="/productinfoview" element={<ProductInfoView />} />
-        <Route path="/cocktailpage" element={<CocktailRecommended />}></Route>
       </Routes>
       <Footer />
 
