@@ -1,11 +1,11 @@
 import { Container, Col, Row } from "react-bootstrap";
 import { CartButton } from "./CartButton";
 
-export type ProductType = "Cocktail" | "Main" | "Sides";
+// export type ProductType = "Cocktail" | "Main" | "Sides";
 
 export type ProductInfoData = {
-  id: number;
-  productType: ProductType;
+  id: string;
+  productType: string;
   title: string;
   imgSrc: string;
   ingredients: string[];
@@ -32,7 +32,7 @@ export const ProductInfo = (data: ProductInfoData) => {
               <Col>
                 <CartButton
                   productType={data?.productType}
-                  id={data.id}></CartButton>
+                  id={data?.id}></CartButton>
               </Col>
             </Row>
           </Col>

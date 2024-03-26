@@ -3,8 +3,8 @@ import { Button } from "react-bootstrap";
 type ProductType = "Cocktail" | "Main" | "Sides"
 
 type CartButtonData ={
-    productType?: ProductType;
-    id?: number;
+    productType?: string;
+    id?: string;
 }
 
 export const CartButton = (buttonData: CartButtonData) => {
