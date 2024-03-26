@@ -1,6 +1,5 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { FoodAPI } from "../API/FoodAPI";
-import { Link } from "react-router-dom";
 import { NavigationButton } from "./NavigationButton";
 
 // En funktion som hämtar alla sides och populerar data-variabeln med dessa.
