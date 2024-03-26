@@ -11,6 +11,7 @@ import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 
 function App() {
+  const foodId = 3
   return (
     <>
       <Header />
@@ -20,11 +21,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/sideselect" element={<SideSelect />} />
-        <Route path="/drinkselect" element={<DrinkSelect />} />
+        <Route path="/drinkselect" element={<DrinkSelect foodId={4} />} />
         <Route path="/productinfoview" element={<ProductInfoView />} />
+        <Route path="/drinkselect" element={<DrinkSelect foodId={foodId} />} />
       </Routes>
       <Footer />
-
     </>
   );
 }

@@ -6,6 +6,7 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
   for (let i = 0; i < cocktailArray.cocktails.length; i++) {
     rows.push(
+        
       <Col>
         <CocktailMiniComponent cocktail={cocktailArray.cocktails[i]}/>
       </Col>

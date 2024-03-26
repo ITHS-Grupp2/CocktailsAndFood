@@ -1,4 +1,5 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
     const rows = [];
