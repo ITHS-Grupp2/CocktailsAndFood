@@ -5,7 +5,7 @@ export type NavigationPath = "/drinkselect" | "/productinfoview" | "/shoppingcar
 
 type NavigationButtonData = {
   navigationPath?: NavigationPath;
-  id?: number;
+  id?: string;
 };
 
 export const NavigationButton = (buttonData: NavigationButtonData) => {
