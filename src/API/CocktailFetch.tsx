@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export type Cocktail = {
-  id: number;
+  id: string;
   name: string;
   img: string;
   ingredients: string[];
@@ -12,7 +12,7 @@ export const price: number = 9.99;
 
 export const CocktailFetch = (drinkid: number): Cocktail => {
   const [cocktail, setCocktail] = useState<Cocktail>({
-    id: -1,
+    id: ""+-1,
     name: "",
     img: "",
     ingredients: [],

@@ -4,7 +4,7 @@ import { NavigationPath, NavigationButton } from "./NavigationButton";
 export type ProductType = "Cocktail" | "Main" | "Sides";
 
 export type ProductInfoData = {
-  id: number;
+  id: string;
   productType: ProductType;
   title: string;
   imgSrc: string;
