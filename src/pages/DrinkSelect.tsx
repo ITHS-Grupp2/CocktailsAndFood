@@ -1,10 +1,15 @@
 import { Button } from "react-bootstrap";
 import { ProductInfo } from "../components/ProductInfo";
 import { ProductPanel } from "../components/ProductPanel";
-import { Cocktail, CocktailFetch } from "../API/CocktailFetch";
+
+import { Cocktail, CocktailFetch, price } from "../API/CocktailFetch";
+import { CocktailMiniComponent } from "../components/CocktailMiniComponent";
+import { CocktailPanel } from "../components/CocktailPanel";
+// Våra valda drinkar:
+// const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
 const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
-const recommendedDrink = 178342;
+const recommendedDrink = 14167;
 
 export function DrinkSelect() {
   const cocktail: Cocktail = CocktailFetch(recommendedDrink);
@@ -28,12 +33,10 @@ export function DrinkSelect() {
         imgSrc={cocktail.img}
         ingredients={cocktail.ingredients}
         information={cocktail.instructions}
-        price={8.99}
+        price={price}
       ></ProductInfo>
 
-      <ProductPanel panelLabel="Select extra drink" labels={labels} />
-
-      <Button>To Checkout</Button>
+      <CocktailPanel cocktails={cocktails} />
     </>
   );
 }
