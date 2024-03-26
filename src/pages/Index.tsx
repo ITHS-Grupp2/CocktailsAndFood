@@ -1,5 +1,6 @@
 import { Card, Container, Placeholder, Row, Col } from "react-bootstrap";
 import { MainComponent } from "../components/MainComponent";
+import Slider from "../components/DrinkCarousel";
 
 export const Index = () => {
   return (
@@ -24,17 +25,6 @@ export const Index = () => {
             >
               <h4>Cocktails of the week</h4>
             </Placeholder>
-            <Row xs={2} md={3} className="g-3">
-              <Col>
-                <Card>Cocktail 1</Card>
-              </Col>
-              <Col>
-                <Card>Cocktail 2</Card>
-              </Col>
-              <Col>
-                <Card>Cocktail 3</Card>
-              </Col>
-            </Row>
           </Container>
         </Col>
         <Col>
@@ -43,6 +33,9 @@ export const Index = () => {
           </div>
         </Col>
       </Row>
+      <Container>
+        <Slider />
+      </Container>
     </>
   );
 };
