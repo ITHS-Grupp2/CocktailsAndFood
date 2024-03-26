@@ -4,7 +4,6 @@ import { CocktailPanel } from "../components/CocktailPanel";
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
-// Lägg till drinkid som parameter för att loopa över senare.
 const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 const recommendedDrink = 14167;
 function MatchinDrinkService(mealId: number) {
@@ -48,8 +47,6 @@ export function DrinkSelect({ foodId }: { foodId: number }) {
     if (id !== recommendedDrink) cocktails.push(cocktail);
   });
 
-  // const list = CocktailList(178342);
-  console.log(cocktails);
   return (
     <>
       <h1>Select Drink</h1>
