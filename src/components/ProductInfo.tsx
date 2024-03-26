@@ -1,11 +1,11 @@
 import { Container, Col, Row } from "react-bootstrap";
 import { NavigationPath, NavigationButton } from "./NavigationButton";
 
-export type ProductType = "Cocktail" | "Main" | "Sides";
+// export type ProductType = "Cocktail" | "Main" | "Sides";
 
 export type ProductInfoData = {
   id: string;
-  productType: ProductType;
+  productType: string;
   title: string;
   imgSrc: string;
   ingredients: string[];

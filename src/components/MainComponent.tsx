@@ -1,26 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import hamburgerPic from "../img/hamburger.jpeg";
-import hamburgerPic2 from "../img/maxBild2.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { MainResponse, MainAPI } from "./FoodAPI";
+
+import { FoodAPI } from "../API/FoodAPI";
 import { Link } from "react-router-dom";
 
 // En funktion som hämtar alla huvudrätter och populerar data-variabeln med dessa.
 export function MainComponent() {
-  const [mainCourses, setMainCourses] = useState<MainResponse[]>([]);
-
-  useEffect(() => {
-    const fetchMainCourses = async () => {
-      const data = await MainAPI();
-      setMainCourses(data);
-    };
-
-    fetchMainCourses();
-  }, []);
-
+  const mainCourses = FoodAPI("main");
   return (
     <>
       {mainCourses.map((course, index) => (

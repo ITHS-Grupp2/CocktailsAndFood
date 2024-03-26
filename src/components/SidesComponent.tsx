@@ -1,26 +1,10 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
-import { MainResponse, SidesAPI } from "../components/FoodAPI";
-import { Link } from "react-router-dom";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { FoodAPI } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 
 // En funktion som hämtar alla sides och populerar data-variabeln med dessa.
 export const SidesComponent = () => {
-  const [sides, setSides] = useState<MainResponse[]>([]);
-
-  useEffect(() => {
-    const fetchSides = async () => {
-      try {
-        const data = await SidesAPI();
-        setSides(data);
-      } catch (error) {
-        console.error("Error fetching sides:", error);
-      }
-    };
-
-    fetchSides();
-  }, []);
-
+  const sides = FoodAPI("sides");
   return (
     <Container>
       <h2>Select sides</h2>
