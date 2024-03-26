@@ -1,5 +1,5 @@
 import { Card, Container, Placeholder, Row, Col } from "react-bootstrap";
-import FoodComponent from "../components/FoodComponent";
+import { MainComponent } from "../components/MainComponent";
 
 export const Index = () => {
   return (
@@ -12,26 +12,9 @@ export const Index = () => {
           </div>
         </Col>
         <Col md="auto">
-          <Container className="m-2">
-            <Row md={3} xs={2} className="g-3">
-              <Col>
-                <FoodComponent />
-              </Col>
-              <Col>
-                <FoodComponent />
-              </Col>
-              <Col>
-                <FoodComponent />
-              </Col>
-              <Col>
-                <FoodComponent />
-              </Col>
-              <Col>
-                <FoodComponent />
-              </Col>
-              <Col>
-                <FoodComponent />
-              </Col>
+          <Container>
+            <Row md={3} xs={2} lg={3} className="g-3">
+              <MainComponent />
             </Row>
           </Container>
           <Container className="m-2">
