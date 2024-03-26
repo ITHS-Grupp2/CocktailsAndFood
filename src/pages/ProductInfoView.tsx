@@ -8,14 +8,22 @@ export const ProductInfoView = () => {
     <>
       <h1>Product Info</h1>
       <ProductInfo
+        
         id={singleCourse?._id}
+        
         productType={singleCourse?.categories[0]}
+        
         title={singleCourse?.title}
+        
         imgSrc={singleCourse?.imageUrl}
+        
         ingredients={singleCourse.ingredients}
+        
         information={singleCourse?.description}
+        
         price={singleCourse?.price}
-      />
+      
+        navigationPath="/sideselect"/>
     </>
   );
 };

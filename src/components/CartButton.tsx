@@ -10,3 +10,4 @@ type CartButtonData ={
 export const CartButton = (buttonData: CartButtonData) => {
   return <Button>Add to Cart | ProductId:{buttonData.id} Type:{buttonData.productType}</Button>;
 };
+

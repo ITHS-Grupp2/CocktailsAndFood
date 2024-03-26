@@ -59,6 +59,7 @@ export function DrinkSelect({ foodId }: { foodId: number }) {
         ingredients={cocktail.ingredients}
         information={cocktail.instructions}
         price={price}
+        navigationPath="/shoppingcart"
       ></ProductInfo>
 
       <CocktailPanel cocktails={cocktails} />

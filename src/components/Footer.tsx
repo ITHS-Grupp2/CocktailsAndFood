@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Placeholder from "react-bootstrap/Placeholder";
 export const Footer = () => {
   return (
-    <div className="w-100 d-flex justify-content-around m-3 fixed-bottom">
+    <div className="w-100 d-flex justify-content-around m-3">
       <div>
         <Placeholder xs={12} bg="white">
           <Link to="/about">About us</Link>
