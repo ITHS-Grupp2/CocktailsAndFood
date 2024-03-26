@@ -1,32 +1,36 @@
 import { Link } from "react-router-dom";
-
-import Placeholder from "react-bootstrap/Placeholder";
 export const Footer = () => {
   return (
-    <div className="w-100 d-flex justify-content-around m-3">
+    <div className="w-100 bg-light d-flex justify-content-around p-3">
       <div>
-        <Placeholder xs={12} bg="white">
+        <p>
+          <strong> Visit us</strong>
+          <br />
+          Storgatan 12
+          <br />
+          123 23 Storstan
+        </p>
+        <p>
+          <strong>Contact us!</strong>
+          <br />
+          +46 70-123 456 78
+        </p>
+        <p>
           <Link to="/about">About us</Link>
-        </Placeholder>
-        <Placeholder xs={12} bg="danger">
-          Text
-        </Placeholder>
-        <Placeholder xs={12} bg="success">
-          Text
-        </Placeholder>
+        </p>
       </div>
+      <div></div>
       <div>
-        <Placeholder xs={12} bg="success">
-          <h1>Footer</h1>
-        </Placeholder>
-      </div>
-      <div>
-        <Placeholder xs={12} size="lg" bg="danger">
-          FB
-        </Placeholder>
-        <Placeholder xs={12} size="lg" bg="danger">
-          IG
-        </Placeholder>
+        <img
+          src="src\assets\2021_Facebook_icon.svg"
+          style={{ height: "40px" }}
+          className="p-1"></img>
+        <br />
+        <img
+          src="src\assets\Instagram_icon.png"
+          style={{ height: "40px" }}
+          className="p-1"></img>
+        <br />
       </div>
     </div>
   );
