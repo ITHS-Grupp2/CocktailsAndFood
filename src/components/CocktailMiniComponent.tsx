@@ -1,5 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import { Cocktail, price } from "../API/CocktailFetch";
+import { Link } from "react-router-dom";
+import { NavigationButton } from "./NavigationButton";
 
 export const CocktailMiniComponent = (
   data: { cocktail: Cocktail}) => {
@@ -27,7 +29,7 @@ export const CocktailMiniComponent = (
           </span>
         </Card.Title>
       </Card.Body>
-      <Button>Add to cart</Button>
+      <NavigationButton navigationPath="/shoppingcart"></NavigationButton>
     </Card>
   );
 };

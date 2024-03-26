@@ -1,6 +1,8 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { MainResponse, SidesAPI } from "../components/FoodAPI";
+import { Link } from "react-router-dom";
+import { NavigationButton } from "./NavigationButton";
 
 // En funktion som hämtar alla sides och populerar data-variabeln med dessa.
 export const SidesComponent = () => {
@@ -39,7 +41,7 @@ export const SidesComponent = () => {
                 </Card.Title>
               </Card.Body>
             </Card>
-            <Button className="mt-2">Add to cart</Button>
+            <NavigationButton navigationPath="/drinkselect"></NavigationButton>
           </Col>
         ))}
       </Row>

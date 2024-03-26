@@ -1,5 +1,6 @@
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { NavigationButton } from "./NavigationButton"
 
 export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
     const rows = [];
@@ -21,7 +22,7 @@ export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
             </Row>
           }
         </Container>
-        <Button>Add to cart</Button>
+        <NavigationButton navigationPath="/drinkselect" id={1}></NavigationButton>        
       </>
     );
 }

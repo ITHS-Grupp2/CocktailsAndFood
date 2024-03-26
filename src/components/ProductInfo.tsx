@@ -1,5 +1,5 @@
 import { Container, Col, Row } from "react-bootstrap";
-import { CartButton } from "./CartButton";
+import { NavigationPath, NavigationButton } from "./NavigationButton";
 
 export type ProductType = "Cocktail" | "Main" | "Sides";
 
@@ -11,6 +11,7 @@ export type ProductInfoData = {
   ingredients: string[];
   information: string;
   price: number;
+  navigationPath: NavigationPath;
 };
 
 export const ProductInfo = (data: ProductInfoData) => {
@@ -30,9 +31,9 @@ export const ProductInfo = (data: ProductInfoData) => {
                 <span>Price: {data?.price} $</span>
               </Col>
               <Col>
-                <CartButton
-                  productType={data?.productType}
-                  id={data.id}></CartButton>
+                <NavigationButton
+                  navigationPath={data.navigationPath}
+                  id={data.id}></NavigationButton>
               </Col>
             </Row>
           </Col>
