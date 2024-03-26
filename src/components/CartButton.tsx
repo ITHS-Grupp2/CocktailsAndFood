@@ -1,7 +1,5 @@
 import { Button } from "react-bootstrap";
 
-type ProductType = "Cocktail" | "Main" | "Sides"
-
 type CartButtonData ={
     productType?: string;
     id?: string;

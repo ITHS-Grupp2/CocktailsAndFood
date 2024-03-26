@@ -1,6 +1,5 @@
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Cocktail, price } from "../API/CocktailFetch";
-import { Link } from "react-router-dom";
 import { NavigationButton } from "./NavigationButton";
 
 export const CocktailMiniComponent = (

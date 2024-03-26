@@ -49,10 +49,16 @@ export function DrinkSelect({ foodId }: { foodId: number }) {
 
   return (
     <>
-      <div className="page-title">
-        <h1>Select Drink</h1>
+      <div
+          className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
+          style={{ fontFamily: "Arial, sans-serif", height: "100px" }}>
+          <h1
+              className="text-center"
+              style={{ marginBottom: "0px" }}>
+              Select Drink
+          </h1>
       </div>
-
+      
         <ProductInfo
           id={cocktail.id}
           productType={"Cocktail"}
