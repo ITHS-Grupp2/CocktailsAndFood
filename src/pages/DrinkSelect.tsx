@@ -1,17 +1,42 @@
-import { Button } from "react-bootstrap";
 import { ProductInfo } from "../components/ProductInfo";
-import { ProductPanel } from "../components/ProductPanel";
-
 import { Cocktail, CocktailFetch, price } from "../API/CocktailFetch";
-import { CocktailMiniComponent } from "../components/CocktailMiniComponent";
 import { CocktailPanel } from "../components/CocktailPanel";
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
 const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 const recommendedDrink = 14167;
+function MatchinDrinkService(mealId: number) {
+  let drink = recommendedDrink;
+  switch (mealId) {
+    case 0:
+      drink = 12752;
+      break;
+    case 1:
+      drink = 178342;
+      break;
+    case 2:
+      drink = 12402;
+      break;
+    case 3:
+      drink = 11003;
+      break;
+    case 4:
+      drink = 11410;
+      break;
+    case 5:
+      drink = 12752;
+      break;
+    case 6:
+      drink = 14167;
+      break;
+  }
+  return drink;
+}
 
-export function DrinkSelect() {
+export function DrinkSelect({ foodId }: { foodId: number }) {
+  const recommendedDrink = MatchinDrinkService(foodId);
+  //MatchinDrinkService(foodID:number) => return recommendedDrinkId;
   const cocktail: Cocktail = CocktailFetch(recommendedDrink);
   const cocktails: Cocktail[] = [];
   const labels: string[] = [];
