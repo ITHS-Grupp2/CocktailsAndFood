@@ -49,20 +49,25 @@ export function DrinkSelect({ foodId }: { foodId: number }) {
 
   return (
     <>
-      <h1>Select Drink</h1>
-      <h2>Recommended Drink</h2>
-      <ProductInfo
-        id={cocktail.id}
-        productType={"Cocktail"}
-        title={cocktail.name}
-        imgSrc={cocktail.img}
-        ingredients={cocktail.ingredients}
-        information={cocktail.instructions}
-        price={price}
-        navigationPath="/shoppingcart"
-      ></ProductInfo>
+      <div className="page-title">
+        <h1>Select Drink</h1>
+      </div>
 
-      <CocktailPanel cocktails={cocktails} />
+        <ProductInfo
+          id={cocktail.id}
+          productType={"Cocktail"}
+          title={cocktail.name}
+          imgSrc={cocktail.img}
+          ingredients={cocktail.ingredients}
+          information={cocktail.instructions}
+          price={price}
+          navigationPath="/shoppingcart"
+        ></ProductInfo>
+      
+      <div className="center-page-items">
+        <CocktailPanel cocktails={cocktails} />
+      </div>
+      
     </>
   );
 }

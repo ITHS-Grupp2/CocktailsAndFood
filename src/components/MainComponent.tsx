@@ -1,5 +1,5 @@
 import Card from "react-bootstrap/Card";
-
+import "./MainComponent.css";
 import { FoodAPI } from "../API/FoodAPI";
 import { Link } from "react-router-dom";
 
@@ -13,22 +13,26 @@ export function MainComponent() {
           key={index}
           className="h-100"
           style={{
-            width: "15rem",
+            width: "300px",
             overflow: "hidden",
           }}>
+
           <Link to="/productinfoview">
-            <Card.Img
+            <Card.Img 
               variant="top"
               src={course.imageUrl}
               style={{
                 objectFit: "cover",
-                height: "200px",
+                height: "300px",
+                width: "300px"
               }}
             />{" "}
           </Link>
+
           <Card.Body
-            className="d-flex flex-column mb-2  "
+            className="d-flex flex-column mb-2"
             style={{ padding: "0px 10px", height: "4rem" }}>
+
             <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
               <span className="fs-5 ">{course.title}</span>
               <span
@@ -37,7 +41,9 @@ export function MainComponent() {
                 ${course.price}
               </span>
             </Card.Title>
+
           </Card.Body>
+          
         </Card>
       ))}
     </>
