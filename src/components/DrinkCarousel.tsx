@@ -1,78 +1,91 @@
-import React, { Component } from "react";
-import { ProductInfo } from "../components/ProductInfo";
-import { Cocktail, CocktailFetch, price } from "../API/CocktailFetch";
-import { CocktailPanel } from "../components/CocktailPanel";
-import GinFizzImage from "../img/GinFizz.jpg";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./DrinkCarousel.css";
-
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
+import { Link } from "react-router-dom";
+
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-    slidesToSlide: 1, // optional, default to 1.
+    items: 3,
+    slidesToSlide: 1,
   },
   tablet: {
     breakpoint: { max: 1024, min: 768 },
     items: 3,
-    slidesToSlide: 3, // optional, default to 1.
+    slidesToSlide: 3,
   },
   mobile: {
     breakpoint: { max: 767, min: 464 },
     items: 2,
-    slidesToSlide: 1, // optional, default to 1.
+    slidesToSlide: 1,
   },
 };
-const sliderImageUrl = [
-  //First image url
-  {
-    url: "https://i2.wp.com/www.geeksaresexy.net/wp-content/uploads/2020/04/movie1.jpg?resize=600%2C892&ssl=1",
-  },
-  {
-    url: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-kids-movies-2020-call-of-the-wild-1579042974.jpg?crop=0.9760858955588091xw:1xh;center,top&resize=480:*",
-  },
-  //Second image url
-  {
-    url: "https://www.thecocktaildb.com/images/media/drink/7cll921606854636.jpg",
-  },
-  //Third image url
-  {
-    url: "https://www.thecocktaildb.com/images/media/drink/nzlyc81605905755.jpg",
-  },
 
-  //Fourth image url
+type Cocktail = {
+  url: string;
+  name: string;
+  price: number;
+};
 
+const cocktailUrl: Cocktail[] = [
   {
     url: "https://www.thecocktaildb.com/images/media/drink/mx31hv1487602979.jpg",
+    name: "Lemon Shot",
+    price: 12,
+  },
+  {
+    url: "https://www.thecocktaildb.com/images/media/drink/nzlyc81605905755.jpg",
+    name: "Gin & Soda",
+    price: 8,
+  },
+  {
+    url: "https://www.thecocktaildb.com/images/media/drink/7cll921606854636.jpg",
+    name: "Tom Collins",
+    price: 7,
+  },
+  {
+    url: "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
+    name: "Negroni",
+    price: 9,
+  },
+  {
+    url: "https://www.thecocktaildb.com/images/media/drink/drtihp1606768397.jpg",
+    name: "Gin Fizz",
+    price: 11,
+  },
+  {
+    url: "https://www.thecocktaildb.com/images/media/drink/qyxrqw1439906528.jpg",
+    name: "Vodka Martini",
+    price: 15,
   },
 ];
-const Slider = () => {
+
+const DrinkCarousel = () => {
   return (
     <div className="parent">
       <Carousel
         responsive={responsive}
         autoPlay={true}
-        swipeable={true}
-        draggable={true}
-        showDots={true}
+        swipeable={false}
+        draggable={false}
         infinite={true}
         partialVisible={false}
-        dotListClass="custom-dot-list-style"
+        centerMode={true}
+        autoPlaySpeed={2000}
       >
-        {sliderImageUrl.map((imageUrl, index) => {
+        {cocktailUrl.map((imageUrl, index) => {
           return (
             <div key={index}>
-              <img
-                src={imageUrl.url}
-                alt="movie"
-                style={{
-                  width: "100px",
-                  height: "100px",
-                }}
-              />
+              <Link to="/drinkselect">
+                <img
+                  src={imageUrl.url}
+                  style={{
+                    width: "250px",
+                    height: "250px",
+                  }}
+                />
+              </Link>
+              <h3>{`${imageUrl.name}`}</h3>
+              <p>{`${imageUrl.price}$`}</p>
             </div>
           );
         })}
@@ -80,103 +93,5 @@ const Slider = () => {
     </div>
   );
 };
-export default Slider;
 
-// function UncontrolledExample() {
-//   return (
-//     <Carousel>
-//       <Carousel.Item>
-//         <img src={GinFizzImage} alt="GinFizz" />
-//         <Carousel.Caption>
-//           <h3>First slide label</h3>
-//           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-//         </Carousel.Caption>
-//       </Carousel.Item>
-//       <Carousel.Item>
-//         <img src={GinFizzImage} alt="GinFizz" />
-//         <Carousel.Caption>
-//           <h3>Second slide label</h3>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-//         </Carousel.Caption>
-//       </Carousel.Item>
-//       <Carousel.Item>
-//         <img src={GinFizzImage} alt="GinFizz" />
-//         <Carousel.Caption>
-//           <h3>Third slide label</h3>
-//           <p>
-//             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-//           </p>
-//         </Carousel.Caption>
-//       </Carousel.Item>
-//     </Carousel>
-//   );
-// }
-
-// export default UncontrolledExample;
-
-// interface ArrowProps {
-//   className?: string;
-//   style?: React.CSSProperties;
-//   onClick?: React.MouseEventHandler<HTMLDivElement>;
-//   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>; // Add onMouseEnter event handler
-// }
-
-// function SampleNextArrow(props: ArrowProps) {
-//   const { className, style, onMouseEnter } = props; // Change onClick to onMouseEnter
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block", background: "red" }}
-//       onMouseEnter={onMouseEnter} // Change onClick to onMouseEnter
-//     />
-//   );
-// }
-
-// function SamplePrevArrow(props: ArrowProps) {
-//   const { className, style, onMouseEnter } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block", background: "green" }}
-//       onMouseEnter={onMouseEnter}
-//     />
-//   );
-// }
-
-// function DrinkCarousel() {
-//   const settings = {
-//     className: "center",
-//     centerMode: true,
-//     infinite: true,
-//     centerPadding: "60px",
-//     slidesToShow: 3,
-//     speed: 500,
-//     nextArrow: <SampleNextArrow />,
-//     prevArrow: <SamplePrevArrow />,
-//   };
-
-//   return (
-//     <div className="slider-container">
-//       <Slider {...settings}>
-//         <div className="card">
-//           <img src="../img/GinFizz.jpg" />
-//         </div>
-//         <div className="card">
-//           <img src="./img/GinFizz.jpg" />
-//         </div>
-//         <div className="card">
-//           <img src="./img/GinFizz.jpg" />
-//         </div>
-//         <div className="card">
-//           <img src="./img/GinFizz.jpg" />
-//         </div>
-//         <div className="card">
-//           <img src="./img/GinFizz.jpg" />
-//         </div>
-//         <div className="card">
-//           <img src="../img/GinFizz.jpg" />
-//         </div>
-//       </Slider>
-//     </div>
-//   );
-// }
+export default DrinkCarousel;
