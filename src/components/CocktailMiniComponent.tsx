@@ -5,14 +5,25 @@ import { NavigationButton } from "./NavigationButton";
 export const CocktailMiniComponent = (
   data: { cocktail: Cocktail}) => {
   return (
-    <Card className="h-100" style={{ width: "15rem", overflow: "hidden" }}>
-      <Card.Img className="cardImage"
-        variant="top"
-        src={data.cocktail.img}
-        style={{
-          objectFit: "cover",
-        }}
-      />
+    <Card
+          className="shadow"
+          style={{
+            width: "300px",
+            overflow: "hidden",
+            padding: "0px",
+            margin: "5px"
+          }}>
+      <div  style={{overflow: "hidden",}}>
+								<img
+									className="cardImage"
+									src={data.cocktail.img}
+									style={{
+										objectFit: "cover",
+										height: "300px",
+										width: "300px",
+									}}
+								/>
+							</div>
       <Card.Body
         className="d-flex flex-column mb-2"
         style={{ padding: "0px 10px" }}
@@ -24,7 +35,7 @@ export const CocktailMiniComponent = (
             className="text-muted align-self-end"
             style={{ minWidth: "4rem", textAlign: "right" }}
           >
-            {price} $
+            ${price} 
           </span>
         </Card.Title>
       </Card.Body>

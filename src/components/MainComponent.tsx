@@ -10,7 +10,7 @@ export function MainComponent() {
       {mainCourses.map((course, index) => (
         <Card
           key={index}
-          className="shadow"
+          className="shadow roundedStandard"
           style={{
             width: "300px",
             overflow: "hidden",
@@ -31,10 +31,10 @@ export function MainComponent() {
             </Link>
           </div>
           <Card.Body
-            className="d-flex flex-column mb-2"
+            className="d-flex flex-column mb-2 bg-light"
             style={{ padding: "0px 10px", height: "3rem" }}>
 
-            <Card.Title className="d-flex justify-content-between align-items-baseline mb-2">
+            <Card.Title className="d-flex justify-content-between align-items-baseline mb-2 p-1">
               <span className="fs-5">{course.title}</span>
               <span
                 className="text-muted align-self-end"
