@@ -6,7 +6,7 @@ import { NavigationButton } from "./NavigationButton"
 export const SidesComponent = () => {
 	const sides = FoodAPI("sides")
 	return (
-		<Container>
+		<>
 			<div
 				className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
 				style={{ fontFamily: "Arial, sans-serif", height: "100px" }}>
@@ -16,29 +16,30 @@ export const SidesComponent = () => {
 					Select Sides
 				</h1>
 			</div>
+		<Container>
 			<Row>
 				{sides.map((sides, index) => (
-					<Col
-						key={index}
-						// sm={6}
-						// md={4}
-						// lg={3}
-						className="mb-4">
+
 						<Card
 							key={index}
-							className="h-100 shadow"
+							className="shadow"
 							style={{
-								width: "15rem",
+								width: "300px",
 								overflow: "hidden",
+								padding: "0px",
+								margin: "5px"
 							}}>
-							<Card.Img
-								variant="top"
-								src={sides.imageUrl}
-								style={{
-									objectFit: "cover",
-									height: "200px",
-								}}
-							/>
+							<div  style={{overflow: "hidden",}}>
+								<img
+									className="cardImage"
+									src={sides.imageUrl}
+									style={{
+										objectFit: "cover",
+										height: "300px",
+										width: "300px",
+									}}
+								/>
+							</div>
 							<Card.Body
 								className="d-flex flex-column mb-2 "
 								style={{ padding: "0px 10px", height: "3rem" }}>
@@ -53,9 +54,10 @@ export const SidesComponent = () => {
 							</Card.Body>
 							<NavigationButton navigationPath="/drinkselect"></NavigationButton>
 						</Card>
-					</Col>
+			
 				))}
 			</Row>
 		</Container>
+		</>
 	)
 }

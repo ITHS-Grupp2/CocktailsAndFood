@@ -1,0 +1,18 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #343434;
+}
+
+h1 {
+  color: #343434;
+}
+
+a {
+  color: #731111;
+}
+
+a:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=sasstyle.css.map */

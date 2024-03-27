@@ -17,19 +17,19 @@ export function MainComponent() {
             padding: "0px",
             margin: "5px"
           }}>
-
-          <Link to="/productinfoview">
-            <Card.Img 
-              variant="top"
-              src={course.imageUrl}
-              style={{
-                objectFit: "cover",
-                height: "300px",
-                width: "300px",
-              }}
-            />
-          </Link>
-
+          <div  style={{overflow: "hidden",}}>
+            <Link to="/productinfoview">
+              <img 
+                className="cardImage"
+                src={course.imageUrl}
+                style={{
+                  objectFit: "cover",
+                  height: "300px",
+                  width: "300px",
+                }}
+              />
+            </Link>
+          </div>
           <Card.Body
             className="d-flex flex-column mb-2"
             style={{ padding: "0px 10px", height: "3rem" }}>
@@ -46,6 +46,7 @@ export function MainComponent() {
           </Card.Body>
           
         </Card>
+        
       ))}
     </>
   );

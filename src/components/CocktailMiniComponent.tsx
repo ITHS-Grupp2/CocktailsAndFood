@@ -6,7 +6,7 @@ export const CocktailMiniComponent = (
   data: { cocktail: Cocktail}) => {
   return (
     <Card className="h-100" style={{ width: "15rem", overflow: "hidden" }}>
-      <Card.Img
+      <Card.Img className="cardImage"
         variant="top"
         src={data.cocktail.img}
         style={{

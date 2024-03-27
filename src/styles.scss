@@ -1,0 +1,35 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$accent-color: #fff222;
+$link-color: #3c0101;
+$link-hover: green;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+h1 {
+    color: $primary-color;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover{
+    color: $link-hover;
+}
+
+.cardImage{
+    transition: 0.35s;
+    transition-timing-function: ease-in-out;
+}
+
+.cardImage:hover{
+    transform: scale(1.15);
+}
+
+
+  

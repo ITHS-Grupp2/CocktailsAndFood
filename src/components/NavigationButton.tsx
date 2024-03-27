@@ -11,9 +11,9 @@ type NavigationButtonData = {
 export const NavigationButton = (buttonData: NavigationButtonData) => {
   return (
     <Link to={"" + buttonData.navigationPath}>
-      <Button>
+      <button>
         Add to Cart | Path:{buttonData.navigationPath}
-      </Button>
+      </button>
     </Link>
   );
 };

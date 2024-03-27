@@ -1,5 +1,4 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { NavigationButton } from "./NavigationButton"
 
 export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
@@ -22,7 +21,7 @@ export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
             </Row>
           }
         </Container>
-        <NavigationButton navigationPath="/drinkselect" id={1}></NavigationButton>        
+        <NavigationButton navigationPath="/drinkselect" id={""+1}></NavigationButton>
       </>
     );
 }
