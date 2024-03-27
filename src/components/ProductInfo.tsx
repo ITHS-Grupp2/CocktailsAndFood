@@ -17,8 +17,10 @@ export type ProductInfoData = {
 export const ProductInfo = (data: ProductInfoData) => {
   return (
     <>
+    <div className="center-page-items">
+
+      <Container >
       <h2>{data?.title}</h2>
-      <Container>
         <Row>
           <Col>
             <img
@@ -57,6 +59,7 @@ export const ProductInfo = (data: ProductInfoData) => {
           </Col>
         </Row>
       </Container>
+      </div>
     </>
   );
 };

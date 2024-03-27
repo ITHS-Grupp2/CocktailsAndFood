@@ -1,0 +1,15 @@
+{"developers":[
+    { "firstName":"Hao", "lastName":"Nguyen" ,"img":""},
+    { "firstName":"Rikard", "lastName":"Edlund", "img":"" },
+    { "firstName":"Walter", "lastName":"Sonnesjö", "img":"src\\assets\\peopleImg\\WalterImg.png" },
+    { "firstName":"Anna", "lastName":"Lindroos", "img":"" },
+    { "firstName":"Alexander", "lastName":"Råsberg", "img":"" },
+    { "firstName":"Caroline", "lastName":"Rebane", "img":"" },
+    { "firstName":"Jonathan", "lastName":"Larsson", "img":"src\\assets\\peopleImg\\Hubbe2.jpg" }
+  ],
+  "projectLeaders":[
+    { "firstName":"Josefine", "lastName":"Khazaal" ,"img":""},
+    { "firstName":"Alexander", "lastName":"Persson", "img":"" },
+    { "firstName":"Sina", "lastName":"Borzoo", "img":"" }
+  ]}
+  

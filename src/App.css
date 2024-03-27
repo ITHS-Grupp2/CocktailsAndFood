@@ -4,7 +4,22 @@
   padding: 2rem;
   text-align: center;
   min-width: 600px;
+} */
+
+#header {
+  text-align: center;
 }
+
+.page-title{
+  text-align: center;
+}
+
+.center-page-items{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 .logo {
   height: 6em;
@@ -34,10 +49,6 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
-} */
+}

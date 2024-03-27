@@ -4,13 +4,24 @@ import { MainComponent } from "../components/MainComponent";
 export const Index = () => {
   return (
     <>
-      <h3>Most popular burgers</h3>
-      <Row>
-        <Col>
+      <div
+        className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
+        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}>
+        <h1
+            className="text-center"
+            style={{ marginBottom: "0px" }}>
+            Most popular burgers
+        </h1>
+      </div>
+
+
+    <div className="center-page-items">
+      <Row >
+        {/* <Col>
           <div className="h-100 bg-danger" style={{ width: "100px" }}>
             Film
           </div>
-        </Col>
+        </Col> */}
         <Col md="auto">
           <Container>
             <Row md={3} xs={2} lg={3} className="g-3">
@@ -37,12 +48,13 @@ export const Index = () => {
             </Row>
           </Container>
         </Col>
-        <Col>
+        {/* <Col>
           <div className="h-100 bg-danger" style={{ width: "100px" }}>
             Film
           </div>
-        </Col>
+        </Col> */}
       </Row>
+      </div>
     </>
   );
 };

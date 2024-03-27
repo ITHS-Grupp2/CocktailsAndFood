@@ -6,7 +6,15 @@ export const ProductInfoView = () => {
   const singleCourse = SingleFoodAPI(matID);
   return (
     <>
-      <h1>Product Info</h1>
+      <div
+          className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
+          style={{ fontFamily: "Arial, sans-serif", height: "100px" }}>
+          <h1
+              className="text-center"
+              style={{ marginBottom: "0px" }}>
+              Product Info
+          </h1>
+      </div>
       <ProductInfo
         id={singleCourse?._id}
         productType={singleCourse?.categories[0]}
