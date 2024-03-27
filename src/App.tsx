@@ -14,8 +14,10 @@ function App() {
   const foodId = 3
   return (
     <>
+    <div id="header">
       <Header />
       <Navbar />
+    </div>
       <Routes>
         <Route path="/" element={<Index />}></Route>
         <Route path="/about" element={<About />} />
