@@ -1,18 +1,15 @@
 body {
   font: 100% Helvetica, sans-serif;
-  color: #343434;
+  color: #ff0000;
 }
 
 h1 {
-  color: #343434;
+  color: #ff0000;
 }
 
-a {
-  color: #731111;
-}
-
-a:hover {
-  color: red;
+.sidesCard {
+  background-color: #000000;
+  color: #ff0000;
 }
 
 /*# sourceMappingURL=sasstyle.css.map */
