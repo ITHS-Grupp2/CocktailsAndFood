@@ -5,7 +5,7 @@ export const VideoFriesComponent = () => {
     <div
       style={{
         width: "300px",
-        overflow: "hidden",
+        overflow: "clip",
         display: "block",
         height: "100%",
       }}
@@ -15,7 +15,12 @@ export const VideoFriesComponent = () => {
         loop
         muted
         id="video"
-        style={{ transform: "translate(-50%)", height: "100%" }}
+        style={{
+          transform: "translate(-50%)",
+          height: "100%",
+          objectPosition: "50% 50%",
+          objectFit: "cover",
+        }}
       >
         <source src={FriesVideo} type="video/mp4" />
       </video>
