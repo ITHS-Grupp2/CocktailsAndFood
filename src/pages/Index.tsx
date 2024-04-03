@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { MainComponent } from "../components/MainComponent";
 import DrinkCarousel from "../components/DrinkCarousel";
 import { VideoFriesComponent } from "../components/VideoFriesComponent";
