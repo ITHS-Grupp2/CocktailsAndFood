@@ -1,19 +1,15 @@
-import { Card, Container, Placeholder, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { MainComponent } from "../components/MainComponent";
 import DrinkCarousel from "../components/DrinkCarousel";
 
 export const Index = () => {
   return (
     <>
-      <div
-        className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
-        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-      >
-        <h1 className="text-center" style={{ marginBottom: "0px" }}>
+      <div className="d-flex justify-content-center align-items-center rounded shadow-sm my-3 divHeader">
+        <h1 className="text-center " style={{ marginBottom: "0px" }}>
           Most popular burgers
         </h1>
       </div>
-
       <div className="center-page-items">
         <Row>
           {/* <Col>
@@ -27,14 +23,11 @@ export const Index = () => {
                 <MainComponent />
               </Row>
             </Container>
-            <Container className="m-2">
-              <Placeholder
-                bg="primary"
-                className="d-flex justify-content-center my-2"
-              >
-                <h4>Cocktails:</h4>
-              </Placeholder>
-            </Container>
+            <div className="d-flex justify-content-center align-items-center rounded shadow-sm my-3 divSubHeader">
+              <h1 className="text-center" style={{ marginBottom: "0px" }}>
+                Cocktails
+              </h1>
+            </div>
           </Col>
           {/* <Col>
           <div className="h-100 bg-danger" style={{ width: "100px" }}>

@@ -10,31 +10,31 @@ export function MainComponent() {
       {mainCourses.map((course, index) => (
         <Card
           key={index}
-          className="shadow"
+          className="shadow roundedStandard"
           style={{
             width: "300px",
             overflow: "hidden",
             padding: "0px",
             margin: "5px"
           }}>
-
-          <Link to="/productinfoview">
-            <Card.Img 
-              variant="top"
-              src={course.imageUrl}
-              style={{
-                objectFit: "cover",
-                height: "300px",
-                width: "300px",
-              }}
-            />
-          </Link>
-
+          <div  style={{overflow: "hidden",}}>
+            <Link to="/productinfoview">
+              <img 
+                className="cardImage"
+                src={course.imageUrl}
+                style={{
+                  objectFit: "cover",
+                  height: "300px",
+                  width: "300px",
+                }}
+              />
+            </Link>
+          </div>
           <Card.Body
-            className="d-flex flex-column mb-2"
+            className="d-flex flex-column mb-2 bg-light"
             style={{ padding: "0px 10px", height: "3rem" }}>
 
-            <Card.Title className="d-flex justify-content-between align-items-baseline mb-2">
+            <Card.Title className="d-flex justify-content-between align-items-baseline mb-2 p-1">
               <span className="fs-5">{course.title}</span>
               <span
                 className="text-muted align-self-end"
@@ -46,6 +46,7 @@ export function MainComponent() {
           </Card.Body>
           
         </Card>
+        
       ))}
     </>
   );

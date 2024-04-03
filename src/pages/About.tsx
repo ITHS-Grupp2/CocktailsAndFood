@@ -12,6 +12,7 @@ export const About = () => {
         <Card.Img
           src={imgsrc}
           variant="top"
+          className="cardImage"
           style={{
             objectFit: "cover",
             height: "250px",

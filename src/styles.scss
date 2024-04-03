@@ -1,0 +1,91 @@
+$font-stack: Helvetica, sans-serif;
+$main-font-color: #000000;
+$primary-color: #b60b0b;
+$button-color: #d7061e;
+$button-color-hover: #ff253e;
+$accent-color: #eaeaea;
+$primary-background-color: #fbfbfb;
+$accent-background-color: #e9e9e9;
+$link-color: #3c0101;
+$link-hover: green;
+$radius: 0.8rem;
+
+body {
+  font: 100% $font-stack;
+  color: $main-font-color;
+}
+
+h1 {
+  color: $main-font-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: $link-hover;
+}
+
+.cardImage {
+  transition: 0.3s;
+}
+
+.cardImage:hover {
+  transform: scale(1.12);
+}
+
+.cardFooter {
+  background-color: $accent-background-color;
+  height: 60px;
+}
+
+.divHeader {
+  @extend .roundedStandard;
+  background-color: $accent-color;
+  color: $main-font-color;
+  height: 100px;
+  margin: 4rem 4rem 4rem 4rem; //Top Right Bottom Left
+}
+
+.divSubHeader{
+    @extend .roundedStandard;
+    background-color: $accent-color;
+    color: $main-font-color;
+    height: 100px;
+    margin: 4rem 0 4rem 0; 
+}
+.card{
+  @extend .roundedStandard;
+}
+
+.card button {
+  border-radius: 0 0 $radius $radius;
+}
+
+button {
+  @extend .roundedStandard;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  background: $button-color;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: $button-color-hover;
+  border: 1px solid #e8e8e8;
+}
+
+button:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+
+.roundedStandard {
+  border-radius:$radius;
+}

@@ -1,4 +1,3 @@
-import { Container, Col, Row } from "react-bootstrap";
 import { NavigationPath, NavigationButton } from "./NavigationButton";
 
 // export type ProductType = "Cocktail" | "Main" | "Sides";
@@ -17,48 +16,49 @@ export type ProductInfoData = {
 export const ProductInfo = (data: ProductInfoData) => {
   return (
     <>
-    <div className="center-page-items">
-
-      <Container >
-      <h2>{data?.title}</h2>
-        <Row>
-          <Col>
-            <img
-              src={
-                data.imgSrc === "" ? "https://placehold.co/400x400" : data.imgSrc
-                
-              }  style={{ width: "400px", height: "400px" }}></img>
-            <Row>
-              <Col>
-                <span>Price: {data?.price} $</span>
-              </Col>
-              <Col>
-                <NavigationButton
-                  navigationPath={data.navigationPath}
-                  id={data.id}></NavigationButton>
-              </Col>
-            </Row>
-          </Col>
-          <Col>
-            <Row>
-              <p>
-                <strong>Ingredients</strong>
-                <br />
-                {data.ingredients.map((item, index) => (
+      <div className="center-page-items">
+        <div>
+          <div className="center-page-items">
+            <h2>{data?.title}</h2>
+          </div>
+          <div className="d-flex flex-row justify-content-around">
+            <div className="mx-4">
+              <img
+                src={
+                  data.imgSrc === ""
+                    ? "https://placehold.co/400x400"
+                    : data.imgSrc
+                }
+                style={{ width: "400px", height: "400px" }}
+              ></img>
+            </div>
+            <div className="d-flex flex-column p-2 m-2 justify-content-between">
+              <div>
+                <p>
+                  <strong>Ingredients</strong>
+                  <br />
+                  {data.ingredients.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
-              </p>
-            </Row>
-            <Row>
-              <p>
-                <strong>More Information</strong>
-                <br />
-                {data?.information}
-              </p>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <strong>More Information</strong>
+                  <br />
+                  {data?.information}
+                </p>
+              </div>
+              <div>
+                <NavigationButton
+                  price={data?.price}
+                  navigationPath={data.navigationPath}
+                  id={data.id}
+                ></NavigationButton>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
