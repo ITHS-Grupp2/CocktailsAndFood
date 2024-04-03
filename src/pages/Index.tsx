@@ -1,43 +1,61 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { MainComponent } from "../components/MainComponent";
 import DrinkCarousel from "../components/DrinkCarousel";
+import { VideoFriesComponent } from "../components/VideoFriesComponent";
 
 export const Index = () => {
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center rounded shadow-sm my-3 divHeader">
-        <h1 className="text-center " style={{ marginBottom: "0px" }}>
-          Most popular burgers
-        </h1>
-      </div>
-      <div className="center-page-items">
-        <Row>
-          {/* <Col>
-          <div className="h-100 bg-danger" style={{ width: "100px" }}>
-            Film
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            gridColumn: "1",
+            width: "300px",
+            display: "flex",
+            justifyContent: "end",
+          }}
+        >
+          <VideoFriesComponent />
+        </div>
+        <div style={{ gridColumn: "2" }}>
+          <div
+            className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm mb-5"
+            style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
+          >
+            <h1 className="text-center" style={{ marginBottom: "0px" }}>
+              Most popular burgers
+            </h1>
           </div>
-        </Col> */}
-          <Col md="auto">
+          <div className="center-page-items mx-4">
+            <Row>
+              <Col md="auto">
+                <Container>
+                  <div
+                    style={{
+                      margin: "0",
+                    }}
+                  >
+                    <MainComponent />
+                  </div>
+                </Container>
+                <Container className="m-2">
+                  <h4>Cocktails:</h4>
+                </Container>
+              </Col>
+            </Row>
             <Container>
-              <Row md={3} xs={2} lg={3} className="g-3">
-                <MainComponent />
-              </Row>
+              <DrinkCarousel />
             </Container>
-            <div className="d-flex justify-content-center align-items-center rounded shadow-sm my-3 divSubHeader">
-              <h1 className="text-center" style={{ marginBottom: "0px" }}>
-                Cocktails
-              </h1>
-            </div>
-          </Col>
-          {/* <Col>
-          <div className="h-100 bg-danger" style={{ width: "100px" }}>
-            Film
           </div>
-        </Col> */}
-        </Row>
-        <Container>
-          <DrinkCarousel />
-        </Container>
+        </div>
+        <div style={{ gridColumn: "3" }}>
+          <VideoFriesComponent />
+        </div>
       </div>
     </>
   );

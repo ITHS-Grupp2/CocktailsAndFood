@@ -52,3 +52,10 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Tar bort en div vid en viss skärmstorlek */
+@media screen and (max-width: 1024px) {
+  .hideVideo {
+      display: none !important;
+  }
+}

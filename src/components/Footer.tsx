@@ -24,12 +24,14 @@ export const Footer = () => {
         <img
           src="src\assets\2021_Facebook_icon.svg"
           style={{ height: "40px" }}
-          className="p-1"></img>
+          className="p-1"
+        ></img>
         <br />
         <img
           src="src\assets\Instagram_icon.png"
           style={{ height: "40px" }}
-          className="p-1"></img>
+          className="p-1"
+        ></img>
         <br />
       </div>
     </div>
