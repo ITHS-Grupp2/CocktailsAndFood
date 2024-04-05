@@ -1,15 +1,15 @@
 {"developers":[
-    { "firstName":"Hao", "lastName":"Nguyen" ,"img":""},
-    { "firstName":"Rikard", "lastName":"Edlund", "img":"" },
-    { "firstName":"Walter", "lastName":"Sonnesjö", "img":"src\\assets\\peopleImg\\WalterImg.png" },
-    { "firstName":"Anna", "lastName":"Lindroos", "img":"" },
-    { "firstName":"Alexander", "lastName":"Råsberg", "img":"" },
-    { "firstName":"Caroline", "lastName":"Rebane", "img":"" },
-    { "firstName":"Jonathan", "lastName":"Larsson", "img":"src\\assets\\peopleImg\\Hubbe2.jpg" }
+    { "firstName":"Hao", "lastName":"Nguyen" ,"nickName":"","img":""},
+    { "firstName":"Rikard", "lastName":"Edlund","nickName":"", "img":"" },
+    { "firstName":"Walter", "lastName":"Sonnesjö","nickName":"Morran", "img":"src\\assets\\peopleImg\\WalterImg.png" },
+    { "firstName":"Anna", "lastName":"Lindroos","nickName":"", "img":"" },
+    { "firstName":"Alexander", "lastName":"Råsberg","nickName":"", "img":"" },
+    { "firstName":"Caroline", "lastName":"Rebane","nickName":"", "img":"" },
+    { "firstName":"Jonathan", "lastName":"Larsson","nickName":"", "img":"" }
   ],
   "projectLeaders":[
-    { "firstName":"Josefine", "lastName":"Khazaal" ,"img":""},
-    { "firstName":"Alexander", "lastName":"Persson", "img":"" },
-    { "firstName":"Sina", "lastName":"Borzoo", "img":"" }
+    { "firstName":"Josefine", "lastName":"Khazaal" ,"nickName":"","img":""},
+    { "firstName":"Alexander", "lastName":"Persson","nickName":"", "img":"" },
+    { "firstName":"Sina", "lastName":"Borzoo","nickName":"", "img":"" }
   ]}
   

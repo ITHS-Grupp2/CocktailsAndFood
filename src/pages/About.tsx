@@ -2,7 +2,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import data from "../assets/people.json";
 
 export const About = () => {
-  function Test(firstName: string, lastName: string, imgsrc: string) {
+  function Test(firstName: string, lastName: string, nickName: string, imgsrc: string) {
     return (
       <Card
         style={{
@@ -25,6 +25,7 @@ export const About = () => {
               <span> </span>
               {lastName}
             </p>
+            <p><i>{nickName}</i></p>
           </Card.Title>
         </Card.Body>
       </Card>
@@ -39,6 +40,7 @@ export const About = () => {
         {Test(
           data.developers[i].firstName,
           data.developers[i].lastName,
+          data.developers[i].nickName,
           data.developers[i].img
         )}
       </Col>
@@ -50,6 +52,7 @@ export const About = () => {
         {Test(
           data.projectLeaders[i].firstName,
           data.projectLeaders[i].lastName,
+          data.projectLeaders[i].nickName,
           data.projectLeaders[i].img
         )}
       </Col>
