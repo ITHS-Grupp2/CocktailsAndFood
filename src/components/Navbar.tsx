@@ -9,16 +9,7 @@ export const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="navbar-item">
-          <Link to="/productinfoview">Product Info</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/sideselect">Side Select</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/drinkselect">Drink Select</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/shoppingcart">Shopping Cart</Link>
+          <Link to="/about">About us</Link>
         </li>
       </ul>
     </nav>
