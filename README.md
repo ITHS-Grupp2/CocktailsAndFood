@@ -6,6 +6,7 @@ This project follows the Agile Scrum methodology, where we'll be developing in f
 
 - Scrum Master: Sina Borzoo
 - Product Owner: Josefine Khazaal
+- Project Leader: Alexander Persson
 
 Developers:
 
