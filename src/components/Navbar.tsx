@@ -24,3 +24,21 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export const LiveNavbar = () => {
+  return (
+    <>
+      <h4>Live navbar: </h4>
+      <nav className="navbar">
+        <ul className="navbar-list">
+          <li className="navbar-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/about">About us</Link>
+          </li>
+        </ul>
+      </nav>
+    </>
+  );
+};
