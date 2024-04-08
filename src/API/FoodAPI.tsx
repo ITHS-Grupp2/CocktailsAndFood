@@ -53,6 +53,7 @@ export const SingleFoodAPI = (recipeID: string): MainResponse => {
         // samma som i cocktails eller så låter vi squigglyn vara
         // / Rikard
         // MEN DE FUNGERAR!
+        //@ts-ignore
         (ingredient) => ingredient.name
       );
       setFood({
