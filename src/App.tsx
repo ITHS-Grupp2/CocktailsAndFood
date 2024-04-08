@@ -25,7 +25,7 @@ function App() {
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/sideselect" element={<SideSelect />} />
         <Route path="/drinkselect" element={<DrinkSelect foodId={4} />} />
-        <Route path="/productinfoview" element={<ProductInfoView />} />
+        <Route path="/productinfoview/:mealId" element={<ProductInfoView />} />
         <Route path="/drinkselect" element={<DrinkSelect foodId={foodId} />} />
       </Routes>
       <Footer />
