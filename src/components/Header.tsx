@@ -31,7 +31,7 @@ export const Header = () => {
             viewBox="0 0 576 512"
             width="30px"
             height="30px"
-            style={{ position: "relative", transform: "translate(1500%, 0)" }}
+            style={{ position: "relative", transform: "translate(1500%, 0)" }} // Ändra kundvagn ikon position
           >
             <path
               fill="white"
