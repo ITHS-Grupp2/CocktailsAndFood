@@ -1,24 +1,13 @@
 import { Link } from "react-router-dom";
-
 export const Header = () => {
   return (
-    <div
-      className="w-100"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        backgroundColor: "#684444",
-        paddingTop: "25px",
-        paddingBottom: "25px",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <Link to="/">
-          <h1 style={{ color: "white", fontSize: "3rem", fontWeight: "bold" }}>
-            Cocktails & Food
-          </h1>
-        </Link>
-
+    <>
+      <div className="w-100 headerStandard">
+        <div className="headerStandard">
+          <Link to="/">
+            <h1 className="h1Header">Cocktails & Food</h1>
+          </Link>
+        </div>
         {/* Shopping-Cart ikon */}
         <Link
           to="/shoppingcart"
@@ -31,7 +20,7 @@ export const Header = () => {
             viewBox="0 0 576 512"
             width="30px"
             height="30px"
-            style={{ position: "relative", transform: "translate(1500%, 0)" }} // Ändra kundvagn ikon position
+            style={{ position: "relative" }} // Ändra kundvagn ikon position
           >
             <path
               fill="white"
@@ -40,6 +29,6 @@ export const Header = () => {
           </svg>
         </Link>
       </div>
-    </div>
+    </>
   );
 };
