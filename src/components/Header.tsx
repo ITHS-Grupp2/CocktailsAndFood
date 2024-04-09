@@ -3,7 +3,7 @@ export const Header = () => {
   return (
     <>
       <div className="w-100 headerStandard">
-        <div className="headerStandard">
+        <div className="headerTotal">
           <Link to="/">
             <h1 className="h1Header">Cocktails & Food</h1>
           </Link>
@@ -20,7 +20,7 @@ export const Header = () => {
             viewBox="0 0 576 512"
             width="30px"
             height="30px"
-            style={{ position: "relative" }} // Ändra kundvagn ikon position
+            // style={{ marginLeft: "10px" }} // Ändra kundvagn ikon position
           >
             <path
               fill="white"

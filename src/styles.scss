@@ -28,11 +28,12 @@ h1 {
 }
 
 .headerTotal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .headerStandard {
-  display: flex;
-  justify-content: center;
   background-color: $header-color;
   padding-top: 25px;
   padding-bottom: 25px;
