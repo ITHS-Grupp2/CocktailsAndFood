@@ -2,25 +2,16 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <>
-      <div className="w-100 headerStandard">
-        <div className="headerTotal">
-          <Link to="/">
-            <h1 className="h1Header">Cocktails & Food</h1>
-          </Link>
-        </div>
-        {/* Shopping-Cart ikon */}
-        <Link
-          to="/shoppingcart"
-          style={{
-            marginLeft: "10px",
-          }}
-        >
+      <div className="w-100 headerTotal">
+        <Link to="/" style={{ marginLeft: "40%" }}>
+          <h1 className="h1Header">Cocktails & Food</h1>
+        </Link>
+        <Link to="/shoppingcart" style={{ marginRight: "19%" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
             width="30px"
             height="30px"
-            // style={{ marginLeft: "10px" }} // Ändra kundvagn ikon position
           >
             <path
               fill="white"
