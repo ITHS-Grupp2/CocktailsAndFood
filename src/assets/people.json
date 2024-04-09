@@ -1,15 +1,51 @@
-{"developers":[
-    { "firstName":"Hao", "lastName":"Nguyen" ,"nickName":"","img":""},
-    { "firstName":"Rikard", "lastName":"Edlund","nickName":"", "img":"" },
-    { "firstName":"Walter", "lastName":"Sonnesjö","nickName":"Morran", "img":"src\\assets\\peopleImg\\WalterImg.png" },
-    { "firstName":"Anna", "lastName":"Lindroos","nickName":"", "img":"" },
-    { "firstName":"Alexander", "lastName":"Råsberg","nickName":"", "img":"" },
-    { "firstName":"Caroline", "lastName":"Rebane","nickName":"", "img":"" },
-    { "firstName":"Jonathan", "lastName":"Larsson","nickName":"", "img":"" }
+{
+  "developers": [
+    { "firstName": "Hao", "lastName": "Nguyen", "nickName": "", "img": "" },
+    { "firstName": "Rikard", "lastName": "Edlund", "nickName": "", "img": "" },
+    {
+      "firstName": "Walter",
+      "lastName": "Sonnesjö",
+      "nickName": "Morran",
+      "img": "src\\assets\\peopleImg\\WalterImg.png"
+    },
+    {
+      "firstName": "Anna",
+      "lastName": "Lindroos",
+      "nickName": "",
+      "img": ""
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Råsberg",
+      "nickName": "Självutnämnd CSS King",
+      "img": "src\\assets\\peopleImg\\ArnoldAlex.png"
+    },
+    {
+      "firstName": "Caroline",
+      "lastName": "Rebane",
+      "nickName": "",
+      "img": ""
+    },
+    {
+      "firstName": "Jonathan",
+      "lastName": "Larsson",
+      "nickName": "Dev-Hitler aka Joel",
+      "img": "src\\assets\\peopleImg\\JonteImg.jpg"
+    }
   ],
-  "projectLeaders":[
-    { "firstName":"Josefine", "lastName":"Khazaal" ,"nickName":"","img":""},
-    { "firstName":"Alexander", "lastName":"Persson","nickName":"", "img":"" },
-    { "firstName":"Sina", "lastName":"Borzoo","nickName":"", "img":"" }
-  ]}
-  
+  "projectLeaders": [
+    {
+      "firstName": "Josefine",
+      "lastName": "Khazaal",
+      "nickName": "",
+      "img": ""
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Persson",
+      "nickName": "",
+      "img": ""
+    },
+    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "", "img": "" }
+  ]
+}
