@@ -30,10 +30,20 @@ h1 {
 .headerTotal {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: $header-color;
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.shoppingIcon {
+  position: relative;
+  left: 100px;
+  transition-duration: 0.4s;
+}
+
+.shoppingIcon:hover {
+  transform: rotate(-20deg) scale(110%);
 }
 
 a {
