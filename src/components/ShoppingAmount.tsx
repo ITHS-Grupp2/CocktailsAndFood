@@ -13,8 +13,9 @@ export const ShoppingAmount = (props: { productId: string }) => {
       case ACTIONS.INCREMENT:
         return state + 1;
       case ACTIONS.DECREMENT:
-        if (state === 0) return state;
-        else return state - 1;
+        if (state === 0) {
+          return state;
+        } else return state - 1;
       default:
         return state;
     }
@@ -28,7 +29,13 @@ export const ShoppingAmount = (props: { productId: string }) => {
       <div>
         <p>id: {props.productId}</p>
         <Button
-          onClick={() => dispatch({ type: ACTIONS.DECREMENT })}
+          onClick={() => {
+            if (amount !== 1) {
+              dispatch({ type: ACTIONS.DECREMENT });
+            } else {
+              removeFromCart(dispatchCart, props.productId);
+            }
+          }}
           style={{ marginRight: "15px" }}
           className="rounded-circle"
         >
@@ -43,9 +50,6 @@ export const ShoppingAmount = (props: { productId: string }) => {
           +
         </Button>
       </div>
-      <Button onClick={() => removeFromCart(dispatchCart, props.productId)}>
-        Remove
-      </Button>
     </>
   );
 };
