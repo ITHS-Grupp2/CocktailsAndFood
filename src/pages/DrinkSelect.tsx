@@ -1,50 +1,37 @@
 import { ProductInfo } from "../components/ProductInfo";
 import { Cocktail, CocktailFetch, price } from "../API/CocktailFetch";
 import { CocktailPanel } from "../components/CocktailPanel";
+import { cocktailIdArray, MatchDrinkService } from "../services/CocktailInfoService";
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
-const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
-const recommendedDrink = 14167;
-function MatchinDrinkService(mealId: number) {
-  let drink = recommendedDrink;
-  switch (mealId) {
-    case 0:
-      drink = 12752;
-      break;
-    case 1:
-      drink = 178342;
-      break;
-    case 2:
-      drink = 12402;
-      break;
-    case 3:
-      drink = 11003;
-      break;
-    case 4:
-      drink = 11410;
-      break;
-    case 5:
-      drink = 12752;
-      break;
-    case 6:
-      drink = 14167;
-      break;
-  }
-  return drink;
-}
+//temporary, until we have a way to get the main course id from cartService
+const mainCourseIdArray = [
+  "65fd96c529f983c33c7ec9c2",
+  "65fd96f229f983c33c7eca00",
+  "65fd976a29f983c33c7eca37",
+  "65fd978129f983c33c7eca55",
+  "65fd97b729f983c33c7eca9e",
+  "65fd98ca29f983c33c7ece4a",
+];
 
-export function DrinkSelect({ foodId }: { foodId: number }) {
-  const recommendedDrink = MatchinDrinkService(foodId);
-  //MatchinDrinkService(foodID:number) => return recommendedDrinkId;
-  const cocktail: Cocktail = CocktailFetch(recommendedDrink);
+export function DrinkSelect({ foodId }: { foodId: string }) {
+  if (foodId == null || foodId == "") {
+    foodId =
+      mainCourseIdArray[Math.floor(Math.random() * mainCourseIdArray.length)];
+  }
+
+  const recommendedDrink = MatchDrinkService(foodId);
+  const cocktail: Cocktail = CocktailFetch(recommendedDrink.drinkId);
   const cocktails: Cocktail[] = [];
   const labels: string[] = [];
-  idArray.filter((drink) => drink !== recommendedDrink);
-  idArray.forEach((id) => {
+  let filteredCocktails = cocktailIdArray.filter(
+    (drink) => drink !== recommendedDrink.drinkId
+  );
+  filteredCocktails.forEach((id) => {
     const cocktail: Cocktail = CocktailFetch(id);
     labels.push(cocktail.name);
-    if (id !== recommendedDrink) cocktails.push(cocktail);
+    if (id !== recommendedDrink.drinkId) cocktails.push(cocktail);
   });
 
   return (
@@ -64,7 +51,7 @@ export function DrinkSelect({ foodId }: { foodId: number }) {
         information={cocktail.instructions}
         price={price}
         navigationPath="/shoppingcart"
-      ></ProductInfo>
+        percentage={recommendedDrink.percentage}></ProductInfo>
 
       <div className="center-page-items">
         <CocktailPanel cocktails={cocktails} />

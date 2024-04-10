@@ -1,6 +1,21 @@
 import { Card, Container, Row } from "react-bootstrap";
-import { FoodAPI } from "../API/FoodAPI";
+import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
+import { ProductInfoData } from "./ProductInfo";
+
+// Kommer användas för att skicka info till varukorgen //RE
+const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
+  return {
+    id: side._id,
+    productType: "Side",
+    title: side.title,
+    imgSrc: side.imageUrl,
+    ingredients: side.ingredients,
+    information: side.description,
+    price: side.price,
+    navigationPath: "/drinkselect",
+  };
+};
 
 // En funktion som hämtar alla sides och populerar data-variabeln med dessa.
 export const SidesComponent = () => {
