@@ -1,7 +1,10 @@
 import { ProductInfo } from "../components/ProductInfo";
 import { Cocktail, CocktailFetch, price } from "../API/CocktailFetch";
 import { CocktailPanel } from "../components/CocktailPanel";
-import { cocktailIdArray, MatchDrinkService } from "../services/CocktailInfoService";
+import {
+  cocktailIdArray,
+  MatchDrinkService,
+} from "../services/CocktailInfoService";
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
@@ -53,8 +56,8 @@ export function DrinkSelect({ foodId }: { foodId: string }) {
         price={price}
         navigationPath="/shoppingcart"
         percentage={recommendedDrink.percentage}
-        motivation={recommendedDrink.motivation}>
-        </ProductInfo>
+        motivation={recommendedDrink.motivation}
+      ></ProductInfo>
 
       <div className="center-page-items">
         <CocktailPanel cocktails={cocktails} />
