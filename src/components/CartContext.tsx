@@ -76,6 +76,7 @@ export const removeFromCart = (
   dispatch({ type: "REMOVE_FROM_CART", payload: productId });
 };
 
+// Skickar en handling till UPDATE_QUANTITY att mappa om nya siffran
 export const updateQuantity = (
   dispatch: React.Dispatch<Action>,
   productId: string,

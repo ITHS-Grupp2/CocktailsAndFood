@@ -10,6 +10,7 @@ const ACTIONS = {
 export const ShoppingAmount = (props: {
   productId: string;
   quantity: number;
+  //  Detta är en funktion som används för att uppdatera antalet av en produkt i kundvagnen, returnerar ingenting
   updateQuantity: (productId: string, newQuantity: number) => void;
 }) => {
   const reducer = (state: number, action: { type: string }) => {
@@ -25,6 +26,8 @@ export const ShoppingAmount = (props: {
   const [amount, dispatch] = useReducer(reducer, props.quantity || 1);
   const dispatchCart = useContext(CartDispatchContext);
 
+  // Funktion som körs varje gång någon trycker på amount knapparna
+  // Används det för att uppdatera antalet av produkten
   useEffect(() => {
     props.updateQuantity(props.productId, amount);
   }, [amount, props.productId, props.updateQuantity]);

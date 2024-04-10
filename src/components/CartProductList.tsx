@@ -42,6 +42,7 @@ export const CartProductList = () => {
                           {cartProduct.title}
                         </h6>
                         <p className="card-text">${cartProduct.price}</p>
+                        {/*När antalet ändras, anropas updateQuantity-funktionen i CartContext. */}
                         <ShoppingAmount
                           productId={cartProduct.id}
                           quantity={cartProduct.quantity}
