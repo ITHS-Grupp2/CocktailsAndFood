@@ -6,6 +6,7 @@ export type ProductInfoData = {
   id: string;
   productType: string;
   title: string;
+  motivation?: string;
   imgSrc: string;
   ingredients: string[];
   information: string;
@@ -47,7 +48,15 @@ export const ProductInfo = (data: ProductInfoData) => {
                 <p>
                   <strong>More Information</strong>
                   <br />
-                  {data?.information}
+                  <p>{data?.information}</p>
+
+                  {data?.motivation != null ? (
+                    <div>
+                      <p>{data?.motivation}</p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                   {data?.percentage != null ? (
                     <div>
                       <h4>Alcohol Percentage: {data?.percentage}%</h4>

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { price } from "../API/CocktailFetch";
 import { ProductInfoData } from "./ProductInfo";
 import { CartDispatchContext, addToCart } from "./CartContext";
 import { useContext } from "react";
@@ -24,6 +23,10 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
   const handleAddToCart = () => {
     if (productInfo) {
       addToCart(dispatch, productInfo);
+
+      if (productInfo.productType === "main") {
+        localStorage.setItem("burgerId", productInfo.id);
+      }
     }
   };
 
