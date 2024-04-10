@@ -1,7 +1,12 @@
 {
   "developers": [
     { "firstName": "Hao", "lastName": "Nguyen", "nickName": "", "img": "" },
-    { "firstName": "Rikard", "lastName": "Edlund", "nickName": "", "img": "" },
+    {
+      "firstName": "Rikard",
+      "lastName": "Edlund",
+      "nickName": "GPT-doktorn",
+      "img": "src\\assets\\peopleImg\\hackerman.png"
+    },
     {
       "firstName": "Walter",
       "lastName": "Sonnesjö",
