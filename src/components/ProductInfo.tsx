@@ -6,6 +6,7 @@ export type ProductInfoData = {
   id: string;
   productType: string;
   title: string;
+  motivation?: string;
   imgSrc: string;
   ingredients: string[];
   information: string;
