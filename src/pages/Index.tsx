@@ -43,11 +43,11 @@ export const Index = () => {
                     <MainComponent />
                   </div>
                 </Container>
-                <Container className="m-2">
-                  <h4>Cocktails:</h4>
-                </Container>
               </Col>
             </Row>
+            <Container className="drinkHeader">
+              <h2>Drinks of the Month</h2>
+            </Container>
             <Container>
               <DrinkCarousel />
             </Container>
