@@ -69,7 +69,7 @@ import { FoodAPI } from "../API/FoodAPI";
 import { Link } from "react-router-dom";
 
 // Function to group items into arrays of given size
-const groupItems = (arr, size) => {
+const groupItems = (arr, size:number) => {
   const grouped = [];
   for (let i = 0; i < arr.length; i += size) {
     grouped.push(arr.slice(i, i + size));
