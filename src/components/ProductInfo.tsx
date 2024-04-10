@@ -48,6 +48,8 @@ export const ProductInfo = (data: ProductInfoData) => {
                 <p>
                   <strong>More Information</strong>
                   <br />
+                  <p>{data?.information}</p>
+
                   {data?.motivation != null ? (
                     <div>
                       <p>{data?.motivation}</p>
