@@ -85,8 +85,8 @@ export function MainComponent() {
   return (
     <Container>
       {groupedMainCourses.map((group, index) => (
-        //<Row key={index} md={3} xs={2} lg={3} className="g-3">
         <div
+          key={index}
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -134,7 +134,6 @@ export function MainComponent() {
             </Col>
           ))}
         </div>
-        //</Row>
       ))}
     </Container>
   );
