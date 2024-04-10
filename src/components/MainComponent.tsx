@@ -62,8 +62,8 @@ Healthy Burger with Salad + 65fd98ca29f983c33c7ece4a
 
 
 */
-import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+
+import { Col, Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { Link } from "react-router-dom";

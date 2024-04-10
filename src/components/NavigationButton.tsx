@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { price } from "../API/CocktailFetch";
 import { ProductInfoData } from "./ProductInfo";
 import { CartDispatchContext, addToCart } from "./CartContext";
 import { useContext } from "react";
