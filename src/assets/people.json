@@ -1,5 +1,5 @@
 {"developers":[
-    { "firstName":"Hao", "lastName":"Nguyen" ,"nickName":"","img":""},
+    { "firstName":"Hao", "lastName":"Nguyen" ,"nickName":"Hans Nygren","img":"src\\assets\\peopleImg\\hao-bruno.jpg"},
     { "firstName":"Rikard", "lastName":"Edlund","nickName":"", "img":"" },
     { "firstName":"Walter", "lastName":"Sonnesjö","nickName":"Morran", "img":"src\\assets\\peopleImg\\WalterImg.png" },
     { "firstName":"Anna", "lastName":"Lindroos","nickName":"", "img":"" },
