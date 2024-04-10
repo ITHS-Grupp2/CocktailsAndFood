@@ -1,6 +1,11 @@
 {
   "developers": [
-    { "firstName": "Hao", "lastName": "Nguyen", "nickName": "", "img": "" },
+    {
+      "firstName": "Hao",
+      "lastName": "Nguyen",
+      "nickName": "Hans Nygren",
+      "img": "src\\assets\\peopleImg\\hao-bruno.jpg"
+    },
     {
       "firstName": "Rikard",
       "lastName": "Edlund",
