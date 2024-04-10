@@ -13,6 +13,7 @@ export type ProductInfoData = {
   price: number;
   navigationPath: NavigationPath;
   percentage?: number;
+  quantity: number;
 };
 
 export const ProductInfo = (data: ProductInfoData) => {
@@ -21,7 +22,7 @@ export const ProductInfo = (data: ProductInfoData) => {
       <div className="center-page-items">
         <div>
           <div className="center-page-items">
-            <h2>{data?.title}</h2>
+            <h2 style={{ color: "white" }}>{data?.title}</h2>
           </div>
           <div className="d-flex flex-row justify-content-center">
             <div className="mx-4">
@@ -36,7 +37,7 @@ export const ProductInfo = (data: ProductInfoData) => {
             </div>
             <div className="d-flex flex-column p-2 m-2 justify-content-between w-25">
               <div>
-                <p>
+                <p style={{ color: "white" }}>
                   <strong>Ingredients</strong>
                   <br />
                   {data.ingredients.map((item, index) => (
@@ -45,7 +46,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                 </p>
               </div>
               <div>
-                <p>
+                <p style={{ color: "white" }}>
                   <strong>More Information</strong>
                   <br />
                   <p>{data?.information}</p>

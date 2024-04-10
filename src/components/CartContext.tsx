@@ -9,6 +9,7 @@ export type CartProduct = {
   title: string;
   price: number;
   img: string;
+  quantity: number;
 };
 
 export type CartState = {
@@ -17,14 +18,16 @@ export type CartState = {
 
 export type Action =
   | { type: "ADD_TO_CART"; payload: CartProduct }
+  | {
+      type: "UPDATE_QUANTITY";
+      payload: { productId: string; newQuantity: number };
+    }
   | { type: "REMOVE_FROM_CART"; payload: string };
 
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
 
 export const cartReducer = (state: CartState, action: Action) => {
-  console.log("Cart Action Called!");
-  console.log("CartSize: " + initialContext.cartProducts.length);
   switch (action.type) {
     case "ADD_TO_CART":
       return {
@@ -32,11 +35,19 @@ export const cartReducer = (state: CartState, action: Action) => {
         cartProducts: [...state.cartProducts, action.payload],
       };
     case "REMOVE_FROM_CART":
-      console.log("Reducer remove from cart =>");
       return {
         ...state,
         cartProducts: state.cartProducts.filter(
           (product) => product.id !== action.payload
+        ),
+      };
+    case "UPDATE_QUANTITY":
+      return {
+        ...state,
+        cartProducts: state.cartProducts.map((product) =>
+          product.id === action.payload.productId
+            ? { ...product, quantity: action.payload.newQuantity }
+            : product
         ),
       };
     default:
@@ -53,18 +64,24 @@ export const addToCart = (
     title: productData.title,
     price: productData.price,
     img: productData.imgSrc,
+    quantity: productData.quantity || 1,
   };
   dispatch({ type: "ADD_TO_CART", payload: cartProduct });
-  console.log("Added to Cart");
 };
 
 export const removeFromCart = (
   dispatch: React.Dispatch<Action>,
   productId: string
 ) => {
-  console.log(dispatch.name + " " + productId);
   dispatch({ type: "REMOVE_FROM_CART", payload: productId });
-  console.log("Removed from Cart");
+};
+
+export const updateQuantity = (
+  dispatch: React.Dispatch<Action>,
+  productId: string,
+  newQuantity: number
+) => {
+  dispatch({ type: "UPDATE_QUANTITY", payload: { productId, newQuantity } });
 };
 
 // Nu finns bara children men är convention att alltid ha med props om man behöver fler.

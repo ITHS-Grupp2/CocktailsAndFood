@@ -1,4 +1,4 @@
-import { useReducer, useContext } from "react";
+import { useReducer, useContext, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { removeFromCart, CartDispatchContext } from "./CartContext";
 
@@ -7,7 +7,11 @@ const ACTIONS = {
   DECREMENT: "decrement",
 };
 
-export const ShoppingAmount = (props: { productId: string }) => {
+export const ShoppingAmount = (props: {
+  productId: string;
+  quantity: number;
+  updateQuantity: (productId: string, newQuantity: number) => void;
+}) => {
   const reducer = (state: number, action: { type: string }) => {
     switch (action.type) {
       case ACTIONS.INCREMENT:
@@ -18,8 +22,12 @@ export const ShoppingAmount = (props: { productId: string }) => {
         return state;
     }
   };
-  const [amount, dispatch] = useReducer(reducer, 1);
+  const [amount, dispatch] = useReducer(reducer, props.quantity || 1);
   const dispatchCart = useContext(CartDispatchContext);
+
+  useEffect(() => {
+    props.updateQuantity(props.productId, amount);
+  }, [amount, props.productId, props.updateQuantity]);
 
   return (
     <>

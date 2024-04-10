@@ -14,6 +14,7 @@ const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
     information: side.description,
     price: side.price,
     navigationPath: "/drinkselect",
+    quantity: 1,
   };
 };
 

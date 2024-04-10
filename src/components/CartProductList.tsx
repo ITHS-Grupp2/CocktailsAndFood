@@ -1,15 +1,20 @@
 import { useContext, useEffect, useState } from "react";
-import { CartContext } from "./CartContext";
+import {
+  CartContext,
+  CartDispatchContext,
+  updateQuantity,
+} from "./CartContext";
 import { ShoppingAmount } from "./ShoppingAmount";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
 
+  const dispatch = useContext(CartDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     let totalPrice = state.cartProducts.reduce(
-      (count, cartProduct) => count + cartProduct.price, // * cartProduct.quantity,
+      (total, cartProduct) => total + cartProduct.price * cartProduct.quantity,
       0
     );
     setTotalPrice(totalPrice);
@@ -37,7 +42,13 @@ export const CartProductList = () => {
                           {cartProduct.title}
                         </h6>
                         <p className="card-text">${cartProduct.price}</p>
-                        <ShoppingAmount productId={cartProduct.id} />
+                        <ShoppingAmount
+                          productId={cartProduct.id}
+                          quantity={cartProduct.quantity}
+                          updateQuantity={(productId, newQuantity) => {
+                            updateQuantity(dispatch, productId, newQuantity);
+                          }}
+                        />
                       </div>
                     </div>
                   ))}
