@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { price } from "../API/CocktailFetch";
+import { ProductInfoData } from "./ProductInfo";
+import { CartDispatchContext, addToCart } from "./CartContext";
+import { useContext } from "react";
 
 export type NavigationPath =
   | "/drinkselect"
@@ -11,12 +14,22 @@ type NavigationButtonData = {
   navigationPath?: NavigationPath;
   id?: string;
   price?: number;
+  productInfo?: ProductInfoData;
 };
 
 export const NavigationButton = (buttonData: NavigationButtonData) => {
+  const { navigationPath, productInfo } = buttonData;
+  const dispatch = useContext(CartDispatchContext);
+
+  const handleAddToCart = () => {
+    if (productInfo) {
+      addToCart(dispatch, productInfo);
+    }
+  };
+
   return (
-    <Link to={"" + buttonData.navigationPath}>
-      <button>
+    <Link to={"" + navigationPath}>
+      <button onClick={handleAddToCart}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"

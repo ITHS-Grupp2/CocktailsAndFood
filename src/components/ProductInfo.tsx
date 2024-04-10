@@ -54,6 +54,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                   price={data?.price}
                   navigationPath={data.navigationPath}
                   id={data.id}
+                  productInfo={data}
                 ></NavigationButton>
               </div>
             </div>

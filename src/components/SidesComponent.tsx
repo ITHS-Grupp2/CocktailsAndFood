@@ -68,7 +68,11 @@ export const SidesComponent = () => {
                   </span>
                 </Card.Title>
               </Card.Body>
-              <NavigationButton navigationPath="/drinkselect"></NavigationButton>
+              <NavigationButton
+                productInfo={convertToProductInfoData(sides)}
+                price={sides.price}
+                navigationPath="/drinkselect"
+              ></NavigationButton>
             </Card>
           ))}
         </Row>
