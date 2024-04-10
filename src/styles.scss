@@ -50,14 +50,14 @@ a:hover {
   margin: 4rem 4rem 4rem 4rem; //Top Right Bottom Left
 }
 
-.divSubHeader{
-    @extend .roundedStandard;
-    background-color: $accent-color;
-    color: $main-font-color;
-    height: 100px;
-    margin: 4rem 0 4rem 0; 
+.divSubHeader {
+  @extend .roundedStandard;
+  background-color: $accent-color;
+  color: $main-font-color;
+  height: 100px;
+  margin: 4rem 0 4rem 0;
 }
-.card{
+.card {
   @extend .roundedStandard;
 }
 
@@ -87,5 +87,15 @@ button:active {
 }
 
 .roundedStandard {
-  border-radius:$radius;
+  border-radius: $radius;
+}
+
+.drinkHeader {
+  color: white;
+  background-color: #684444;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
 }
