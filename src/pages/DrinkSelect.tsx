@@ -8,22 +8,8 @@ import {
 // Våra valda drinkar:
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
-//temporary, until we have a way to get the main course id from cartService
-const mainCourseIdArray = [
-  "65fd96c529f983c33c7ec9c2",
-  "65fd96f229f983c33c7eca00",
-  "65fd976a29f983c33c7eca37",
-  "65fd978129f983c33c7eca55",
-  "65fd97b729f983c33c7eca9e",
-  "65fd98ca29f983c33c7ece4a",
-];
-
-export function DrinkSelect({ foodId }: { foodId: string }) {
-  foodId = localStorage.getItem("burgerId") as string;
-  if (foodId == null || foodId == "") {
-    foodId =
-      mainCourseIdArray[Math.floor(Math.random() * mainCourseIdArray.length)];
-  }
+export function DrinkSelect() {
+  let foodId = localStorage.getItem("burgerId") as string;
 
   const recommendedDrink = MatchDrinkService(foodId);
   const cocktail: Cocktail = CocktailFetch(recommendedDrink.drinkId);

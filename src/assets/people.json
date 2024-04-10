@@ -53,9 +53,9 @@
     {
       "firstName": "Alexander",
       "lastName": "Persson",
-      "nickName": "",
-      "img": ""
+      "nickName": "The more you eat, the harder you're to kidnap. Stay safe.",
+      "img": "src\\assets\\peopleImg\\alexpers.png"
     },
-    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "", "img": "" }
+    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "",       "img": "src\\assets\\peopleImg\\sinabor.jpg" }
   ]
 }
