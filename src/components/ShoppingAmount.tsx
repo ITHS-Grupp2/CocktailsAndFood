@@ -13,21 +13,17 @@ export const ShoppingAmount = (props: { productId: string }) => {
       case ACTIONS.INCREMENT:
         return state + 1;
       case ACTIONS.DECREMENT:
-        if (state === 0) {
-          return state;
-        } else return state - 1;
+        return state - 1;
       default:
         return state;
     }
   };
-
   const [amount, dispatch] = useReducer(reducer, 1);
   const dispatchCart = useContext(CartDispatchContext);
 
   return (
     <>
       <div>
-        <p>id: {props.productId}</p>
         <Button
           onClick={() => {
             if (amount !== 1) {
@@ -43,7 +39,9 @@ export const ShoppingAmount = (props: { productId: string }) => {
         </Button>
         <span>{amount}</span>
         <Button
-          onClick={() => dispatch({ type: ACTIONS.INCREMENT })}
+          onClick={() => {
+            dispatch({ type: ACTIONS.INCREMENT });
+          }}
           style={{ marginLeft: "15px" }}
           className="rounded-circle"
         >
