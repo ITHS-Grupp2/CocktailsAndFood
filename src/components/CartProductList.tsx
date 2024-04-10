@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import { ShoppingAmount } from "./ShoppingAmount";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -27,6 +28,7 @@ export const CartProductList = () => {
                         {cartProduct.title}
                       </h6>
                       <p className="card-text">${cartProduct.price}</p>
+                      <ShoppingAmount productId={cartProduct.id} />
                     </div>
                   </div>
                 ))}

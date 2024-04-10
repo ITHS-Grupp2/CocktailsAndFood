@@ -15,17 +15,29 @@ export type CartState = {
   cartProducts: CartProduct[];
 };
 
-export type Action = { type: "ADD_TO_CART"; payload: CartProduct };
+export type Action =
+  | { type: "ADD_TO_CART"; payload: CartProduct }
+  | { type: "REMOVE_FROM_CART"; payload: string };
 
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
 
 export const cartReducer = (state: CartState, action: Action) => {
+  console.log("Cart Action Called!");
+  console.log("CartSize: " + initialContext.cartProducts.length);
   switch (action.type) {
     case "ADD_TO_CART":
       return {
         ...state,
         cartProducts: [...state.cartProducts, action.payload],
+      };
+    case "REMOVE_FROM_CART":
+      console.log("Reducer remove from cart =>");
+      return {
+        ...state,
+        cartProducts: state.cartProducts.filter(
+          (product) => product.id !== action.payload
+        ),
       };
     default:
       return state;
@@ -43,6 +55,16 @@ export const addToCart = (
     img: productData.imgSrc,
   };
   dispatch({ type: "ADD_TO_CART", payload: cartProduct });
+  console.log("Added to Cart");
+};
+
+export const removeFromCart = (
+  dispatch: React.Dispatch<Action>,
+  productId: string
+) => {
+  console.log(dispatch.name + " " + productId);
+  dispatch({ type: "REMOVE_FROM_CART", payload: productId });
+  console.log("Removed from Cart");
 };
 
 // Nu finns bara children men är convention att alltid ha med props om man behöver fler.
