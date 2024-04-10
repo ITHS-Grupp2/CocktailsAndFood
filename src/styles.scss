@@ -1,5 +1,6 @@
 $font-stack: Helvetica, sans-serif;
 $main-font-color: #e9e9e9;
+$inline-font-color: #000000;
 $primary-color: #b60b0b;
 $button-color: #d7061e;
 $button-color-hover: #ff253e;
@@ -19,11 +20,11 @@ body {
 }
 
 h1 {
-  color: $main-font-color;
+  color: $inline-font-color;
 }
 
 .h1Header {
-  color: white;
+  color: $main-font-color;
   font-size: 3rem;
   font-weight: bold;
 }
@@ -35,6 +36,7 @@ h1 {
   background-color: $header-color;
   padding-top: 25px;
   padding-bottom: 25px;
+  color: $inline-font-color;
 }
 
 .shoppingIcon {
