@@ -39,7 +39,7 @@
     {
       "firstName": "Jonathan",
       "lastName": "Larsson",
-      "nickName": "Dev-Hitler aka Joel",
+      "nickName": "Dev-Jonte aka Joel",
       "img": "src\\assets\\peopleImg\\JonteImg.jpg"
     }
   ],
@@ -47,8 +47,8 @@
     {
       "firstName": "Josefine",
       "lastName": "Khazaal",
-      "nickName": "",
-      "img": ""
+      "nickName": "Egghead",
+      "img": "src\\assets\\peopleImg\\JossanImg.jpg"
     },
     {
       "firstName": "Alexander",
