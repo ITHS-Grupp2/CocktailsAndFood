@@ -16,6 +16,7 @@ const mainCourseIdArray = [
 ];
 
 export function DrinkSelect({ foodId }: { foodId: string }) {
+  foodId = localStorage.getItem("burgerId") as string;
   if (foodId == null || foodId == "") {
     foodId =
       mainCourseIdArray[Math.floor(Math.random() * mainCourseIdArray.length)];
@@ -51,7 +52,9 @@ export function DrinkSelect({ foodId }: { foodId: string }) {
         information={cocktail.instructions}
         price={price}
         navigationPath="/shoppingcart"
-        percentage={recommendedDrink.percentage}></ProductInfo>
+        percentage={recommendedDrink.percentage}
+        motivation={recommendedDrink.motivation}>
+        </ProductInfo>
 
       <div className="center-page-items">
         <CocktailPanel cocktails={cocktails} />

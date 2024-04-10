@@ -48,7 +48,13 @@ export const ProductInfo = (data: ProductInfoData) => {
                 <p>
                   <strong>More Information</strong>
                   <br />
-                  {data?.information}
+                  {data?.motivation != null ? (
+                    <div>
+                      <p>{data?.motivation}</p>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                   {data?.percentage != null ? (
                     <div>
                       <h4>Alcohol Percentage: {data?.percentage}%</h4>
