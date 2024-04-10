@@ -106,15 +106,17 @@ export function MainComponent() {
                 }}
               >
                 <Link to={`/productinfoview/${course._id}`}>
-                  <Card.Img
-                    variant="top"
-                    src={course.imageUrl}
-                    style={{
-                      objectFit: "cover",
-                      height: "300px",
-                      width: "300px",
-                    }}
-                  />
+                <div style={{ overflow: "hidden" }}>
+                <img
+                  className="cardImage"
+                  src={course.imageUrl}
+                  style={{
+                    objectFit: "cover",
+                    height: "300px",
+                    width: "300px",
+                  }}
+                />
+              </div>
                 </Link>
                 <Card.Body
                   className="d-flex flex-column mb-2"
