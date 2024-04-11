@@ -11,7 +11,6 @@ import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 
 function App() {
-  const foodId = "";
   return (
     <>
       <div id="header">
@@ -26,7 +25,7 @@ function App() {
         <Route path="/sideselect" element={<SideSelect />} />
         {/* <Route path="/drinkselect" element={<DrinkSelect foodId={4} />} /> */}
         <Route path="/productinfoview/:mealId" element={<ProductInfoView />} />
-        <Route path="/drinkselect" element={<DrinkSelect foodId={foodId} />} />
+        <Route path="/drinkselect" element={<DrinkSelect />} />
       </Routes>
       <Footer />
     </>
