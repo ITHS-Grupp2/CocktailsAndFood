@@ -23,6 +23,10 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
   const handleAddToCart = () => {
     if (productInfo) {
       addToCart(dispatch, productInfo);
+
+      if (productInfo.productType === "main") {
+        localStorage.setItem("burgerId", productInfo.id);
+      }
     }
   };
 

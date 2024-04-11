@@ -39,7 +39,7 @@
     {
       "firstName": "Jonathan",
       "lastName": "Larsson",
-      "nickName": "Dev-Hitler aka Joel",
+      "nickName": "Dev-Jonte aka Joel",
       "img": "src\\assets\\peopleImg\\JonteImg.jpg"
     }
   ],
@@ -47,15 +47,15 @@
     {
       "firstName": "Josefine",
       "lastName": "Khazaal",
-      "nickName": "",
-      "img": ""
+      "nickName": "Egghead",
+      "img": "src\\assets\\peopleImg\\JossanImg.jpg"
     },
     {
       "firstName": "Alexander",
       "lastName": "Persson",
-      "nickName": "",
-      "img": ""
+      "nickName": "The more you eat, the harder you're to kidnap. Stay safe.",
+      "img": "src\\assets\\peopleImg\\alexpers.png"
     },
-    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "", "img": "" }
+    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "",       "img": "src\\assets\\peopleImg\\sinabor.jpg" }
   ]
 }
