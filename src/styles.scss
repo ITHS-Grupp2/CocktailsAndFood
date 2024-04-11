@@ -24,6 +24,7 @@ $light-background: #F4EAEA;
   font-size: 1.5rem;
   border-radius: 20px;
   text-align: start;
+  overflow: hidden;
 }
 
 .text-start{
@@ -54,7 +55,6 @@ body {
 
 .cartItemListBox{
   margin: 0vh 5vh;
-  
 }
 
 .cardItemList{
