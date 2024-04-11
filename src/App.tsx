@@ -11,6 +11,7 @@ import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 
 function App() {
+  const test = 4; 
   return (
     <>
       <div id="header">
