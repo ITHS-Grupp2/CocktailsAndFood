@@ -12,6 +12,7 @@ $link-hover: white;
 $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
+$light-background: #F4EAEA;
 
 .aboutUsBox{
   width: 25vw;
@@ -49,6 +50,70 @@ body {
   color: white;
   padding: 15px;
 
+}
+
+.cartItemListBox{
+  margin: 0vh 5vh;
+  
+}
+
+.cardItemList{
+  background-color: $light-background;
+  color: $inline-font-color;
+  border-radius: 10px 10px 0px 0px;
+  padding: 1px 10px 0px 10px;
+  margin-bottom: 0px;
+}
+
+.cartProductListBottom{
+  background-color: $header-color;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-radius: 0px 0px 0px 10px;
+}
+
+.cartProductCheckoutButton{
+  padding-right: 100px;
+  padding-left: 100px;
+  margin-bottom: 20px;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #108832;
+  font-size: 1rem;
+  border: none;
+  height: 40px;
+  transition: 0ms;
+}
+
+.cartProductCheckoutButton:hover{
+  background-color: #108832;
+  border: none;
+}
+
+.cartProductCheckoutButton:active{
+  height: 45px;
+  box-shadow: none;
+  margin-bottom: 15px;
+}
+
+.cartProductAmountButton{
+  background-color: #76A2D9;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  border: none;
+}
+
+.flexDC{
+  display: flex;
+  justify-content: end;
+}
+
+.amountBox{
+  height: 40px;
+  width: 40px;
+  background-color: #E6DCDC;
+  padding: 10px;
+  text-align: center;
 }
 
 h1, h2 {
