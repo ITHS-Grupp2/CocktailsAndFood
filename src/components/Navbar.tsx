@@ -8,9 +8,6 @@ export const Navbar = () => {
         <Link to="/">
           <li className="navbar-item">Home</li>
         </Link>
-        <Link to="/productinfoview">
-          <li className="navbar-item">Product Info</li>
-        </Link>
         <Link to="/sideselect">
           <li className="navbar-item">Side Select</li>
         </Link>
