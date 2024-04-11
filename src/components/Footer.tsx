@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <div className="footer">
+
       <div>
         <p>
           <strong> Visit us</strong>
