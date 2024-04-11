@@ -1,0 +1,42 @@
+{
+  "drinkMatch": [
+    {
+      "burgerId": "65fd96c529f983c33c7ec9c2", 
+      "drinkId":"14167",
+      "motivation": "A Gluten Free Burger with Bacon tends to have a robust flavor profile with the salty richness from the bacon. Pairing it with a classic Vodka Martini complements this robust flavor with a clean and refreshing drink. The neutral character of the vodka allows the flavors from the burger to shine through and provides a balanced taste experience.",
+      "percentage": 15
+    },
+    {
+      "burgerId": "65fd96f229f983c33c7eca00", 
+      "drinkId":"11003",
+      "motivation": "A Greasy Burger may require a drink with enough complexity to match its flavor. Negroni, a cocktail with a unique combination of bitterness, sweetness, and herbal notes, complements the greasy and rich flavor of a Greasy Burger. The bitter aperitif character of Negroni helps balance the greasiness of the burger and provides a delightful contrast.",
+      "percentage": 25
+    },
+    {
+      "burgerId": "65fd976a29f983c33c7eca37", 
+      "drinkId":"11410",
+      "motivation": "A Chicken Burger is typically lighter and more delicate in flavor compared to a meat-based burger. Therefore, it pairs well with a fresh and refreshing cocktail like Gin Fizz. The citrusy, effervescent character of Gin Fizz enhances the flavors of the chicken and vegetables in the burger, providing a light and balanced meal experience.",
+      "percentage": 10
+    },
+    {
+      "burgerId": "65fd978129f983c33c7eca55", 
+      "drinkId":"12402",
+      "motivation": "An Olive Burger is known for its rich flavor and juiciness. Pairing it with a Tom Collins, a fresh and lemony cocktail, creates a harmonious contrast. The sharpness of the citrus balances the rich olive oil in the burger and adds a refreshing touch to the meal.",
+      "percentage": 65
+    },
+    {
+      "burgerId": "65fd97b729f983c33c7eca9e", 
+      "drinkId":"178342",
+      "motivation": "A Spicy Chicken Burger can be robust and flavorful with heat from spices. Gin and Soda, a simple cocktail with hints of herbs and citrus, is an excellent choice to soothe the heat from the spicy burger. The carbonation in the drink helps mellow the spices while the gin complements the flavors and provides a refreshing sensation.",
+      "percentage": 99
+    },
+    {
+      "burgerId": "65fd98ca29f983c33c7ece4a", 
+      "drinkId":"12752",
+      "motivation": "A Healthy Burger with Salad is light and fresh with plenty of vegetables and herbs. Serving it with a Lemon Shot, a shot of freshly squeezed lemon juice, provides a tangy contrast to the burger's vegetables. The lemon juice helps bring out the natural flavors of the salad and adds a refreshing touch to the meal.",
+      "percentage": 1
+    }
+  ]
+}
+
+
