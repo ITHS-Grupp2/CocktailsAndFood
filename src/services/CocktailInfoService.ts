@@ -8,6 +8,7 @@ export type Drink = {
 
 export const cocktailIdArray = ["12752", "178342", "12402", "11003", "11410", "14167"]; 
 
+//Match the drink with the given burger-id
 export function MatchDrinkService(mealId: string) {
   const recommendedDrink: Drink = {
     drinkId: matchData.drinkMatch.find((d) => d.burgerId === mealId)?.drinkId as string,
@@ -17,6 +18,7 @@ export function MatchDrinkService(mealId: string) {
   return recommendedDrink;
 }
 
+//Get the percentage of a drink
 export function GetPercentage(drinkId: string){
   return matchData.drinkMatch.find((d) => d.drinkId === drinkId)?.percentage
 }

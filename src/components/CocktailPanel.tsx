@@ -14,9 +14,6 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
 
   return (
     <>
-      <div className="divSubHeader">
-        <h3>Select Drink</h3>
-      </div>
       <Container className="m-2">{<Row className="g-3">{rows}</Row>}</Container>
     </>
   );
