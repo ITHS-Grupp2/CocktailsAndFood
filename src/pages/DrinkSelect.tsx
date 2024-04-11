@@ -9,13 +9,13 @@ import {
 // const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
 export function DrinkSelect() {
-  let foodId = localStorage.getItem("burgerId") as string;
+  const foodId = localStorage.getItem("burgerId") as string;
 
   const recommendedDrink = MatchDrinkService(foodId);
   const cocktail: Cocktail = CocktailFetch(recommendedDrink.drinkId);
   const cocktails: Cocktail[] = [];
   const labels: string[] = [];
-  let filteredCocktails = cocktailIdArray.filter(
+  const filteredCocktails = cocktailIdArray.filter(
     (drink) => drink !== recommendedDrink.drinkId
   );
   filteredCocktails.forEach((id) => {
