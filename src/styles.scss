@@ -13,6 +13,16 @@ $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
 
+.aboutUsBox{
+  width: 25vw;
+  height: 10vh;
+  background-color: $header-color;
+  margin: 30px 0px;
+  color: $main-font-color;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
 body {
   font: 100% $font-stack;
   color: $main-font-color;
@@ -41,8 +51,7 @@ h1, h2 {
 
 .h1Header {
   color: $main-font-color;
-  font-size: 3rem;
-  font-weight: bold;
+  font-weight: bold; 
 }
 
 .headerTotal {
