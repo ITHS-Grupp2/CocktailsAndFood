@@ -62,14 +62,14 @@ Healthy Burger with Salad + 65fd98ca29f983c33c7ece4a
 
 
 */
-import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+
+import { Col, Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { FoodAPI } from "../API/FoodAPI";
+import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { Link } from "react-router-dom";
 
 // Function to group items into arrays of given size
-const groupItems = (arr, size) => {
+const groupItems = (arr:MainResponse[], size:number) => {
   const grouped = [];
   for (let i = 0; i < arr.length; i += size) {
     grouped.push(arr.slice(i, i + size));

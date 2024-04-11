@@ -5,11 +5,13 @@ export const ShoppingCart = () => {
     <>
       <div
         className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
-        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
+        style={{ fontFamily: "Arial, sans-serif" }}
       >
-        <h1 className="text-center" style={{ marginBottom: "0px" }}>
-          Shopping Cart
-        </h1>
+        <div className="headerSmaller">
+          <h1 className="text-center h1Header" style={{ marginBottom: "0px" }}>
+            Shopping Cart
+          </h1>
+        </div>
       </div>
       <div>
         <CartProductList />

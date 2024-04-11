@@ -9,13 +9,20 @@ export type CartProduct = {
   title: string;
   price: number;
   img: string;
+  quantity: number;
 };
 
 export type CartState = {
   cartProducts: CartProduct[];
 };
 
-export type Action = { type: "ADD_TO_CART"; payload: CartProduct };
+export type Action =
+  | { type: "ADD_TO_CART"; payload: CartProduct }
+  | {
+      type: "UPDATE_QUANTITY";
+      payload: { productId: string; newQuantity: number };
+    }
+  | { type: "REMOVE_FROM_CART"; payload: string };
 
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
@@ -26,6 +33,22 @@ export const cartReducer = (state: CartState, action: Action) => {
       return {
         ...state,
         cartProducts: [...state.cartProducts, action.payload],
+      };
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cartProducts: state.cartProducts.filter(
+          (product) => product.id !== action.payload
+        ),
+      };
+    case "UPDATE_QUANTITY":
+      return {
+        ...state,
+        cartProducts: state.cartProducts.map((product) =>
+          product.id === action.payload.productId
+            ? { ...product, quantity: action.payload.newQuantity }
+            : product
+        ),
       };
     default:
       return state;
@@ -41,8 +64,25 @@ export const addToCart = (
     title: productData.title,
     price: productData.price,
     img: productData.imgSrc,
+    quantity: productData.quantity || 1,
   };
   dispatch({ type: "ADD_TO_CART", payload: cartProduct });
+};
+
+export const removeFromCart = (
+  dispatch: React.Dispatch<Action>,
+  productId: string
+) => {
+  dispatch({ type: "REMOVE_FROM_CART", payload: productId });
+};
+
+// Skickar en handling till UPDATE_QUANTITY att mappa om nya siffran
+export const updateQuantity = (
+  dispatch: React.Dispatch<Action>,
+  productId: string,
+  newQuantity: number
+) => {
+  dispatch({ type: "UPDATE_QUANTITY", payload: { productId, newQuantity } });
 };
 
 // Nu finns bara children men är convention att alltid ha med props om man behöver fler.

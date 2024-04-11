@@ -43,6 +43,7 @@ export function DrinkSelect() {
         navigationPath="/shoppingcart"
         percentage={recommendedDrink.percentage}
         motivation={recommendedDrink.motivation}
+        quantity={1}
       ></ProductInfo>
 
       <div className="center-page-items">
