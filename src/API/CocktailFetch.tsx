@@ -10,9 +10,9 @@ export type Cocktail = {
 
 export const price: number = 9.99;
 
-export const CocktailFetch = (drinkid: number): Cocktail => {
+export const CocktailFetch = (drinkid: string): Cocktail => {
   const [cocktail, setCocktail] = useState<Cocktail>({
-    id: ""+-1,
+    id: "",
     name: "",
     img: "",
     ingredients: [],
