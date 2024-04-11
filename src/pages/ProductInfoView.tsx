@@ -12,7 +12,8 @@ export const ProductInfoView = () => {
     <>
       <div
         className="d-flex justify-content-center align-items-center divHeader shadow-sm my-3"
-        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}>
+        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
+      >
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Product Info
         </h1>
@@ -26,6 +27,7 @@ export const ProductInfoView = () => {
         information={singleCourse?.description}
         price={singleCourse?.price}
         navigationPath="/sideselect"
+        quantity={1}
       />
     </>
   );

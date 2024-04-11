@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
-    <div className="w-100 bg-light d-flex justify-content-around p-3 footer">
+    <div className="footer">
+
       <div>
         <p>
           <strong> Visit us</strong>
