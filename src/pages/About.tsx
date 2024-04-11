@@ -72,27 +72,41 @@ export const About = () => {
   return (
     <>
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-        <h4 className="text-center h1Header" style={{ marginBottom: "0px" }}>
+        <h4 className="text-center" style={{ marginBottom: "0px" }}>
           About Us
         </h4>
       </div>
-      <Container>
+      <Container style={{ textAlign: "center" }}>
         <h4>Project Leaders</h4>
-        <Row lg={4} md={3} xs={2} className="g-3 p-2 justify-content-center">
+        <Row
+          lg={4}
+          md={3}
+          xs={2}
+          className="g-3 p-2 justify-content-center text-start"
+        >
           {itpRows}
         </Row>
         <Row>
           <h4>Developers</h4>
         </Row>
 
-        <Row lg={4} md={3} xs={2} className="g-3 p-2 justify-content-center">
+        <Row
+          lg={4}
+          md={3}
+          xs={2}
+          className="g-3 p-2 justify-content-center text-start"
+        >
           {devRows}
         </Row>
         <Row className="g-3 p-2 justify-content-center">
           <div className="aboutUsBox">
-            Hello there fiddling sizzle nizzlers. We are the crazy dev-team 
+            Hello there fiddling sizzle nizzlers. We are the crazy dev-team
             creating this insane burger-site just for your hungry needs.
-            <br/><br/><br/><br/>We can do backflips.
+            <br />
+            <br />
+            <br />
+            <br />
+            We can do backflips.
           </div>
         </Row>
       </Container>

@@ -8,7 +8,7 @@ $accent-color: #eaeaea;
 $primary-background-color: #0D0C0C;
 $accent-background-color: #D9D9D9;
 $link-color: #3c0101;
-$link-hover: green;
+$link-hover: white;
 $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
@@ -21,6 +21,12 @@ $navbar-color: #a17979;
   color: $main-font-color;
   padding: 10px;
   font-size: 1.5rem;
+  border-radius: 20px;
+  text-align: start;
+}
+
+.text-start{
+  text-align: start;
 }
 
 body {
@@ -46,7 +52,7 @@ body {
 }
 
 h1, h2 {
-  color: $inline-font-color;
+  color: $main-font-color;
 }
 
 .h1Header {
@@ -73,6 +79,8 @@ h1, h2 {
   padding-bottom: 10px;
   width: 100%;
   color: $inline-font-color;
+  font-weight: normal;
+  color: $main-font-color;
 }
 
 .shoppingIcon {
@@ -175,9 +183,6 @@ button:active {
 }
 
 .navbar-item a {
-  padding: 6px 90px;
-  background-color: $navbar-color;
-  border-radius: 20px;
   color: black;
 }
 
@@ -195,11 +200,12 @@ button:active {
 
 .navbar-item {
   margin: 0 20px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding: 6px 90px;
+  background-color: $navbar-color;
+  border-radius: 20px;
 }
 
-.navbar-item a:hover {
+.navbar-item:hover {
   color: white;
 }
 

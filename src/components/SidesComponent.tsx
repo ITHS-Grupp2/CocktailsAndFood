@@ -23,14 +23,14 @@ export const SidesComponent = () => {
   const sides = FoodAPI("sides");
   return (
     <>
-      <div
-        className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
-        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-      >
-        <h1 className="text-center" style={{ marginBottom: "0px" }}>
-          Select Sides
-        </h1>
-      </div>
+          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+            <h1
+              className="text-center"
+              style={{ marginBottom: "0px" }}
+            >
+              Sides Select
+            </h1>
+          </div>
       <Container>
         <Row>
           {sides.map((sides, index) => (
