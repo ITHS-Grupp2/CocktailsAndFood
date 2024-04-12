@@ -2,8 +2,8 @@ $font-stack: Helvetica, sans-serif;
 $main-font-color: #e9e9e9;
 $inline-font-color: #000000;
 $primary-color: #b60b0b;
-$button-color: #d7061e;
-$button-color-hover: #ff253e;
+$button-color: #3d7db8;
+$button-color-hover: #0d5ca7; 
 $accent-color: #eaeaea;
 $primary-background-color: #0D0C0C;
 $accent-background-color: #D9D9D9;
@@ -13,6 +13,7 @@ $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
 $light-background: #F4EAEA;
+$footer-background: #9F8C8C;
 
 .aboutUsBox{
   width: 25vw;
@@ -45,12 +46,15 @@ body {
 
 .footer {
   width: 100%;
-  background-color: $navbar-color;
+  background-color: $footer-background;
   display: flex;
   justify-content: space-around;
   color: white;
   padding: 15px;
+}
 
+.carousel-item{
+  overflow: hidden;
 }
 
 .cartItemListBox{

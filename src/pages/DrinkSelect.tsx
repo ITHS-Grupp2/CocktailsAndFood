@@ -26,14 +26,11 @@ export function DrinkSelect() {
   if (localStorage.getItem("burgerId") !== null) {
     return (
       <>
-          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-            <h1
-              className="text-center"
-              style={{ marginBottom: "0px" }}
-            >
-              Recommended Drink
-            </h1>
-          </div>
+        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+          <h1 className="text-center" style={{ marginBottom: "0px" }}>
+            Recommended Drink
+          </h1>
+        </div>
 
         <ProductInfo
           id={cocktail.id}
@@ -48,11 +45,11 @@ export function DrinkSelect() {
           motivation={recommendedDrink.motivation}
           quantity={1}
         ></ProductInfo>
-      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-        <h4 className="text-center" style={{ marginBottom: "0px" }}>
-          Other Drinks
-        </h4>
-      </div>
+        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+          <h4 className="text-center" style={{ marginBottom: "0px" }}>
+            Other Drinks
+          </h4>
+        </div>
         <div className="center-page-items">
           <CocktailPanel cocktails={cocktails} />
         </div>
@@ -61,14 +58,11 @@ export function DrinkSelect() {
   } else {
     return (
       <>
-          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-            <h1
-              className="text-center"
-              style={{ marginBottom: "0px" }}
-            >
-              Select Drink
-            </h1>
-          </div>
+        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+          <h1 className="text-center" style={{ marginBottom: "0px" }}>
+            Select Drink
+          </h1>
+        </div>
         <div className="center-page-items">
           <CocktailPanel cocktails={cocktails} />
         </div>

@@ -1,11 +1,13 @@
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Cocktail } from "../API/CocktailFetch";
+import { Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4,
+    items: 3,
     slidesToSlide: 1,
   },
   tablet: {
@@ -67,7 +69,16 @@ const cocktailUrl: Cocktail[] = [
 
 const DrinkCarousel = () => {
   return (
-    <div className="parent">
+    <div
+      className="parent"
+      style={{
+        width: "1090px",
+        height: "418.95px",
+        marginBottom: "50px",
+        paddingLeft: "14px",
+      }}
+    >
+      {" "}
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -75,30 +86,58 @@ const DrinkCarousel = () => {
         draggable={false}
         infinite={true}
         partialVisible={false}
-        transitionDuration={2000}
         removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-        centerMode={true}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={1900}
       >
         {cocktailUrl.map((imageUrl, index) => {
           return (
             <div
               key={index}
               style={{
-                width: "70%",
+                display: "flex",
+                flexWrap: "wrap",
+                flex: "0 0 33.3333%",
+                justifyContent: "space-evenly",
               }}
             >
-              {/* <Link to="/drinkselect">  */}
-              <img
-                src={imageUrl.img}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-              {/* </Link> */}
-              <h3>{`${imageUrl.name}`}</h3>
-              <p>$9.99</p>
+              <Col style={{ margin: "25px" }}>
+                <Card
+                  className="shadow"
+                  style={{
+                    width: "300px",
+                    overflow: "hidden",
+                    padding: "0px",
+                    margin: "5px",
+                  }}
+                >
+                  <div style={{ overflow: "hidden" }}>
+                    <img
+                      className="cardImage"
+                      src={imageUrl.img}
+                      style={{
+                        objectFit: "cover",
+                        height: "300px",
+                        width: "300px",
+                      }}
+                    />
+                  </div>
+
+                  <Card.Body
+                    className="d-flex flex-column mb-2"
+                    style={{ padding: "0px 10px", height: "3rem" }}
+                  >
+                    <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
+                      <span className="fs-5">{imageUrl.name}</span>
+                      <span
+                        className="text-muted align-self-end"
+                        style={{ minWidth: "4rem", textAlign: "right" }}
+                      >
+                        $9.99
+                      </span>
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
             </div>
           );
         })}
@@ -106,5 +145,4 @@ const DrinkCarousel = () => {
     </div>
   );
 };
-
 export default DrinkCarousel;

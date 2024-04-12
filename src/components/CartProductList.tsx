@@ -2,25 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import {
   CartContext,
   CartDispatchContext,
-  updateQuantity,
+  decrementQuantity,
+  incrementQuantity,
 } from "./CartContext";
-import { ShoppingAmount } from "./ShoppingAmount";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
-
   const dispatch = useContext(CartDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    let totalPrice = state.cartProducts.reduce(
+    const totalPrice = state.cartProducts.reduce(
       (total, cartProduct) => total + cartProduct.price * cartProduct.quantity,
       0
     );
     setTotalPrice(totalPrice);
   }, [state.cartProducts]);
-
+  // Till den som lägger till "x" knappen. Använd "removeFromCart" från CartContext"
   return (
     <>
       <Container>
@@ -46,15 +45,35 @@ export const CartProductList = () => {
                         {cartProduct.title}
                       </h6>
                       <p className="card-text">${cartProduct.price}</p>
-                      {/*När antalet ändras, anropas updateQuantity-funktionen i CartContext. */}
                       <div className="text-end" style={{ marginTop: "55px" }}>
-                        <ShoppingAmount
-                          productId={cartProduct.id}
-                          quantity={cartProduct.quantity}
-                          updateQuantity={(productId, newQuantity) => {
-                            updateQuantity(dispatch, productId, newQuantity);
-                          }}
-                        />
+                        <div className="flexDC">
+                          <Button
+                            onClick={() => {
+                              if (cartProduct.quantity !== 0) {
+                                decrementQuantity(dispatch, cartProduct.id);
+                              }
+                            }}
+                            className="cartProductAmountButton"
+                            style={{ borderRadius: "10px 0 0 0" }}
+                          >
+                            -
+                          </Button>
+                          <div className="amountBox">
+                            {cartProduct.quantity}
+                          </div>
+                          <Button
+                            onClick={() => {
+                              incrementQuantity(dispatch, cartProduct.id);
+                            }}
+                            className="cartProductAmountButton"
+                            style={{ borderRadius: "0 10px 0 0" }}
+                          >
+                            +
+                          </Button>
+                          <p style={{ marginTop: "15px", marginRight: "5px" }}>
+                            ${cartProduct.price * cartProduct.quantity}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
