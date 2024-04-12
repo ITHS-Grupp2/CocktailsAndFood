@@ -2,7 +2,6 @@ import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Cocktail } from "../API/CocktailFetch";
 import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const responsive = {
   desktop: {
