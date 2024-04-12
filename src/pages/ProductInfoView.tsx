@@ -10,14 +10,14 @@ export const ProductInfoView = () => {
 
   return (
     <>
-      <div
-        className="d-flex justify-content-center align-items-center divHeader shadow-sm my-3"
-        style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-      >
-        <h1 className="text-center" style={{ marginBottom: "0px" }}>
-          Product Info
-        </h1>
-      </div>
+          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+            <h1
+              className="text-center"
+              style={{ marginBottom: "0px" }}
+            >
+              Product Info
+            </h1>
+          </div>
       <ProductInfo
         id={singleCourse?._id}
         productType={singleCourse?.categories[0]}

@@ -34,7 +34,7 @@ export const ShoppingAmount = (props: {
 
   return (
     <>
-      <div>
+      <div className="flexDC">
         <Button
           onClick={() => {
             if (amount !== 1) {
@@ -43,22 +43,23 @@ export const ShoppingAmount = (props: {
               removeFromCart(dispatchCart, props.productId);
             }
           }}
-          style={{ marginRight: "15px" }}
-          className="rounded-circle"
+          className="cartProductAmountButton"
+          style={{ borderRadius: "10px 0 0 10px" }}
         >
           -
         </Button>
-        <span>{amount}</span>
+        <div className="amountBox">{amount}</div>
         <Button
           onClick={() => {
             dispatch({ type: ACTIONS.INCREMENT });
           }}
-          style={{ marginLeft: "15px" }}
-          className="rounded-circle"
+          className="cartProductAmountButton"
+          style={{ borderRadius: "0 10px 10px 0" }}
         >
           +
         </Button>
       </div>
+      <p style={{ marginTop: "15px", marginRight: "5px" }}>$240</p>
     </>
   );
 };

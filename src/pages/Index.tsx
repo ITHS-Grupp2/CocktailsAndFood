@@ -23,12 +23,12 @@ export const Index = () => {
           <VideoFriesComponent />
         </div>
         <div style={{ gridColumn: "2" }}>
-          <div
-            className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm mb-5"
-            style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-          >
-            <h1 className="text-center" style={{ marginBottom: "0px" }}>
-              Most popular burgers
+          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+            <h1
+              className="text-center"
+              style={{ marginBottom: "0px" }}
+            >
+              Most Popular Burgers
             </h1>
           </div>
           <div className="center-page-items mx-4">
@@ -45,7 +45,7 @@ export const Index = () => {
                 </Container>
               </Col>
             </Row>
-            <Container className="drinkHeader">
+            <Container className="headerSmaller">
               <h2>Drinks of the Month</h2>
             </Container>
             <Container>
