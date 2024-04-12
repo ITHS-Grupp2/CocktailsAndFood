@@ -69,7 +69,7 @@ import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { Link } from "react-router-dom";
 
 // Function to group items into arrays of given size
-const groupItems = (arr:MainResponse[], size:number) => {
+const groupItems = (arr: MainResponse[], size: number) => {
   const grouped = [];
   for (let i = 0; i < arr.length; i += size) {
     grouped.push(arr.slice(i, i + size));
@@ -106,23 +106,23 @@ export function MainComponent() {
                 }}
               >
                 <Link to={`/productinfoview/${course._id}`}>
-                <div style={{ overflow: "hidden" }}>
-                <img
-                  className="cardImage"
-                  src={course.imageUrl}
-                  style={{
-                    objectFit: "cover",
-                    height: "300px",
-                    width: "300px",
-                  }}
-                />
-              </div>
+                  <div style={{ overflow: "hidden" }}>
+                    <img
+                      className="cardImage"
+                      src={course.imageUrl}
+                      style={{
+                        objectFit: "cover",
+                        height: "300px",
+                        width: "300px",
+                      }}
+                    />
+                  </div>
                 </Link>
                 <Card.Body
                   className="d-flex flex-column mb-2"
                   style={{ padding: "0px 10px", height: "3rem" }}
                 >
-                  <Card.Title className="d-flex justify-content-between align-items-baseline mb-2">
+                  <Card.Title className="d-flex justify-content-between align-items-baseline mt-2">
                     <span className="fs-5">{course.title}</span>
                     <span
                       className="text-muted align-self-end"

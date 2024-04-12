@@ -24,10 +24,7 @@ export const Index = () => {
         </div>
         <div style={{ gridColumn: "2" }}>
           <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-            <h1
-              className="text-center"
-              style={{ marginBottom: "0px" }}
-            >
+            <h1 className="text-center" style={{ marginBottom: "0px" }}>
               Most Popular Burgers
             </h1>
           </div>
@@ -48,7 +45,7 @@ export const Index = () => {
             <Container className="headerSmaller">
               <h2>Drinks of the Month</h2>
             </Container>
-            <Container>
+            <Container style={{ marginTop: "30px" }}>
               <DrinkCarousel />
             </Container>
           </div>
