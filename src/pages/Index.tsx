@@ -27,7 +27,7 @@ export const Index = () => {
         <Container className="headerSmaller">
           <h2>Drinks of the Month</h2>
         </Container>
-        <Container>
+        <Container style={{ marginTop: "30px" }}>
           <DrinkCarousel />
         </Container>
       </div>

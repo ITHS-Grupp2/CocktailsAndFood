@@ -57,7 +57,7 @@ export function MainComponent() {
                   className="d-flex flex-column mb-2"
                   style={{ padding: "0px 10px", height: "3rem" }}
                 >
-                  <Card.Title className="d-flex justify-content-between align-items-baseline mb-2">
+                  <Card.Title className="d-flex justify-content-between align-items-baseline mt-2">
                     <span className="fs-5">{course.title}</span>
                     <span
                       className="text-muted align-self-end"
