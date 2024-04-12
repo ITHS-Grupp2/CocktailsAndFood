@@ -5,21 +5,18 @@ export const Navbar = () => {
     <nav className="navbar">
       <ul className="navbar-list">
         <p>Developer:</p>
-        <li className="navbar-item">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/productinfoview">Product Info</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/sideselect">Side Select</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/drinkselect">Drink Select</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/shoppingcart">Shopping Cart</Link>
-        </li>
+        <Link to="/">
+          <li className="navbar-item">Home</li>
+        </Link>
+        <Link to="/sideselect">
+          <li className="navbar-item">Side Select</li>
+        </Link>
+        <Link to="/drinkselect">
+          <li className="navbar-item">Drink Select</li>
+        </Link>
+        <Link to="/shoppingcart">
+          <li className="navbar-item">Shopping Cart</li>
+        </Link>
       </ul>
     </nav>
   );
@@ -30,12 +27,12 @@ export const LiveNavbar = () => {
     <>
       <nav className="navbar">
         <ul className="navbar-list">
-          <li className="navbar-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/about">About us</Link>
-          </li>
+          <Link to="/">
+            <li className="navbar-item">Home</li>
+          </Link>
+          <Link to="/about">
+            <li className="navbar-item">About us</li>
+          </Link>
         </ul>
       </nav>
     </>

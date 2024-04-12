@@ -26,10 +26,7 @@ export function DrinkSelect() {
   if (localStorage.getItem("burgerId") !== null) {
     return (
       <>
-        <div
-          className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
-          style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-        >
+        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
             Recommended Drink
           </h1>
@@ -48,13 +45,10 @@ export function DrinkSelect() {
           motivation={recommendedDrink.motivation}
           quantity={1}
         ></ProductInfo>
-        <div
-          className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
-          style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-        >
-          <h2 className="text-center" style={{ marginBottom: "0px" }}>
+        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+          <h4 className="text-center" style={{ marginBottom: "0px" }}>
             Other Drinks
-          </h2>
+          </h4>
         </div>
         <div className="center-page-items">
           <CocktailPanel cocktails={cocktails} />
@@ -64,10 +58,7 @@ export function DrinkSelect() {
   } else {
     return (
       <>
-        <div
-          className="d-flex justify-content-center align-items-center bg-light rounded shadow-sm my-3"
-          style={{ fontFamily: "Arial, sans-serif", height: "100px" }}
-        >
+        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
             Select Drink
           </h1>
