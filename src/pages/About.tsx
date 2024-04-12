@@ -104,8 +104,6 @@ export const About = () => {
             creating this insane burger-site just for your hungry needs.
             <br />
             <br />
-            <br />
-            <br />
             We can do backflips.
           </div>
         </Row>

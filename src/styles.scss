@@ -17,12 +17,12 @@ $footer-background: #9F8C8C;
 
 .aboutUsBox{
   width: 25vw;
-  height: 10vh;
+  height: 15vw;
   background-color: $header-color;
   margin: 30px 0px;
   color: $main-font-color;
   padding: 10px;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   border-radius: 20px;
   text-align: start;
   overflow: hidden;
@@ -41,8 +41,8 @@ body {
     rgba(2, 0, 36, 1) 0%,
     rgba(0, 0, 0, 1) 35%,
     rgba(70, 70, 70, 1) 100%
-  );
-}
+    );
+  }
 
 .footer {
   width: 100%;
@@ -58,7 +58,7 @@ body {
 }
 
 .cartItemListBox{
-  margin: 0vh 5vh;
+  width: 100%;
 }
 
 .cardItemList{
@@ -105,11 +105,25 @@ body {
   width: 40px;
   border-radius: 5px;
   border: none;
-}
+  margin-top: 80px
+  }
 
 .flexDC{
   display: flex;
   justify-content: end;
+}
+
+.emptyCartBox{
+  background-color: $light-background;
+  height: 400px;
+  min-width: 700px;
+  width: 100%;
+  max-width: 950px;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 180px;
+  color: $inline-font-color;
+  font-size: 3rem;
 }
 
 .amountBox{
@@ -118,6 +132,7 @@ body {
   background-color: #E6DCDC;
   padding: 10px;
   text-align: center;
+  margin-top: 80px
 }
 
 h1, h2 {

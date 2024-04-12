@@ -11,6 +11,7 @@ export const CartProductList = () => {
   const state = useContext(CartContext);
   const dispatch = useContext(CartDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
@@ -18,6 +19,12 @@ export const CartProductList = () => {
       0
     );
     setTotalPrice(totalPrice);
+
+    let itemsCount = state.cartProducts.reduce(
+      (total, cartProduct) => total + cartProduct.quantity,
+      0
+    );
+    setTotalItems(itemsCount);
   }, [state.cartProducts]);
   // Till den som lägger till "x" knappen. Använd "removeFromCart" från CartContext"
   return (
@@ -33,18 +40,31 @@ export const CartProductList = () => {
                     className="row mt-3"
                     style={{ borderBottom: "3px solid black" }}
                   >
-                    <div className="col-3" style={{ maxWidth: "200px" }}>
+                    <div
+                      className="col-3"
+                      style={{
+                        maxWidth: "950px",
+                        marginBottom: "20px",
+                        marginLeft: "8px",
+                      }}
+                    >
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
                         className="img-fluid"
+                        style={{
+                          borderRadius: "0.8rem",
+                        }}
                       />
                     </div>
                     <div className="col">
-                      <h6 className="card-subtitle mb-2">
+                      <h5
+                        className="card-subtitle mb-2"
+                        style={{ fontWeight: "700" }}
+                      >
                         {cartProduct.title}
-                      </h6>
-                      <p className="card-text">${cartProduct.price}</p>
+                      </h5>
+                      <h6 className="card-text">${cartProduct.price}</h6>
                       <div className="text-end" style={{ marginTop: "55px" }}>
                         <div className="flexDC">
                           <Button
@@ -54,7 +74,7 @@ export const CartProductList = () => {
                               }
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "10px 0 0 0" }}
+                            style={{ borderRadius: "10px 0 0 10px" }}
                           >
                             -
                           </Button>
@@ -66,14 +86,14 @@ export const CartProductList = () => {
                               incrementQuantity(dispatch, cartProduct.id);
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "0 10px 0 0" }}
+                            style={{ borderRadius: "0 10px 10px 0" }}
                           >
                             +
                           </Button>
-                          <p style={{ marginTop: "15px", marginRight: "5px" }}>
-                            ${cartProduct.price * cartProduct.quantity}
-                          </p>
                         </div>
+                        <p style={{ marginTop: "15px", marginRight: "5px" }}>
+                          ${cartProduct.price * cartProduct.quantity}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -84,7 +104,7 @@ export const CartProductList = () => {
                   className="text-end"
                   style={{ color: "white", marginRight: "30px" }}
                 >
-                  {state.cartProducts.length} products in cart | Total price: $
+                  {totalItems} products in cart | Total price: $
                   {totalPrice.toFixed(2)}
                 </h6>
               </div>
@@ -93,7 +113,9 @@ export const CartProductList = () => {
               </div>
             </div>
           ) : (
-            <p>Your cart is empty</p>
+            <div className="emptyCartBox">
+              <p>Your cart is empty</p>
+            </div>
           )}
         </div>
       </Container>
