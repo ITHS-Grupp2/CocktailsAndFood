@@ -18,45 +18,73 @@ export type CartState = {
 
 export type Action =
   | { type: "ADD_TO_CART"; payload: CartProduct }
-  | {
-      type: "UPDATE_QUANTITY";
-      payload: { productId: string; newQuantity: number };
-    }
-  | { type: "REMOVE_FROM_CART"; payload: string };
+  | { type: "REMOVE_FROM_CART"; payload: string }
+  | { type: "DECREMENT_QUANTITY"; payload: string }
+  | { type: "INCREMENT_QUANTITY"; payload: string };
 
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
 
-
-// TODO:
-// När man callar Add-to-cart, kolla om den redan finns i shoppingcart,
-// isåfall +1 quantity istället
-
-// 
-
-
 export const cartReducer = (state: CartState, action: Action) => {
   switch (action.type) {
+    // Om varan redan finns i varukorg, öka quantity. Annars lägg till
     case "ADD_TO_CART":
-      return {
-        ...state,
-        cartProducts: [...state.cartProducts, action.payload],
-      };
-    case "REMOVE_FROM_CART":
+      const existingProductIndex = state.cartProducts.findIndex(
+        (product) => product.id === action.payload.id
+      );
+      if (existingProductIndex !== -1) {
+        // Skapar en kopia av varukorg med den nya produkten och ersätter varukorgen igen
+        // Fråga inte varför men java being java så lägger den annars till 2.
+        // Det fungerar, dont question it :)
+        const updatedCartProducts = [...state.cartProducts];
+        const updatedProduct = { ...updatedCartProducts[existingProductIndex] };
+        updatedProduct.quantity += 1;
+        updatedCartProducts[existingProductIndex] = updatedProduct;
+        return {
+          ...state,
+          cartProducts: updatedCartProducts,
+        };
+      } else {
+        return {
+          ...state,
+          cartProducts: [
+            ...state.cartProducts,
+            { ...action.payload, quantity: 1 },
+          ],
+        };
+      }
+    case "REMOVE_FROM_CART": // Tar bort produkten från shoppingcarten
       return {
         ...state,
         cartProducts: state.cartProducts.filter(
           (product) => product.id !== action.payload
         ),
       };
-    case "UPDATE_QUANTITY":
+    case "DECREMENT_QUANTITY":
       return {
         ...state,
-        cartProducts: state.cartProducts.map((product) =>
-          product.id === action.payload.productId
-            ? { ...product, quantity: action.payload.newQuantity }
-            : product
-        ),
+        cartProducts: state.cartProducts.map((product) => {
+          if (product.id === action.payload) {
+            if (product.quantity > 0) {
+              return { ...product, quantity: product.quantity - 1 };
+            } else {
+              return product;
+            }
+          } else {
+            return product;
+          }
+        }),
+      };
+    case "INCREMENT_QUANTITY":
+      return {
+        ...state,
+        cartProducts: state.cartProducts.map((product) => {
+          if (product.id === action.payload) {
+            return { ...product, quantity: product.quantity + 1 };
+          } else {
+            return product;
+          }
+        }),
       };
     default:
       return state;
@@ -84,13 +112,19 @@ export const removeFromCart = (
   dispatch({ type: "REMOVE_FROM_CART", payload: productId });
 };
 
-// Skickar en handling till UPDATE_QUANTITY att mappa om nya siffran
-export const updateQuantity = (
+// Tar bort en i quantity sålänge quantity är mer än 0
+export const decrementQuantity = (
   dispatch: React.Dispatch<Action>,
-  productId: string,
-  newQuantity: number
+  productId: string
 ) => {
-  dispatch({ type: "UPDATE_QUANTITY", payload: { productId, newQuantity } });
+  dispatch({ type: "DECREMENT_QUANTITY", payload: productId });
+};
+
+export const incrementQuantity = (
+  dispatch: React.Dispatch<Action>,
+  productId: string
+) => {
+  dispatch({ type: "INCREMENT_QUANTITY", payload: productId });
 };
 
 // Nu finns bara children men är convention att alltid ha med props om man behöver fler.
