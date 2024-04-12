@@ -27,6 +27,14 @@ export type Action =
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
 
+
+// TODO:
+// När man callar Add-to-cart, kolla om den redan finns i shoppingcart,
+// isåfall +1 quantity istället
+
+// 
+
+
 export const cartReducer = (state: CartState, action: Action) => {
   switch (action.type) {
     case "ADD_TO_CART":
