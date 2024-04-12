@@ -14,7 +14,7 @@ export const CartProductList = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    let totalPrice = state.cartProducts.reduce(
+    const totalPrice = state.cartProducts.reduce(
       (total, cartProduct) => total + cartProduct.price * cartProduct.quantity,
       0
     );
