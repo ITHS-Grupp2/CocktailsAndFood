@@ -2,6 +2,7 @@ import { Card, Container, Row } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
+import { Link } from "react-router-dom";
 
 // Kommer användas för att skicka info till varukorgen //RE
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
@@ -23,14 +24,11 @@ export const SidesComponent = () => {
   const sides = FoodAPI("sides");
   return (
     <>
-          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-            <h1
-              className="text-center"
-              style={{ marginBottom: "0px" }}
-            >
-              Sides Select
-            </h1>
-          </div>
+      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+        <h1 className="text-center" style={{ marginBottom: "0px" }}>
+          Sides Select
+        </h1>
+      </div>
       <Container>
         <Row>
           {sides.map((sides, index) => (
@@ -76,6 +74,22 @@ export const SidesComponent = () => {
               ></NavigationButton>
             </Card>
           ))}
+          <Card
+            className="shadow"
+            style={{
+              width: "300px",
+              overflow: "hidden",
+              padding: "0px",
+              margin: "5px",
+              backgroundImage: `url('https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <Link to={`/drinkselect`}>
+              <div style={{ overflow: "hidden", height: "440px" }}></div>
+            </Link>
+          </Card>
         </Row>
       </Container>
     </>
