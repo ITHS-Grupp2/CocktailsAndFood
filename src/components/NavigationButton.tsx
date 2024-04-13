@@ -45,8 +45,7 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
           />
         </svg>
         <span style={{ paddingLeft: "10px" }}>
-          Price: ${buttonData.price} | Path:
-          {buttonData.navigationPath}
+          Price: ${buttonData.price}
         </span>
       </button>
     </Link>
