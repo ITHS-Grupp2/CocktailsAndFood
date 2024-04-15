@@ -2,6 +2,7 @@ import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Cocktail } from "../API/CocktailFetch";
 import { Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom"
 
 const responsive = {
   desktop: {
@@ -109,6 +110,7 @@ const DrinkCarousel = () => {
                     margin: "5px",
                   }}
                 >
+                  <Link to="/drinkselect">
                   <div style={{ overflow: "hidden" }}>
                     <img
                       className="cardImage"
@@ -120,7 +122,7 @@ const DrinkCarousel = () => {
                       }}
                     />
                   </div>
-
+                  </Link>
                   <Card.Body
                     className="d-flex flex-column mb-2"
                     style={{ padding: "0px 10px", height: "3rem" }}
@@ -131,7 +133,7 @@ const DrinkCarousel = () => {
                         className="text-muted align-self-end"
                         style={{ minWidth: "4rem", textAlign: "right" }}
                       >
-                        $9.99
+                        $9
                       </span>
                     </Card.Title>
                   </Card.Body>
