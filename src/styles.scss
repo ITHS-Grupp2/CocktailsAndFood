@@ -15,6 +15,14 @@ $navbar-color: #a17979;
 $light-background: #F4EAEA;
 $footer-background: #9F8C8C;
 
+.breadCrumbs{
+
+}
+
+.hightlight{
+color: greenyellow;
+}
+
 .aboutUsBox{
   width: 25vw;
   height: 15vw;
@@ -30,6 +38,10 @@ $footer-background: #9F8C8C;
 
 .text-start{
   text-align: start;
+}
+
+.navigationButtonFill{
+  width: 100%;
 }
 
 body {
@@ -316,4 +328,18 @@ button:active {
 
 .footer p{
   color: $inline-font-color;
+}
+
+
+/*For Breadcrumb*/
+.active {
+  font-size: large;
+  font-style: italic;
+  color: red; 
+  margin-right: 20px;
+}
+
+.inactive {
+  color: white; 
+  margin-right: 20px;
 }
