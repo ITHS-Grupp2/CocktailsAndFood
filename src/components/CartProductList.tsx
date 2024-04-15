@@ -4,8 +4,11 @@ import {
   CartDispatchContext,
   decrementQuantity,
   incrementQuantity,
+  removeFromCart,
 } from "./CartContext";
 import { Container, Button } from "react-bootstrap";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -54,6 +57,8 @@ export const CartProductList = () => {
                         className="img-fluid"
                         style={{
                           borderRadius: "0.8rem",
+                          opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                          transition: "opacity 0.15s",
                         }}
                       />
                     </div>
@@ -62,7 +67,17 @@ export const CartProductList = () => {
                         className="card-subtitle mb-2"
                         style={{ fontWeight: "700" }}
                       >
-                        {cartProduct.title}
+                        <span>
+                          {cartProduct.title}
+                          <button
+                            onClick={() => {
+                              removeFromCart(dispatch, cartProduct.id);
+                            }}
+                            className="removeFromCart"
+                          >
+                            <FontAwesomeIcon icon={faTrashCan} />
+                          </button>
+                        </span>
                       </h5>
                       <h6 className="card-text">${cartProduct.price}</h6>
                       <div className="text-end" style={{ marginTop: "55px" }}>
