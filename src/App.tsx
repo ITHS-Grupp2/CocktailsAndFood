@@ -22,8 +22,8 @@ function App() {
         <Header />
         <Navbar />
         <LiveNavbar />
-        <BreadCrumbs pageNumber={pageNumber} />
       </div>
+      <BreadCrumbs pageNumber={pageNumber} />
       <VideoWrapper>
         <Routes>
           <Route path="/" element={<Index />}></Route>

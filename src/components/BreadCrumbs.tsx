@@ -16,7 +16,7 @@ export const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ pageNumber }) => {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       {Object.entries(pageNames).map(([page, name]) => (
-        <p key={page} className={pageNumber === +page ? "active" : ""}>
+        <p key={page} className={pageNumber === +page ? "active" : "inactive"}>
           {name}
         </p>
       ))}

@@ -323,6 +323,12 @@ button:active {
 /*For Breadcrumb*/
 .active {
   font-size: large;
-  font-weight: bold; 
+  font-style: italic;
   color: red; 
+  margin-right: 20px;
+}
+
+.inactive {
+  color: white; 
+  margin-right: 20px;
 }
