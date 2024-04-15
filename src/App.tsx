@@ -10,14 +10,19 @@ import { SideSelect } from "./pages/SideSelect";
 import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 import { VideoWrapper } from "./components/VideoWrapper";
+import { BreadCrumbs } from "./components/BreadCrumbs";
+import { usePageNumber } from "./components/BreadCrumbsPageProvider";
 
 function App() {
+  const pageNumber = usePageNumber();
+
   return (
     <>
       <div id="header">
         <Header />
         <Navbar />
         <LiveNavbar />
+        <BreadCrumbs pageNumber={pageNumber} />
       </div>
       <VideoWrapper>
         <Routes>
@@ -25,7 +30,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/shoppingcart" element={<ShoppingCart />} />
           <Route path="/sideselect" element={<SideSelect />} />
-          {/* <Route path="/drinkselect" element={<DrinkSelect foodId={4} />} /> */}
           <Route
             path="/productinfoview/:mealId"
             element={<ProductInfoView />}
