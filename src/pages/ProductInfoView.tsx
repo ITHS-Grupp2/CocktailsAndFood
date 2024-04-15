@@ -10,14 +10,11 @@ export const ProductInfoView = () => {
 
   return (
     <>
-          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-            <h1
-              className="text-center"
-              style={{ marginBottom: "0px" }}
-            >
-              Product Info
-            </h1>
-          </div>
+      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+        <h1 className="text-center" style={{ marginBottom: "0px" }}>
+          Product Info
+        </h1>
+      </div>
       <ProductInfo
         id={singleCourse?._id}
         productType={singleCourse?.categories[0]}
