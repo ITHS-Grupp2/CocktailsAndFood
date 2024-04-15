@@ -30,7 +30,7 @@ const getPathFill = (fill: string) => {
 const getSize = (size: Size) => {
   switch (size) {
     case "Large":
-      return "33px";
+      return "40px";
     case "Medium":
       return "25px";
     case "Small":
