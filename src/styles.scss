@@ -135,6 +135,17 @@ body {
   margin-top: 80px
 }
 
+.removeFromCart{
+  float: right;
+  background-color: rgb(203, 0, 0);
+  padding: 12px;
+  font-size: x-large;
+}
+
+.removeFromCart:hover{
+  background-color: rgb(172, 0, 0);
+}
+
 h1, h2 {
   color: $main-font-color;
 }
