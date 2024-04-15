@@ -15,6 +15,7 @@ export const CartProductList = () => {
   const dispatch = useContext(CartDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
@@ -29,7 +30,6 @@ export const CartProductList = () => {
     );
     setTotalItems(itemsCount);
   }, [state.cartProducts]);
-  // Till den som lägger till "x" knappen. Använd "removeFromCart" från CartContext"
   return (
     <>
       <Container>
@@ -71,7 +71,10 @@ export const CartProductList = () => {
                           {cartProduct.title}
                           <button
                             onClick={() => {
-                              removeFromCart(dispatch, cartProduct.id);
+                              setFadeOut(true); // Start the fading animation
+                              setTimeout(() => {
+                                removeFromCart(dispatch, cartProduct.id);
+                              }, 1000); // Delay of one second (1000 milliseconds)
                             }}
                             className="removeFromCart"
                           >

@@ -317,3 +317,8 @@ button:active {
 .footer p{
   color: $inline-font-color;
 }
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Adjust the duration and easing as needed */
+}
