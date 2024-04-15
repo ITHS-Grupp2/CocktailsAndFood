@@ -57,6 +57,8 @@ export const CartProductList = () => {
                         className="img-fluid"
                         style={{
                           borderRadius: "0.8rem",
+                          opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                          transition: "opacity 0.15s",
                         }}
                       />
                     </div>
