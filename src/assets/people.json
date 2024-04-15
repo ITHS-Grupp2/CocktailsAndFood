@@ -4,43 +4,43 @@
       "firstName": "Hao",
       "lastName": "Nguyen",
       "nickName": "Hans Nygren",
-      "img": "https://imgur.com/hChTwj9"
+      "img": "https://imgur.com/hChTwj9.jpg"
     },
     {
       "firstName": "Rikard",
       "lastName": "Edlund",
       "nickName": "GPT-doktorn",
-      "img": "https://imgur.com/cyzToCz"
+      "img": "https://i.imgur.com/cyzToCz.png"
     },
     {
       "firstName": "Walter",
       "lastName": "Sonnesjö",
       "nickName": "Tech Gun - Woose",
-      "img": "https://imgur.com/iYlZhVe"
+      "img": "https://i.imgur.com/iYlZhVe.jpg"
     },
     {
       "firstName": "Anna",
       "lastName": "Lindroos",
       "nickName": "Hanna",
-      "img": "https://imgur.com/Cg9Fc2S"
+      "img": "https://i.imgur.com/Cg9Fc2S.png"
     },
     {
       "firstName": "Alexander",
       "lastName": "Råsberg",
       "nickName": "Fni(c)ss",
-      "img": "https://imgur.com/kRRvVvm"
+      "img": "https://i.imgur.com/kRRvVvm.png"
     },
     {
       "firstName": "Caroline",
       "lastName": "Rebane",
       "nickName": "Nollan",
-      "img": "https://imgur.com/paW0Ece"
+      "img": "https://i.imgur.com/paW0Ece.jpg"
     },
     {
       "firstName": "Jonathan",
       "lastName": "Larsson",
       "nickName": "Dev-Jonte aka Joel",
-      "img": "https://imgur.com/CN2s53T"
+      "img": "https://i.imgur.com/CN2s53T.jpg"
     }
   ],
   "projectLeaders": [
@@ -48,14 +48,14 @@
       "firstName": "Josefine",
       "lastName": "Khazaal",
       "nickName": "Egghead",
-      "img": "https://imgur.com/BLwKrYM"
+      "img": "https://i.imgur.com/BLwKrYM.jpg"
     },
     {
       "firstName": "Alexander",
       "lastName": "Persson",
       "nickName": "The more you eat, the harder you're to kidnap. Stay safe.",
-      "img": "https://imgur.com/CMvFbtw"
+      "img": "https://i.imgur.com/CMvFbtw.png"
     },
-    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "",       "img": "https://imgur.com/Vb6JUrL" }
+    { "firstName": "Sina", "lastName": "Borzoo", "nickName": "",       "img": "https://i.imgur.com/Vb6JUrL.jpg" }
   ]
 }
