@@ -59,12 +59,6 @@ export const SidesComponent = () => {
               >
                 <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
                   <span className="fs-5 ">{sides.title} </span>
-                  <span
-                    className="text-muted align-self-end"
-                    style={{ minWidth: "4rem", textAlign: "right" }}
-                  >
-                    ${sides.price}
-                  </span>
                 </Card.Title>
               </Card.Body>
               <NavigationButton
@@ -87,7 +81,7 @@ export const SidesComponent = () => {
             }}
           >
             <Link to={`/drinkselect`}>
-              <div style={{ overflow: "hidden", height: "440px" }}></div>
+              <div style={{ overflow: "hidden", height: "300px" }}></div>
             </Link>
           </Card>
         </Row>

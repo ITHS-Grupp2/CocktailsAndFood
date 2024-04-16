@@ -1,7 +1,30 @@
 import { Card, Container } from "react-bootstrap";
 import { Cocktail, price } from "../API/CocktailFetch";
-import { NavigationButton } from "./NavigationButton";
+import { NavigationButton, NavigationPath } from "./NavigationButton";
 import { GetPercentage } from "../services/CocktailInfoService";
+import { ProductInfoData } from "./ProductInfo";
+
+export type CocktailInfoData = {
+  id: string;
+  price: number;
+  navigationPath: NavigationPath;
+  cocktail: Cocktail;
+};
+
+// Kommer användas för att skicka info till varukorgen //RE
+const convertToProductInfoData = (cocktail: Cocktail): ProductInfoData => {
+  return {
+    id: cocktail.id,
+    productType: "drink",
+    title: cocktail.name,
+    imgSrc: cocktail.img,
+    ingredients: cocktail.ingredients,
+    information: cocktail.instructions,
+    price: price,
+    navigationPath: "/drinkselect",
+    quantity: 1,
+  };
+};
 
 export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
   return (
@@ -32,13 +55,6 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
         >
           <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
             <span className="fs-5">{data.cocktail.name}</span>
-            {/* Spannet kan inte ha för lång text utan mellanrum, då "väller" det ut */}
-            <span
-              className="text-muted align-self-end"
-              style={{ minWidth: "4rem", textAlign: "right" }}
-            >
-              ${price}
-            </span>
           </Card.Title>
           <Card.Subtitle>
             <p>
@@ -46,7 +62,11 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
             </p>
           </Card.Subtitle>
         </Card.Body>
-        <NavigationButton navigationPath="/shoppingcart"></NavigationButton>
+        <NavigationButton
+          productInfo={convertToProductInfoData(data.cocktail)}
+          price={price}
+          navigationPath="/shoppingcart"
+        ></NavigationButton>
       </Card>
     </Container>
   );
