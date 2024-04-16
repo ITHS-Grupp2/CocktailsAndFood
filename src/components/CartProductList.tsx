@@ -15,7 +15,7 @@ export const CartProductList = () => {
   const dispatch = useContext(CartDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [deletingItemId, setDeletingItemId] = useState<string | null>(null);
 
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
@@ -30,6 +30,7 @@ export const CartProductList = () => {
     );
     setTotalItems(itemsCount);
   }, [state.cartProducts]);
+
   return (
     <>
       <Container>
@@ -40,7 +41,9 @@ export const CartProductList = () => {
                 {state.cartProducts.map((cartProduct, index) => (
                   <div
                     key={index}
-                    className="row mt-3"
+                    className={`row mt-3 ${
+                      deletingItemId === cartProduct.id ? "fadeOut" : ""
+                    }`}
                     style={{ borderBottom: "3px solid black" }}
                   >
                     <div
@@ -71,10 +74,11 @@ export const CartProductList = () => {
                           {cartProduct.title}
                           <button
                             onClick={() => {
-                              setFadeOut(true); // Start the fading animation
+                              setDeletingItemId(cartProduct.id);
                               setTimeout(() => {
                                 removeFromCart(dispatch, cartProduct.id);
-                              }, 1000); // Delay of one second (1000 milliseconds)
+                                setDeletingItemId(null);
+                              }, 750);
                             }}
                             className="removeFromCart"
                           >
