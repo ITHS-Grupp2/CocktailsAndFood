@@ -2,8 +2,9 @@ import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Cocktail } from "../API/CocktailFetch";
 import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
+// Anpassar antal cocktails som visas i karusellen utefter skärmens upplösning
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -22,6 +23,7 @@ const responsive = {
   },
 };
 
+// En array av Cocktails med tillhörande bild och namn, samt andra nödvändiga properties
 const cocktailUrl: Cocktail[] = [
   {
     img: "https://www.thecocktaildb.com/images/media/drink/mx31hv1487602979.jpg",
@@ -67,6 +69,7 @@ const cocktailUrl: Cocktail[] = [
   },
 ];
 
+// Komponent för att rendera en karusell med cocktail-kort
 const DrinkCarousel = () => {
   return (
     <div
@@ -78,7 +81,7 @@ const DrinkCarousel = () => {
         paddingLeft: "14px",
       }}
     >
-      {" "}
+      {/* React-multi-carousel properties som bestämmer karusellens egenskaper */}
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -89,6 +92,7 @@ const DrinkCarousel = () => {
         removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
         autoPlaySpeed={1900}
       >
+        {/* Mappar cocktail-arrayen för att visa cocktail-kort*/}
         {cocktailUrl.map((imageUrl, index) => {
           return (
             <div
@@ -110,23 +114,25 @@ const DrinkCarousel = () => {
                     margin: "5px",
                   }}
                 >
+                  {/* Gör varje cocktail-kort klickbart, navigerar till cocktail-val-sidan */}
                   <Link to="/drinkselect">
-                  <div style={{ overflow: "hidden" }}>
-                    <img
-                      className="cardImage"
-                      src={imageUrl.img}
-                      style={{
-                        objectFit: "cover",
-                        height: "300px",
-                        width: "300px",
-                      }}
-                    />
-                  </div>
+                    <div style={{ overflow: "hidden" }}>
+                      <img
+                        className="cardImage"
+                        src={imageUrl.img}
+                        style={{
+                          objectFit: "cover",
+                          height: "300px",
+                          width: "300px",
+                        }}
+                      />
+                    </div>
                   </Link>
                   <Card.Body
                     className="d-flex flex-column mb-2"
                     style={{ padding: "0px 10px", height: "3rem" }}
                   >
+                    {/* Visar cocktailens namn och pris */}
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
                       <span className="fs-5">{imageUrl.name}</span>
                       <span
