@@ -46,6 +46,7 @@ export const SidesComponent = () => {
                 <img
                   className="cardImage"
                   src={sides.imageUrl}
+                  alt={`${sides.title}`}
                   style={{
                     objectFit: "cover",
                     height: "300px",

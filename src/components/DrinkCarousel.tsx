@@ -120,6 +120,7 @@ const DrinkCarousel = () => {
                       <img
                         className="cardImage"
                         src={imageUrl.img}
+                        alt={`${imageUrl.name}`}
                         style={{
                           objectFit: "cover",
                           height: "300px",

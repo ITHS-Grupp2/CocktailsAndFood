@@ -31,6 +31,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                     ? "https://placehold.co/400x400"
                     : data.imgSrc
                 }
+                alt={`${data.title}`}
                 style={{ width: "400px", height: "400px" }}
               ></img>
             </div>

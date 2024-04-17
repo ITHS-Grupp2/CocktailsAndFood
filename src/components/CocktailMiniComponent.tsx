@@ -43,6 +43,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
           <img
             className="cardImage"
             src={data.cocktail.img}
+            alt={`${data.cocktail.name}`}
             style={{
               objectFit: "cover",
               height: "300px",
