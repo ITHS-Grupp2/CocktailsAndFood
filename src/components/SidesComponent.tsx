@@ -4,7 +4,7 @@ import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
 import { Link } from "react-router-dom";
 
-// Sends information to cart 
+// Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   return {
     id: side._id,
@@ -46,13 +46,12 @@ export const SidesComponent = () => {
                   <img
                     className="cardImage"
                     src={side.imageUrl}
-                    alt={`${sides.title}`}
-                  style={{
+                    alt={`${side.title}`}
+                    style={{
                       objectFit: "cover",
                       height: "300px",
                       width: "100%",
                     }}
-                    alt={side.title}
                   />
                 </div>
                 <Card.Body
@@ -73,7 +72,7 @@ export const SidesComponent = () => {
           ))}
           <Col xs={12} sm={6} md={6} lg={4} xl={4}>
             {/*A No-Sides card that takes you to drinks*/}
-          <Card
+            <Card
               className="shadow"
               style={{
                 maxHeight: "411px",
