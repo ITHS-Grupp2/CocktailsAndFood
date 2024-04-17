@@ -41,15 +41,19 @@ export const CartProductList = () => {
                 {state.cartProducts.map((cartProduct, index) => (
                   <div
                     key={index}
-                    className={`row mt-3 ${
+                    className={`row ${
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     }`}
-                    style={{ borderBottom: "3px solid black" }}
+                    style={{
+                      borderBottom: "3px solid black",
+                      width: "878px",
+                      marginTop: "20px",
+                    }}
                   >
                     <div
                       className="col-3"
                       style={{
-                        maxWidth: "950px",
+                        maxWidth: "900px",
                         marginBottom: "20px",
                         marginLeft: "8px",
                       }}
