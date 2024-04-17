@@ -80,7 +80,7 @@ export const SidesComponent = () => {
                 backgroundImage: `url('https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "300px",
+                height: "100%",
               }}
             >
               <Link to={`/drinkselect`}>
