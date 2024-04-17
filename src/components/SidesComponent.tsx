@@ -74,13 +74,15 @@ export const SidesComponent = () => {
             <Card
               className="shadow"
               style={{
+                maxHeight: "411px",
+                height: "100%",
+                width: "100%",
                 overflow: "hidden",
-                padding: "0px",
+                maxWidth: "403px",
                 margin: "5px",
                 backgroundImage: `url('https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "100%",
               }}
             >
               <Link to={`/drinkselect`}>
