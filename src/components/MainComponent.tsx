@@ -45,6 +45,7 @@ export function MainComponent() {
                     <img
                       className="cardImage"
                       src={course.imageUrl}
+                      alt={`${course.title}`}
                       style={{
                         objectFit: "cover",
                         height: "300px",
