@@ -2,7 +2,7 @@ import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Cocktail } from "../API/CocktailFetch";
 import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const responsive = {
   desktop: {
@@ -111,17 +111,18 @@ const DrinkCarousel = () => {
                   }}
                 >
                   <Link to="/drinkselect">
-                  <div style={{ overflow: "hidden" }}>
-                    <img
-                      className="cardImage"
-                      src={imageUrl.img}
-                      style={{
-                        objectFit: "cover",
-                        height: "300px",
-                        width: "300px",
-                      }}
-                    />
-                  </div>
+                    <div style={{ overflow: "hidden" }}>
+                      <img
+                        className="cardImage"
+                        src={imageUrl.img}
+                        alt={`${imageUrl.name}`}
+                        style={{
+                          objectFit: "cover",
+                          height: "300px",
+                          width: "300px",
+                        }}
+                      />
+                    </div>
                   </Link>
                   <Card.Body
                     className="d-flex flex-column mb-2"
