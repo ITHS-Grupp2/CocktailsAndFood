@@ -2,6 +2,8 @@ type FillColor = "white" | "blue";
 type Icon = "Cart";
 type Size = "Small" | "Medium" | "Large";
 
+// Icons and sizes for special icons (Cart etc)
+
 export const GetIcon = (icon: Icon, color: FillColor, size: Size) => {
   let sizePx = getSize(size);
   return (
@@ -10,7 +12,8 @@ export const GetIcon = (icon: Icon, color: FillColor, size: Size) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 576 512"
         width={sizePx}
-        height={sizePx}>
+        height={sizePx}
+      >
         <path fill={getPathFill(color)} d={getPathD(icon)} />
       </svg>
     </>

@@ -11,7 +11,7 @@ export type CocktailInfoData = {
   cocktail: Cocktail;
 };
 
-// Kommer användas för att skicka info till varukorgen //RE
+// Changes Cocktail to a ProductInfoData so it can be used in NavigationButton and the Cart.
 const convertToProductInfoData = (cocktail: Cocktail): ProductInfoData => {
   return {
     id: cocktail.id,
@@ -26,6 +26,7 @@ const convertToProductInfoData = (cocktail: Cocktail): ProductInfoData => {
   };
 };
 
+// The component for a single drink of the non-recommended drinks on the CocktailPanel (DrinkSelect page)
 export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
   return (
     <Container>

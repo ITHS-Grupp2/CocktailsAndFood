@@ -1,7 +1,5 @@
 import { NavigationPath, NavigationButton } from "./NavigationButton";
 
-// export type ProductType = "Cocktail" | "Main" | "Sides";
-
 export type ProductInfoData = {
   id: string;
   productType: string;
@@ -16,6 +14,7 @@ export type ProductInfoData = {
   quantity: number;
 };
 
+// A generic info page that takes in parameter data with type ProductInfoData and displays a specific product
 export const ProductInfo = (data: ProductInfoData) => {
   return (
     <>
@@ -50,7 +49,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                   <strong>More Information</strong>
                   <br />
                   <p>{data?.information}</p>
-
+                  {/*If the product has the type motivation and percentage then it will display that data*/}  
                   {data?.motivation != null ? (
                     <div>
                       <p>{data?.motivation}</p>

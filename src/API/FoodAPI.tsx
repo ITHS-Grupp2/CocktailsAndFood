@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// Skapar en Mat-typ vars properties matchar det som kommer från API:et
 export type MainResponse = {
   _id: string;
   title: string;
@@ -11,11 +10,10 @@ export type MainResponse = {
   ingredients: string[];
 };
 
-// Funktion för att hämta flera hamburgare eller sides från API:et
+// API call to get all Mains or Sides depending on foodType.
 export const FoodAPI = (foodType: string): MainResponse[] => {
   const [food, setFood] = useState<MainResponse[]>([]);
 
-  // Körs för att hämta sides samt hamburgare
   useEffect(() => {
     const fetchFood = async () => {
       const response = (
@@ -31,7 +29,7 @@ export const FoodAPI = (foodType: string): MainResponse[] => {
   return food;
 };
 
-// Funktion för att hämta data från EN rätt baserat på id
+// API call to get a single Main or Side.
 export const SingleFoodAPI = (recipeID: string): MainResponse => {
   const [food, setFood] = useState<MainResponse>({
     _id: "",
@@ -50,6 +48,7 @@ export const SingleFoodAPI = (recipeID: string): MainResponse => {
       );
       const foodResponse: MainResponse = await response.json();
       const ingredientNames: string[] = foodResponse.ingredients.map(
+        // ts-ignore due to ingredient.(name) being Any. We dont want to change it due to how ProductInfoData works
         //@ts-ignore
         (ingredient) => ingredient.name
       );

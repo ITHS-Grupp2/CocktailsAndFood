@@ -10,11 +10,8 @@ import { SideSelect } from "./pages/SideSelect";
 import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 import { VideoWrapper } from "./components/VideoWrapper";
-import { BreadCrumbs } from "./components/BreadCrumbs";
-import { usePageNumber } from "./components/BreadCrumbsPageProvider";
 
 function App() {
-  const pageNumber = usePageNumber();
 
   return (
     <>
@@ -22,7 +19,6 @@ function App() {
         <Header />
         <LiveNavbar />
       </div>
-      <BreadCrumbs pageNumber={pageNumber} />
       <VideoWrapper>
         <Routes>
           <Route path="/" element={<Index />}></Route>

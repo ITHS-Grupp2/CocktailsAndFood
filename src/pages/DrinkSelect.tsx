@@ -5,8 +5,6 @@ import {
   cocktailIdArray,
   MatchDrinkService,
 } from "../services/CocktailInfoService";
-// Våra valda drinkar:
-// const idArray = [12752, 178342, 12402, 11003, 11410, 14167];
 
 export function DrinkSelect() {
   const foodId = localStorage.getItem("burgerId") as string;

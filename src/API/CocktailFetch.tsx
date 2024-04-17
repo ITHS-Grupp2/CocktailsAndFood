@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// Skapar en Cocktail-typ vars properties matchar det som kommer från API:et
 export type Cocktail = {
   id: string;
   name: string;
@@ -9,10 +8,10 @@ export type Cocktail = {
   instructions: string;
 };
 
-//Hårdkodat pris för en cocktail
+// Hardcoded price for a drink.
 export const price: number = 9;
 
-// Funktion för att hämta cocktaildata från ett API baserat på drinkid
+// Gets the CocktailData from the API based on drinkid
 export const CocktailFetch = (drinkid: string): Cocktail => {
   const [cocktail, setCocktail] = useState<Cocktail>({
     id: "",
@@ -22,7 +21,6 @@ export const CocktailFetch = (drinkid: string): Cocktail => {
     instructions: "",
   });
 
-  // Körs för att hämta cocktaildata
   useEffect(() => {
     const fetchCocktail = async () => {
       const response = (
@@ -33,7 +31,7 @@ export const CocktailFetch = (drinkid: string): Cocktail => {
       const cocktailResponse = await response;
       const fetchedDrink = cocktailResponse.drinks[0];
 
-      // Skapar en Cocktail från den hämtade datan
+      // Creates a Cocktail from the response
       const ProperCocktail: Cocktail = {
         id: fetchedDrink.idDrink,
         name: fetchedDrink.strDrink,
@@ -50,8 +48,9 @@ export const CocktailFetch = (drinkid: string): Cocktail => {
   return cocktail;
 };
 
-// Funktion för att hämta ingredienser från cocktails
-// Varje cocktail har upp till 15 ingredienser, loopar tills det inte finns någon ingrediens kvar att hämta
+// Gets the ingredients from a Cocktail.
+// Each cocktail comes wtih up to 15 ingredients from the API
+// Loops until an incredient is null and adds every ingredient to the array
 const getIngredients = (drink: any): string[] => {
   const ingredientsTemp = [];
   for (let i = 1; i <= 15; i++) {

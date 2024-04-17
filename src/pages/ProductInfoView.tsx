@@ -3,9 +3,8 @@ import { SingleFoodAPI } from "../API/FoodAPI";
 import { ProductInfo } from "../components/ProductInfo";
 
 export const ProductInfoView = () => {
-  // const matID = "65fd97b729f983c33c7eca9e"
   const { mealId } = useParams();
-  const id = mealId ?? ""; // Om mealId är tomt - navigera till error-page? Just nu blir de tom sträng.
+  const id = mealId ?? ""; 
   const singleCourse = SingleFoodAPI(id);
 
   return (
