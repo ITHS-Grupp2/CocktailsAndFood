@@ -3,12 +3,14 @@ import {
   CartContext,
   CartDispatchContext,
   decrementQuantity,
+  emptyCart,
   incrementQuantity,
   removeFromCart,
 } from "./CartContext";
 import { Container, Button } from "react-bootstrap";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -138,7 +140,16 @@ export const CartProductList = () => {
                 </h6>
               </div>
               <div className="text-end">
-                <button className="cartProductCheckoutButton">Pay</button>
+                <Link to={`/orderconfirmation`}>
+                  <button
+                    className="cartProductCheckoutButton"
+                    onClick={() => {
+                      emptyCart(dispatch);
+                    }}
+                  >
+                    Pay
+                  </button>
+                </Link>
               </div>
             </div>
           ) : (

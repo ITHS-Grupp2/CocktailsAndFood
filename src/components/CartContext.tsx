@@ -20,7 +20,8 @@ export type Action =
   | { type: "ADD_TO_CART"; payload: CartProduct }
   | { type: "REMOVE_FROM_CART"; payload: string }
   | { type: "DECREMENT_QUANTITY"; payload: string }
-  | { type: "INCREMENT_QUANTITY"; payload: string };
+  | { type: "INCREMENT_QUANTITY"; payload: string }
+  | { type: "EMPTY_CART" };
 
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
@@ -88,6 +89,11 @@ export const cartReducer = (state: CartState, action: Action) => {
           }
         }),
       };
+    case "EMPTY_CART": // Empties the cart when the pay button is pressed.
+      return {
+        ...state,
+        cartProducts: [],
+      };
     default:
       return state;
   }
@@ -126,6 +132,10 @@ export const incrementQuantity = (
   productId: string
 ) => {
   dispatch({ type: "INCREMENT_QUANTITY", payload: productId });
+};
+
+export const emptyCart = (dispatch: React.Dispatch<Action>) => {
+  dispatch({ type: "EMPTY_CART" });
 };
 
 // Right now theres only the children props but convention is to always have a x-ProviderProps incase u need to add more later.
