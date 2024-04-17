@@ -4,7 +4,7 @@ import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
 import { Link } from "react-router-dom";
 
-// Kommer användas för att skicka info till varukorgen //RE
+// Sends information to cart 
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   return {
     id: side._id,
@@ -19,7 +19,7 @@ const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   };
 };
 
-// En funktion som hämtar alla sides och populerar data-variabeln med dessa.
+// A function that fetches all Sides-data from FoodAPI and populates the cards with its data
 export const SidesComponent = () => {
   const sides = FoodAPI("sides");
   return (
@@ -46,7 +46,8 @@ export const SidesComponent = () => {
                   <img
                     className="cardImage"
                     src={side.imageUrl}
-                    style={{
+                    alt={`${sides.title}`}
+                  style={{
                       objectFit: "cover",
                       height: "300px",
                       width: "100%",
@@ -71,7 +72,8 @@ export const SidesComponent = () => {
             </Col>
           ))}
           <Col xs={12} sm={6} md={6} lg={4} xl={4}>
-            <Card
+            {/*A No-Sides card that takes you to drinks*/}
+          <Card
               className="shadow"
               style={{
                 maxHeight: "411px",

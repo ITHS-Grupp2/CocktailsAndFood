@@ -5,6 +5,7 @@ type VideoProviderProps = {
   children: ReactNode;
 };
 
+// VideoWrapper wraps its children with VideoFroesComponent 
 export const VideoWrapper: React.FC<VideoProviderProps> = ({ children }) => {
   return (
     <div

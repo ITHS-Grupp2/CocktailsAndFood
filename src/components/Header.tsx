@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { GetIcon } from "./Icons";
+
+// Header that navigates to Home- and ShoppingCart pages when clicked.
 export const Header = () => {
   return (
     <>
