@@ -14,13 +14,14 @@ type NavigationButtonData = {
   navigationPath?: NavigationPath;
   id?: string;
   price?: number;
-  productInfo?: ProductInfoData;
+  productInfo?: ProductInfoData; // Used to add the product to the cart
 };
 
 export const NavigationButton = (buttonData: NavigationButtonData) => {
   const { navigationPath, productInfo } = buttonData;
   const dispatch = useContext(CartDispatchContext);
 
+  // Adds the product to the cart and remembers which burger is clicked
   const handleAddToCart = () => {
     if (productInfo) {
       addToCart(dispatch, productInfo);

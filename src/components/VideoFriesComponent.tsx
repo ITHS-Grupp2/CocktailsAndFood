@@ -1,5 +1,6 @@
 import FriesVideo from "../videos/Fries.mp4";
 
+// Displays FriesVideo from source
 export const VideoFriesComponent = () => {
   return (
     <div

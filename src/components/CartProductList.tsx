@@ -15,8 +15,11 @@ export const CartProductList = () => {
   const dispatch = useContext(CartDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+
+  // Used for an animation when a product is deleted from the Cart
   const [deletingItemId, setDeletingItemId] = useState<string | null>(null);
 
+  // Used to show the total price and total amount of products in the Cart
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
       (total, cartProduct) => total + cartProduct.price * cartProduct.quantity,
