@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { SingleFoodAPI } from "../API/FoodAPI";
 import { ProductInfo } from "../components/ProductInfo";
+import { PageTracker } from "../services/PageHistoryService";
 
 export const ProductInfoView = () => {
   // const matID = "65fd97b729f983c33c7eca9e"
@@ -10,6 +11,7 @@ export const ProductInfoView = () => {
 
   return (
     <>
+      {PageTracker()}
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Product Info

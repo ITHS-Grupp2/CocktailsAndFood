@@ -20,7 +20,7 @@ export const CartProductList = () => {
     );
     setTotalPrice(totalPrice);
 
-    let itemsCount = state.cartProducts.reduce(
+    const itemsCount = state.cartProducts.reduce(
       (total, cartProduct) => total + cartProduct.quantity,
       0
     );
@@ -38,16 +38,14 @@ export const CartProductList = () => {
                   <div
                     key={index}
                     className="row mt-3"
-                    style={{ borderBottom: "3px solid black" }}
-                  >
+                    style={{ borderBottom: "3px solid black" }}>
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "950px",
                         marginBottom: "20px",
                         marginLeft: "8px",
-                      }}
-                    >
+                      }}>
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
@@ -60,8 +58,7 @@ export const CartProductList = () => {
                     <div className="col">
                       <h5
                         className="card-subtitle mb-2"
-                        style={{ fontWeight: "700" }}
-                      >
+                        style={{ fontWeight: "700" }}>
                         {cartProduct.title}
                       </h5>
                       <h6 className="card-text">${cartProduct.price}</h6>
@@ -74,8 +71,7 @@ export const CartProductList = () => {
                               }
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "10px 0 0 10px" }}
-                          >
+                            style={{ borderRadius: "10px 0 0 10px" }}>
                             -
                           </Button>
                           <div className="amountBox">
@@ -86,8 +82,7 @@ export const CartProductList = () => {
                               incrementQuantity(dispatch, cartProduct.id);
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "0 10px 10px 0" }}
-                          >
+                            style={{ borderRadius: "0 10px 10px 0" }}>
                             +
                           </Button>
                         </div>
@@ -102,8 +97,7 @@ export const CartProductList = () => {
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "white", marginRight: "30px" }}
-                >
+                  style={{ color: "white", marginRight: "30px" }}>
                   {totalItems} products in cart | Total price: $
                   {totalPrice.toFixed(2)}
                 </h6>

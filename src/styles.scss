@@ -142,6 +142,7 @@ h1, h2 {
 .h1Header {
   color: $main-font-color;
   font-weight: bold; 
+  margin:  0 4rem 0 4rem;
 }
 
 .headerTotal {
@@ -168,8 +169,6 @@ h1, h2 {
 }
 
 .shoppingIcon {
-  position: relative;
-  left: 100px;
   transition-duration: 0.4s;
 }
 
