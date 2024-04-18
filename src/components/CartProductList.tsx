@@ -80,7 +80,13 @@ export const CartProductList = () => {
                         style={{ fontWeight: "700" }}
                       >
                         <span>
-                          {cartProduct.title}
+                          <span
+                            style={{
+                              opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                            }}
+                          >
+                            {cartProduct.title}
+                          </span>
                           <button
                             onClick={() => {
                               setDeletingItemId(cartProduct.id);
@@ -95,7 +101,14 @@ export const CartProductList = () => {
                           </button>
                         </span>
                       </h5>
-                      <h6 className="card-text">${cartProduct.price}</h6>
+                      <h6
+                        style={{
+                          opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                        }}
+                        className="card-text"
+                      >
+                        ${cartProduct.price}
+                      </h6>
                       <div className="text-end" style={{ marginTop: "55px" }}>
                         <div className="flexDC">
                           <Button
