@@ -1,7 +1,8 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Cocktail } from "../API/CocktailFetch";
 import { CocktailMiniComponent } from "./CocktailMiniComponent";
 import { Link } from "react-router-dom";
+import { GetIcon } from "./Icons";
 
 // The Component that shows the non-recommended drinks on the DrinkSelect-page
 export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
@@ -24,17 +25,44 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
               <Card
                 className="shadow"
                 style={{
+                  height: "421px",
                   width: "300px",
                   overflow: "hidden",
                   padding: "0px",
+                  marginLeft: "15px",
                   margin: "5px",
-                  backgroundImage: `url('https://img.freepik.com/premium-vector/drinking-alcoholic-beverages-forbidden-sign_204827-138.jpg')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                 }}
               >
+                <div style={{ overflow: "hidden" }}>
+                  <img
+                    className="cardImage"
+                    src={`https://img.freepik.com/premium-vector/drinking-alcoholic-beverages-forbidden-sign_204827-138.jpg`}
+                    alt={"No Drink"}
+                    style={{
+                      objectFit: "cover",
+                      height: "300px",
+                      width: "300px",
+                    }}
+                  />
+                </div>
+                <Card.Body
+                  className="d-flex flex-column mb-2"
+                  style={{ padding: "0px 10px" }}
+                >
+                  <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
+                    <span className="fs-5">No Drink</span>
+                  </Card.Title>
+                  <Card.Subtitle>
+                    <p>
+                      <i>Alcohol Percentage: 99%</i>
+                    </p>
+                  </Card.Subtitle>
+                </Card.Body>
                 <Link to={`/shoppingcart`}>
-                  <div style={{ overflow: "hidden", height: "440px" }}></div>
+                  <button className="navigationButtonFill">
+                    {GetIcon("Cart", "white", "Medium")}{" "}
+                    <span style={{ paddingLeft: "10px" }}>Price: $0</span>
+                  </button>
                 </Link>
               </Card>
             </Col>

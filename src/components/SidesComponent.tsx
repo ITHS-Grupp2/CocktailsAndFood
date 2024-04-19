@@ -3,6 +3,7 @@ import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
 import { Link } from "react-router-dom";
+import { GetIcon } from "./Icons";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
@@ -71,23 +72,40 @@ export const SidesComponent = () => {
             </Col>
           ))}
           <Col xs={12} sm={6} md={6} lg={4} xl={4}>
-            {/*A No-Sides card that takes you to drinks*/}
             <Card
               className="shadow"
               style={{
-                maxHeight: "411px",
-                height: "100%",
-                width: "100%",
                 overflow: "hidden",
-                maxWidth: "403px",
+                padding: "0px",
                 margin: "5px",
-                backgroundImage: `url('https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                minWidth: "200px",
               }}
             >
+              <div style={{ overflow: "hidden" }}>
+                <img
+                  className="cardImage"
+                  src={`https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=`}
+                  alt={"No Drink"}
+                  style={{
+                    objectFit: "cover",
+                    height: "300px",
+                    width: "100%",
+                  }}
+                />
+              </div>
+              <Card.Body
+                className="d-flex flex-column mb-2 "
+                style={{ padding: "0px 10px", height: "3rem" }}
+              >
+                <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
+                  <span className="fs-5 ">No Sides</span>
+                </Card.Title>
+              </Card.Body>
               <Link to={`/drinkselect`}>
-                <div style={{ overflow: "hidden", height: "300px" }}></div>
+                <button className="navigationButtonFill">
+                  {GetIcon("Cart", "white", "Medium")}{" "}
+                  <span style={{ paddingLeft: "10px" }}>Price: $0</span>
+                </button>
               </Link>
             </Card>
           </Col>
