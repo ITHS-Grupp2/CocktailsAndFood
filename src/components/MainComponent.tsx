@@ -45,6 +45,7 @@ export function MainComponent() {
                     <img
                       className="cardImage"
                       src={course.imageUrl}
+                      alt={`${course.title}`}
                       style={{
                         objectFit: "cover",
                         height: "300px",
@@ -60,7 +61,7 @@ export function MainComponent() {
                   <Card.Title className="d-flex justify-content-between align-items-baseline mt-2">
                     <span className="fs-5">{course.title}</span>
                     <span
-                      className="text-muted align-self-end"
+                      className="text-muted"
                       style={{ minWidth: "4rem", textAlign: "right" }}
                     >
                       ${course.price}

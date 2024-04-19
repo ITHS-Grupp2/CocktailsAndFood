@@ -1,5 +1,6 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import data from "../assets/people.json";
+import { PageTracker } from "../services/PageHistoryService";
 
 export const About = () => {
   const itpRows = [];
@@ -17,18 +18,17 @@ export const About = () => {
           overflow: "hidden",
           padding: "0px",
           height: "385px",
-        }}
-      >
+        }}>
         <Card.Img
           src={imgsrc}
           variant="top"
           className="cardImage"
+          alt="Picture of a team member"
           style={{
             objectFit: "cover",
             height: "250px",
             width: "auto",
-          }}
-        ></Card.Img>
+          }}></Card.Img>
         <Card.Body>
           <Card.Title>
             <p>
@@ -71,6 +71,7 @@ export const About = () => {
   }
   return (
     <>
+      {PageTracker()}
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
         <h4 className="text-center" style={{ marginBottom: "0px" }}>
           About Us
@@ -82,8 +83,7 @@ export const About = () => {
           lg={4}
           md={3}
           xs={2}
-          className="g-3 p-2 justify-content-center text-start"
-        >
+          className="g-3 p-2 justify-content-center text-start">
           {itpRows}
         </Row>
         <Row>
@@ -94,8 +94,7 @@ export const About = () => {
           lg={4}
           md={3}
           xs={2}
-          className="g-3 p-2 justify-content-center text-start"
-        >
+          className="g-3 p-2 justify-content-center text-start">
           {devRows}
         </Row>
         <Row className="g-3 p-2 justify-content-center">

@@ -20,22 +20,25 @@ export type Action =
   | { type: "ADD_TO_CART"; payload: CartProduct }
   | { type: "REMOVE_FROM_CART"; payload: string }
   | { type: "DECREMENT_QUANTITY"; payload: string }
-  | { type: "INCREMENT_QUANTITY"; payload: string };
+  | { type: "INCREMENT_QUANTITY"; payload: string }
+  | { type: "EMPTY_CART" };
 
 export const CartContext = createContext(initialContext);
 export const CartDispatchContext = createContext(dispatch);
 
 export const cartReducer = (state: CartState, action: Action) => {
   switch (action.type) {
-    // Om varan redan finns i varukorg, öka quantity. Annars lägg till
+    // If product already exists in the cart, increase quantity by 1, otherwise add the product to the cart.
     case "ADD_TO_CART":
       const existingProductIndex = state.cartProducts.findIndex(
         (product) => product.id === action.payload.id
       );
       if (existingProductIndex !== -1) {
-        // Skapar en kopia av varukorg med den nya produkten och ersätter varukorgen igen
-        // Fråga inte varför men java being java så lägger den annars till 2.
-        // Det fungerar, dont question it :)
+        // Creates a copy of the cart and the product
+        // Add the copy of the product to the copy of the cart
+        // Replace the cart with the Copied cart
+        // It has to be done this way or the quantity is increased by 2 instead of 1
+        // Dont question it, it works ¯\_(ツ)_/¯ //RE
         const updatedCartProducts = [...state.cartProducts];
         const updatedProduct = { ...updatedCartProducts[existingProductIndex] };
         updatedProduct.quantity += 1;
@@ -53,14 +56,14 @@ export const cartReducer = (state: CartState, action: Action) => {
           ],
         };
       }
-    case "REMOVE_FROM_CART": // Tar bort produkten från shoppingcarten
+    case "REMOVE_FROM_CART": // Removes the product (all quantity) from the cart
       return {
         ...state,
         cartProducts: state.cartProducts.filter(
           (product) => product.id !== action.payload
         ),
       };
-    case "DECREMENT_QUANTITY":
+    case "DECREMENT_QUANTITY": // Decrements one of the selected products from the cart (aslong as quantity > 0)
       return {
         ...state,
         cartProducts: state.cartProducts.map((product) => {
@@ -75,7 +78,7 @@ export const cartReducer = (state: CartState, action: Action) => {
           }
         }),
       };
-    case "INCREMENT_QUANTITY":
+    case "INCREMENT_QUANTITY": // Increments one of the selected products from the cart
       return {
         ...state,
         cartProducts: state.cartProducts.map((product) => {
@@ -85,6 +88,11 @@ export const cartReducer = (state: CartState, action: Action) => {
             return product;
           }
         }),
+      };
+    case "EMPTY_CART": // Empties the cart when the pay button is pressed.
+      return {
+        ...state,
+        cartProducts: [],
       };
     default:
       return state;
@@ -112,7 +120,6 @@ export const removeFromCart = (
   dispatch({ type: "REMOVE_FROM_CART", payload: productId });
 };
 
-// Tar bort en i quantity sålänge quantity är mer än 0
 export const decrementQuantity = (
   dispatch: React.Dispatch<Action>,
   productId: string
@@ -127,13 +134,17 @@ export const incrementQuantity = (
   dispatch({ type: "INCREMENT_QUANTITY", payload: productId });
 };
 
-// Nu finns bara children men är convention att alltid ha med props om man behöver fler.
+export const emptyCart = (dispatch: React.Dispatch<Action>) => {
+  dispatch({ type: "EMPTY_CART" });
+};
+
+// Right now theres only the children props but convention is to always have a x-ProviderProps incase u need to add more later.
 type CartProviderProps = {
   children: ReactNode;
 };
 
-// I och med att vi separerat och lagt till det här här inne istället för ute i app.tsx
-// så rendreras inte hela sidan om utan bara relevanta komponenter (Fråga Alex)
+// Having these seperate here instead of having them both wrap everything in app/main.tsx
+// makes only the relevant component be re-rendered instead of the whole page (Ask Alex)
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialContext);
 

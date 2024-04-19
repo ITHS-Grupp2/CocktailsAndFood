@@ -3,6 +3,7 @@ import { Cocktail } from "../API/CocktailFetch";
 import { CocktailMiniComponent } from "./CocktailMiniComponent";
 import { Link } from "react-router-dom";
 
+// The Component that shows the non-recommended drinks on the DrinkSelect-page
 export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
   for (let i = 0; i < cocktailArray.cocktails.length; i++) {
