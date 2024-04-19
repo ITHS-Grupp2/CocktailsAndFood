@@ -2,6 +2,8 @@ type FillColor = "white" | "blue" | "none";
 type Icon = "Cart" | "Arrow";
 type Size = "Small" | "Medium" | "Large";
 
+// Icons and sizes for special icons (Cart etc)
+
 const getPathFill = (fill: string) => {
   switch (fill) {
     case "white":

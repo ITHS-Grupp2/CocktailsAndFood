@@ -1,5 +1,6 @@
 import FriesVideo from "../videos/Fries.mp4";
 
+// Displays FriesVideo from source
 export const VideoFriesComponent = () => {
   return (
     <div
@@ -23,6 +24,7 @@ export const VideoFriesComponent = () => {
         }}
       >
         <source src={FriesVideo} type="video/mp4" />
+        Video of flying fries {/* Denna kod gör: alt="Video of flying fries"*/}
       </video>
     </div>
   );

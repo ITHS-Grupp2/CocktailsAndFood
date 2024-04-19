@@ -2,8 +2,10 @@ import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import { Cocktail } from "../API/CocktailFetch";
 import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
+// Adapts the amount of cocktails shown in the carousel
+// depending on the screens resolution.
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -67,6 +69,7 @@ const cocktailUrl: Cocktail[] = [
   },
 ];
 
+// Component to render a carousel with Cocktails
 const DrinkCarousel = () => {
   return (
     <div
@@ -78,7 +81,7 @@ const DrinkCarousel = () => {
         paddingLeft: "14px",
       }}
     >
-      {" "}
+      {/* React-multi-carousel properties to define how the carousel works */}
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -89,6 +92,7 @@ const DrinkCarousel = () => {
         removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
         autoPlaySpeed={1900}
       >
+        {/* Loops the cocktail array to show Cards */}
         {cocktailUrl.map((imageUrl, index) => {
           return (
             <div
@@ -110,18 +114,20 @@ const DrinkCarousel = () => {
                     margin: "5px",
                   }}
                 >
+                  {/* Makes every cocktail click-able and navigates to the DrinkSelect-page */}
                   <Link to="/drinkselect">
-                  <div style={{ overflow: "hidden" }}>
-                    <img
-                      className="cardImage"
-                      src={imageUrl.img}
-                      style={{
-                        objectFit: "cover",
-                        height: "300px",
-                        width: "300px",
-                      }}
-                    />
-                  </div>
+                    <div style={{ overflow: "hidden" }}>
+                      <img
+                        className="cardImage"
+                        src={imageUrl.img}
+                        alt={`${imageUrl.name}`}
+                        style={{
+                          objectFit: "cover",
+                          height: "300px",
+                          width: "300px",
+                        }}
+                      />
+                    </div>
                   </Link>
                   <Card.Body
                     className="d-flex flex-column mb-2"

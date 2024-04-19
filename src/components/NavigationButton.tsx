@@ -14,13 +14,14 @@ type NavigationButtonData = {
   navigationPath?: NavigationPath;
   id?: string;
   price?: number;
-  productInfo?: ProductInfoData;
+  productInfo?: ProductInfoData; // Used to add the product to the cart
 };
 
 export const NavigationButton = (buttonData: NavigationButtonData) => {
   const { navigationPath, productInfo } = buttonData;
   const dispatch = useContext(CartDispatchContext);
 
+  // Adds the product to the cart and remembers which burger is clicked
   const handleAddToCart = () => {
     if (productInfo) {
       addToCart(dispatch, productInfo);
@@ -33,7 +34,7 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
 
   return (
     <Link to={"" + navigationPath}>
-      <button onClick={handleAddToCart}>
+      <button onClick={handleAddToCart} className="navigationButtonFill">
         {GetIcon("Cart", "white", "Medium")}
         <span style={{ paddingLeft: "10px" }}>Price: ${buttonData.price}</span>
       </button>

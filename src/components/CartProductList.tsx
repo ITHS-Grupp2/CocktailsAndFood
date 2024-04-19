@@ -3,9 +3,14 @@ import {
   CartContext,
   CartDispatchContext,
   decrementQuantity,
+  emptyCart,
   incrementQuantity,
+  removeFromCart,
 } from "./CartContext";
 import { Container, Button } from "react-bootstrap";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -13,6 +18,10 @@ export const CartProductList = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
+  // Used for an animation when a product is deleted from the Cart
+  const [deletingItemId, setDeletingItemId] = useState<string | null>(null);
+
+  // Used to show the total price and total amount of products in the Cart
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
       (total, cartProduct) => total + cartProduct.price * cartProduct.quantity,
@@ -26,7 +35,7 @@ export const CartProductList = () => {
     );
     setTotalItems(itemsCount);
   }, [state.cartProducts]);
-  // Till den som lägger till "x" knappen. Använd "removeFromCart" från CartContext"
+
   return (
     <>
       <Container>
@@ -37,12 +46,19 @@ export const CartProductList = () => {
                 {state.cartProducts.map((cartProduct, index) => (
                   <div
                     key={index}
-                    className="row mt-3"
-                    style={{ borderBottom: "3px solid black" }}>
+                    className={`row ${
+                      deletingItemId === cartProduct.id ? "fadeOut" : ""
+                    }`}
+                    style={{
+                      borderBottom: "3px solid black",
+                      width: "878px",
+                      marginTop: "20px",
+                    }}
+                  >
                     <div
                       className="col-3"
                       style={{
-                        maxWidth: "950px",
+                        maxWidth: "900px",
                         marginBottom: "20px",
                         marginLeft: "8px",
                       }}>
@@ -52,16 +68,46 @@ export const CartProductList = () => {
                         className="img-fluid"
                         style={{
                           borderRadius: "0.8rem",
+                          opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                          transition: "opacity 0.15s",
                         }}
                       />
                     </div>
                     <div className="col">
                       <h5
                         className="card-subtitle mb-2"
-                        style={{ fontWeight: "700" }}>
-                        {cartProduct.title}
+                        style={{ fontWeight: "700" }}
+                      >
+                        <span>
+                          <span
+                            style={{
+                              opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                            }}
+                          >
+                            {cartProduct.title}
+                          </span>
+                          <button
+                            onClick={() => {
+                              setDeletingItemId(cartProduct.id);
+                              setTimeout(() => {
+                                removeFromCart(dispatch, cartProduct.id);
+                                setDeletingItemId(null);
+                              }, 750);
+                            }}
+                            className="removeFromCart"
+                          >
+                            <FontAwesomeIcon icon={faTrashCan} />
+                          </button>
+                        </span>
                       </h5>
-                      <h6 className="card-text">${cartProduct.price}</h6>
+                      <h6
+                        style={{
+                          opacity: cartProduct.quantity === 0 ? "0.5" : "1",
+                        }}
+                        className="card-text"
+                      >
+                        ${cartProduct.price}
+                      </h6>
                       <div className="text-end" style={{ marginTop: "55px" }}>
                         <div className="flexDC">
                           <Button
@@ -103,7 +149,16 @@ export const CartProductList = () => {
                 </h6>
               </div>
               <div className="text-end">
-                <button className="cartProductCheckoutButton">Pay</button>
+                <Link to={`/orderconfirmation`}>
+                  <button
+                    className="cartProductCheckoutButton"
+                    onClick={() => {
+                      emptyCart(dispatch);
+                    }}
+                  >
+                    Pay
+                  </button>
+                </Link>
               </div>
             </div>
           ) : (

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// En typ som matchar alla relevanta delar från responsen från alla API-calls. Anna
 export type MainResponse = {
   _id: string;
   title: string;
@@ -11,8 +10,10 @@ export type MainResponse = {
   ingredients: string[];
 };
 
+// API call to get all Mains or Sides depending on foodType.
 export const FoodAPI = (foodType: string): MainResponse[] => {
   const [food, setFood] = useState<MainResponse[]>([]);
+
   useEffect(() => {
     const fetchFood = async () => {
       const response = (
@@ -28,6 +29,7 @@ export const FoodAPI = (foodType: string): MainResponse[] => {
   return food;
 };
 
+// API call to get a single Main or Side.
 export const SingleFoodAPI = (recipeID: string): MainResponse => {
   const [food, setFood] = useState<MainResponse>({
     _id: "",
@@ -46,13 +48,7 @@ export const SingleFoodAPI = (recipeID: string): MainResponse => {
       );
       const foodResponse: MainResponse = await response.json();
       const ingredientNames: string[] = foodResponse.ingredients.map(
-        // Name har squiggly för att:
-        // mainresponse kan inte ha en ingredients : {name: string} för att:
-        // den skickas till productinfoview som använder productinfo som BARA tar emot en string[].
-        // Så antingen kan vi ändra mainresponse göra en "ny" productinfo istället för att återanvända
-        // samma som i cocktails eller så låter vi squigglyn vara
-        // / Rikard
-        // MEN DE FUNGERAR!
+        // ts-ignore due to ingredient.(name) being Any. We dont want to change it due to how ProductInfoData works
         //@ts-ignore
         (ingredient) => ingredient.name
       );
@@ -67,27 +63,3 @@ export const SingleFoodAPI = (recipeID: string): MainResponse => {
 
   return food;
 };
-
-/* //Räcker att använda mallen under för att lägga till nödvändiga värden till API:et
-{
-    "title": "Mozarella Sticks",
-    "description": "Crispy panko coated cheese sticks",
-    "imageUrl": "https://natashaskitchen.com/wp-content/uploads/2023/05/Cheese-Sticks-SQ.jpg",
-    "price": 5,
-    "categories": [
-      "sides"
-    ],
-    "ingredients": [
-        {
-          "name": "Panko",
-          "amount": 1,
-          "unit": "tsk"
-        },
-        {
-          "name": "Mozarella",
-          "amount": 1,
-          "unit": "tsk"
-        }
-      ]
-  }
-  */

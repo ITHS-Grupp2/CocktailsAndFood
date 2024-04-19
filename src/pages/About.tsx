@@ -23,6 +23,7 @@ export const About = () => {
           src={imgsrc}
           variant="top"
           className="cardImage"
+          alt="Picture of a team member"
           style={{
             objectFit: "cover",
             height: "250px",
