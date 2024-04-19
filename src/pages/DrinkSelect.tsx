@@ -5,6 +5,7 @@ import {
   cocktailIdArray,
   MatchDrinkService,
 } from "../services/CocktailInfoService";
+import { PageTracker } from "../services/PageHistoryService";
 
 export function DrinkSelect() {
   const foodId = localStorage.getItem("burgerId") as string;
@@ -24,12 +25,12 @@ export function DrinkSelect() {
   if (localStorage.getItem("burgerId") !== null) {
     return (
       <>
+        {PageTracker()}
         <div className="headerSmaller" style={{ margin: "30px 0px" }}>
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
             Recommended Drink
           </h1>
         </div>
-
         <ProductInfo
           id={cocktail.id}
           productType={"Cocktail"}
@@ -41,8 +42,7 @@ export function DrinkSelect() {
           navigationPath="/shoppingcart"
           percentage={recommendedDrink.percentage}
           motivation={recommendedDrink.motivation}
-          quantity={1}
-        ></ProductInfo>
+          quantity={1}></ProductInfo>
         <div className="headerSmaller" style={{ margin: "30px 0px" }}>
           <h4 className="text-center" style={{ marginBottom: "0px" }}>
             Other Drinks

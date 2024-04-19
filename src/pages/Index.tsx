@@ -1,10 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { MainComponent } from "../components/MainComponent";
 import DrinkCarousel from "../components/DrinkCarousel";
+import { PageTracker } from "../services/PageHistoryService";
 
 export const Index = () => {
   return (
     <>
+      {PageTracker()}
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Most Popular Burgers
@@ -17,8 +19,7 @@ export const Index = () => {
               <div
                 style={{
                   margin: "0",
-                }}
-              >
+                }}>
                 <MainComponent />
               </div>
             </Container>
