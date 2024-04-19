@@ -40,10 +40,6 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
   }
 };
 
-export function AltNewVisit(page: string) {
-  dispatch({ type: "ADD_TO_HISTORY", payload: page });
-}
-
 export function NewVisit(dispatch: React.Dispatch<Action>, page: string) {
   dispatch({ type: "ADD_TO_HISTORY", payload: page });
 }
