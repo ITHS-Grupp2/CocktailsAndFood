@@ -4,7 +4,6 @@ import { CocktailMiniComponent } from "./CocktailMiniComponent";
 import { Link } from "react-router-dom";
 import { GetIcon } from "./Icons";
 
-// The Component that shows the non-recommended drinks on the DrinkSelect-page
 export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
   for (let i = 0; i < cocktailArray.cocktails.length; i++) {
@@ -15,13 +14,19 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
     );
   }
 
+  const foodId = localStorage.getItem("burgerId") as string;
+
+  // A bool to check if the burger ID is not null, based on the above bool.
+  const isBurgerIdNotNull = foodId !== null;
+
   return (
     <>
       <Container className="m-2">
-        {
-          <Row className="g-3">
-            {rows}{" "}
-            <Col>
+        <Row className="g-3">
+          {rows}
+          <Col>
+            {/* conditional rendering, based on whether the burger ID is null or not  */}
+            {isBurgerIdNotNull && (
               <Card
                 className="shadow"
                 style={{
@@ -60,10 +65,31 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
                   </button>
                 </Link>
               </Card>
-            </Col>
-          </Row>
-        }
+            )}
+          </Col>
+        </Row>
       </Container>
+      {/* Button instead of the "no drink card" for when burgerId is null */}
+      {!isBurgerIdNotNull && (
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <Link to={`/shoppingcart`}>
+            <button
+              className="navigationButtonFill"
+              style={{ backgroundColor: "#821024" }}
+            >
+              {/* {GetIcon("Cart", "white", "Medium")}{" "} */}
+              <span
+                style={{
+                  paddingLeft: "200px",
+                  paddingRight: "200px",
+                }}
+              >
+                No Drink
+              </span>
+            </button>
+          </Link>
+        </div>
+      )}
     </>
   );
 };

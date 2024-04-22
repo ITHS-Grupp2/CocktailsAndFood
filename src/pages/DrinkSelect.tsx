@@ -42,7 +42,8 @@ export function DrinkSelect() {
           navigationPath="/shoppingcart"
           percentage={recommendedDrink.percentage}
           motivation={recommendedDrink.motivation}
-          quantity={1}></ProductInfo>
+          quantity={1}
+        ></ProductInfo>
         <div className="headerSmaller" style={{ margin: "30px 0px" }}>
           <h4 className="text-center" style={{ marginBottom: "0px" }}>
             Other Drinks
