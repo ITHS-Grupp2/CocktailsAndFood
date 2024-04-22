@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useReducer } from "react";
 
-const initialContext: PageHistoryState = { pages: ["/"] }; //If user refreshes on another page it will clear storage. "/" will set Home as start-page
+const initialContext: PageHistoryState = { pages: [{ page: "/" }] }; //If user refreshes on another page it will clear storage. "/" will set Home as start-page
 const dispatch: React.Dispatch<Action> = () => null;
 
 type PageHistoryProviderProps = {
@@ -8,28 +8,66 @@ type PageHistoryProviderProps = {
 };
 
 export type PageHistoryState = {
-  pages: string[];
+  pages: PageHistory[];
+};
+
+export type PageHistory = {
+  page: string;
+  productId?: string;
 };
 
 export const PageHistoryContext = createContext(initialContext);
 export const PageHistoryDispatchContext = createContext(dispatch);
 
 export type Action =
-  | { type: "ADD_TO_HISTORY"; payload: string }
-  | { type: "BACK_TO_HISTORY"; payload: string };
+  | { type: "ADD_TO_HISTORY"; payload: PageHistory }
+  | { type: "ADD_ID_TO_HISTORY"; payload: PageHistory }
+  | { type: "BACK_TO_HISTORY"; payload: PageHistory };
 
 export const historyReducer = (state: PageHistoryState, action: Action) => {
   switch (action.type) {
     case "ADD_TO_HISTORY": //Adds the current page to the list.
-      if (action.payload !== state.pages[state.pages.length - 1]) {
+      if (action.payload.page !== state.pages[state.pages.length - 1].page) {
         //Checks if it's already added.
+        console.log(
+          "Page: " +
+            action.payload.page +
+            "with productId: " +
+            action.payload.productId
+        );
         return {
           ...state,
           pages: [...state.pages, action.payload],
         };
+      } else if (
+        state.pages[state.pages.length - 1].productId !==
+        action.payload.productId
+      ) {
+        //if page already exists check if there's a product id registred
+        state.pages[state.pages.length - 1].productId =
+          action.payload.productId;
+        console.log(
+          "Updated page: " +
+            action.payload.page +
+            "with productId: " +
+            action.payload.productId
+        );
+        return { ...state, ...state.pages };
       } else {
         return { ...state, ...state.pages };
       }
+      case "ADD_ID_TO_HISTORY":
+        console.log(
+          "Updated page: " +
+            action.payload.page +
+            "with productId: " +
+            action.payload.productId
+        );
+        state.pages[state.pages.length - 1].productId =
+        action.payload.productId;
+        return {
+          ...state
+        }
     case "BACK_TO_HISTORY":
       return {
         ...state,
@@ -40,11 +78,15 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
   }
 };
 
-export function NewVisit(dispatch: React.Dispatch<Action>, page: string) {
+export const addToVisit = (dispatch: React.Dispatch<Action>, page: PageHistory) => {
+dispatch({type: "ADD_ID_TO_HISTORY", payload: page});
+};
+
+export function NewVisit(dispatch: React.Dispatch<Action>, page: PageHistory) {
   dispatch({ type: "ADD_TO_HISTORY", payload: page });
 }
 
-export const goBack = (dispatch: React.Dispatch<Action>, page: string) => {
+export const goBack = (dispatch: React.Dispatch<Action>, page: PageHistory) => {
   dispatch({ type: "BACK_TO_HISTORY", payload: page });
 };
 
