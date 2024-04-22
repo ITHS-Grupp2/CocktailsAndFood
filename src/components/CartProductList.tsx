@@ -12,10 +12,15 @@ import { faCreditCard, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  eraseHistory,
+  PageHistoryDispatchContext,
+} from "./PageHistoryProvider";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
   const dispatch = useContext(CartDispatchContext);
+  const dispatchPage = useContext(PageHistoryDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
@@ -146,7 +151,10 @@ export const CartProductList = () => {
               </div>
               <div>
                 <Link to={"/"}>
-                  <button className="cartProductNewMenuButton">
+                  <button
+                    className="cartProductNewMenuButton"
+                    onClick={() => eraseHistory(dispatchPage)}
+                  >
                     <FontAwesomeIcon icon={faPlus} />
                     &nbsp; Add menu
                   </button>
@@ -167,7 +175,7 @@ export const CartProductList = () => {
                     <button
                       className="cartProductCheckoutButton"
                       onClick={() => {
-                        emptyCart(dispatch);
+                        emptyCart(dispatch), eraseHistory(dispatchPage);
                       }}
                     >
                       <FontAwesomeIcon icon={faCreditCard} /> Pay
