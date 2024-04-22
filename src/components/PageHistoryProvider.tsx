@@ -16,7 +16,8 @@ export const PageHistoryDispatchContext = createContext(dispatch);
 
 export type Action =
   | { type: "ADD_TO_HISTORY"; payload: string }
-  | { type: "BACK_TO_HISTORY"; payload: string };
+  | { type: "BACK_TO_HISTORY"; payload: string }
+  | { type: "ERASE_HISTORY" };
 
 export const historyReducer = (state: PageHistoryState, action: Action) => {
   switch (action.type) {
@@ -35,6 +36,12 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
         ...state,
         pages: state.pages.slice(0, -1), //Removes the last page in state.pages
       };
+    case "ERASE_HISTORY": {
+      return {
+        ...state,
+        pages: ["/"],
+      };
+    }
     default:
       return state;
   }
@@ -46,6 +53,10 @@ export function NewVisit(dispatch: React.Dispatch<Action>, page: string) {
 
 export const goBack = (dispatch: React.Dispatch<Action>, page: string) => {
   dispatch({ type: "BACK_TO_HISTORY", payload: page });
+};
+
+export const eraseHistory = (dispatch: React.Dispatch<Action>) => {
+  dispatch({ type: "ERASE_HISTORY" });
 };
 
 export const PageHistoryProvider: React.FC<PageHistoryProviderProps> = ({
