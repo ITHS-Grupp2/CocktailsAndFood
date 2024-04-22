@@ -115,7 +115,7 @@ const DrinkCarousel = () => {
                   }}
                 >
                   {/* Makes every cocktail click-able and navigates to the DrinkSelect-page */}
-                  <Link to="/drinkselect">
+                  <Link to="/drinkselect" onClick={() => localStorage.clear()}>
                     <div style={{ overflow: "hidden" }}>
                       <img
                         className="cardImage"
