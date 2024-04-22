@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { SingleFoodAPI } from "../API/FoodAPI";
 import { ProductInfo } from "../components/ProductInfo";
+import { PageTracker } from "../services/PageHistoryService";
 
 export const ProductInfoView = () => {
   const { mealId } = useParams();
@@ -9,14 +10,12 @@ export const ProductInfoView = () => {
 
   return (
     <>
-          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-            <h1
-              className="text-center"
-              style={{ marginBottom: "0px" }}
-            >
-              Product Info
-            </h1>
-          </div>
+      {PageTracker()}
+      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+        <h1 className="text-center" style={{ marginBottom: "0px" }}>
+          Product Info
+        </h1>
+      </div>
       <ProductInfo
         id={singleCourse?._id}
         productType={singleCourse?.categories[0]}

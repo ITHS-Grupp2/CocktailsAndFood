@@ -29,7 +29,7 @@ export const CartProductList = () => {
     );
     setTotalPrice(totalPrice);
 
-    let itemsCount = state.cartProducts.reduce(
+    const itemsCount = state.cartProducts.reduce(
       (total, cartProduct) => total + cartProduct.quantity,
       0
     );
@@ -61,8 +61,7 @@ export const CartProductList = () => {
                         maxWidth: "900px",
                         marginBottom: "20px",
                         marginLeft: "8px",
-                      }}
-                    >
+                      }}>
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
@@ -118,8 +117,7 @@ export const CartProductList = () => {
                               }
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "10px 0 0 10px" }}
-                          >
+                            style={{ borderRadius: "10px 0 0 10px" }}>
                             -
                           </Button>
                           <div className="amountBox">
@@ -130,8 +128,7 @@ export const CartProductList = () => {
                               incrementQuantity(dispatch, cartProduct.id);
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "0 10px 10px 0" }}
-                          >
+                            style={{ borderRadius: "0 10px 10px 0" }}>
                             +
                           </Button>
                         </div>
@@ -146,8 +143,7 @@ export const CartProductList = () => {
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "white", marginRight: "30px" }}
-                >
+                  style={{ color: "white", marginRight: "30px" }}>
                   {totalItems} products in cart | Total price: $
                   {totalPrice.toFixed(2)}
                 </h6>
