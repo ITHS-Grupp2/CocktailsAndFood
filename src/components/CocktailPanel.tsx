@@ -52,16 +52,11 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
                   <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
                     <span className="fs-5">No Drink</span>
                   </Card.Title>
-                  <Card.Subtitle>
-                    <p>
-                      <i>Alcohol Percentage: 99%</i>
-                    </p>
-                  </Card.Subtitle>
                 </Card.Body>
                 <Link to={`/shoppingcart`}>
                   <button className="navigationButtonFill">
                     {GetIcon("Cart", "white", "Medium")}{" "}
-                    <span style={{ paddingLeft: "10px" }}>Price: $0</span>
+                    <span style={{ paddingLeft: "10px" }}>No Drink</span>
                   </button>
                 </Link>
               </Card>
