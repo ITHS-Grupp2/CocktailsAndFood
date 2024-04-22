@@ -86,7 +86,8 @@ export function NewVisit(dispatch: React.Dispatch<Action>, page: PageHistory) {
   dispatch({ type: "ADD_TO_HISTORY", payload: page });
 }
 
-export const goBack = (dispatch: React.Dispatch<Action>, page: PageHistory) => {
+export const goBack = (dispatch: React.Dispatch<Action>) => {
+  let page: PageHistory = {page: ""};
   dispatch({ type: "BACK_TO_HISTORY", payload: page });
 };
 

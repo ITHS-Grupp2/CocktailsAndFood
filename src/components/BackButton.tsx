@@ -6,19 +6,33 @@ import {
   goBack,
 } from "./PageHistoryProvider";
 import { GetIcon } from "./Icons";
+import { CartDispatchContext, decrementOrRemove } from "./CartContext";
 
 export const BackButton = () => {
   const pageHistoryState = useContext(PageHistoryContext);
-  const dispatch = useContext(PageHistoryDispatchContext);
+  const historyDispatch = useContext(PageHistoryDispatchContext);
+
+  const cartDispatch = useContext(CartDispatchContext);
+
   const hide = pageHistoryState.pages.length === 1;
 
   return (
     <>
       <Link
         to={
-          hide ? "/" : pageHistoryState.pages[pageHistoryState.pages.length - 2] //Get the second to last page (last-page is current)
+          hide
+            ? "/"
+            : pageHistoryState.pages[pageHistoryState.pages.length - 2].page //Get the second to last page (last-page is current)
         }
-        onClick={() => !hide && goBack(dispatch, "")}>
+        onClick={() =>
+          !hide &&
+          (goBack(historyDispatch),
+          decrementOrRemove(
+            cartDispatch,
+            pageHistoryState.pages[pageHistoryState.pages.length - 2]
+              .productId + ""
+          ))
+        }>
         {GetIcon("Arrow", hide ? "none" : "white", "Large")}
       </Link>
     </>
