@@ -21,6 +21,16 @@ $footer-background: #9f8c8c;
   color: greenyellow;
 }
 
+.siteSize{
+  width: 1176px; // 1247
+  height: 1770px;
+}
+
+.siteSizeMin{
+  min-height: 1770px;
+  min-width: 1176px;
+}
+
 .aboutUsBox {
   width: 25vw;
   height: 15vw;
@@ -133,7 +143,7 @@ body {
   width: 40px;
   border-radius: 5px;
   border: none;
-  margin-top: 20px;
+  margin-top: 93px;
 }
 
 .flexDC {
@@ -152,6 +162,8 @@ body {
   padding-top: 180px;
   color: $inline-font-color;
   font-size: 3rem;
+  margin-left: 110px;
+  margin-top: 90px;
 }
 
 .amountBox {
@@ -160,7 +172,7 @@ body {
   background-color: #e6dcdc;
   padding: 10px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 93px;
 }
 
 .removeFromCart {

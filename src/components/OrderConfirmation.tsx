@@ -4,21 +4,18 @@ export const OrderConfirmation = () => {
       <div
         className="confirmationPageLayout"
         style={{
-          width: "600px",
+          width: "100%",
           textAlign: "center",
-          marginTop: "50px",
-          marginBottom: "50px",
+          marginBottom: "30px",
           display: "flex",
           flexDirection: "column",
-          paddingTop: "25px",
         }}
       >
-        <h1>Thank you for your order</h1>
-        <h4 style={{ marginTop: "20px" }}>Your order is confirmed</h4>
+        <h4 style={{ marginTop: "30px" }}>Your order is confirmed</h4>
       </div>
       <div
         style={{
-          width: "600px",
+          width: "100%",
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
