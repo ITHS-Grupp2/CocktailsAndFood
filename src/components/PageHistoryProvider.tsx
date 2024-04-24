@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useReducer } from "react";
 
-const initialContext: PageHistoryState = { pages: [{ page: "/" }] }; //If user refreshes on another page it will clear storage. "/" will set Home as start-page
+const initialContext: PageHistoryState = { pages: [{page: "/"}] }; //If user refreshes on another page it will clear storage. "/" will set Home as start-page
 const dispatch: React.Dispatch<Action> = () => null;
 
 type PageHistoryProviderProps = {
@@ -30,12 +30,6 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
     case "ADD_TO_HISTORY": //Adds the current page to the list.
       if (action.payload.page !== state.pages[state.pages.length - 1].page) {
         //Checks if it's already added.
-        console.log(
-          "Page: " +
-            action.payload.page +
-            "with productId: " +
-            action.payload.productId
-        );
         return {
           ...state,
           pages: [...state.pages, action.payload],
@@ -47,12 +41,7 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
         //if page already exists check if there's a product id registred
         state.pages[state.pages.length - 1].productId =
           action.payload.productId;
-        console.log(
-          "Updated page: " +
-            action.payload.page +
-            "with productId: " +
-            action.payload.productId
-        );
+
         return { ...state, ...state.pages };
       } else {
         return { ...state, ...state.pages };
