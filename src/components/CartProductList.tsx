@@ -8,13 +8,19 @@ import {
   removeFromCart,
 } from "./CartContext";
 import { Container, Button } from "react-bootstrap";
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faCreditCard, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  eraseHistory,
+  PageHistoryDispatchContext,
+} from "./PageHistoryProvider";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
   const dispatch = useContext(CartDispatchContext);
+  const dispatchPage = useContext(PageHistoryDispatchContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
@@ -51,7 +57,7 @@ export const CartProductList = () => {
                     }`}
                     style={{
                       borderBottom: "3px solid black",
-                      width: "878px",
+
                       marginTop: "20px",
                     }}
                   >
@@ -61,7 +67,8 @@ export const CartProductList = () => {
                         maxWidth: "900px",
                         marginBottom: "20px",
                         marginLeft: "8px",
-                      }}>
+                      }}
+                    >
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
@@ -117,7 +124,8 @@ export const CartProductList = () => {
                               }
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "10px 0 0 10px" }}>
+                            style={{ borderRadius: "10px 0 0 10px" }}
+                          >
                             -
                           </Button>
                           <div className="amountBox">
@@ -128,7 +136,8 @@ export const CartProductList = () => {
                               incrementQuantity(dispatch, cartProduct.id);
                             }}
                             className="cartProductAmountButton"
-                            style={{ borderRadius: "0 10px 10px 0" }}>
+                            style={{ borderRadius: "0 10px 10px 0" }}
+                          >
                             +
                           </Button>
                         </div>
@@ -140,25 +149,39 @@ export const CartProductList = () => {
                   </div>
                 ))}
               </div>
+              <div>
+                <Link to={"/"}>
+                  <button
+                    className="cartProductNewMenuButton"
+                    onClick={() => eraseHistory(dispatchPage)}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                    &nbsp; Add menu
+                  </button>
+                </Link>
+              </div>
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "white", marginRight: "30px" }}>
+                  style={{ color: "white", marginRight: "30px" }}
+                >
                   {totalItems} products in cart | Total price: $
                   {totalPrice.toFixed(2)}
                 </h6>
               </div>
               <div className="text-end">
-                <Link to={`/orderconfirmation`}>
-                  <button
-                    className="cartProductCheckoutButton"
-                    onClick={() => {
-                      emptyCart(dispatch);
-                    }}
-                  >
-                    Pay
-                  </button>
-                </Link>
+                <span>
+                  <Link to={`/orderconfirmation`}>
+                    <button
+                      className="cartProductCheckoutButton"
+                      onClick={() => {
+                        emptyCart(dispatch), eraseHistory(dispatchPage);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faCreditCard} /> Pay
+                    </button>
+                  </Link>
+                </span>
               </div>
             </div>
           ) : (

@@ -2,8 +2,10 @@ $font-stack: Helvetica, sans-serif;
 $main-font-color: #e9e9e9;
 $inline-font-color: #000000;
 $primary-color: #b60b0b;
-$button-color: #3d7db8;
-$button-color-hover: #0d5ca7;
+$green-button-color: #108832;
+$green-button-color-hover: #4da366;
+$button-color: #0d5ca7;
+$button-color-hover: #3d7db8;
 $accent-color: #eaeaea;
 $primary-background-color: #0d0c0c;
 $accent-background-color: #d9d9d9;
@@ -15,11 +17,18 @@ $navbar-color: #a17979;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
 
-.breadCrumbs {
-}
-
 .hightlight {
   color: greenyellow;
+}
+
+.siteSize {
+  width: 1176px; // 1247
+  height: 1770px;
+}
+
+.siteSizeMin {
+  min-height: 1770px;
+  min-width: 1176px;
 }
 
 .aboutUsBox {
@@ -92,15 +101,33 @@ body {
   padding-left: 100px;
   margin-bottom: 20px;
   border-radius: 0px 0px 10px 10px;
-  background-color: #108832;
+  background-color: $green-button-color;
   font-size: 1rem;
   border: none;
   height: 40px;
   transition: 0ms;
 }
 
+.cartProductNewMenuButton {
+  padding-right: 100px;
+  padding-left: 100px;
+  margin-bottom: 2px;
+  background-color: $button-color;
+  font-size: 1rem;
+  border: none;
+  height: 40px;
+  transition: 0ms;
+  width: 100%;
+  border-radius: 0px;
+}
+
+.cartProductNewMenuButton:hover {
+  background-color: $button-color-hover;
+  border: none;
+}
+
 .cartProductCheckoutButton:hover {
-  background-color: #108832;
+  background-color: $green-button-color-hover;
   border: none;
 }
 
@@ -111,12 +138,15 @@ body {
 }
 
 .cartProductAmountButton {
-  background-color: #76a2d9;
+  background-color: $button-color;
   height: 40px;
   width: 40px;
   border-radius: 5px;
   border: none;
-  margin-top: 20px;
+  margin-top: 93px;
+}
+.cartProductAmountButton:hover {
+  background-color: $button-color-hover;
 }
 
 .flexDC {
@@ -135,6 +165,8 @@ body {
   padding-top: 180px;
   color: $inline-font-color;
   font-size: 3rem;
+  margin-left: 110px;
+  margin-top: 90px;
 }
 
 .amountBox {
@@ -143,7 +175,7 @@ body {
   background-color: #e6dcdc;
   padding: 10px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 93px;
 }
 
 .removeFromCart {
@@ -164,8 +196,8 @@ h2 {
 
 .h1Header {
   color: $main-font-color;
-  font-weight: bold; 
-  margin:  0 4rem 0 4rem;
+  font-weight: bold;
+  margin: 0 4rem 0 4rem;
 }
 
 .headerTotal {
@@ -189,6 +221,7 @@ h2 {
   color: $inline-font-color;
   font-weight: normal;
   color: $main-font-color;
+  margin-bottom: 10px;
 }
 
 .shoppingIcon {
