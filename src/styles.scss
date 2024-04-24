@@ -4,8 +4,8 @@ $inline-font-color: #000000;
 $primary-color: #b60b0b;
 $green-button-color: #108832;
 $green-button-color-hover: #4da366;
-$button-color: #3d7db8;
-$button-color-hover: #0d5ca7;
+$button-color: #0d5ca7;
+$button-color-hover: #3d7db8;
 $accent-color: #eaeaea;
 $primary-background-color: #0d0c0c;
 $accent-background-color: #d9d9d9;
@@ -21,12 +21,12 @@ $footer-background: #9f8c8c;
   color: greenyellow;
 }
 
-.siteSize{
+.siteSize {
   width: 1176px; // 1247
   height: 1770px;
 }
 
-.siteSizeMin{
+.siteSizeMin {
   min-height: 1770px;
   min-width: 1176px;
 }
@@ -138,12 +138,15 @@ body {
 }
 
 .cartProductAmountButton {
-  background-color: #76a2d9;
+  background-color: $button-color;
   height: 40px;
   width: 40px;
   border-radius: 5px;
   border: none;
   margin-top: 93px;
+}
+.cartProductAmountButton:hover {
+  background-color: $button-color-hover;
 }
 
 .flexDC {
