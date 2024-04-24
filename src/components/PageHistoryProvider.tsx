@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useReducer } from "react";
 
-const initialContext: PageHistoryState = { pages: [{page: "/"}] }; //If user refreshes on another page it will clear storage. "/" will set Home as start-page
+const initialContext: PageHistoryState = { pages: [{ page: "/" }] }; //If user refreshes on another page it will clear storage. "/" will set Home as start-page
 const dispatch: React.Dispatch<Action> = () => null;
 
 type PageHistoryProviderProps = {
@@ -23,7 +23,7 @@ export type Action =
   | { type: "ADD_TO_HISTORY"; payload: PageHistory }
   | { type: "ADD_ID_TO_HISTORY"; payload: PageHistory }
   | { type: "BACK_TO_HISTORY"; payload: PageHistory }
-  | { type: "ERASE_HISTORY" };
+  | { type: "ERASE_HISTORY"; payload: PageHistory };
 
 export const historyReducer = (state: PageHistoryState, action: Action) => {
   switch (action.type) {
@@ -46,18 +46,11 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
       } else {
         return { ...state, ...state.pages };
       }
-      case "ADD_ID_TO_HISTORY":
-        console.log(
-          "Updated page: " +
-            action.payload.page +
-            "with productId: " +
-            action.payload.productId
-        );
-        state.pages[state.pages.length - 1].productId =
-        action.payload.productId;
-        return {
-          ...state
-        }
+    case "ADD_ID_TO_HISTORY":
+      state.pages[state.pages.length - 1].productId = action.payload.productId;
+      return {
+        ...state,
+      };
     case "BACK_TO_HISTORY":
       return {
         ...state,
@@ -66,7 +59,7 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
     case "ERASE_HISTORY": {
       return {
         ...state,
-        pages: ["/"],
+        pages: [{ page: "/" }]
       };
     }
     default:
@@ -74,8 +67,11 @@ export const historyReducer = (state: PageHistoryState, action: Action) => {
   }
 };
 
-export const addToVisit = (dispatch: React.Dispatch<Action>, page: PageHistory) => {
-dispatch({type: "ADD_ID_TO_HISTORY", payload: page});
+export const addToVisit = (
+  dispatch: React.Dispatch<Action>,
+  page: PageHistory
+) => {
+  dispatch({ type: "ADD_ID_TO_HISTORY", payload: page });
 };
 
 export function NewVisit(dispatch: React.Dispatch<Action>, page: PageHistory) {
@@ -83,12 +79,13 @@ export function NewVisit(dispatch: React.Dispatch<Action>, page: PageHistory) {
 }
 
 export const goBack = (dispatch: React.Dispatch<Action>) => {
-  let page: PageHistory = {page: ""};
+  let page: PageHistory = { page: "" };
   dispatch({ type: "BACK_TO_HISTORY", payload: page });
 };
 
 export const eraseHistory = (dispatch: React.Dispatch<Action>) => {
-  dispatch({ type: "ERASE_HISTORY" });
+  let page: PageHistory = { page: "" };
+  dispatch({ type: "ERASE_HISTORY", payload: page });
 };
 
 export const PageHistoryProvider: React.FC<PageHistoryProviderProps> = ({
