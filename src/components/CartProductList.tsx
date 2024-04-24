@@ -57,7 +57,7 @@ export const CartProductList = () => {
                     }`}
                     style={{
                       borderBottom: "3px solid black",
-                      width: "878px",
+
                       marginTop: "20px",
                     }}
                   >
