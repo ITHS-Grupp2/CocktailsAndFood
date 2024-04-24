@@ -1,8 +1,10 @@
+import instagram from "../assets/Instagram_icon.png";
+import facebook from "../assets/2021_Facebook_icon.svg";
+
 import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <div className="footer">
-
       <div>
         <p>
           <strong> Visit us</strong>
@@ -22,17 +24,9 @@ export const Footer = () => {
       </div>
       <div></div>
       <div>
-        <img
-          src="src\assets\2021_Facebook_icon.svg"
-          style={{ height: "40px" }}
-          className="p-1"
-        ></img>
+        <img src={facebook} style={{ height: "40px" }} className="p-1"></img>
         <br />
-        <img
-          src="src\assets\Instagram_icon.png"
-          style={{ height: "40px" }}
-          className="p-1"
-        ></img>
+        <img src={instagram} style={{ height: "40px" }} className="p-1"></img>
         <br />
       </div>
     </div>
