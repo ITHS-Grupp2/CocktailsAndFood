@@ -19,14 +19,15 @@ export const Index = () => {
               <div
                 style={{
                   margin: "0",
-                }}>
+                }}
+              >
                 <MainComponent />
               </div>
             </Container>
           </Col>
         </Row>
         <Container className="headerSmaller">
-          <h2>Drinks of the Month</h2>
+          <h2 style={{ marginBottom: "0px" }}>Drinks of the Month</h2>
         </Container>
         <Container style={{ marginTop: "30px" }}>
           <DrinkCarousel />
