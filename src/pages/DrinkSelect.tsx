@@ -27,11 +27,11 @@ export function DrinkSelect() {
       <>
         {PageTracker()}
         <div className="siteSize">
-        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-          <h1 className="text-center" style={{ marginBottom: "0px" }}>
-            Recommended Drink
-          </h1>
-        </div>
+          <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+            <h1 className="text-center" style={{ marginBottom: "0px" }}>
+              Recommended Drink
+            </h1>
+          </div>
           <ProductInfo
             id={cocktail.id}
             productType={"Cocktail"}
