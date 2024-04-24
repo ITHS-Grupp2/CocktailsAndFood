@@ -21,6 +21,7 @@ export type Action =
   | { type: "REMOVE_FROM_CART"; payload: string }
   | { type: "DECREMENT_QUANTITY"; payload: string }
   | { type: "INCREMENT_QUANTITY"; payload: string }
+  | { type: "DECREMENT_OR_REMOVE"; payload: string }
   | { type: "EMPTY_CART" };
 
 export const CartContext = createContext(initialContext);
@@ -89,6 +90,38 @@ export const cartReducer = (state: CartState, action: Action) => {
           }
         }),
       };
+    case "DECREMENT_OR_REMOVE":
+      let productInQuestion = state.cartProducts.find(
+        (product) => product.id === action.payload
+      );
+      if (productInQuestion) {
+        if (productInQuestion.quantity < 2) {
+          // If product quantity is less than 2 (1 or 0) it should be removed.
+          return {
+            ...state,
+            cartProducts: state.cartProducts.filter(
+              (product) => product.id !== action.payload
+            ),
+          };
+        } else {
+          // Else remove 1 from quantity
+          return {
+            ...state,
+            cartProducts: state.cartProducts.map((product) => {
+              if (product.id === action.payload) {
+                if (product.quantity > 0) {
+                  return { ...product, quantity: product.quantity - 1 };
+                } else {
+                  return product; // Return the product without modification if quantity is already 0
+                }
+              } else {
+                return product; // Return other products without modification
+              }
+            }),
+          };
+        }
+      }
+      return state; // Return the current state if the product is not found
     case "EMPTY_CART": // Empties the cart when the pay button is pressed.
       return {
         ...state,
@@ -125,6 +158,13 @@ export const decrementQuantity = (
   productId: string
 ) => {
   dispatch({ type: "DECREMENT_QUANTITY", payload: productId });
+};
+
+export const decrementOrRemove = (
+  dispatch: React.Dispatch<Action>,
+  productId: string
+) => {
+  dispatch({ type: "DECREMENT_OR_REMOVE", payload: productId });
 };
 
 export const incrementQuantity = (
