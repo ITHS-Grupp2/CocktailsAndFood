@@ -5,7 +5,9 @@ export const SideSelect = () => {
   return (
     <>
       {PageTracker()}
-      <SidesComponent />
+      <div className="siteSize">
+        <SidesComponent />
+      </div>
     </>
   );
 };
