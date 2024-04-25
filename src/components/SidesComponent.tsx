@@ -71,46 +71,32 @@ export const SidesComponent = () => {
               </Card>
             </Col>
           ))}
-          <Col xs={12} sm={6} md={6} lg={4} xl={4}>
-            <Card
-              className="shadow"
-              style={{
-                overflow: "hidden",
-                padding: "0px",
-                margin: "5px",
-                minWidth: "200px",
-              }}
-            >
-              <div style={{ overflow: "hidden" }}>
-                <img
-                  className="cardImage"
-                  src={`https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=`}
-                  alt={"No Drink"}
-                  style={{
-                    objectFit: "cover",
-                    height: "300px",
-                    width: "100%",
-                  }}
-                />
-              </div>
-              <Card.Body
-                className="d-flex flex-column mb-2 "
-                style={{ padding: "0px 10px", height: "3rem" }}
-              >
-                <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
-                  <span className="fs-5 ">No Sides</span>
-                </Card.Title>
-              </Card.Body>
-              <Link to={`/drinkselect`}>
-                <button className="navigationButtonFill">
-                  {GetIcon("Cart", "white", "Medium")}{" "}
-                  <span style={{ paddingLeft: "10px" }}>No Sides</span>
-                </button>
-              </Link>
-            </Card>
-          </Col>
         </Row>
       </Container>
+
+      <div
+        style={{
+          margin: "20px 0px",
+        }}
+      >
+        <div style={{ width: "50%", margin: "0 auto" }}>
+          <Link to={`/drinkselect`}>
+            <button
+              className="navigationButtonFill"
+              style={{ backgroundColor: "#821024", width: "100%" }}
+            >
+              <span
+                style={{
+                  paddingRight: "10px",
+                }}
+              >
+                Next
+              </span>
+              {GetIcon("Next", "white", "Large")}
+            </button>
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
