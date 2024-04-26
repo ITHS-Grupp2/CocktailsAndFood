@@ -3,7 +3,11 @@ import { ProductInfoData } from "./ProductInfo";
 import { CartDispatchContext, addToCart } from "./CartContext";
 import { useContext } from "react";
 import { GetIcon } from "./Icons";
-import { addToVisit, PageHistory, PageHistoryDispatchContext } from "./PageHistoryProvider";
+import {
+  addToVisit,
+  PageHistory,
+  PageHistoryDispatchContext,
+} from "./PageHistoryProvider";
 
 export type NavigationPath =
   | "/drinkselect"
