@@ -1,6 +1,9 @@
 import { NavigationPath, NavigationButton } from "./NavigationButton";
 
 export type ProductInfoData = {
+  _id: string;
+  imageUrl: any;
+  description: any;
   id: string;
   productType: string;
   title: string;

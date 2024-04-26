@@ -16,6 +16,7 @@ import {
   eraseHistory,
   PageHistoryDispatchContext,
 } from "./PageHistoryProvider";
+import { CartQuantity } from "./CartQuantity";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -116,31 +117,7 @@ export const CartProductList = () => {
                         ${cartProduct.price}
                       </h6>
                       <div className="text-end" style={{ marginTop: "55px" }}>
-                        <div className="flexDC">
-                          <Button
-                            onClick={() => {
-                              if (cartProduct.quantity !== 0) {
-                                decrementQuantity(dispatch, cartProduct.id);
-                              }
-                            }}
-                            className="cartProductAmountButton"
-                            style={{ borderRadius: "10px 0 0 10px" }}
-                          >
-                            -
-                          </Button>
-                          <div className="amountBox">
-                            {cartProduct.quantity}
-                          </div>
-                          <Button
-                            onClick={() => {
-                              incrementQuantity(dispatch, cartProduct.id);
-                            }}
-                            className="cartProductAmountButton"
-                            style={{ borderRadius: "0 10px 10px 0" }}
-                          >
-                            +
-                          </Button>
-                        </div>
+                        <CartQuantity cartProduct={cartProduct} />
                         <p style={{ marginTop: "15px", marginRight: "5px" }}>
                           ${cartProduct.price * cartProduct.quantity}
                         </p>

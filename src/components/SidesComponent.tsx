@@ -4,6 +4,7 @@ import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
 import { Link } from "react-router-dom";
 import { GetIcon } from "./Icons";
+import { CartProduct } from "./CartContext";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
@@ -19,6 +20,19 @@ const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
     quantity: 1,
   };
 };
+
+const convertToCartProduct = (side: ProductInfoData): CartProduct => {
+  return {
+    id: side._id,
+    title: side.title,
+    img: side.imageUrl,
+    price: side.price,
+    quantity: 1,
+  };
+};
+
+
+
 
 // A function that fetches all Sides-data from FoodAPI and populates the cards with its data
 export const SidesComponent = () => {
