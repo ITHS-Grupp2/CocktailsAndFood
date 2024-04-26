@@ -21,6 +21,9 @@ $header-color: #684444;
 $navbar-color: #a17979;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
+$beef-brown: #400F0F;
+$egg-white: #FFFCF8;
+$brioche-brown: #F29C50;
 $salad-green: #558c03;
 $light-salad-green: #94b564;
 $next-button-color: #bf0426;
@@ -38,6 +41,73 @@ $next-button-color-hover: #f4002c;
 .siteSizeMin {
   min-height: 1770px;
   min-width: 1176px;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-button{
+  width: 60px;
+  height: 60px;
+  background-color: $beef-brown;
+  border-radius: 50%;
+  color: $egg-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: $egg-white;
+  margin: 10px;
+}
+
+.h1Header {
+  font: 300% $font-stack-logo;
+  color: $beef-brown;
+  font-weight: bold;
+  margin: 10px;
+  min-width: 350px;
+  text-transform: none;
+  font-weight: bold;
+}
+
+.sesame-group{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0px 10px;
+  justify-content: space-evenly;
+}
+
+.sesame-seed{
+  width: 10px;
+  height: 10px;
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 10px 10px 10px 0px;
+  background-color: $egg-white;
+  margin: 5px;
+}
+
+#breader-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bread-crown {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: $brioche-brown;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100px;
+  width: 1176px;
+  margin-top: 10px;
+  border-radius: 80px 80px 10px 10px;
 }
 
 .aboutUsBox {
@@ -59,6 +129,7 @@ $next-button-color-hover: #f4002c;
 
 .navigationButtonFill {
   width: 100%;
+  fill: $egg-white;
 }
 
 body {
@@ -205,14 +276,6 @@ h2 {
   font: 350% $font-stack-header;
   text-transform: uppercase;
   color: $main-font-color;
-}
-
-.h1Header {
-  font: 600% $font-stack-logo;
-  text-transform: none;
-  color: $main-font-color;
-  font-weight: bold;
-  margin: 0 4rem 0 4rem;
 }
 
 .headerTotal {
