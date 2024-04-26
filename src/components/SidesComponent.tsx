@@ -34,7 +34,7 @@ export const SidesComponent = () => {
     <>
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
-          Sides Select
+          Select Sides
         </h1>
       </div>
       <Container>
