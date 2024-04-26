@@ -62,7 +62,7 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
                   </Card.Body>
                   <Link to={`/softdrinkselect`}>
                     <button className="navigationButtonFill">
-                      {GetIcon("Cart", "white", "Medium")}{" "}
+                      {GetIcon("Cart", "Medium")}{" "}
                       <span style={{ paddingLeft: "10px" }}>No Drink</span>
                     </button>
                   </Link>
