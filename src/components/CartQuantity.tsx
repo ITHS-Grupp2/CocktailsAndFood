@@ -23,20 +23,20 @@ export const CartQuantity = (data: { cartProduct: CartProduct }) => {
               decrementQuantity(dispatch, data.cartProduct.id);
             }
           }}
-          className="cartProductAmountButton"
-          style={{ borderRadius: "0 0 0 10px" }}
+          className="amount-btn"
+          style={{ borderRadius: "0 0 0 0" }}
         >
           -
         </Button>
-        <div className="amountBox">
+        <div className="amount-box">
           {findQuantity(state, data.cartProduct.id)}
         </div>
         <Button
           onClick={() => {
             incrementQuantity(dispatch, data.cartProduct.id);
           }}
-          className="cartProductAmountButton"
-          style={{ borderRadius: "0 0 10px 0" }}
+          className="amount-btn"
+          style={{ borderRadius: "0 0 0 0" }}
         >
           +
         </Button>

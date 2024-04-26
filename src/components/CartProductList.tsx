@@ -116,7 +116,7 @@ export const CartProductList = () => {
                         ${cartProduct.price}
                       </h6>
                       <div className="text-end" style={{ marginTop: "55px" }}>
-                        <div className="text-end" style={{ width: "150px" }}>
+                        <div className="text-end" style={{ width: "150px", float:"right" }}>
                           <CartQuantity cartProduct={cartProduct} />
                         </div>
                         <p className="price-amount-single">
