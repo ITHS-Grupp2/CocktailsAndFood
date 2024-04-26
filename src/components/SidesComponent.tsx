@@ -5,11 +5,12 @@ import { ProductInfoData } from "./ProductInfo";
 import { Link } from "react-router-dom";
 import { GetIcon } from "./Icons";
 import { CartProduct } from "./CartContext";
+import { CartQuantity } from "./CartQuantity";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   return {
-    id: side._id,
+    _id: side._id,
     productType: "Side",
     title: side.title,
     imgSrc: side.imageUrl,
@@ -77,11 +78,12 @@ export const SidesComponent = () => {
                     <span className="fs-5 ">{side.title} </span>
                   </Card.Title>
                 </Card.Body>
-                <NavigationButton
+                {/* <NavigationButton
                   productInfo={convertToProductInfoData(side)}
                   price={side.price}
                   navigationPath="/drinkselect"
-                />
+                /> */}
+                <CartQuantity data={convertToCartProduct(convertToProductInfoData(side))}/>
               </Card>
             </Col>
           ))}

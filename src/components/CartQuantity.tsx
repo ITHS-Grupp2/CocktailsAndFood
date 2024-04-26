@@ -38,16 +38,3 @@ export const CartQuantity = (data: {cartProduct: CartProduct}) => {
     )
 
 }
-
-
-
-
-const convertToCartProduct = (side: ProductInfoData): CartProduct => {
-    return {
-      id: side._id,
-      title: side.title,
-      img: side.imageUrl,
-      price: side.price,
-      quantity: 1,
-    };
-  };
