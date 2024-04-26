@@ -13,6 +13,7 @@ import {
 import { CartQuantity } from "./CartQuantity";
 import { useContext } from "react";
 import { PageHistoryDispatchContext } from "./PageHistoryProvider";
+import { NextButton } from "./NextButton";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
@@ -29,6 +30,14 @@ const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   };
 };
 
+const groupItems = (arr: MainResponse[], size: number) => {
+  const grouped = [];
+  for (let i = 0; i < arr.length; i += size) {
+    grouped.push(arr.slice(i, i + size));
+  }
+  return grouped;
+};
+
 // A function that fetches all Sides-data from FoodAPI and populates the cards with its data
 export const SidesComponent = () => {
   const sides = FoodAPI("sides");
@@ -36,6 +45,7 @@ export const SidesComponent = () => {
   const state = useContext(CartContext);
 
   const dispatch = useContext(CartDispatchContext);
+  const groupedSides = groupItems(sides, 3);
   // const historyDispatch = useContext(PageHistoryDispatchContext);
   // const location = useLocation();
 
@@ -54,47 +64,49 @@ export const SidesComponent = () => {
   //   }
   // };
 
+  const groupedSides = groupItems(sides, 3);
   return (
     <>
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
-          Sides Select
+          Select Sides
         </h1>
       </div>
-      <Container style={{ minWidth: "500px" }}>
-        <Row>
-          {sides.map((side, index) => (
-            <Col key={index} xs={12} sm={6} md={6} lg={4} xl={4}>
-              <Card
-                className="shadow"
-                style={{
-                  overflow: "hidden",
-                  padding: "0px",
-                  margin: "5px",
-                  minWidth: "200px",
-                }}
-              >
-                <div style={{ overflow: "hidden" }}>
-                  <img
-                    className="cardImage"
-                    src={side.imageUrl}
-                    alt={`${side.title}`}
-                    style={{
-                      objectFit: "cover",
-                      height: "300px",
-                      width: "100%",
-                    }}
-                  />
-                </div>
-                <Card.Body
-                  className="d-flex flex-column mb-2 "
-                  style={{ padding: "0px 10px", height: "3rem" }}
+      <Container>
+        {groupedSides.map((side, index) => (
+          <Row key={index}>
+            {side.map((side, innerIndex) => (
+              <Col key={innerIndex} style={{ margin: "25px" }}>
+                <Card
+                  className="shadow"
+                  style={{
+                    width: "300px",
+                    overflow: "hidden",
+                    padding: "0px",
+                    margin: "5px",
+                  }}
                 >
-                  <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
-                    <span className="fs-5 ">{side.title} </span>
-                  </Card.Title>
-                </Card.Body>
-                {findQuantity(state, side._id) === 0 ? (
+                  <div style={{ overflow: "hidden" }}>
+                    <img
+                      className="cardImage"
+                      src={side.imageUrl}
+                      alt={`${side.title}`}
+                      style={{
+                        objectFit: "cover",
+                        height: "300px",
+                        width: "300px",
+                      }}
+                    />
+                  </div>
+                  <Card.Body
+                    className="d-flex flex-column mb-2"
+                    style={{ padding: "0px 10px", height: "3rem" }}
+                  >
+                    <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
+                      <span className="fs-5">{side.title}</span>
+                    </Card.Title>
+                  </Card.Body>
+                  {findQuantity(state, side._id) === 0 ? (
                   <button
                     style={{ height: "40px" }}
                     onClick={() =>
@@ -112,49 +124,16 @@ export const SidesComponent = () => {
                     }
                   />
                 )}
-              </Card>
-            </Col>
-          ))}
-          <Col xs={12} sm={6} md={6} lg={4} xl={4}>
-            <Card
-              className="shadow"
-              style={{
-                overflow: "hidden",
-                padding: "0px",
-                margin: "5px",
-                minWidth: "200px",
-              }}
-            >
-              <div style={{ overflow: "hidden" }}>
-                <img
-                  className="cardImage"
-                  src={`https://media.istockphoto.com/id/1396541669/vector/no-food-or-drink-icon.jpg?s=612x612&w=0&k=20&c=T8qvZM66nqu-Ir_rhjnmlmfTnbSUR4G6t0oPPlvVqfw=`}
-                  alt={"No Drink"}
-                  style={{
-                    objectFit: "cover",
-                    height: "300px",
-                    width: "100%",
-                  }}
-                />
-              </div>
-              <Card.Body
-                className="d-flex flex-column mb-2 "
-                style={{ padding: "0px 10px", height: "3rem" }}
-              >
-                <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
-                  <span className="fs-5 ">No Sides</span>
-                </Card.Title>
-              </Card.Body>
-              <Link to={`/drinkselect`}>
-                <button className="navigationButtonFill">
-                  {GetIcon("Cart", "white", "Medium")}{" "}
-                  <span style={{ paddingLeft: "10px" }}>No Sides</span>
-                </button>
-              </Link>
-            </Card>
-          </Col>
-        </Row>
+                  <NavigationButton
+                    navigationPath="/drinkselect"
+                  />
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        ))}
       </Container>
+      <NextButton targetPage="/drinkselect" />
     </>
   );
 };

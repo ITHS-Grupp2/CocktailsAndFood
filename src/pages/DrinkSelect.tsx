@@ -40,7 +40,7 @@ export function DrinkSelect() {
             ingredients={cocktail.ingredients}
             information={cocktail.instructions}
             price={price}
-            navigationPath="/shoppingcart"
+            navigationPath="/softdrinkselect"
             percentage={recommendedDrink.percentage}
             motivation={recommendedDrink.motivation}
             quantity={1}
