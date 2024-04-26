@@ -147,12 +147,19 @@ body {
 }
 
 .footer {
-  width: 100%;
-  background-color: $footer-background;
   display: flex;
+  overflow: hidden;
+  align-items: center;
   justify-content: space-around;
-  color: white;
-  padding: 15px;
+  background-color: $brioche-brown;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100px;
+  width: 1176px;
+  margin-top: 10px;
+  border-radius: 10px 10px 80px 80px;
+  width: 100%;
+  
 }
 
 .carousel-item {
