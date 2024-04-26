@@ -25,9 +25,12 @@ $beef-brown: #400F0F;
 $egg-white: #FFFCF8;
 $brioche-brown: #F29C50;
 $salad-green: #558c03;
+$salad-green-hover: #76B21D;
 $light-salad-green: #94b564;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
+$ketchup-red: #BF0426;
+$ketchup-red-hover: #F4002C;
 
 .hightlight {
   color: greenyellow;
@@ -190,11 +193,11 @@ body {
   transition: 0ms;
 }
 
-.cartProductNewMenuButton {
+.add-menu-btn {
   padding-right: 100px;
   padding-left: 100px;
   margin-bottom: 2px;
-  background-color: $button-color;
+  background-color: $ketchup-red;
   font-size: 1rem;
   border: none;
   height: 40px;
@@ -203,8 +206,8 @@ body {
   border-radius: 0px;
 }
 
-.cartProductNewMenuButton:hover {
-  background-color: $button-color-hover;
+.add-menu-btn:hover {
+  background-color: $ketchup-red-hover;
   border: none;
 }
 
@@ -219,16 +222,31 @@ body {
   margin-bottom: 15px;
 }
 
-.cartProductAmountButton {
-  background-color: $button-color;
+.amount-btn {
+  background-color: $salad-green;
   height: 40px;
   width: 40px;
   border-radius: 5px;
   border: none;
   margin-top: 93px;
+  color: $egg-white;
 }
-.cartProductAmountButton:hover {
-  background-color: $button-color-hover;
+.amount-btn:hover {
+  background-color: $salad-green-hover;
+  border: none;
+}
+
+.price-amount-single{
+  float: right;
+  width: 120px;
+  height: 40px;
+  background-color: $brioche-brown;
+  margin-top: 5px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  font-weight: 700;
+  color: $beef-brown;
 }
 
 .flexDC {
@@ -251,24 +269,27 @@ body {
   margin-top: 90px;
 }
 
-.amountBox {
+.amount-box {
   height: 40px;
   width: 40px;
-  background-color: #e6dcdc;
+  background-color: $light-salad-green;
   padding: 10px;
   text-align: center;
   margin-top: 93px;
+  color: $egg-white;
 }
 
-.removeFromCart {
+.remove-from-cart {
   float: right;
-  background-color: rgb(203, 0, 0);
-  padding: 12px;
+  background-color: $ketchup-red;
+  padding: 0px;
   font-size: x-large;
+  height: 50px;
+  width: 50px;
 }
 
-.removeFromCart:hover {
-  background-color: rgb(172, 0, 0);
+.remove-from-cart:hover {
+  background-color: $ketchup-red-hover;
 }
 
 h1,
@@ -331,6 +352,11 @@ a:hover {
 .cardFooter {
   background-color: $accent-background-color;
   height: 60px;
+}
+
+.cart-img{
+  border-radius: 0.8rem;
+  
 }
 
 .cartProductList {

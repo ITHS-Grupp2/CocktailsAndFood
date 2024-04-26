@@ -74,7 +74,6 @@ export const CartProductList = () => {
                         alt={cartProduct.title}
                         className="img-fluid"
                         style={{
-                          borderRadius: "0.8rem",
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                           transition: "opacity 0.15s",
                         }}
@@ -101,7 +100,7 @@ export const CartProductList = () => {
                                 setDeletingItemId(null);
                               }, 750);
                             }}
-                            className="removeFromCart"
+                            className="remove-from-cart"
                           >
                             <FontAwesomeIcon icon={faTrashCan} />
                           </button>
@@ -123,25 +122,25 @@ export const CartProductList = () => {
                                 decrementQuantity(dispatch, cartProduct.id);
                               }
                             }}
-                            className="cartProductAmountButton"
+                            className="amount-btn"
                             style={{ borderRadius: "10px 0 0 10px" }}
                           >
                             -
                           </Button>
-                          <div className="amountBox">
+                          <div className="amount-box">
                             {cartProduct.quantity}
                           </div>
                           <Button
                             onClick={() => {
                               incrementQuantity(dispatch, cartProduct.id);
                             }}
-                            className="cartProductAmountButton"
+                            className="amount-btn"
                             style={{ borderRadius: "0 10px 10px 0" }}
                           >
                             +
                           </Button>
                         </div>
-                        <p style={{ marginTop: "15px", marginRight: "5px" }}>
+                        <p className="price-amount-single">
                           ${cartProduct.price * cartProduct.quantity}
                         </p>
                       </div>
@@ -152,7 +151,7 @@ export const CartProductList = () => {
               <div>
                 <Link to={"/"}>
                   <button
-                    className="cartProductNewMenuButton"
+                    className="add-menu-btn"
                     onClick={() => eraseHistory(dispatchPage)}
                   >
                     <FontAwesomeIcon icon={faPlus} />
