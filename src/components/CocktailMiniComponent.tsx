@@ -67,7 +67,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
         <NavigationButton
           productInfo={convertToProductInfoData(data.cocktail)}
           price={price}
-          navigationPath="/shoppingcart"
+          navigationPath="/softdrinkselect"
         ></NavigationButton>
       </Card>
     </Container>

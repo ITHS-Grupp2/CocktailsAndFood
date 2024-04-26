@@ -11,9 +11,9 @@ import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 import { VideoWrapper } from "./components/VideoWrapper";
 import { ConfirmationPage } from "./pages/ConfirmationPage";
+import { SoftDrink } from "./pages/SoftDrink";
 
 function App() {
-
   return (
     <>
       <div id="header">
@@ -32,6 +32,7 @@ function App() {
             element={<ProductInfoView />}
           />
           <Route path="/drinkselect" element={<DrinkSelect />} />
+          <Route path="/softdrinkselect" element={<SoftDrink />} />
         </Routes>
       </VideoWrapper>
       <Footer />
