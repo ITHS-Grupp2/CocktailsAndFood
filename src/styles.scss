@@ -21,6 +21,8 @@ $header-color: #684444;
 $navbar-color: #a17979;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
+$next-button-color: #BF0426;
+$next-button-color-hover: #F4002C;
 
 .hightlight {
   color: greenyellow;
@@ -324,10 +326,6 @@ button:hover {
   border: 1px solid #e8e8e8;
 }
 
-button:active {
-  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
-}
-
 .roundedStandard {
   border-radius: $radius;
 }
@@ -379,3 +377,37 @@ button:active {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+
+
+/* NEXT-BUTTON CSS START*/
+
+.nextButton {
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  padding: 0px;
+  width: 100%;
+  background: $next-button-color;
+  display: flex;
+  justify-Content: space-between;
+  align-Items: center;
+  position: relative;
+}
+
+.nextButton:hover{
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
+
+.nextButtonText {
+  flex: 1;
+  padding-Left: 80px; 
+}
+
+.nextButtonArrow {
+  font-size: 40px;
+  padding-right: 40px;
+}
+
+
+/* NEXT-BUTTON CSS END*/

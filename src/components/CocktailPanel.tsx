@@ -3,6 +3,7 @@ import { Cocktail } from "../API/CocktailFetch";
 import { CocktailMiniComponent } from "./CocktailMiniComponent";
 import { Link } from "react-router-dom";
 import { GetIcon } from "./Icons";
+import { NextButton } from "./NextButton";
 
 export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
@@ -73,30 +74,11 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
       </Container>
       {/* Button instead of the "no drink card" for when burgerId is null */}
       {!isBurgerIdNotNull && (
-        <div
-          style={{
-            marginTop: "20px",
-            marginBottom: "20px",
-            textAlign: "center",
-          }}
-        >
-          <Link to={`/softdrinkselect`}>
-            <button
-              className="navigationButtonFill"
-              style={{ backgroundColor: "#821024" }}
-            >
-              {/* {GetIcon("Cart", "white", "Medium")}{" "} */}
-              <span
-                style={{
-                  paddingLeft: "200px",
-                  paddingRight: "200px",
-                }}
-              >
-                No Drink
-              </span>
-            </button>
-          </Link>
-        </div>
+        <Container>
+          <Row>
+            <NextButton targetPage="/shoppingcart" />
+          </Row>
+        </Container>
       )}
     </>
   );
