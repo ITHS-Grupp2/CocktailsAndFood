@@ -20,7 +20,7 @@ export type CocktailInfoData = {
   cocktail: Cocktail;
 };
 
-// Changes Cocktail to a ProductInfoData so it can be used in NavigationButton and the Cart.
+// Cp0: string, p1: string, p2: string, icon: Icon, size: SizeroductInfoData so it can be used in NavigationButton and the Cart.
 const convertToProductInfoData = (cocktail: Cocktail): ProductInfoData => {
   return {
     id: cocktail.id,
@@ -83,7 +83,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
                 addToCart(dispatch, convertToProductInfoData(data.cocktail))
               }
             >
-              {GetIcon("Cart", "white", "Medium")} $ 9
+              {GetIcon("Cart", "Medium")} $ 9
             </button>
           ) : (
             <CartQuantity
@@ -101,11 +101,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
             />
           )}
         </div>
-        <NavigationButton
-          productInfo={convertToProductInfoData(data.cocktail)}
-          price={price}
-          navigationPath="/softdrinkselect"
-        ></NavigationButton>
+        <NavigationButton navigationPath="/softdrinkselect"></NavigationButton>
       </Card>
     </Container>
   );

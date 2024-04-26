@@ -45,7 +45,6 @@ export const SidesComponent = () => {
   const state = useContext(CartContext);
 
   const dispatch = useContext(CartDispatchContext);
-  const groupedSides = groupItems(sides, 3);
   // const historyDispatch = useContext(PageHistoryDispatchContext);
   // const location = useLocation();
 
@@ -107,26 +106,30 @@ export const SidesComponent = () => {
                     </Card.Title>
                   </Card.Body>
                   {findQuantity(state, side._id) === 0 ? (
-                  <button
-                    style={{ height: "40px" }}
-                    onClick={() =>
-                      addToCart(dispatch, convertToProductInfoData(side))
-                    }
-                  >
-                    {GetIcon("Cart", "white", "Medium")} ${side.price}
-                  </button>
-                ) : (
-                  <CartQuantity
-                    cartProduct={
-                      state.cartProducts.find(
-                        (product) => product.id === side._id
-                      ) || { id: "", title: "", price: 0, img: "", quantity: 0 }
-                    }
-                  />
-                )}
-                  <NavigationButton
-                    navigationPath="/drinkselect"
-                  />
+                    <button
+                      style={{ height: "40px" }}
+                      onClick={() =>
+                        addToCart(dispatch, convertToProductInfoData(side))
+                      }
+                    >
+                      {GetIcon("Cart", "Medium")} ${side.price}
+                    </button>
+                  ) : (
+                    <CartQuantity
+                      cartProduct={
+                        state.cartProducts.find(
+                          (product) => product.id === side._id
+                        ) || {
+                          id: "",
+                          title: "",
+                          price: 0,
+                          img: "",
+                          quantity: 0,
+                        }
+                      }
+                    />
+                  )}
+                  <NavigationButton navigationPath="/drinkselect" />
                 </Card>
               </Col>
             ))}
