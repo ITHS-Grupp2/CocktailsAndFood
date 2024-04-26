@@ -6,16 +6,16 @@ export const LiveNavbar = () => {
       <nav className="navbar">
         <ul className="navbar-list">
           <Link to="/">
-            <li className="navbar-item">Burgers</li>
+            <li className="navbar-item">BURGERS</li>
           </Link>
           <Link to="/sideselect">
-            <li className="navbar-item">Sides</li>
+            <li className="navbar-item">SIDES</li>
           </Link>
           <Link to="/drinkselect">
-            <li className="navbar-item">Cocktails</li>
+            <li className="navbar-item">COCKTAILS</li>
           </Link>
           <Link to="/about">
-            <li className="navbar-item">Soft Drinks</li>
+            <li className="navbar-item">SOFT DRINKS</li>
           </Link>
         </ul>
       </nav>
