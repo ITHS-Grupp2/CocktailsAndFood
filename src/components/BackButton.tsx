@@ -24,15 +24,7 @@ export const BackButton = () => {
             ? "/"
             : pageHistoryState.pages[pageHistoryState.pages.length - 2].page //Get the second to last page (last-page is current)
         }
-        onClick={() =>
-          !hide &&
-          (goBack(historyDispatch),
-          decrementOrRemove(
-            cartDispatch,
-            pageHistoryState.pages[pageHistoryState.pages.length - 2]
-              .productId + ""
-          ))
-        }>
+        onClick={() => !hide && goBack(historyDispatch)}>
         {GetIcon("Arrow", hide ? "none" : "white", "Large")}
       </Link>
     </>
