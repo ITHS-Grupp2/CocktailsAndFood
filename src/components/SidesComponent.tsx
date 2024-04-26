@@ -2,8 +2,6 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
-import { Link } from "react-router-dom";
-import { GetIcon } from "./Icons";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
@@ -73,30 +71,6 @@ export const SidesComponent = () => {
           ))}
         </Row>
       </Container>
-
-      <div
-        style={{
-          margin: "20px 0px",
-        }}
-      >
-        <div style={{ width: "50%", margin: "0 auto" }}>
-          <Link to={`/drinkselect`}>
-            <button
-              className="navigationButtonFill"
-              style={{ backgroundColor: "#821024", width: "100%" }}
-            >
-              <span
-                style={{
-                  paddingRight: "10px",
-                }}
-              >
-                Next
-              </span>
-              {GetIcon("Next", "white", "Large")}
-            </button>
-          </Link>
-        </div>
-      </div>
     </>
   );
 };

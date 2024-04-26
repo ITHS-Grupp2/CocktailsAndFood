@@ -1,5 +1,5 @@
 type FillColor = "white" | "blue" | "none";
-type Icon = "Cart" | "Arrow" | "Next";
+type Icon = "Cart" | "Arrow";
 type Size = "Small" | "Medium" | "Large";
 
 // Icons and sizes for special icons (Cart etc)
@@ -37,9 +37,6 @@ export const GetIcon = (icon: Icon, color: FillColor, size: Size) => {
       break;
     case "Arrow":
       text = arrowLeftIcon(color, size);
-      break;
-    case "Next":
-      text = arrowRightIcon(color, size);
       break;
     default:
       text = "";
@@ -80,6 +77,8 @@ const arrowLeftIcon = (color: FillColor, size: Size) => {
   );
 };
 
+/*
+//Ett SVG ikon för höger pil som ni kan använda. Glöm inte att lägga till i switch case för GetIcon och type längst upp /Hao
 const arrowRightIcon = (color: FillColor, size: Size) => {
   const sizePx = getSize(size);
   return (
@@ -94,3 +93,4 @@ const arrowRightIcon = (color: FillColor, size: Size) => {
     </svg>
   );
 };
+*/
