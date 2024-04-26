@@ -14,7 +14,7 @@ export const LiveNavbar = () => {
           <Link to="/drinkselect">
             <li className="navbar-item">COCKTAILS</li>
           </Link>
-          <Link to="/about">
+          <Link to="/softdrinkselect">
             <li className="navbar-item">SOFT DRINKS</li>
           </Link>
         </ul>
