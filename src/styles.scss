@@ -379,3 +379,33 @@ button:active {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+
+
+
+
+/* NEXT-BUTTON CSS */
+
+.nextButton {
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 0px;
+  padding: 0px;
+  width: 100%;
+  background: #F4002C;
+  display: flex;
+  justify-Content: space-between;
+  align-Items: center;
+  position: relative;
+}
+
+.nextButtonText {
+  flex: 1;
+  padding-Left: 80px; 
+}
+
+.nextButtonArrow {
+  font-size: 40px;
+  padding-right: 40px;
+}
+
+/* NEXT-BUTTON CSS */
