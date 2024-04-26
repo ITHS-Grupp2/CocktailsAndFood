@@ -43,7 +43,7 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
   return (
     <Link to={"" + navigationPath}>
       <button onClick={handleAddToCart} className="navigationButtonFill">
-        {GetIcon("Cart", "white", "Medium")}
+        {GetIcon("Cart", "Medium")}
         <span style={{ paddingLeft: "10px" }}>Price: ${buttonData.price}</span>
       </button>
     </Link>
