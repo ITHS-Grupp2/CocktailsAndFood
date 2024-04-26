@@ -10,7 +10,7 @@ export const Header = () => {
           <BackButton />
         </div>
         <Link to="/">
-          <h1 className="h1Header">Al's Burgers & Cocktails</h1>
+          <h1 className="h1Header">Cocktails & Food</h1>
         </Link>
         <div className="shoppingIcon">
           <Link to="/shoppingcart">{GetIcon("Cart", "blue", "Large")}</Link>
