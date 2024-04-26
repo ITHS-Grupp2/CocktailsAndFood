@@ -9,31 +9,24 @@ import { Header } from "./components/Header";
 import { SideSelect } from "./pages/SideSelect";
 import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
-import { VideoWrapper } from "./components/VideoWrapper";
 import { ConfirmationPage } from "./pages/ConfirmationPage";
 
 function App() {
-
   return (
     <>
       <div id="header">
         <Header />
         <LiveNavbar />
       </div>
-      <VideoWrapper>
-        <Routes>
-          <Route path="/" element={<Index />}></Route>
-          <Route path="/about" element={<About />} />
-          <Route path="/orderconfirmation" element={<ConfirmationPage />} />
-          <Route path="/shoppingcart" element={<ShoppingCart />} />
-          <Route path="/sideselect" element={<SideSelect />} />
-          <Route
-            path="/productinfoview/:mealId"
-            element={<ProductInfoView />}
-          />
-          <Route path="/drinkselect" element={<DrinkSelect />} />
-        </Routes>
-      </VideoWrapper>
+      <Routes>
+        <Route path="/" element={<Index />}></Route>
+        <Route path="/about" element={<About />} />
+        <Route path="/orderconfirmation" element={<ConfirmationPage />} />
+        <Route path="/shoppingcart" element={<ShoppingCart />} />
+        <Route path="/sideselect" element={<SideSelect />} />
+        <Route path="/productinfoview/:mealId" element={<ProductInfoView />} />
+        <Route path="/drinkselect" element={<DrinkSelect />} />
+      </Routes>
       <Footer />
     </>
   );
