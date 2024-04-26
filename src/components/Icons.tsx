@@ -72,7 +72,7 @@ const arrowLeftIcon = (size: Size) => {
     </svg>
   );
 };
-
+// @ts-ignore
 const next = (color: FillColor, size: Size) => {
   const sizePx = getSize(size);
   return (

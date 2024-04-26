@@ -26,6 +26,7 @@ $egg-white: #FFFCF8;
 $brioche-brown: #F29C50;
 $salad-green: #558c03;
 $light-salad-green: #94b564;
+$order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
 
@@ -446,14 +447,37 @@ button:hover {
 .orderConfirmationPage {
   background-color: $salad-green;
   text-align: center;
-  padding-bottom: 40%;
+  padding-bottom: 10vh;
+  border-radius: $radius;
 }
 
 .orderConfirmationPageNumber {
-  background-color: $light-salad-green;
-  margin-top: 30%;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  background-color: $order-nr-green;
+  margin: 100px auto;
+  width: 40%;
+  padding: 20px;
+  border-radius: $radius;
+}
+
+.startNewOrderButton {
+  padding-bottom: 30px;
+  width: 400px;
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  background: $next-button-color;
+  text-align: center;
+}
+
+.startNewOrderButton:hover {
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
+
+.centerNewOrderButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 /* NEXT-BUTTON CSS START*/
