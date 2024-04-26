@@ -10,6 +10,7 @@ import { SideSelect } from "./pages/SideSelect";
 import { DrinkSelect } from "./pages/DrinkSelect";
 import { ProductInfoView } from "./pages/ProductInfoView";
 import { ConfirmationPage } from "./pages/ConfirmationPage";
+import { SoftDrink } from "./pages/SoftDrink";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/sideselect" element={<SideSelect />} />
         <Route path="/productinfoview/:mealId" element={<ProductInfoView />} />
         <Route path="/drinkselect" element={<DrinkSelect />} />
+        <Route path="/softdrinkselect" element={<SoftDrink />} />
       </Routes>
       <Footer />
     </>
