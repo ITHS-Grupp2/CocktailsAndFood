@@ -20,9 +20,9 @@ export const ProductInfo = (data: ProductInfoData) => {
     <>
       <div className="center-page-items">
         <div>
-          <div className="center-page-items">
+          {/* <div className="center-page-items">
             <h2 style={{ color: "white" }}>{data?.title}</h2>
-          </div>
+          </div> */}
           <div className="d-flex flex-row justify-content-center">
             <div className="mx-4">
               <img
