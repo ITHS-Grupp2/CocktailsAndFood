@@ -88,7 +88,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                     style={{ height: "40px" }}
                     onClick={() => addToCart(dispatch, data)}
                   >
-                    {GetIcon("Cart", "white", "Medium")} ${data.price}
+                    {GetIcon("Cart", "Medium")} ${data.price}
                   </button>
                 ) : (
                   <div style={{ display: "flex", alignItems: "center" }}>

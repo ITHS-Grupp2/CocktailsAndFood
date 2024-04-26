@@ -3,6 +3,15 @@ import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
 import { NextButton } from "./NextButton";
+import {
+  addToCart,
+  CartContext,
+  CartDispatchContext,
+  findQuantity,
+} from "./CartContext";
+import { GetIcon } from "./Icons";
+import { CartQuantity } from "./CartQuantity";
+import { useContext } from "react";
 
 // Sends information to cart
 const convertToProductInfoData = (softDrink: MainResponse): ProductInfoData => {
@@ -31,6 +40,8 @@ const groupItems = (arr: MainResponse[], size: number) => {
 export const SoftDrinkComponent = () => {
   const softdrink = FoodAPI("softdrinks");
   const groupedSoftDrinks = groupItems(softdrink, 3);
+  const state = useContext(CartContext);
+  const dispatch = useContext(CartDispatchContext);
   return (
     <>
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
@@ -72,11 +83,30 @@ export const SoftDrinkComponent = () => {
                       <span className="fs-5">{softDrink.title}</span>
                     </Card.Title>
                   </Card.Body>
-                  <NavigationButton
-                    productInfo={convertToProductInfoData(softDrink)}
-                    price={softDrink.price}
-                    navigationPath="/shoppingcart"
-                  />
+                  {findQuantity(state, softDrink._id) === 0 ? (
+                    <button
+                      style={{ height: "40px", width: "100%" }}
+                      onClick={() =>
+                        addToCart(dispatch, convertToProductInfoData(softDrink))
+                      }
+                    >
+                      {GetIcon("Cart", "Medium")} $ 9
+                    </button>
+                  ) : (
+                    <CartQuantity
+                      cartProduct={
+                        state.cartProducts.find(
+                          (product) => product.id === softDrink._id
+                        ) || {
+                          id: "",
+                          title: "",
+                          price: 0,
+                          img: "",
+                          quantity: 0,
+                        }
+                      }
+                    />
+                  )}
                 </Card>
               </Col>
             ))}

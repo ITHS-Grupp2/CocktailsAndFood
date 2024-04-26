@@ -129,7 +129,6 @@ export const SidesComponent = () => {
                       }
                     />
                   )}
-                  <NavigationButton navigationPath="/drinkselect" />
                 </Card>
               </Col>
             ))}

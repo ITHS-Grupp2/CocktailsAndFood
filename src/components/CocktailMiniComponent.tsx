@@ -101,7 +101,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
             />
           )}
         </div>
-        <NavigationButton navigationPath="/softdrinkselect"></NavigationButton>
+        {/* <NavigationButton navigationPath="/softdrinkselect"></NavigationButton> */}
       </Card>
     </Container>
   );
