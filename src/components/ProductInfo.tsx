@@ -1,4 +1,13 @@
+import { useContext } from "react";
+import {
+  addToCart,
+  CartContext,
+  CartDispatchContext,
+  findQuantity,
+} from "./CartContext";
 import { NavigationPath, NavigationButton } from "./NavigationButton";
+import { CartQuantity } from "./CartQuantity";
+import { GetIcon } from "./Icons";
 
 export type ProductInfoData = {
   id: string;
@@ -16,6 +25,8 @@ export type ProductInfoData = {
 
 // A generic info page that takes in parameter data with type ProductInfoData and displays a specific product
 export const ProductInfo = (data: ProductInfoData) => {
+  const state = useContext(CartContext);
+  const dispatch = useContext(CartDispatchContext);
   return (
     <>
       <div className="center-page-items">
@@ -72,12 +83,33 @@ export const ProductInfo = (data: ProductInfoData) => {
                 </p>
               </div>
               <div>
-                <NavigationButton
-                  price={data?.price}
-                  navigationPath={data.navigationPath}
-                  id={data.id}
-                  productInfo={data}
-                ></NavigationButton>
+                {findQuantity(state, data.id) === 0 ? (
+                  <button
+                    style={{ height: "40px" }}
+                    onClick={() => addToCart(dispatch, data)}
+                  >
+                    {GetIcon("Cart", "Medium")} ${data.price}
+                  </button>
+                ) : (
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <CartQuantity
+                      cartProduct={
+                        state.cartProducts.find(
+                          (product) => product.id === data.id
+                        ) || {
+                          id: "",
+                          title: "",
+                          price: 0,
+                          img: "",
+                          quantity: 0,
+                        }
+                      }
+                    />
+                    <NavigationButton
+                      navigationPath={data.navigationPath}
+                    ></NavigationButton>
+                  </div>
+                )}
               </div>
             </div>
           </div>
