@@ -14,7 +14,7 @@ export const ProductInfoView = () => {
       <div className="siteSize">
         <div className="headerSmaller" style={{ margin: "30px 0px" }}>
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
-            Product Info
+            {singleCourse.title}
           </h1>
         </div>
         <ProductInfo
