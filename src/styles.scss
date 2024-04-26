@@ -1,4 +1,9 @@
-$font-stack: Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap');
+
+$font-stack-logo: "Jolly Lodger", sans-serif;
+$font-stack-header: "Jockey One", sans-serif;
+$font-stack-navbar: "Jockey One", sans-serif;
+$font-stack-bread: Inter, sans-serif;
 $main-font-color: #e9e9e9;
 $inline-font-color: #000000;
 $primary-color: #b60b0b;
@@ -53,7 +58,9 @@ $footer-background: #9f8c8c;
 }
 
 body {
-  font: 100% $font-stack;
+  font: 100% $font-stack-bread;
+  display: flex;
+  justify-content: center;
   color: $main-font-color;
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -191,10 +198,14 @@ body {
 
 h1,
 h2 {
+  font: 350% $font-stack-header;
+  text-transform: uppercase;
   color: $main-font-color;
 }
 
 .h1Header {
+  font: 600% $font-stack-logo;
+  text-transform: none;
   color: $main-font-color;
   font-weight: bold;
   margin: 0 4rem 0 4rem;
@@ -338,6 +349,8 @@ button:active {
 }
 
 .navbar-item {
+  font: 150% $font-stack-navbar;
+  text-transform: uppercase;
   margin: 0 20px;
   padding: 6px 90px;
   background-color: $navbar-color;

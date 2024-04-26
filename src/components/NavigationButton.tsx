@@ -13,7 +13,8 @@ export type NavigationPath =
   | "/drinkselect"
   | "/productinfoview"
   | "/shoppingcart"
-  | "/sideselect";
+  | "/sideselect"
+  | "/softdrinkselect";
 
 type NavigationButtonData = {
   navigationPath?: NavigationPath;
