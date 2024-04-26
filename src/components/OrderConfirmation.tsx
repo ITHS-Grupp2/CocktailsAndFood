@@ -1,34 +1,22 @@
-export const OrderConfirmation = () => {
+import React, { useEffect } from "react";
+
+function RandomNumber() {
+  return Math.floor(Math.random() * 9000) + 1000;
+}
+
+export const OrderConfirmation: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []); // Empty dependency array to run only once on mount
+
   return (
     <>
-      <div
-        className="confirmationPageLayout"
-        style={{
-          width: "100%",
-          textAlign: "center",
-          marginBottom: "30px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <h4 style={{ marginTop: "30px" }}>Your order is confirmed</h4>
-      </div>
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          paddingTop: "50px",
-        }}
-      >
-        <img
-          src="https://i.ibb.co/MsLnwLC/Hamburgare.png"
-          style={{
-            maxWidth: "400px",
-            alignSelf: "center",
-          }}
-        />
+      <div className="orderConfirmationPage">
+        <h1>Your order has been placed!</h1>
+        <div className="orderConfirmationPageNumber">
+          <h1>ORDER NR</h1>
+          <h1>{RandomNumber()}</h1>
+        </div>
       </div>
     </>
   );

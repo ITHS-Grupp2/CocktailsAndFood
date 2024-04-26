@@ -1,5 +1,5 @@
 type FillColor = "white" | "blue" | "none";
-type Icon = "Cart" | "Arrow";
+type Icon = "Cart" | "Arrow" | "Next";
 type Size = "Small" | "Medium" | "Large";
 
 // Icons and sizes for special icons (Cart etc)
@@ -69,6 +69,21 @@ const arrowLeftIcon = (size: Size) => {
       width={sizePx}
     >
       <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+    </svg>
+  );
+};
+
+const next = (color: FillColor, size: Size) => {
+  const sizePx = getSize(size);
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 2 30 31"
+      height={sizePx}
+      width={sizePx}
+      fill={getPathFill(color)}
+    >
+      <path d="M11.293 4.707 17.586 11H4v2h13.586l-6.293 6.293 1.414 1.414L21.414 12l-8.707-8.707-1.414 1.414z" />
     </svg>
   );
 };

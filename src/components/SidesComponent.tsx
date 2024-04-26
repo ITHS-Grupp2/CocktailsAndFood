@@ -2,6 +2,7 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
+import { NextButton } from "./NextButton";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
@@ -82,6 +83,7 @@ export const SidesComponent = () => {
           </Row>
         ))}
       </Container>
+      <NextButton targetPage="/drinkselect" />
     </>
   );
 };
