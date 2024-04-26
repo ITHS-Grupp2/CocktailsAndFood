@@ -39,6 +39,12 @@ $brioche-brown: #F29C50;
   min-width: 1176px;
 }
 
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header-button{
   width: 60px;
   height: 60px;
@@ -267,9 +273,9 @@ h2 {
 }
 
 .h1Header {
-  font: 600% $font-stack-logo;
+  font: 300% $font-stack-logo;
   text-transform: none;
-  color: $main-font-color;
+  color: $beef-brown;
   font-weight: bold;
   margin: 0 4rem 0 4rem;
 }
