@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap");
 
 $font-stack-logo: "Jolly Lodger", sans-serif;
 $font-stack-header: "Jockey One", sans-serif;
@@ -21,6 +21,8 @@ $header-color: #684444;
 $navbar-color: #a17979;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
+$salad-green: #558c03;
+$light-salad-green: #94b564;
 
 .hightlight {
   color: greenyellow;
@@ -378,4 +380,17 @@ button:active {
 .fadeOut {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+}
+
+.orderConfirmationPage {
+  background-color: $salad-green;
+  text-align: center;
+  padding-bottom: 40%;
+}
+
+.orderConfirmationPageNumber {
+  background-color: $light-salad-green;
+  margin-top: 30%;
+  padding-top: 35px;
+  padding-bottom: 35px;
 }
