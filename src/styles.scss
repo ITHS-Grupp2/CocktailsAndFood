@@ -24,7 +24,9 @@ $light-background: #f4eaea;
 $footer-background: #9f8c8c;
 $beef-brown: #400F0F;
 $egg-white: #FFFCF8;
+$bacon-orange: #D95F18;
 $brioche-brown: #F29C50;
+$ketchup-red: #BF0426;
 $salad-green: #558c03;
 $light-salad-green: #94b564;
 $next-button-color: #bf0426;
@@ -112,15 +114,17 @@ $next-button-color-hover: #f4002c;
 }
 
 .aboutUsBox {
-  width: 25vw;
-  height: 15vw;
-  background-color: $header-color;
+  font: 100% $font-stack-bread;
+  // width: 25vw;
+  // height: 15vw;
+  background-color: $salad-green;
   margin: 30px 0px;
-  color: $main-font-color;
-  padding: 10px;
-  font-size: 1.5vw;
-  border-radius: 20px;
-  text-align: start;
+  color: white;
+  padding: 15px;
+  // font-size: 1vw;
+  font-size: x-large;
+  border-radius: 10px;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -137,7 +141,7 @@ body {
   font: 100% $font-stack-bread;
   display: flex;
   justify-content: center;
-  color: $main-font-color;
+  color: $beef-brown;
   background-color: $egg-white;
   // background: rgb(2, 0, 36);
   // background: linear-gradient(
@@ -278,6 +282,7 @@ h2 {
   font: 350% $font-stack-header;
   text-transform: uppercase;
   color: white;
+  text-align: center;
 }
 
 .headerTotal {
@@ -288,6 +293,7 @@ h2 {
   padding-top: 25px;
   padding-bottom: 25px;
   width: 100%;
+  color: $beef-brown;
 }
 
 .headerSmaller {
@@ -306,10 +312,12 @@ h2 {
 
 .first {
   background-color: $beef-brown;
+  border-radius: 10px;
 }
 
 .second {
   background-color: $salad-green;
+  border-radius: 10px;
 }
 
 .shoppingIcon {
@@ -390,7 +398,7 @@ button {
   font-weight: bold;
   padding: 0.7em 1.7em;
   font-size: 18px;
-  background: $button-color;
+  background-color: $ketchup-red;
   cursor: pointer;
   border: 1px solid #e8e8e8;
   transition: all 0.3s;
@@ -404,6 +412,21 @@ button:hover {
 .roundedStandard {
   border-radius: $radius;
 }
+
+// Is added to get the right color to the text on selected burger and recommended cocktail, might be solved in better way?  
+p {
+  color: $beef-brown;
+}
+
+strong {
+  color: $beef-brown;
+}
+
+.beef-brown {
+  color: $beef-brown;
+}
+
+/* NAVBAR CSS START*/
 
 .navbar-item a {
   color: black;
@@ -420,14 +443,15 @@ button:hover {
   padding: 0;
   margin: 0;
   background-color: $bacon-orange;
+  border-radius: 10px;
 }
 
 .navbar-item {
   font: 150% $font-stack-navbar;
   text-transform: uppercase;
-  margin: 0 20px;
+  margin: 10px 16px;
   padding: 6px 90px;
-  background-color: $navbar-color;
+  // background-color: $navbar-color;
   border-radius: 20px;
   background-color: $ketchup-red;
   color: white;
@@ -435,7 +459,10 @@ button:hover {
 
 .navbar-item:hover {
   color: white;
+  background-color: $next-button-color-hover;
 }
+
+/* NAVBAR CSS END*/
 
 .drinkHeader {
   color: white;

@@ -33,7 +33,7 @@ export const SoftDrinkComponent = () => {
   const groupedSoftDrinks = groupItems(softdrink, 3);
   return (
     <>
-      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+      <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Select Soft Drinks
         </h1>
@@ -50,8 +50,7 @@ export const SoftDrinkComponent = () => {
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
-                  }}
-                >
+                  }}>
                   <div style={{ overflow: "hidden" }}>
                     <img
                       className="cardImage"
@@ -66,8 +65,7 @@ export const SoftDrinkComponent = () => {
                   </div>
                   <Card.Body
                     className="d-flex flex-column mb-2"
-                    style={{ padding: "0px 10px", height: "3rem" }}
-                  >
+                    style={{ padding: "0px 10px", height: "3rem" }}>
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
                       <span className="fs-5">{softDrink.title}</span>
                     </Card.Title>
