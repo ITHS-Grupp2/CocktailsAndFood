@@ -197,11 +197,14 @@ body {
 
 h1,
 h2 {
+  font: 350% $font-stack-header;
+  text-transform: uppercase;
   color: $main-font-color;
 }
 
 .h1Header {
-  font: 500% $font-stack-logo;
+  font: 600% $font-stack-logo;
+  text-transform: none;
   color: $main-font-color;
   font-weight: bold;
   margin: 0 4rem 0 4rem;
@@ -346,6 +349,7 @@ button:active {
 
 .navbar-item {
   font: 150% $font-stack-navbar;
+  text-transform: uppercase;
   margin: 0 20px;
   padding: 6px 90px;
   background-color: $navbar-color;
