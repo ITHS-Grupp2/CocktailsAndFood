@@ -19,8 +19,16 @@ $link-hover: white;
 $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
+$navbar-color-hover: #F4002C;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
+$beef-brown: #400F0F;
+$egg-white: #FFFCF8;
+$bacon-orange: #D95F18;
+$brioche-brown: #F29C50;
+$ketchup-red: #BF0426;
+$light-salad-green: #94B564;
+$salad-green: #558C03;
 
 .hightlight {
   color: greenyellow;
@@ -62,18 +70,19 @@ body {
   display: flex;
   justify-content: center;
   color: $main-font-color;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 35%,
-    rgba(70, 70, 70, 1) 100%
-  );
+  background-color: $egg-white;
+  // background: rgb(2, 0, 36);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(0, 0, 0, 1) 35%,
+  //   rgba(70, 70, 70, 1) 100%
+  // );
 }
 
 .footer {
   width: 100%;
-  background-color: $footer-background;
+  background-color: $brioche-brown;
   display: flex;
   justify-content: space-around;
   color: white;
@@ -200,13 +209,13 @@ h1,
 h2 {
   font: 350% $font-stack-header;
   text-transform: uppercase;
-  color: $main-font-color;
+  color: white;
 }
 
 .h1Header {
   font: 600% $font-stack-logo;
   text-transform: none;
-  color: $main-font-color;
+  color: $beef-brown;
   font-weight: bold;
   margin: 0 4rem 0 4rem;
 }
@@ -215,7 +224,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $header-color;
+  background-color: $brioche-brown;
   padding-top: 25px;
   padding-bottom: 25px;
   width: 100%;
@@ -225,14 +234,22 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $header-color;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
-  color: $inline-font-color;
+  color: white;
+  // color: $inline-font-color;
   font-weight: normal;
-  color: $main-font-color;
+  // color: $main-font-color;
   margin-bottom: 10px;
+}
+
+.first {
+  background-color: $beef-brown;
+}
+
+.second {
+  background-color: $salad-green;
 }
 
 .shoppingIcon {
@@ -346,6 +363,7 @@ button:active {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  background-color: $bacon-orange;
 }
 
 .navbar-item {
@@ -355,6 +373,8 @@ button:active {
   padding: 6px 90px;
   background-color: $navbar-color;
   border-radius: 20px;
+  background-color: $ketchup-red;
+  color: white;
 }
 
 .navbar-item:hover {
