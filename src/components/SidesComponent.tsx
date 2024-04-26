@@ -2,15 +2,22 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GetIcon } from "./Icons";
-import { CartProduct } from "./CartContext";
+import {
+  addToCart,
+  CartContext,
+  CartDispatchContext,
+  findQuantity,
+} from "./CartContext";
 import { CartQuantity } from "./CartQuantity";
+import { useContext } from "react";
+import { PageHistoryDispatchContext } from "./PageHistoryProvider";
 
 // Sends information to cart
 const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   return {
-    _id: side._id,
+    id: side._id,
     productType: "Side",
     title: side.title,
     imgSrc: side.imageUrl,
@@ -22,22 +29,31 @@ const convertToProductInfoData = (side: MainResponse): ProductInfoData => {
   };
 };
 
-const convertToCartProduct = (side: ProductInfoData): CartProduct => {
-  return {
-    id: side._id,
-    title: side.title,
-    img: side.imageUrl,
-    price: side.price,
-    quantity: 1,
-  };
-};
-
-
-
-
 // A function that fetches all Sides-data from FoodAPI and populates the cards with its data
 export const SidesComponent = () => {
   const sides = FoodAPI("sides");
+
+  const state = useContext(CartContext);
+
+  const dispatch = useContext(CartDispatchContext);
+  // const historyDispatch = useContext(PageHistoryDispatchContext);
+  // const location = useLocation();
+
+  // Adds the product to the cart and remembers which burger is clicked
+  // const handleAddToCart = () => {
+  //     addToCart(dispatch, );
+
+  //     if (productInfo.productType === "main") {
+  //       localStorage.setItem("burgerId", productInfo.id);
+  //     }
+  //     const pageHistory: PageHistory = {
+  //       page: location.pathname,
+  //       productId: productInfo.id,
+  //     };
+  //     addToVisit(historyDispatch, pageHistory);
+  //   }
+  // };
+
   return (
     <>
       <div className="headerSmaller" style={{ margin: "30px 0px" }}>
@@ -78,12 +94,24 @@ export const SidesComponent = () => {
                     <span className="fs-5 ">{side.title} </span>
                   </Card.Title>
                 </Card.Body>
-                {/* <NavigationButton
-                  productInfo={convertToProductInfoData(side)}
-                  price={side.price}
-                  navigationPath="/drinkselect"
-                /> */}
-                <CartQuantity data={convertToCartProduct(convertToProductInfoData(side))}/>
+                {findQuantity(state, side._id) === 0 ? (
+                  <button
+                    style={{ height: "40px" }}
+                    onClick={() =>
+                      addToCart(dispatch, convertToProductInfoData(side))
+                    }
+                  >
+                    {GetIcon("Cart", "white", "Medium")} ${side.price}
+                  </button>
+                ) : (
+                  <CartQuantity
+                    cartProduct={
+                      state.cartProducts.find(
+                        (product) => product.id === side._id
+                      ) || { id: "", title: "", price: 0, img: "", quantity: 0 }
+                    }
+                  />
+                )}
               </Card>
             </Col>
           ))}
