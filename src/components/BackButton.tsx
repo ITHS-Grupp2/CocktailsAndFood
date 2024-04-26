@@ -32,8 +32,9 @@ export const BackButton = () => {
             pageHistoryState.pages[pageHistoryState.pages.length - 2]
               .productId + ""
           ))
-        }>
-        {GetIcon("Arrow", hide ? "none" : "white", "Large")}
+        }
+      >
+          {hide ? <div style={{width: "60px", margin: "10px"}}></div> : <div className="header-button">{GetIcon("Arrow", "Large")}</div>}
       </Link>
     </>
   );

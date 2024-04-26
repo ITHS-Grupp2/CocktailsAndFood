@@ -3,13 +3,18 @@ import { ProductInfoData } from "./ProductInfo";
 import { CartDispatchContext, addToCart } from "./CartContext";
 import { useContext } from "react";
 import { GetIcon } from "./Icons";
-import { addToVisit, PageHistory, PageHistoryDispatchContext } from "./PageHistoryProvider";
+import {
+  addToVisit,
+  PageHistory,
+  PageHistoryDispatchContext,
+} from "./PageHistoryProvider";
 
 export type NavigationPath =
   | "/drinkselect"
   | "/productinfoview"
   | "/shoppingcart"
-  | "/sideselect";
+  | "/sideselect"
+  | "/softdrinkselect";
 
 type NavigationButtonData = {
   navigationPath?: NavigationPath;
@@ -43,7 +48,7 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
   return (
     <Link to={"" + navigationPath}>
       <button onClick={handleAddToCart} className="navigationButtonFill">
-        {GetIcon("Cart", "white", "Medium")}
+        {GetIcon("Cart", "Medium")}
         <span style={{ paddingLeft: "10px" }}>Price: ${buttonData.price}</span>
       </button>
     </Link>
