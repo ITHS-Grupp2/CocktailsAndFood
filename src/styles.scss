@@ -59,6 +59,8 @@ $footer-background: #9f8c8c;
 
 body {
   font: 100% $font-stack-bread;
+  display: flex;
+  justify-content: center;
   color: $main-font-color;
   background: rgb(2, 0, 36);
   background: linear-gradient(
