@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap");
 
 $font-stack-logo: "Jolly Lodger", sans-serif;
 $font-stack-header: "Jockey One", sans-serif;
@@ -21,8 +21,10 @@ $header-color: #684444;
 $navbar-color: #a17979;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
-$next-button-color: #BF0426;
-$next-button-color-hover: #F4002C;
+$salad-green: #558c03;
+$light-salad-green: #94b564;
+$next-button-color: #bf0426;
+$next-button-color-hover: #f4002c;
 
 .hightlight {
   color: greenyellow;
@@ -378,6 +380,18 @@ button:hover {
   transition: opacity 0.5s ease-in-out;
 }
 
+.orderConfirmationPage {
+  background-color: $salad-green;
+  text-align: center;
+  padding-bottom: 40%;
+}
+
+.orderConfirmationPageNumber {
+  background-color: $light-salad-green;
+  margin-top: 30%;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
 
 /* NEXT-BUTTON CSS START*/
 
@@ -389,25 +403,24 @@ button:hover {
   width: 100%;
   background: $next-button-color;
   display: flex;
-  justify-Content: space-between;
-  align-Items: center;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
 }
 
-.nextButton:hover{
+.nextButton:hover {
   background: $next-button-color-hover;
   border: 1px solid $next-button-color-hover;
 }
 
 .nextButtonText {
   flex: 1;
-  padding-Left: 80px; 
+  padding-left: 80px;
 }
 
 .nextButtonArrow {
   font-size: 40px;
   padding-right: 40px;
 }
-
 
 /* NEXT-BUTTON CSS END*/
