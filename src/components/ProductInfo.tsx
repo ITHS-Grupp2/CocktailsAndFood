@@ -32,7 +32,11 @@ export const ProductInfo = (data: ProductInfoData) => {
                     : data.imgSrc
                 }
                 alt={`${data.title}`}
-                style={{ width: "400px", height: "400px" }}
+                style={{
+                  width: "400px",
+                  height: "400px",
+                  borderRadius: "20px",
+                }}
               ></img>
             </div>
             <div className="d-flex flex-column p-2 m-2 justify-content-between w-25">
@@ -50,7 +54,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                   <strong>More Information</strong>
                   <br />
                   <p>{data?.information}</p>
-                  {/*If the product has the type motivation and percentage then it will display that data*/}  
+                  {/*If the product has the type motivation and percentage then it will display that data*/}
                   {data?.motivation != null ? (
                     <div>
                       <p>{data?.motivation}</p>
