@@ -17,6 +17,7 @@ import {
   PageHistoryDispatchContext,
 } from "./PageHistoryProvider";
 import { CartQuantity } from "./CartQuantity";
+import { Salad } from "./Salad";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -46,7 +47,7 @@ export const CartProductList = () => {
   return (
     <>
       <Container>
-        <div className="cartItemListBox">
+        <div className="cartItemListBox" style={{ padding: "20px 0" }}>
           {state.cartProducts.length > 0 ? (
             <div className="col ">
               <div className="col cardItemList">
@@ -57,9 +58,11 @@ export const CartProductList = () => {
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     }`}
                     style={{
-                      borderBottom: "3px solid black",
-
-                      marginTop: "20px",
+                      backgroundColor: "white",
+                      border: "1px solid #FFFCF8",
+                      borderRadius: "0.8rem",
+                      marginBottom: "10px",
+                      padding: "10px",
                     }}
                   >
                     <div
@@ -115,8 +118,8 @@ export const CartProductList = () => {
                       >
                         ${cartProduct.price}
                       </h6>
-                      <div className="text-end" style={{ marginTop: "55px" }}>
-                        <div className="text-end" style={{ width: "150px", float:"right" }}>
+                      <div className="amount-price-box">
+                        <div className="cart-qty-component">
                           <CartQuantity cartProduct={cartProduct} />
                         </div>
                         <p className="price-amount-single">
@@ -134,21 +137,24 @@ export const CartProductList = () => {
                     onClick={() => eraseHistory(dispatchPage)}
                   >
                     <FontAwesomeIcon icon={faPlus} />
-                    &nbsp; Add menu
+                    &nbsp; Add Extra
                   </button>
                 </Link>
               </div>
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "white", marginRight: "30px" }}
+                  style={{ color: "black", marginRight: "30px" }}
                 >
-                  {totalItems} products in cart | Total price: $
-                  {totalPrice.toFixed(2)}
+                  <b>
+                    {totalItems} products in cart | Total sum: $
+                    {totalPrice.toFixed(2)}
+                  </b>
                 </h6>
               </div>
-              <div className="text-end">
-                <span>
+              <div className="salad-row">
+                <Salad />
+                <div>
                   <Link to={`/orderconfirmation`}>
                     <button
                       className="cartProductCheckoutButton"
@@ -156,10 +162,10 @@ export const CartProductList = () => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
                       }}
                     >
-                      <FontAwesomeIcon icon={faCreditCard} /> Pay
+                      Pay
                     </button>
                   </Link>
-                </span>
+                </div>
               </div>
             </div>
           ) : (
