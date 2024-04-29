@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useReducer } from "react";
+import { ReactNode, createContext, useContext, useReducer } from "react";
 import { ProductInfoData } from "./ProductInfo";
 
 const initialContext: CartState = { cartProducts: [] };
@@ -22,6 +22,7 @@ export type Action =
   | { type: "DECREMENT_QUANTITY"; payload: string }
   | { type: "INCREMENT_QUANTITY"; payload: string }
   | { type: "DECREMENT_OR_REMOVE"; payload: string }
+  | { type: "FIND_QUANTITY"; payload: string }
   | { type: "EMPTY_CART" };
 
 export const CartContext = createContext(initialContext);
@@ -122,6 +123,16 @@ export const cartReducer = (state: CartState, action: Action) => {
         }
       }
       return state; // Return the current state if the product is not found
+
+    case "FIND_QUANTITY": // New case to find quantity of a product
+      const product = state.cartProducts.find(
+        (product) => product.id === action.payload
+      );
+      const quantity = product ? product.quantity : 0;
+      return {
+        ...state,
+        amountInCart: quantity,
+      };
     case "EMPTY_CART": // Empties the cart when the pay button is pressed.
       return {
         ...state,
@@ -172,6 +183,14 @@ export const incrementQuantity = (
   productId: string
 ) => {
   dispatch({ type: "INCREMENT_QUANTITY", payload: productId });
+};
+
+export const findQuantity = (state: CartState, productId: string): number => {
+  // Find the product in the state based on the productId
+  const product = state.cartProducts.find(
+    (product) => product.id === productId
+  );
+  return product ? product.quantity : 0; // Return the quantity or 0 if product not found
 };
 
 export const emptyCart = (dispatch: React.Dispatch<Action>) => {

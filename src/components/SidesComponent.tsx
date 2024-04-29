@@ -2,6 +2,17 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
+import { Link, useLocation } from "react-router-dom";
+import { GetIcon } from "./Icons";
+import {
+  addToCart,
+  CartContext,
+  CartDispatchContext,
+  findQuantity,
+} from "./CartContext";
+import { CartQuantity } from "./CartQuantity";
+import { useContext } from "react";
+import { PageHistoryDispatchContext } from "./PageHistoryProvider";
 import { NextButton } from "./NextButton";
 
 // Sends information to cart
@@ -30,6 +41,28 @@ const groupItems = (arr: MainResponse[], size: number) => {
 // A function that fetches all Sides-data from FoodAPI and populates the cards with its data
 export const SidesComponent = () => {
   const sides = FoodAPI("sides");
+
+  const state = useContext(CartContext);
+
+  const dispatch = useContext(CartDispatchContext);
+  // const historyDispatch = useContext(PageHistoryDispatchContext);
+  // const location = useLocation();
+
+  // Adds the product to the cart and remembers which burger is clicked
+  // const handleAddToCart = () => {
+  //     addToCart(dispatch, );
+
+  //     if (productInfo.productType === "main") {
+  //       localStorage.setItem("burgerId", productInfo.id);
+  //     }
+  //     const pageHistory: PageHistory = {
+  //       page: location.pathname,
+  //       productId: productInfo.id,
+  //     };
+  //     addToVisit(historyDispatch, pageHistory);
+  //   }
+  // };
+
   const groupedSides = groupItems(sides, 3);
   return (
     <>
@@ -70,11 +103,30 @@ export const SidesComponent = () => {
                       <span className="fs-5">{side.title}</span>
                     </Card.Title>
                   </Card.Body>
-                  <NavigationButton
-                    productInfo={convertToProductInfoData(side)}
-                    price={side.price}
-                    navigationPath="/drinkselect"
-                  />
+                  {findQuantity(state, side._id) === 0 ? (
+                    <button
+                      style={{ height: "40px" }}
+                      onClick={() =>
+                        addToCart(dispatch, convertToProductInfoData(side))
+                      }
+                    >
+                      {GetIcon("Cart", "Medium")} ${side.price}
+                    </button>
+                  ) : (
+                    <CartQuantity
+                      cartProduct={
+                        state.cartProducts.find(
+                          (product) => product.id === side._id
+                        ) || {
+                          id: "",
+                          title: "",
+                          price: 0,
+                          img: "",
+                          quantity: 0,
+                        }
+                      }
+                    />
+                  )}
                 </Card>
               </Col>
             ))}

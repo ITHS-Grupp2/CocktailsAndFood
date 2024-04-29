@@ -9,10 +9,13 @@ $inline-font-color: #000000;
 $primary-color: #b60b0b;
 $green-button-color: #108832;
 $green-button-color-hover: #4da366;
-$button-color: #0d5ca7;
-$button-color-hover: #3d7db8;
+$button-color: #558c03;
+$button-color-light: #94b564;
+$button-color-hover: #76b21d;
 $accent-color: #eaeaea;
 $primary-background-color: #0d0c0c;
+$red-button-color: #bf0426;
+$red-button-color-hover: #f4002c;
 $accent-background-color: #d9d9d9;
 $link-color: #3c0101;
 $link-hover: white;
@@ -29,6 +32,7 @@ $brioche-brown: #F29C50;
 $ketchup-red: #BF0426;
 $salad-green: #558c03;
 $light-salad-green: #94b564;
+$order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
 
@@ -133,6 +137,7 @@ $next-button-color-hover: #f4002c;
 }
 
 .navigationButtonFill {
+  background-color: $red-button-color;
   width: 100%;
   fill: $egg-white;
 }
@@ -228,10 +233,10 @@ body {
 .cartProductAmountButton {
   background-color: $button-color;
   height: 40px;
-  width: 40px;
+  width: 100%;
   border-radius: 5px;
   border: none;
-  margin-top: 93px;
+  // margin-top: 93px;
 }
 .cartProductAmountButton:hover {
   background-color: $button-color-hover;
@@ -258,12 +263,12 @@ body {
 }
 
 .amountBox {
+  background-color: $button-color-light;
   height: 40px;
-  width: 40px;
-  background-color: #e6dcdc;
+  width: 100%;
   padding: 10px;
   text-align: center;
-  margin-top: 93px;
+  // margin-top: 93px;
 }
 
 .removeFromCart {
@@ -486,14 +491,37 @@ strong {
 .orderConfirmationPage {
   background-color: $salad-green;
   text-align: center;
-  padding-bottom: 40%;
+  padding-bottom: 10vh;
+  border-radius: $radius;
 }
 
 .orderConfirmationPageNumber {
-  background-color: $light-salad-green;
-  margin-top: 30%;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  background-color: $order-nr-green;
+  margin: 100px auto;
+  width: 40%;
+  padding: 20px;
+  border-radius: $radius;
+}
+
+.startNewOrderButton {
+  padding-bottom: 30px;
+  width: 400px;
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  background: $next-button-color;
+  text-align: center;
+}
+
+.startNewOrderButton:hover {
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
+
+.centerNewOrderButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 /* NEXT-BUTTON CSS START*/
