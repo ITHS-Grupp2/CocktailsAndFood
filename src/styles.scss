@@ -151,21 +151,30 @@ body {
   );
 }
 
+/* FOOTER START */
 .footer {
   display: flex;
   overflow: hidden;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: $brioche-brown;
-  padding-top: 10px;
-  padding-bottom: 10px;
   height: 100px;
   width: 1176px;
-  margin-top: 10px;
   border-radius: 10px 10px 80px 80px;
-  width: 100%;
-  
+
 }
+
+.footer-content {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.footer-social-icons {
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+/* FOOTER END */
 
 .carousel-item {
   overflow: hidden;

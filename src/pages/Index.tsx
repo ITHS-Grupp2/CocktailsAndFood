@@ -21,7 +21,8 @@ export const Index = () => {
                 <div
                   style={{
                     margin: "0",
-                  }}>
+                  }}
+                >
                   <MainComponent />
                 </div>
               </Container>
