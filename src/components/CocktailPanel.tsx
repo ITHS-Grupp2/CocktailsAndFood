@@ -76,7 +76,7 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
       {!isBurgerIdNotNull && (
         <Container>
           <Row>
-            <NextButton targetPage="/shoppingcart" />
+            <NextButton targetPage="/softdrinkselect" />
           </Row>
         </Container>
       )}
