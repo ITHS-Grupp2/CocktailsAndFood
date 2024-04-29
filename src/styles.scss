@@ -22,14 +22,14 @@ $link-hover: white;
 $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
-$navbar-color-hover: #F4002C;
+$navbar-color-hover: #f4002c;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
-$beef-brown: #400F0F;
-$egg-white: #FFFCF8;
-$bacon-orange: #D95F18;
-$brioche-brown: #F29C50;
-$ketchup-red: #BF0426;
+$beef-brown: #400f0f;
+$egg-white: #fffcf8;
+$bacon-orange: #d95f18;
+$brioche-brown: #f29c50;
+$ketchup-red: #bf0426;
 $salad-green: #558c03;
 $light-salad-green: #94b564;
 $order-nr-green: #6b9d1f;
@@ -50,13 +50,13 @@ $next-button-color-hover: #f4002c;
   min-width: 1176px;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.header-button{
+.header-button {
   width: 60px;
   height: 60px;
   background-color: $beef-brown;
@@ -79,7 +79,7 @@ $next-button-color-hover: #f4002c;
   font-weight: bold;
 }
 
-.sesame-group{
+.sesame-group {
   display: flex;
   height: 100%;
   width: 100%;
@@ -87,7 +87,7 @@ $next-button-color-hover: #f4002c;
   justify-content: space-evenly;
 }
 
-.sesame-seed{
+.sesame-seed {
   width: 10px;
   height: 10px;
   min-height: 10px;
@@ -97,7 +97,7 @@ $next-button-color-hover: #f4002c;
   margin: 5px;
 }
 
-#breader-header{
+#breader-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,7 +262,6 @@ body {
   width: 100%;
   border-radius: 5px;
   border: none;
-  // margin-top: 93px;
 }
 .cartProductAmountButton:hover {
   background-color: $button-color-hover;
@@ -444,7 +443,7 @@ button:hover {
   border-radius: $radius;
 }
 
-// Is added to get the right color to the text on selected burger and recommended cocktail, might be solved in better way?  
+// Is added to get the right color to the text on selected burger and recommended cocktail, might be solved in better way?
 p {
   color: $beef-brown;
 }
