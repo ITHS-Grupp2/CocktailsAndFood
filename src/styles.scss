@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jockey+One&family=Jolly+Lodger&display=swap");
 
 $font-stack-logo: "Jolly Lodger", sans-serif;
 $font-stack-header: "Jockey One", sans-serif;
@@ -9,10 +9,13 @@ $inline-font-color: #000000;
 $primary-color: #b60b0b;
 $green-button-color: #108832;
 $green-button-color-hover: #4da366;
-$button-color: #0d5ca7;
-$button-color-hover: #3d7db8;
+$button-color: #558c03;
+$button-color-light: #94b564;
+$button-color-hover: #76b21d;
 $accent-color: #eaeaea;
 $primary-background-color: #0d0c0c;
+$red-button-color: #bf0426;
+$red-button-color-hover: #f4002c;
 $accent-background-color: #d9d9d9;
 $link-color: #3c0101;
 $link-hover: white;
@@ -21,6 +24,14 @@ $header-color: #684444;
 $navbar-color: #a17979;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
+$beef-brown: #400F0F;
+$egg-white: #FFFCF8;
+$brioche-brown: #F29C50;
+$salad-green: #558c03;
+$light-salad-green: #94b564;
+$order-nr-green: #6b9d1f;
+$next-button-color: #bf0426;
+$next-button-color-hover: #f4002c;
 
 .hightlight {
   color: greenyellow;
@@ -34,6 +45,73 @@ $footer-background: #9f8c8c;
 .siteSizeMin {
   min-height: 1770px;
   min-width: 1176px;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-button{
+  width: 60px;
+  height: 60px;
+  background-color: $beef-brown;
+  border-radius: 50%;
+  color: $egg-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: $egg-white;
+  margin: 10px;
+}
+
+.h1Header {
+  font: 300% $font-stack-logo;
+  color: $beef-brown;
+  font-weight: bold;
+  margin: 10px;
+  min-width: 350px;
+  text-transform: none;
+  font-weight: bold;
+}
+
+.sesame-group{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0px 10px;
+  justify-content: space-evenly;
+}
+
+.sesame-seed{
+  width: 10px;
+  height: 10px;
+  min-height: 10px;
+  min-width: 10px;
+  border-radius: 10px 10px 10px 0px;
+  background-color: $egg-white;
+  margin: 5px;
+}
+
+#breader-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bread-crown {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: $brioche-brown;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100px;
+  width: 1176px;
+  margin-top: 10px;
+  border-radius: 80px 80px 10px 10px;
 }
 
 .aboutUsBox {
@@ -54,7 +132,9 @@ $footer-background: #9f8c8c;
 }
 
 .navigationButtonFill {
+  background-color: $red-button-color;
   width: 100%;
+  fill: $egg-white;
 }
 
 body {
@@ -147,10 +227,10 @@ body {
 .cartProductAmountButton {
   background-color: $button-color;
   height: 40px;
-  width: 40px;
+  width: 100%;
   border-radius: 5px;
   border: none;
-  margin-top: 93px;
+  // margin-top: 93px;
 }
 .cartProductAmountButton:hover {
   background-color: $button-color-hover;
@@ -177,12 +257,12 @@ body {
 }
 
 .amountBox {
+  background-color: $button-color-light;
   height: 40px;
-  width: 40px;
-  background-color: #e6dcdc;
+  width: 100%;
   padding: 10px;
   text-align: center;
-  margin-top: 93px;
+  // margin-top: 93px;
 }
 
 .removeFromCart {
@@ -201,14 +281,6 @@ h2 {
   font: 350% $font-stack-header;
   text-transform: uppercase;
   color: $main-font-color;
-}
-
-.h1Header {
-  font: 600% $font-stack-logo;
-  text-transform: none;
-  color: $main-font-color;
-  font-weight: bold;
-  margin: 0 4rem 0 4rem;
 }
 
 .headerTotal {
@@ -324,10 +396,6 @@ button:hover {
   border: 1px solid #e8e8e8;
 }
 
-button:active {
-  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
-}
-
 .roundedStandard {
   border-radius: $radius;
 }
@@ -379,3 +447,71 @@ button:active {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
+
+.orderConfirmationPage {
+  background-color: $salad-green;
+  text-align: center;
+  padding-bottom: 10vh;
+  border-radius: $radius;
+}
+
+.orderConfirmationPageNumber {
+  background-color: $order-nr-green;
+  margin: 100px auto;
+  width: 40%;
+  padding: 20px;
+  border-radius: $radius;
+}
+
+.startNewOrderButton {
+  padding-bottom: 30px;
+  width: 400px;
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  background: $next-button-color;
+  text-align: center;
+}
+
+.startNewOrderButton:hover {
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
+
+.centerNewOrderButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* NEXT-BUTTON CSS START*/
+
+.nextButton {
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  padding: 0px;
+  width: 100%;
+  background: $next-button-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nextButton:hover {
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
+
+.nextButtonText {
+  flex: 1;
+  padding-left: 80px;
+}
+
+.nextButtonArrow {
+  font-size: 40px;
+  padding-right: 40px;
+}
+
+/* NEXT-BUTTON CSS END*/

@@ -3,6 +3,15 @@ import { Cocktail, price } from "../API/CocktailFetch";
 import { NavigationButton, NavigationPath } from "./NavigationButton";
 import { GetPercentage } from "../services/CocktailInfoService";
 import { ProductInfoData } from "./ProductInfo";
+import {
+  addToCart,
+  CartContext,
+  CartDispatchContext,
+  findQuantity,
+} from "./CartContext";
+import { CartQuantity } from "./CartQuantity";
+import { useContext } from "react";
+import { GetIcon } from "./Icons";
 
 export type CocktailInfoData = {
   id: string;
@@ -11,7 +20,7 @@ export type CocktailInfoData = {
   cocktail: Cocktail;
 };
 
-// Changes Cocktail to a ProductInfoData so it can be used in NavigationButton and the Cart.
+// Cp0: string, p1: string, p2: string, icon: Icon, size: SizeroductInfoData so it can be used in NavigationButton and the Cart.
 const convertToProductInfoData = (cocktail: Cocktail): ProductInfoData => {
   return {
     id: cocktail.id,
@@ -28,6 +37,8 @@ const convertToProductInfoData = (cocktail: Cocktail): ProductInfoData => {
 
 // The component for a single drink of the non-recommended drinks on the CocktailPanel (DrinkSelect page)
 export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
+  const state = useContext(CartContext);
+  const dispatch = useContext(CartDispatchContext);
   return (
     <Container>
       <Card
@@ -64,11 +75,33 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
             </p>
           </Card.Subtitle>
         </Card.Body>
-        <NavigationButton
-          productInfo={convertToProductInfoData(data.cocktail)}
-          price={price}
-          navigationPath="/softdrinkselect"
-        ></NavigationButton>
+        <div>
+          {findQuantity(state, data.cocktail.id) === 0 ? (
+            <button
+              style={{ height: "40px", width: "100%" }}
+              onClick={() =>
+                addToCart(dispatch, convertToProductInfoData(data.cocktail))
+              }
+            >
+              {GetIcon("Cart", "Medium")} $ 9
+            </button>
+          ) : (
+            <CartQuantity
+              cartProduct={
+                state.cartProducts.find(
+                  (product) => product.id === data.cocktail.id
+                ) || {
+                  id: "",
+                  title: "",
+                  price: 0,
+                  img: "",
+                  quantity: 0,
+                }
+              }
+            />
+          )}
+        </div>
+        {/* <NavigationButton navigationPath="/softdrinkselect"></NavigationButton> */}
       </Card>
     </Container>
   );
