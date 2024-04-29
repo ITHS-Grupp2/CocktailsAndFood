@@ -22,11 +22,14 @@ $link-hover: white;
 $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
+$navbar-color-hover: #F4002C;
 $light-background: #f4eaea;
 $footer-background: #9f8c8c;
 $beef-brown: #400F0F;
 $egg-white: #FFFCF8;
+$bacon-orange: #D95F18;
 $brioche-brown: #F29C50;
+$ketchup-red: #BF0426;
 $salad-green: #558c03;
 $light-salad-green: #94b564;
 $order-nr-green: #6b9d1f;
@@ -115,15 +118,17 @@ $next-button-color-hover: #f4002c;
 }
 
 .aboutUsBox {
-  width: 25vw;
-  height: 15vw;
-  background-color: $header-color;
+  font: 100% $font-stack-bread;
+  // width: 25vw;
+  // height: 15vw;
+  background-color: $salad-green;
   margin: 30px 0px;
-  color: $main-font-color;
-  padding: 10px;
-  font-size: 1.5vw;
-  border-radius: 20px;
-  text-align: start;
+  color: white;
+  padding: 15px;
+  // font-size: 1vw;
+  font-size: x-large;
+  border-radius: 10px;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -141,19 +146,20 @@ body {
   font: 100% $font-stack-bread;
   display: flex;
   justify-content: center;
-  color: $main-font-color;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 35%,
-    rgba(70, 70, 70, 1) 100%
-  );
+  color: $beef-brown;
+  background-color: $egg-white;
+  // background: rgb(2, 0, 36);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(0, 0, 0, 1) 35%,
+  //   rgba(70, 70, 70, 1) 100%
+  // );
 }
 
 .footer {
   width: 100%;
-  background-color: $footer-background;
+  background-color: $brioche-brown;
   display: flex;
   justify-content: space-around;
   color: white;
@@ -280,31 +286,43 @@ h1,
 h2 {
   font: 350% $font-stack-header;
   text-transform: uppercase;
-  color: $main-font-color;
+  color: white;
+  text-align: center;
 }
 
 .headerTotal {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $header-color;
+  background-color: $brioche-brown;
   padding-top: 25px;
   padding-bottom: 25px;
   width: 100%;
+  color: $beef-brown;
 }
 
 .headerSmaller {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $header-color;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
-  color: $inline-font-color;
+  color: white;
+  // color: $inline-font-color;
   font-weight: normal;
-  color: $main-font-color;
+  // color: $main-font-color;
   margin-bottom: 10px;
+}
+
+.first {
+  background-color: $beef-brown;
+  border-radius: 10px;
+}
+
+.second {
+  background-color: $salad-green;
+  border-radius: 10px;
 }
 
 .shoppingIcon {
@@ -385,7 +403,7 @@ button {
   font-weight: bold;
   padding: 0.7em 1.7em;
   font-size: 18px;
-  background: $button-color;
+  background-color: $ketchup-red;
   cursor: pointer;
   border: 1px solid #e8e8e8;
   transition: all 0.3s;
@@ -399,6 +417,21 @@ button:hover {
 .roundedStandard {
   border-radius: $radius;
 }
+
+// Is added to get the right color to the text on selected burger and recommended cocktail, might be solved in better way?  
+p {
+  color: $beef-brown;
+}
+
+strong {
+  color: $beef-brown;
+}
+
+.beef-brown {
+  color: $beef-brown;
+}
+
+/* NAVBAR CSS START*/
 
 .navbar-item a {
   color: black;
@@ -414,20 +447,27 @@ button:hover {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  background-color: $bacon-orange;
+  border-radius: 10px;
 }
 
 .navbar-item {
   font: 150% $font-stack-navbar;
   text-transform: uppercase;
-  margin: 0 20px;
+  margin: 10px 16px;
   padding: 6px 90px;
-  background-color: $navbar-color;
+  // background-color: $navbar-color;
   border-radius: 20px;
+  background-color: $ketchup-red;
+  color: white;
 }
 
 .navbar-item:hover {
   color: white;
+  background-color: $next-button-color-hover;
 }
+
+/* NAVBAR CSS END*/
 
 .drinkHeader {
   color: white;
