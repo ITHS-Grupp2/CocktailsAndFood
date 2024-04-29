@@ -167,17 +167,27 @@ body {
   height: 100px;
   width: 1176px;
   border-radius: 10px 10px 80px 80px;
-
 }
 
 .footer-content {
   padding-left: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+}
+
+.footer-content p{
+  margin: 0px;
+  padding-bottom: 5px;
 }
 
 .footer-social-icons {
   padding-right: 20px;
   padding-bottom: 10px;
+
+}
+
+.footer-social-icons img {
+  padding: 4px;
+  height: 40px;
 }
 
 /* FOOTER END */
