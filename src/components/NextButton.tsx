@@ -22,3 +22,20 @@ export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
     </div>
   );
 };
+
+export const NextButtonCocktail: React.FC<NextButtonProps> = ({
+  targetPage,
+}) => {
+  return (
+    <div className="next-button-cocktail" style={{ paddingLeft: "12px" }}>
+      <Link to={targetPage}>
+        <button className="shadow">
+          <span style={{ fontSize: "150px", paddingTop: "50px" }}>
+            &#129130;
+          </span>
+          <span>NEXT</span>
+        </button>
+      </Link>
+    </div>
+  );
+};
