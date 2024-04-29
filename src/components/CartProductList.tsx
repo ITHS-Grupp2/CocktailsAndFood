@@ -6,7 +6,7 @@ import {
   removeFromCart,
 } from "./CartContext";
 import { Container } from "react-bootstrap";
-import { faCreditCard, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +16,7 @@ import {
 } from "./PageHistoryProvider";
 import { CartQuantity } from "./CartQuantity";
 import { Salad } from "./Salad";
+import { GetIcon } from "./Icons";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -45,7 +46,7 @@ export const CartProductList = () => {
   return (
     <>
       <Container>
-        <div className="cartItemListBox" style={{ padding: "20px 0" }}>
+        <div className="cartItemListBox">
           {state.cartProducts.length > 0 ? (
             <div className="col ">
               <div className="col cardItemList">
@@ -56,18 +57,15 @@ export const CartProductList = () => {
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     }`}
                     style={{
-                      backgroundColor: "white",
-                      border: "1px solid #FFFCF8",
                       borderRadius: "0.8rem",
-                      marginBottom: "10px",
                       padding: "10px",
+                      border: "0.5rem solid #fffcf8",
                     }}
                   >
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "900px",
-                        marginBottom: "20px",
                         marginLeft: "8px",
                       }}
                     >
@@ -92,7 +90,7 @@ export const CartProductList = () => {
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                             }}
                           >
-                            {cartProduct.title}
+                            {cartProduct.title} - ${cartProduct.price} x 1
                           </span>
                           <button
                             onClick={() => {
@@ -104,7 +102,7 @@ export const CartProductList = () => {
                             }}
                             className="remove-from-cart"
                           >
-                            <FontAwesomeIcon icon={faTrashCan} />
+                            {GetIcon("Cross", "Large")}
                           </button>
                         </span>
                       </h5>
@@ -114,9 +112,8 @@ export const CartProductList = () => {
                         }}
                         className="card-text"
                       >
-                        ${cartProduct.price}
                       </h6>
-                      <div className="text-end" style={{ marginTop: "55px" }}>
+                      <div className="amount-price-box">
                         <div className="text-end" style={{ width: "150px" }}>
                           <CartQuantity
                             radius="Standalone"

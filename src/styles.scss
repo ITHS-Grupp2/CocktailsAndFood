@@ -23,7 +23,7 @@ $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
 $navbar-color-hover: #f4002c;
-$light-background: #f4eaea;
+$light-background: #fffcf8;
 $footer-background: #9f8c8c;
 $beef-brown: #400f0f;
 $egg-white: #fffcf8;
@@ -45,21 +45,19 @@ $ketchup-red-hover: #F4002C;
 
 .siteSize {
   width: 1176px; // 1247
-  height: 1770px;
+  margin-bottom: 10px;
 }
 
 .siteSizeMin {
-  min-height: 1770px;
   min-width: 1176px;
 }
 
 .salad{
-  width: 175px;
+  width: 180px;
   height: 40px;
   border-radius: 0 0 10px 10px;
-  border: solid 2px black;
-  background-color: $salad-green;
   transition-duration: 0.3s;
+  position: relative;
 }
 
 .salad:hover{
@@ -68,12 +66,16 @@ $ketchup-red-hover: #F4002C;
 
 .salad-group{
   display: flex;
+  position: relative;
+  left: 32px;
 }
 
 .salad-row{
   width: 1176px;
   display: flex;
   justify-content: center;
+  position: relative;
+  left: -16px
 }
 
 #root{
@@ -224,7 +226,7 @@ body {
 }
 
 .cardItemList {
-  background-color: $light-background;
+  background-color: #FFFFFF;
   color: $inline-font-color;
   border-radius: $radius;
   padding: 1px 10px 0px 10px;

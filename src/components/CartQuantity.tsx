@@ -44,7 +44,7 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
             }
           }}
           className="amount-btn"
-          style={{ borderRadius: "0 0 0 0" }}
+          style={{ borderRadius: radiusLeft }}
         >
           -
         </Button>
@@ -56,7 +56,7 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
             incrementQuantity(dispatch, data.cartProduct.id);
           }}
           className="amount-btn"
-          style={{ borderRadius: "0 0 0 0" }}
+          style={{ borderRadius: radiusRight }}
         >
           +
         </Button>
