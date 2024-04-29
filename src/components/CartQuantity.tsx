@@ -9,9 +9,29 @@ import {
 } from "./CartContext";
 import { useContext } from "react";
 
-export const CartQuantity = (data: { cartProduct: CartProduct }) => {
+type CartQuantityBorderRadius = "Card" | "Standalone";
+
+interface CartQuantityProps {
+  data: { cartProduct: CartProduct };
+  radius: CartQuantityBorderRadius;
+}
+
+export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
   const dispatch = useContext(CartDispatchContext);
   const state = useContext(CartContext);
+
+  let radiusLeft;
+  let radiusRight;
+
+  if (radius === "Card") {
+
+    radiusLeft = "0 0 0 10px";
+    radiusRight = "0 0 10px 0";
+  }
+  if (radius === "Standalone") {
+    radiusLeft = "10px 0 0px 10px";
+    radiusRight = "0 10px 10px 0";
+  }
 
   return (
     <>

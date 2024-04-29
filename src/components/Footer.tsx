@@ -1,33 +1,28 @@
-import instagram from "../assets/Instagram_icon.png";
-import facebook from "../assets/2021_Facebook_icon.svg";
-
 import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <div className="footer">
-      <div>
+      <div className="footer-content">
         <p>
-          <strong> Visit us</strong>
-          <br />
-          Storgatan 12
-          <br />
-          123 23 Storstan
+          <strong>
+            <a href="https://maps.app.goo.gl/zut2pREhkCaJwi598">Visit</a>
+          </strong>
         </p>
         <p>
-          <strong>Contact us!</strong>
-          <br />
-          +46 70-123 456 78
-        </p>
-        <p>
-          <Link to="/about">About us</Link>
+          <Link to="/about">About</Link>
         </p>
       </div>
-      <div></div>
-      <div>
-        <img src={facebook} style={{ height: "40px" }} className="p-1"></img>
+      <div className="footer-social-icons">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Facebook_icon_%28black%29.svg/240px-Facebook_icon_%28black%29.svg.png"
+          alt="Facebook Icon"
+        ></img>
         <br />
-        <img src={instagram} style={{ height: "40px" }} className="p-1"></img>
-        <br />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/CIS-A2K_Instagram_Icon_%28Black%29.svg/240px-CIS-A2K_Instagram_Icon_%28Black%29.svg.png"
+          alt="Instagram Icon"
+        ></img>
       </div>
     </div>
   );

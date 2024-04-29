@@ -1,4 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ProductInfoData } from "./ProductInfo";
 
 export type NavigationPath =
   | "/drinkselect"
@@ -9,30 +10,19 @@ export type NavigationPath =
 
 type NavigationButtonData = {
   navigationPath?: NavigationPath;
+  productData?: ProductInfoData;
   // Used to add the product to the cart
 };
 
 export const NavigationButton = (buttonData: NavigationButtonData) => {
-  const { navigationPath } = buttonData;
+  const { navigationPath, productData } = buttonData;
 
-  // Kod som användes för att tracka senast klickade burgare.
-
-  // // Adds the product to the cart and remembers which burger is clicked
-  // const handleAddToCart = () => {
-  //   if (productInfo) {
-  //     addToCart(dispatch, productInfo);
-
-  //     if (productInfo.productType === "main") {
-  //       localStorage.setItem("burgerId", productInfo.id);
-  //     }
-  //     const pageHistory: PageHistory = {
-  //       page: location.pathname,
-  //       productId: productInfo.id,
-  //     };
-  //     addToVisit(historyDispatch, pageHistory);
-  //   }
-  // };
-
+  // // Remembers which burger is clicked to recommend a drink to
+  if (productData) {
+    if (productData.productType === "main") {
+      localStorage.setItem("burgerId", productData.id);
+    }
+  }
   return (
     <Link to={"" + navigationPath}>
       <button className="navigationButtonFill">

@@ -2,12 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import {
   CartContext,
   CartDispatchContext,
-  decrementQuantity,
   emptyCart,
-  incrementQuantity,
   removeFromCart,
 } from "./CartContext";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { faCreditCard, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -118,9 +116,12 @@ export const CartProductList = () => {
                       >
                         ${cartProduct.price}
                       </h6>
-                      <div className="amount-price-box">
-                        <div className="cart-qty-component">
-                          <CartQuantity cartProduct={cartProduct} />
+                      <div className="text-end" style={{ marginTop: "55px" }}>
+                        <div className="text-end" style={{ width: "150px" }}>
+                          <CartQuantity
+                            radius="Standalone"
+                            data={{ cartProduct }}
+                          />
                         </div>
                         <p className="price-amount-single">
                           ${cartProduct.price * cartProduct.quantity}

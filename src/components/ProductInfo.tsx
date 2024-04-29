@@ -34,8 +34,8 @@ export const ProductInfo = (data: ProductInfoData) => {
           {/* <div className="center-page-items">
             <h2 style={{ color: "white" }}>{data?.title}</h2>
           </div> */}
-          <div className="d-flex flex-row justify-content-center">
-            <div className="mx-4">
+          <div className="d-flex flex-row justify-content-left">
+            <div className="mx-1">
               <img
                 src={
                   data.imgSrc === ""
@@ -44,15 +44,15 @@ export const ProductInfo = (data: ProductInfoData) => {
                 }
                 alt={`${data.title}`}
                 style={{
-                  width: "400px",
-                  height: "400px",
+                  width: "500px",
+                  height: "500px",
                   borderRadius: "20px",
                 }}
               ></img>
             </div>
-            <div className="d-flex flex-column p-2 m-2 justify-content-between w-25">
+            <div className="d-flex flex-column p-2 m-2 justify-content-between w-75">
               <div>
-                <p style={{ color: "white" }}>
+                <p>
                   <strong>Ingredients</strong>
                   <br />
                   {data.ingredients.map((item, index) => (
@@ -74,15 +74,15 @@ export const ProductInfo = (data: ProductInfoData) => {
                     <></>
                   )}
                   {data?.percentage != null ? (
-                    <div>
-                      <h4>Alcohol Percentage: {data?.percentage}%</h4>
+                    <div className="beef-brown">
+                      <h5>Alcohol Percentage: {data?.percentage}%</h5>
                     </div>
                   ) : (
                     <></>
                   )}
                 </p>
               </div>
-              <div>
+              <div style={{ height: "100px" }}>
                 {findQuantity(state, data.id) === 0 ? (
                   <button
                     style={{ height: "40px" }}
@@ -93,8 +93,9 @@ export const ProductInfo = (data: ProductInfoData) => {
                 ) : (
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <CartQuantity
-                      cartProduct={
-                        state.cartProducts.find(
+                      radius="Standalone"
+                      data={{
+                        cartProduct: state.cartProducts.find(
                           (product) => product.id === data.id
                         ) || {
                           id: "",
@@ -102,11 +103,12 @@ export const ProductInfo = (data: ProductInfoData) => {
                           price: 0,
                           img: "",
                           quantity: 0,
-                        }
-                      }
+                        },
+                      }}
                     />
                     <NavigationButton
                       navigationPath={data.navigationPath}
+                      productData={data}
                     ></NavigationButton>
                   </div>
                 )}

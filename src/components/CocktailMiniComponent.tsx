@@ -87,8 +87,9 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
             </button>
           ) : (
             <CartQuantity
-              cartProduct={
-                state.cartProducts.find(
+              radius="Card"
+              data={{
+                cartProduct: state.cartProducts.find(
                   (product) => product.id === data.cocktail.id
                 ) || {
                   id: "",
@@ -96,8 +97,8 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
                   price: 0,
                   img: "",
                   quantity: 0,
-                }
-              }
+                },
+              }}
             />
           )}
         </div>
