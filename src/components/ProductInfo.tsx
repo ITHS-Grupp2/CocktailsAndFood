@@ -47,7 +47,8 @@ export const ProductInfo = (data: ProductInfoData) => {
                   width: "500px",
                   height: "500px",
                   borderRadius: "20px",
-                }}></img>
+                }}
+              ></img>
             </div>
             <div className="d-flex flex-column p-2 m-2 justify-content-between w-75">
               <div>
@@ -81,11 +82,12 @@ export const ProductInfo = (data: ProductInfoData) => {
                   )}
                 </p>
               </div>
-              <div style={{height: "100px"}}>
+              <div style={{ height: "100px" }}>
                 {findQuantity(state, data.id) === 0 ? (
                   <button
                     style={{ height: "40px" }}
-                    onClick={() => addToCart(dispatch, data)}>
+                    onClick={() => addToCart(dispatch, data)}
+                  >
                     {GetIcon("Cart", "Medium")} ${data.price}
                   </button>
                 ) : (
@@ -105,7 +107,9 @@ export const ProductInfo = (data: ProductInfoData) => {
                       }}
                     />
                     <NavigationButton
-                      navigationPath={data.navigationPath}></NavigationButton>
+                      navigationPath={data.navigationPath}
+                      productData={data}
+                    ></NavigationButton>
                   </div>
                 )}
               </div>

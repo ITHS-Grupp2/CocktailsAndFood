@@ -1,8 +1,6 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
-import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
-import { Link, useLocation } from "react-router-dom";
 import { GetIcon } from "./Icons";
 import {
   addToCart,
@@ -12,7 +10,6 @@ import {
 } from "./CartContext";
 import { CartQuantity } from "./CartQuantity";
 import { useContext } from "react";
-import { PageHistoryDispatchContext } from "./PageHistoryProvider";
 import { NextButton } from "./NextButton";
 
 // Sends information to cart
