@@ -5,7 +5,7 @@ export const ShoppingCart = () => {
     <>
       {PageTracker()}
       <div className="siteSizeMin" style={{ width: "1176px" }}>
-        <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+        <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
             Shopping Cart
           </h1>

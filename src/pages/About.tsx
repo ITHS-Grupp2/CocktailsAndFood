@@ -72,10 +72,10 @@ export const About = () => {
   return (
     <>
       {PageTracker()}
-      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-        <h4 className="text-center" style={{ marginBottom: "0px" }}>
+      <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
+        <h1 className="text-center" style={{ marginBottom: "0px" }}>
           About Us
-        </h4>
+        </h1>
       </div>
       <Container style={{ textAlign: "center" }}>
         <h4>Project Leaders</h4>
