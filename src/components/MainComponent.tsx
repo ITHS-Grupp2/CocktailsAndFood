@@ -27,8 +27,7 @@ export function MainComponent() {
             flexWrap: "wrap",
             flex: "0 0 33.3333%",
             justifyContent: "space-evenly",
-          }}
-        >
+          }}>
           {group.map((course, innerIndex) => (
             <Col key={innerIndex} style={{ margin: "25px" }}>
               <Card
@@ -38,8 +37,7 @@ export function MainComponent() {
                   overflow: "hidden",
                   padding: "0px",
                   margin: "5px",
-                }}
-              >
+                }}>
                 <Link to={`/productinfoview/${course._id}`}>
                   <div style={{ overflow: "hidden" }}>
                     <img
@@ -56,14 +54,12 @@ export function MainComponent() {
                 </Link>
                 <Card.Body
                   className="d-flex flex-column mb-2"
-                  style={{ padding: "0px 10px", height: "3rem" }}
-                >
+                  style={{ padding: "0px 10px", height: "3rem" }}>
                   <Card.Title className="d-flex justify-content-between align-items-baseline mt-2">
                     <span className="fs-5">{course.title}</span>
                     <span
                       className="text-muted"
-                      style={{ minWidth: "4rem", textAlign: "right" }}
-                    >
+                      style={{ minWidth: "4rem", textAlign: "right" }}>
                       ${course.price}
                     </span>
                   </Card.Title>
