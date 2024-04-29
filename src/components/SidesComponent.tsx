@@ -116,8 +116,9 @@ export const SidesComponent = () => {
                     </button>
                   ) : (
                     <CartQuantity
-                      cartProduct={
-                        state.cartProducts.find(
+                      radius="Card"
+                      data={{
+                        cartProduct: state.cartProducts.find(
                           (product) => product.id === side._id
                         ) || {
                           id: "",
@@ -125,8 +126,8 @@ export const SidesComponent = () => {
                           price: 0,
                           img: "",
                           quantity: 0,
-                        }
-                      }
+                        },
+                      }}
                     />
                   )}
                 </Card>

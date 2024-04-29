@@ -94,8 +94,9 @@ export const SoftDrinkComponent = () => {
                     </button>
                   ) : (
                     <CartQuantity
-                      cartProduct={
-                        state.cartProducts.find(
+                      radius="Card"
+                      data={{
+                        cartProduct: state.cartProducts.find(
                           (product) => product.id === softDrink._id
                         ) || {
                           id: "",
@@ -103,8 +104,8 @@ export const SoftDrinkComponent = () => {
                           price: 0,
                           img: "",
                           quantity: 0,
-                        }
-                      }
+                        },
+                      }}
                     />
                   )}
                 </Card>

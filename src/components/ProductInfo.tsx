@@ -93,8 +93,9 @@ export const ProductInfo = (data: ProductInfoData) => {
                 ) : (
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <CartQuantity
-                      cartProduct={
-                        state.cartProducts.find(
+                      radius="Standalone"
+                      data={{
+                        cartProduct: state.cartProducts.find(
                           (product) => product.id === data.id
                         ) || {
                           id: "",
@@ -102,8 +103,8 @@ export const ProductInfo = (data: ProductInfoData) => {
                           price: 0,
                           img: "",
                           quantity: 0,
-                        }
-                      }
+                        },
+                      }}
                     />
                     <NavigationButton
                       navigationPath={data.navigationPath}
