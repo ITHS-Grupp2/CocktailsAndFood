@@ -58,14 +58,16 @@ export function DrinkSelect() {
   } else {
     return (
       <>
-        <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
-          <h1 className="text-center" style={{ marginBottom: "0px" }}>
-            Select Drink
-          </h1>
-        </div>
-        <div style={{ width: "1176px", height: "1530px" }}>
-          <div className="center-page-items">
-            <CocktailPanel cocktails={cocktails} />
+        <div className="siteSize">
+          <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
+            <h1 className="text-center" style={{ marginBottom: "0px" }}>
+              Select Drink
+            </h1>
+          </div>
+          <div style={{ width: "1176px", height: "1530px" }}>
+            <div className="center-page-items">
+              <CocktailPanel cocktails={cocktails} />
+            </div>
           </div>
         </div>
       </>
