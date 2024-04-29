@@ -81,7 +81,7 @@ export const ProductInfo = (data: ProductInfoData) => {
                   )}
                 </p>
               </div>
-              <div>
+              <div style={{height: "100px"}}>
                 {findQuantity(state, data.id) === 0 ? (
                   <button
                     style={{ height: "40px" }}
