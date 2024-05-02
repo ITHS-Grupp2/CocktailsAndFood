@@ -6,13 +6,10 @@ import {
   goBack,
 } from "./PageHistoryProvider";
 import { GetIcon } from "./Icons";
-import { CartDispatchContext, decrementOrRemove } from "./CartContext";
 
 export const BackButton = () => {
   const pageHistoryState = useContext(PageHistoryContext);
   const historyDispatch = useContext(PageHistoryDispatchContext);
-
-  const cartDispatch = useContext(CartDispatchContext);
 
   const hide = pageHistoryState.pages.length === 1;
 
