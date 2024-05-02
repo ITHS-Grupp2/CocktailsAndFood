@@ -84,20 +84,21 @@ export const CartProductList = () => {
                       />
                     </div>
                     <div className="col">
-                      <h5
+                      <div
                         className="card-subtitle mb-2"
                         style={{ fontWeight: "700" }}
                       >
                         <span>
                           <span
                             style={{
+                              fontSize: "1.6rem",
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                             }}
                           >
                             {cartProduct.title}
                           </span>
                           <span
-                            style={{ fontWeight: "300", fontSize: "0.9rem" }}
+                            style={{ fontWeight: "300", fontSize: "1.2rem" }}
                           >
                             &nbsp; - ${cartProduct.price} x 1
                           </span>
@@ -115,7 +116,7 @@ export const CartProductList = () => {
                           >
                             {GetIcon("Cross", "Medium")}
                           </button>
-                          <div className="text-end" style={{ width: "150px" }}>
+                          <div className="text-end" style={{ width: "150px", fontSize: "1.2rem" }}>
                             <CartQuantity
                               radius="Standalone"
                               data={{ cartProduct }}
@@ -125,7 +126,7 @@ export const CartProductList = () => {
                             </p>
                           </div>
                         </div>
-                      </h5>
+                      </div>
                       <h6
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
