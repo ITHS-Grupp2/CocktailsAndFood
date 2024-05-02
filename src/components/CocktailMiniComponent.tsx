@@ -78,7 +78,9 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
         <div>
           {findQuantity(state, data.cocktail.id) === 0 ? (
             <button
-              style={{ height: "40px", width: "100%" }}
+              className="addToCartButton"
+              //Have to keep this style here, otherwise it's overridden by other CSS classes
+              style={{ width: "100%" }}
               onClick={() =>
                 addToCart(dispatch, convertToProductInfoData(data.cocktail))
               }

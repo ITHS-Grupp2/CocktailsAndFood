@@ -85,7 +85,7 @@ export const ProductInfo = (data: ProductInfoData) => {
               <div style={{ height: "100px" }}>
                 {findQuantity(state, data.id) === 0 ? (
                   <button
-                    style={{ height: "40px" }}
+                    className="addToCartButton"
                     onClick={() => addToCart(dispatch, data)}
                   >
                     {GetIcon("Cart", "Medium")} ${data.price}

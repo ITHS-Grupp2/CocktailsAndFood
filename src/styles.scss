@@ -26,6 +26,7 @@ $navbar-color-hover: #f4002c;
 $light-background: #fffcf8;
 $footer-background: #9f8c8c;
 $beef-brown: #400f0f;
+$beef-brown-hover: #613232;
 $egg-white: #fffcf8;
 $bacon-orange: #d95f18;
 $brioche-brown: #f29c50;
@@ -97,6 +98,10 @@ $ketchup-red-hover: #F4002C;
   margin: 10px;
 }
 
+.header-button:hover{
+  background-color: $beef-brown-hover;
+}
+
 .h1Header {
   font: 400% $font-stack-logo;
   color: $beef-brown;
@@ -166,6 +171,24 @@ $ketchup-red-hover: #F4002C;
   width: 100%;
   fill: $egg-white;
 }
+
+.navigationButtonFill:hover {
+  background-color: $red-button-color-hover;
+}
+
+/* ADD TO CART BUTTON PRODUCTINFO START */
+
+.addToCartButton {
+  height: "40px";
+}
+
+.addToCartButton:hover{
+  background-color: $red-button-color-hover;
+}
+/* ADD TO CART BUTTON PRODUCTINFO END */
+
+
+
 
 body {
   font: 100% $font-stack-bread;
