@@ -28,17 +28,17 @@ $light-background: #fffcf8;
 $footer-background: #9f8c8c;
 $beef-brown: #400f0f;
 $beef-brown-hover: #613232;
-$egg-white: #FFF0DA;
+$egg-white: #fff0da;
 $bacon-orange: #d95f18;
 $brioche-brown: #f29c50;
 $salad-green: #558c03;
-$salad-green-hover: #76B21D;
+$salad-green-hover: #76b21d;
 $light-salad-green: #94b564;
 $order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
-$ketchup-red: #BF0426;
-$ketchup-red-hover: #F4002C;
+$ketchup-red: #bf0426;
+$ketchup-red-hover: #f4002c;
 
 .hightlight {
   color: greenyellow;
@@ -53,28 +53,28 @@ $ketchup-red-hover: #F4002C;
   min-width: 1024px;
 }
 
-.salad{
+.salad {
   width: 100%;
   height: 40px;
   border-radius: 0 0 10px 10px;
   position: relative;
 }
 
-.salad-group{
+.salad-group {
   display: flex;
   position: relative;
   left: 32px;
 }
 
-.salad-row{
+.salad-row {
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
-  left: -16px
+  left: -16px;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +93,7 @@ $ketchup-red-hover: #F4002C;
   margin: 10px;
 }
 
-.header-button:hover{
+.header-button:hover {
   background-color: $beef-brown-hover;
 }
 
@@ -115,7 +115,7 @@ $ketchup-red-hover: #F4002C;
   justify-content: space-evenly;
 }
 
-.sesame-seed{
+.sesame-seed {
   width: 20px;
   height: 13px;
   border-radius: 50%;
@@ -177,13 +177,10 @@ $ketchup-red-hover: #F4002C;
   height: "40px";
 }
 
-.addToCartButton:hover{
+.addToCartButton:hover {
   background-color: $red-button-color-hover;
 }
 /* ADD TO CART BUTTON PRODUCTINFO END */
-
-
-
 
 body {
   font: 100% $font-stack-bread;
@@ -211,14 +208,14 @@ body {
   width: 100%;
   margin-bottom: 10px;
   border-radius: 10px 10px 50px 50px;
-  }
+}
 
 .footer-content {
   padding-left: 20px;
   padding-bottom: 30px;
 }
 
-.footer-content p{
+.footer-content p {
   margin: 0px;
   padding-bottom: 5px;
 }
@@ -226,7 +223,6 @@ body {
 .footer-social-icons {
   padding-right: 20px;
   padding-bottom: 10px;
-
 }
 
 .footer-social-icons img {
@@ -327,7 +323,7 @@ body {
   float: right;
 }
 
-.price-amount-single{
+.price-amount-single {
   float: right;
   width: 150px;
   height: 30px;
@@ -344,6 +340,10 @@ body {
 .flexDC {
   display: flex;
   justify-content: end;
+}
+
+.fontBrown {
+  color: $beef-brown;
 }
 
 .emptyCartBox {
@@ -363,8 +363,6 @@ body {
   float: right;
 }
 
-
-
 .amount-box {
   height: 40px;
   width: 100%;
@@ -374,7 +372,7 @@ body {
   color: $egg-white;
 }
 
-.amount-price-box .text-end{
+.amount-price-box .text-end {
   position: relative;
   bottom: -50px;
 }
@@ -474,9 +472,8 @@ a:hover {
   height: 60px;
 }
 
-.cart-img{
+.cart-img {
   border-radius: 0.8rem;
-  
 }
 
 .cartProductList {
@@ -563,8 +560,8 @@ strong {
 
 .navbar-list {
   width: 100%;
-  display:flex;
-  justify-content:stretch;
+  display: flex;
+  justify-content: stretch;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -572,7 +569,7 @@ strong {
   border-radius: 10px;
 }
 
-.navbar-list a{
+.navbar-list a {
   width: 100%;
   font: 150% $font-stack-navbar;
   text-wrap: nowrap;
@@ -681,7 +678,7 @@ strong {
   font-family: $font-stack-header;
 }
 
-.next-button-cocktail button{
+.next-button-cocktail button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -698,7 +695,7 @@ strong {
 }
 
 .shadowSubtle {
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.04), 0 3px 3px 0 rgba(0, 0, 0, 0.04); 
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.04), 0 3px 3px 0 rgba(0, 0, 0, 0.04);
 }
 
 /* NEXT-BUTTON CSS END*/

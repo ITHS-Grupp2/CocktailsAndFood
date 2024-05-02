@@ -90,6 +90,7 @@ export const CartProductList = () => {
                       >
                         <span>
                           <span
+                            className="fontBrown"
                             style={{
                               fontSize: "1.6rem",
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
@@ -98,9 +99,10 @@ export const CartProductList = () => {
                             {cartProduct.title}
                           </span>
                           <span
-                            style={{ fontWeight: "300", fontSize: "1.2rem" }}
+                            className="fontBrown"
+                            style={{ fontWeight: "450", fontSize: "1.2rem" }}
                           >
-                            &nbsp; - ${cartProduct.price} x 1
+                            &nbsp; - ${cartProduct.price}.00 x 1
                           </span>
                         </span>
                         <div className="amount-price-box">
@@ -116,13 +118,16 @@ export const CartProductList = () => {
                           >
                             {GetIcon("Cross", "Medium")}
                           </button>
-                          <div className="text-end" style={{ width: "150px", fontSize: "1.2rem" }}>
+                          <div
+                            className="text-end"
+                            style={{ width: "150px", fontSize: "1.2rem" }}
+                          >
                             <CartQuantity
                               radius="Standalone"
                               data={{ cartProduct }}
                             />
                             <p className="price-amount-single">
-                              ${cartProduct.price * cartProduct.quantity}
+                              ${cartProduct.price * cartProduct.quantity}.00
                             </p>
                           </div>
                         </div>
