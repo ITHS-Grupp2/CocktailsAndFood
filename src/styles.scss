@@ -23,7 +23,7 @@ $radius: 0.8rem;
 $header-color: #684444;
 $navbar-color: #a17979;
 $navbar-color-hover: #f4002c;
-$light-background: #f4eaea;
+$light-background: #fffcf8;
 $footer-background: #9f8c8c;
 $beef-brown: #400f0f;
 $egg-white: #fffcf8;
@@ -31,10 +31,13 @@ $bacon-orange: #d95f18;
 $brioche-brown: #f29c50;
 $ketchup-red: #bf0426;
 $salad-green: #558c03;
+$salad-green-hover: #76B21D;
 $light-salad-green: #94b564;
 $order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
+$ketchup-red: #BF0426;
+$ketchup-red-hover: #F4002C;
 
 .hightlight {
   color: greenyellow;
@@ -42,15 +45,40 @@ $next-button-color-hover: #f4002c;
 
 .siteSize {
   width: 1176px; // 1247
-  height: 1770px;
+  margin-bottom: 10px;
 }
 
 .siteSizeMin {
-  min-height: 1770px;
   min-width: 1176px;
 }
 
-#root {
+.salad{
+  width: 180px;
+  height: 40px;
+  border-radius: 0 0 10px 10px;
+  transition-duration: 0.3s;
+  position: relative;
+}
+
+.salad:hover{
+  height: 50px;
+}
+
+.salad-group{
+  display: flex;
+  position: relative;
+  left: 32px;
+}
+
+.salad-row{
+  width: 1176px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: -16px
+}
+
+#root{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,11 +98,11 @@ $next-button-color-hover: #f4002c;
 }
 
 .h1Header {
-  font: 300% $font-stack-logo;
+  font: 400% $font-stack-logo;
   color: $beef-brown;
   font-weight: bold;
   margin: 10px;
-  min-width: 350px;
+  min-width: 450px;
   text-transform: none;
   font-weight: bold;
 }
@@ -83,18 +111,15 @@ $next-button-color-hover: #f4002c;
   display: flex;
   height: 100%;
   width: 100%;
-  margin: 0px 10px;
+  margin-top: 20px;
   justify-content: space-evenly;
 }
 
-.sesame-seed {
-  width: 10px;
-  height: 10px;
-  min-height: 10px;
-  min-width: 10px;
-  border-radius: 10px 10px 10px 0px;
+.sesame-seed{
+  width: 20px;
+  height: 13px;
+  border-radius: 50%;
   background-color: $egg-white;
-  margin: 5px;
 }
 
 #breader-header {
@@ -111,10 +136,10 @@ $next-button-color-hover: #f4002c;
   background-color: $brioche-brown;
   padding-top: 10px;
   padding-bottom: 10px;
-  height: 100px;
+  height: 150px;
   width: 1176px;
   margin-top: 10px;
-  border-radius: 80px 80px 10px 10px;
+  border-radius: 50px 50px 10px 10px;
 }
 
 .aboutUsBox {
@@ -201,52 +226,60 @@ body {
 }
 
 .cardItemList {
-  background-color: $light-background;
+  background-color: #FFFFFF;
   color: $inline-font-color;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: $radius;
   padding: 1px 10px 0px 10px;
   margin-bottom: 0px;
 }
 
 .cartProductListBottom {
-  background-color: $header-color;
+  background-color: $brioche-brown;
   padding-bottom: 20px;
   padding-top: 20px;
-  border-radius: 0px 0px 0px 10px;
+  border-radius: $radius;
 }
 
 .cartProductCheckoutButton {
   padding-right: 100px;
   padding-left: 100px;
-  margin-bottom: 20px;
+  padding-bottom: 45px;
+  margin-right: 15px;
   border-radius: 0px 0px 10px 10px;
-  background-color: $green-button-color;
-  font-size: 1rem;
+  background-color: $salad-green;
+  font-size: 2rem;
   border: none;
   height: 40px;
   transition: 0ms;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
 }
 
-.cartProductNewMenuButton {
+.add-menu-btn {
   padding-right: 100px;
   padding-left: 100px;
-  margin-bottom: 2px;
-  background-color: $button-color;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: $ketchup-red;
   font-size: 1rem;
   border: none;
   height: 40px;
   transition: 0ms;
   width: 100%;
-  border-radius: 0px;
+  border-radius: $radius;
 }
 
-.cartProductNewMenuButton:hover {
-  background-color: $button-color-hover;
+.add-menu-btn:hover {
+  background-color: $ketchup-red-hover;
   border: none;
 }
 
 .cartProductCheckoutButton:hover {
-  background-color: $green-button-color-hover;
+  background-color: $salad-green-hover;
   border: none;
 }
 
@@ -256,15 +289,36 @@ body {
   margin-bottom: 15px;
 }
 
-.cartProductAmountButton {
-  background-color: $button-color;
+.amount-btn {
+  background-color: $salad-green;
   height: 40px;
   width: 100%;
-  border-radius: 5px;
+  border: none;
+  color: $egg-white;
+}
+.amount-btn:hover {
+  background-color: $salad-green-hover;
   border: none;
 }
-.cartProductAmountButton:hover {
-  background-color: $button-color-hover;
+
+.cart-qty-component {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 150px;
+  float: right;
+}
+
+.price-amount-single{
+  float: right;
+  width: 150px;
+  height: 30px;
+  background-color: $brioche-brown;
+  margin-top: 5px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  font-weight: 700;
+  color: $beef-brown;
 }
 
 .flexDC {
@@ -287,24 +341,33 @@ body {
   margin-top: 90px;
 }
 
-.amountBox {
-  background-color: $button-color-light;
+.amount-price-box {
+  float: right;
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+}
+
+.amount-box {
   height: 40px;
   width: 100%;
+  background-color: $light-salad-green;
   padding: 10px;
   text-align: center;
-  // margin-top: 93px;
+  color: $egg-white;
 }
 
-.removeFromCart {
+.remove-from-cart {
   float: right;
-  background-color: rgb(203, 0, 0);
-  padding: 12px;
+  background-color: $ketchup-red;
+  padding: 0px;
   font-size: x-large;
+  height: 50px;
+  width: 50px;
 }
 
-.removeFromCart:hover {
-  background-color: rgb(172, 0, 0);
+.remove-from-cart:hover {
+  background-color: $ketchup-red-hover;
 }
 
 h1,
@@ -330,6 +393,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $beef-brown;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
@@ -379,6 +443,11 @@ a:hover {
 .cardFooter {
   background-color: $accent-background-color;
   height: 60px;
+}
+
+.cart-img{
+  border-radius: 0.8rem;
+  
 }
 
 .cartProductList {

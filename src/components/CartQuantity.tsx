@@ -43,19 +43,19 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
               decrementQuantity(dispatch, data.cartProduct.id);
             }
           }}
-          className="cartProductAmountButton"
+          className="amount-btn"
           style={{ borderRadius: radiusLeft }}
         >
           -
         </Button>
-        <div className="amountBox">
+        <div className="amount-box">
           {findQuantity(state, data.cartProduct.id)}
         </div>
         <Button
           onClick={() => {
             incrementQuantity(dispatch, data.cartProduct.id);
           }}
-          className="cartProductAmountButton"
+          className="amount-btn"
           style={{ borderRadius: radiusRight }}
         >
           +

@@ -6,7 +6,7 @@ import {
   removeFromCart,
 } from "./CartContext";
 import { Container } from "react-bootstrap";
-import { faCreditCard, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +15,8 @@ import {
   PageHistoryDispatchContext,
 } from "./PageHistoryProvider";
 import { CartQuantity } from "./CartQuantity";
+import { Salad } from "./Salad";
+import { GetIcon } from "./Icons";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -55,16 +57,15 @@ export const CartProductList = () => {
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     }`}
                     style={{
-                      borderBottom: "3px solid black",
-
-                      marginTop: "20px",
+                      borderRadius: "0.8rem",
+                      padding: "10px",
+                      border: "0.5rem solid #fffcf8",
                     }}
                   >
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "900px",
-                        marginBottom: "20px",
                         marginLeft: "8px",
                       }}
                     >
@@ -73,7 +74,6 @@ export const CartProductList = () => {
                         alt={cartProduct.title}
                         className="img-fluid"
                         style={{
-                          borderRadius: "0.8rem",
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                           transition: "opacity 0.15s",
                         }}
@@ -90,7 +90,7 @@ export const CartProductList = () => {
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                             }}
                           >
-                            {cartProduct.title}
+                            {cartProduct.title} - ${cartProduct.price} x 1
                           </span>
                           <button
                             onClick={() => {
@@ -100,9 +100,9 @@ export const CartProductList = () => {
                                 setDeletingItemId(null);
                               }, 750);
                             }}
-                            className="removeFromCart"
+                            className="remove-from-cart"
                           >
-                            <FontAwesomeIcon icon={faTrashCan} />
+                            {GetIcon("Cross", "Large")}
                           </button>
                         </span>
                       </h5>
@@ -112,16 +112,15 @@ export const CartProductList = () => {
                         }}
                         className="card-text"
                       >
-                        ${cartProduct.price}
                       </h6>
-                      <div className="text-end" style={{ marginTop: "55px" }}>
+                      <div className="amount-price-box">
                         <div className="text-end" style={{ width: "150px" }}>
                           <CartQuantity
                             radius="Standalone"
                             data={{ cartProduct }}
                           />
                         </div>
-                        <p style={{ marginTop: "15px", marginRight: "5px" }}>
+                        <p className="price-amount-single">
                           ${cartProduct.price * cartProduct.quantity}
                         </p>
                       </div>
@@ -132,25 +131,28 @@ export const CartProductList = () => {
               <div>
                 <Link to={"/"}>
                   <button
-                    className="cartProductNewMenuButton"
+                    className="add-menu-btn"
                     onClick={() => eraseHistory(dispatchPage)}
                   >
                     <FontAwesomeIcon icon={faPlus} />
-                    &nbsp; Add menu
+                    &nbsp; Add Extra
                   </button>
                 </Link>
               </div>
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "white", marginRight: "30px" }}
+                  style={{ color: "black", marginRight: "30px" }}
                 >
-                  {totalItems} products in cart | Total price: $
-                  {totalPrice.toFixed(2)}
+                  <b>
+                    {totalItems} products in cart | Total sum: $
+                    {totalPrice.toFixed(2)}
+                  </b>
                 </h6>
               </div>
-              <div className="text-end">
-                <span>
+              <div className="salad-row">
+                <Salad />
+                <div>
                   <Link to={`/orderconfirmation`}>
                     <button
                       className="cartProductCheckoutButton"
@@ -158,10 +160,10 @@ export const CartProductList = () => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
                       }}
                     >
-                      <FontAwesomeIcon icon={faCreditCard} /> Pay
+                      Pay
                     </button>
                   </Link>
-                </span>
+                </div>
               </div>
             </div>
           ) : (
