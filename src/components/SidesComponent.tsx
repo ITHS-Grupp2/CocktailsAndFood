@@ -80,7 +80,8 @@ export const SidesComponent = () => {
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
-                  }}>
+                  }}
+                >
                   <div style={{ overflow: "hidden" }}>
                     <img
                       className="cardImage"
@@ -95,14 +96,15 @@ export const SidesComponent = () => {
                   </div>
                   <Card.Body
                     className="d-flex flex-column mb-2"
-                    style={{ padding: "0px 10px", height: "3rem" }}>
+                    style={{ padding: "0px 10px", height: "3rem" }}
+                  >
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
                       <span className="fs-5">{side.title}</span>
                     </Card.Title>
                   </Card.Body>
                   {findQuantity(state, side._id) === 0 ? (
                     <button
-                      style={{ height: "40px" }}
+                      className="addToCartButton"
                       onClick={() =>
                         addToCart(dispatch, convertToProductInfoData(side))
                       }
