@@ -17,7 +17,7 @@ function App() {
     <>
       <div id="header">
         <Header />
-        <LiveNavbar />
+ 
       </div>
       <Routes>
         <Route path="/" element={<Index />}></Route>
