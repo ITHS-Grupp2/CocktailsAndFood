@@ -57,16 +57,18 @@ export const CartProductList = () => {
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     } shadowSubtle`}
                     style={{
+                      backgroundColor: "#FFFFFF",
                       borderRadius: "0.8rem",
                       padding: "10px",
-                      marginBottom: "0.5 rem",
+                      marginBottom: "6px",
+                      marginTop: "6px",
                     }}
                   >
                     <div
                       className="col-3"
                       style={{
-                        maxWidth: "900px",
-                        marginLeft: "8px",
+                        maxWidth: "175px",
+                        padding: "0px",
                       }}
                     >
                       <img
@@ -92,7 +94,12 @@ export const CartProductList = () => {
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                             }}
                           >
-                            {cartProduct.title} - ${cartProduct.price} x 1
+                            {cartProduct.title}
+                          </span>
+                          <span
+                            style={{ fontWeight: "300", fontSize: "0.9rem" }}
+                          >
+                            &nbsp; - ${cartProduct.price} x 1
                           </span>
                         </span>
                         <div className="amount-price-box">
