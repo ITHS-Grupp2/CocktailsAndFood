@@ -304,18 +304,6 @@ body {
   margin-bottom: 15px;
 }
 
-.amount-btn {
-  background-color: $salad-green;
-  height: 40px;
-  width: 100%;
-  border: none;
-  color: $egg-white;
-}
-.amount-btn:hover {
-  background-color: $salad-green-hover;
-  border: none;
-}
-
 .cart-qty-component {
   border-radius: 10px;
   overflow: hidden;
@@ -339,7 +327,8 @@ body {
 
 .flexDC {
   display: flex;
-  justify-content: end;
+  flex-direction: row;
+  height: 100%;
 }
 
 .fontBrown {
@@ -364,17 +353,30 @@ body {
 }
 
 .amount-box {
-  height: 40px;
-  width: 100%;
   background-color: $light-salad-green;
   padding: 10px;
   text-align: center;
   color: $egg-white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .amount-price-box .text-end {
   position: relative;
   bottom: -50px;
+}
+
+.amount-btn {
+  background-color: $salad-green;
+  border: none;
+  color: $egg-white;
+  flex: 1;
+}
+.amount-btn:hover {
+  background-color: $salad-green-hover;
+  border: none;
 }
 
 .remove-from-cart {

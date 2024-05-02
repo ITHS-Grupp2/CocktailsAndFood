@@ -8,6 +8,7 @@ import {
 import { NavigationPath, NavigationButton } from "./NavigationButton";
 import { CartQuantity } from "./CartQuantity";
 import { GetIcon } from "./Icons";
+import { Button } from "react-bootstrap";
 
 export type ProductInfoData = {
   id: string;
@@ -47,10 +48,14 @@ export const ProductInfo = (data: ProductInfoData) => {
                   width: "500px",
                   height: "500px",
                   borderRadius: "20px",
+                  marginRight: "10px",
                 }}
               ></img>
             </div>
-            <div className="d-flex flex-column p-2 m-2 justify-content-between w-75">
+            <div
+              style={{ margin: "4px 4px 0px 4px", padding: "4px 4px 0px 4px" }}
+              className="d-flex flex-column justify-content-between w-75"
+            >
               <div>
                 <p>
                   <strong>Ingredients</strong>
@@ -82,30 +87,40 @@ export const ProductInfo = (data: ProductInfoData) => {
                   )}
                 </p>
               </div>
-              <div style={{ height: "100px" }}>
+              <div style={{}}>
                 {findQuantity(state, data.id) === 0 ? (
-                  <button
-                    className="addToCartButton"
-                    onClick={() => addToCart(dispatch, data)}
-                  >
-                    {GetIcon("Cart", "Medium")} ${data.price}
-                  </button>
+                  <div>
+                    <Button
+                      style={{ width: "100%" }}
+                      className="addToCartButton"
+                      onClick={() => addToCart(dispatch, data)}
+                    >
+                      {GetIcon("Cart", "Medium")} ${data.price}
+                    </Button>
+                  </div>
                 ) : (
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <CartQuantity
-                      radius="Standalone"
-                      data={{
-                        cartProduct: state.cartProducts.find(
-                          (product) => product.id === data.id
-                        ) || {
-                          id: "",
-                          title: "",
-                          price: 0,
-                          img: "",
-                          quantity: 0,
-                        },
-                      }}
-                    />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div style={{ width: "300px", height: "50px" }}>
+                      <CartQuantity
+                        radius="Standalone"
+                        data={{
+                          cartProduct: state.cartProducts.find(
+                            (product) => product.id === data.id
+                          ) || {
+                            id: "",
+                            title: "",
+                            price: 0,
+                            img: "",
+                            quantity: 0,
+                          },
+                        }}
+                      />
+                    </div>
                     <NavigationButton
                       navigationPath={data.navigationPath}
                       productData={data}
