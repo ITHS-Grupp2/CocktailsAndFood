@@ -85,8 +85,8 @@ $ketchup-red-hover: #F4002C;
 }
 
 .header-button {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   background-color: $beef-brown;
   border-radius: 50%;
   color: $egg-white;
@@ -94,7 +94,8 @@ $ketchup-red-hover: #F4002C;
   align-items: center;
   justify-content: center;
   fill: $egg-white;
-  margin: 10px;
+  margin-right: 60px;
+  margin-left: 60px;
 }
 
 .h1Header {

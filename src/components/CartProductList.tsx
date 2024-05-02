@@ -60,15 +60,13 @@ export const CartProductList = () => {
                       borderRadius: "0.8rem",
                       padding: "10px",
                       border: "0.5rem solid #fffcf8",
-                    }}
-                  >
+                    }}>
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "900px",
                         marginLeft: "8px",
-                      }}
-                    >
+                      }}>
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
@@ -82,14 +80,12 @@ export const CartProductList = () => {
                     <div className="col">
                       <h5
                         className="card-subtitle mb-2"
-                        style={{ fontWeight: "700" }}
-                      >
+                        style={{ fontWeight: "700" }}>
                         <span>
                           <span
                             style={{
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
-                            }}
-                          >
+                            }}>
                             {cartProduct.title} - ${cartProduct.price} x 1
                           </span>
                           <button
@@ -100,9 +96,8 @@ export const CartProductList = () => {
                                 setDeletingItemId(null);
                               }, 750);
                             }}
-                            className="remove-from-cart"
-                          >
-                            {GetIcon("Cross", "Large")}
+                            className="remove-from-cart">
+                            {GetIcon("Cross", "XLarge")}
                           </button>
                         </span>
                       </h5>
@@ -110,9 +105,7 @@ export const CartProductList = () => {
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                         }}
-                        className="card-text"
-                      >
-                      </h6>
+                        className="card-text"></h6>
                       <div className="amount-price-box">
                         <div className="text-end" style={{ width: "150px" }}>
                           <CartQuantity
@@ -132,8 +125,7 @@ export const CartProductList = () => {
                 <Link to={"/"}>
                   <button
                     className="add-menu-btn"
-                    onClick={() => eraseHistory(dispatchPage)}
-                  >
+                    onClick={() => eraseHistory(dispatchPage)}>
                     <FontAwesomeIcon icon={faPlus} />
                     &nbsp; Add Extra
                   </button>
@@ -142,8 +134,7 @@ export const CartProductList = () => {
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "black", marginRight: "30px" }}
-                >
+                  style={{ color: "black", marginRight: "30px" }}>
                   <b>
                     {totalItems} products in cart | Total sum: $
                     {totalPrice.toFixed(2)}
@@ -158,8 +149,7 @@ export const CartProductList = () => {
                       className="cartProductCheckoutButton"
                       onClick={() => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
-                      }}
-                    >
+                      }}>
                       Pay
                     </button>
                   </Link>
