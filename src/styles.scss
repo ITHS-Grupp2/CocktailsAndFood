@@ -174,7 +174,9 @@ $ketchup-red-hover: #f4002c;
 /* ADD TO CART BUTTON PRODUCTINFO START */
 
 .addToCartButton {
-  height: "40px";
+  background-color: $red-button-color;
+  fill: $egg-white;
+  color: $egg-white;
 }
 
 .addToCartButton:hover {
@@ -443,14 +445,6 @@ h2 {
   border-radius: 10px;
 }
 
-.shoppingIcon {
-  transition-duration: 0.4s;
-}
-
-.shoppingIcon:hover {
-  transform: rotate(-20deg) scale(110%);
-}
-
 a {
   color: $link-color;
   text-decoration: none;
@@ -523,11 +517,11 @@ button {
   @extend .roundedStandard;
   color: #ffffff;
   font-weight: bold;
-  padding: 0.7em 1.7em;
+  // padding: 0.7em 1.7em;
   font-size: 18px;
   background-color: $ketchup-red;
   cursor: pointer;
-  border: 1px solid #e8e8e8;
+  // border: 1px solid #e8e8e8;
   transition: all 0.3s;
 }
 
@@ -647,6 +641,22 @@ strong {
 }
 
 /* NEXT-BUTTON CSS START*/
+
+.nextButtonSmall {
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  padding: 0px;
+  width: 100%;
+  background: $next-button-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nextButtonSmall:hover {
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
 
 .nextButton {
   font-family: $font-stack-header;

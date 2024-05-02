@@ -90,13 +90,18 @@ export const ProductInfo = (data: ProductInfoData) => {
               <div style={{}}>
                 {findQuantity(state, data.id) === 0 ? (
                   <div>
-                    <Button
-                      style={{ width: "100%" }}
+                    <button
+                      style={{
+                        width: "100%",
+                        borderRadius: "10px",
+                        height: "80px",
+                        fontSize: "2rem",
+                      }}
                       className="addToCartButton"
                       onClick={() => addToCart(dispatch, data)}
                     >
-                      {GetIcon("Cart", "Medium")} ${data.price}
-                    </Button>
+                      {GetIcon("Cart", "Large")} ${data.price}.00
+                    </button>
                   </div>
                 ) : (
                   <div
@@ -105,7 +110,14 @@ export const ProductInfo = (data: ProductInfoData) => {
                       alignItems: "center",
                     }}
                   >
-                    <div style={{ width: "300px", height: "50px" }}>
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "80px",
+                        marginRight: "5px",
+                        fontSize: "3rem",
+                      }}
+                    >
                       <CartQuantity
                         radius="Standalone"
                         data={{
@@ -121,10 +133,12 @@ export const ProductInfo = (data: ProductInfoData) => {
                         }}
                       />
                     </div>
-                    <NavigationButton
-                      navigationPath={data.navigationPath}
-                      productData={data}
-                    ></NavigationButton>
+                    <div style={{ height: "80px", width: "50%" }}>
+                      <NavigationButton
+                        navigationPath={data.navigationPath}
+                        productData={data}
+                      ></NavigationButton>
+                    </div>
                   </div>
                 )}
               </div>
