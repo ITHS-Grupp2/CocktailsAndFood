@@ -175,8 +175,8 @@ $ketchup-red-hover: #f4002c;
 
 .addToCartButton {
   background-color: $red-button-color;
-  fill: $egg-white;
-  color: $egg-white;
+  fill: #ffffff; //Changed to white (added updated documentation to avoid confusion)
+  color: #ffffff;
 }
 
 .addToCartButton:hover {
