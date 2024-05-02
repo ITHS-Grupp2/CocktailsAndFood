@@ -32,13 +32,7 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
         </Row>
       </Container>
       {/* Button instead of the "no drink card" for when burgerId is null */}
-      {!isBurgerIdNotNull && (
-        <Container>
-          <Row>
-            <NextButton targetPage="/softdrinkselect" />
-          </Row>
-        </Container>
-      )}
+      {!isBurgerIdNotNull && <NextButton targetPage="/softdrinkselect" />}
     </>
   );
 };

@@ -1,6 +1,5 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
-import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
 import { NextButton } from "./NextButton";
 import {
@@ -51,9 +50,16 @@ export const SoftDrinkComponent = () => {
       </div>
       <Container>
         {groupedSoftDrinks.map((group, index) => (
-          <Row key={index}>
+          <Row
+            key={index}
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              flex: "0 0 33.3333%",
+              justifyContent: "space-evenly",
+            }}>
             {group.map((softDrink, innerIndex) => (
-              <Col key={innerIndex} style={{ margin: "25px" }}>
+              <Col key={innerIndex} style={{ margin: "0.5 rem" }}>
                 <Card
                   className="shadow"
                   style={{
@@ -86,8 +92,7 @@ export const SoftDrinkComponent = () => {
                       style={{ height: "40px", width: "100%" }}
                       onClick={() =>
                         addToCart(dispatch, convertToProductInfoData(softDrink))
-                      }
-                    >
+                      }>
                       {GetIcon("Cart", "Medium")} $ 9
                     </button>
                   ) : (

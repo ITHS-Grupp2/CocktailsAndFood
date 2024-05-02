@@ -42,23 +42,6 @@ export const SidesComponent = () => {
   const state = useContext(CartContext);
 
   const dispatch = useContext(CartDispatchContext);
-  // const historyDispatch = useContext(PageHistoryDispatchContext);
-  // const location = useLocation();
-
-  // Adds the product to the cart and remembers which burger is clicked
-  // const handleAddToCart = () => {
-  //     addToCart(dispatch, );
-
-  //     if (productInfo.productType === "main") {
-  //       localStorage.setItem("burgerId", productInfo.id);
-  //     }
-  //     const pageHistory: PageHistory = {
-  //       page: location.pathname,
-  //       productId: productInfo.id,
-  //     };
-  //     addToVisit(historyDispatch, pageHistory);
-  //   }
-  // };
 
   const groupedSides = groupItems(sides, 3);
   return (
@@ -70,9 +53,16 @@ export const SidesComponent = () => {
       </div>
       <Container>
         {groupedSides.map((side, index) => (
-          <Row key={index}>
+          <Row
+            key={index}
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              flex: "0 0 33.3333%",
+              justifyContent: "space-evenly",
+            }}>
             {side.map((side, innerIndex) => (
-              <Col key={innerIndex} style={{ margin: "25px" }}>
+              <Col key={innerIndex} style={{ margin: "0.5 rem" }}>
                 <Card
                   className="shadow"
                   style={{
@@ -105,8 +95,7 @@ export const SidesComponent = () => {
                       style={{ height: "40px" }}
                       onClick={() =>
                         addToCart(dispatch, convertToProductInfoData(side))
-                      }
-                    >
+                      }>
                       {GetIcon("Cart", "Medium")} ${side.price}
                     </button>
                   ) : (
