@@ -62,15 +62,13 @@ export const CartProductList = () => {
                       padding: "10px",
                       marginBottom: "6px",
                       marginTop: "6px",
-                    }}
-                  >
+                    }}>
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "175px",
                         padding: "0px",
-                      }}
-                    >
+                      }}>
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
@@ -86,22 +84,19 @@ export const CartProductList = () => {
                     <div className="col">
                       <div
                         className="card-subtitle mb-2"
-                        style={{ fontWeight: "700" }}
-                      >
+                        style={{ fontWeight: "700" }}>
                         <span>
                           <span
                             className="fontBrown"
                             style={{
                               fontSize: "1.6rem",
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
-                            }}
-                          >
+                            }}>
                             {cartProduct.title}
                           </span>
                           <span
                             className="fontBrown"
-                            style={{ fontWeight: "450", fontSize: "1.2rem" }}
-                          >
+                            style={{ fontWeight: "450", fontSize: "1.2rem" }}>
                             &nbsp; - ${cartProduct.price}.00 x 1
                           </span>
                         </span>
@@ -114,14 +109,12 @@ export const CartProductList = () => {
                                 setDeletingItemId(null);
                               }, 750);
                             }}
-                            className="remove-from-cart"
-                          >
+                            className="remove-from-cart">
                             {GetIcon("Cross", "Medium")}
                           </button>
                           <div
                             className="text-end"
-                            style={{ width: "150px", fontSize: "1.2rem" }}
-                          >
+                            style={{ width: "150px", fontSize: "1.2rem" }}>
                             <CartQuantity
                               radius="Standalone"
                               data={{ cartProduct }}
@@ -136,8 +129,7 @@ export const CartProductList = () => {
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                         }}
-                        className="card-text"
-                      ></h6>
+                        className="card-text"></h6>
                     </div>
                   </div>
                 ))}
@@ -146,8 +138,7 @@ export const CartProductList = () => {
                 <Link to={"/"}>
                   <button
                     className="add-menu-btn"
-                    onClick={() => eraseHistory(dispatchPage)}
-                  >
+                    onClick={() => eraseHistory(dispatchPage)}>
                     <FontAwesomeIcon icon={faPlus} />
                     &nbsp; Add Extra
                   </button>
@@ -156,8 +147,7 @@ export const CartProductList = () => {
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "black", marginRight: "30px" }}
-                >
+                  style={{ color: "black", marginRight: "30px" }}>
                   <b>
                     {totalItems} products in cart | Total sum: $
                     {totalPrice.toFixed(2)}
@@ -172,8 +162,7 @@ export const CartProductList = () => {
                       className="cartProductCheckoutButton"
                       onClick={() => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
-                      }}
-                    >
+                      }}>
                       <FontAwesomeIcon icon={faCreditCard} />
                       &nbsp;Pay
                     </button>
