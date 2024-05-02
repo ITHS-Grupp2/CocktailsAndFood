@@ -27,7 +27,8 @@ $navbar-color-hover: #f4002c;
 $light-background: #fffcf8;
 $footer-background: #9f8c8c;
 $beef-brown: #400f0f;
-$egg-white: #fffcf8;
+$beef-brown-hover: #613232;
+$egg-white: #FFF0DA;
 $bacon-orange: #d95f18;
 $brioche-brown: #f29c50;
 $salad-green: #558c03;
@@ -95,6 +96,10 @@ $ketchup-red-hover: #F4002C;
   justify-content: center;
   fill: $egg-white;
   margin: 10px;
+}
+
+.header-button:hover{
+  background-color: $beef-brown-hover;
 }
 
 .h1Header {
@@ -167,6 +172,24 @@ $ketchup-red-hover: #F4002C;
   fill: $egg-white;
 }
 
+.navigationButtonFill:hover {
+  background-color: $red-button-color-hover;
+}
+
+/* ADD TO CART BUTTON PRODUCTINFO START */
+
+.addToCartButton {
+  height: "40px";
+}
+
+.addToCartButton:hover{
+  background-color: $red-button-color-hover;
+}
+/* ADD TO CART BUTTON PRODUCTINFO END */
+
+
+
+
 body {
   font: 100% $font-stack-bread;
   display: flex;
@@ -189,10 +212,11 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: $brioche-brown;
-  height: 100px;
+  height: 150px;
   width: 1176px;
-  border-radius: 10px 10px 80px 80px;
-}
+  margin-bottom: 10px;
+  border-radius: 10px 10px 50px 50px;
+  }
 
 .footer-content {
   padding-left: 20px;

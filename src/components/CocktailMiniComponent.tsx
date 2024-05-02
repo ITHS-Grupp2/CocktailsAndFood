@@ -1,6 +1,6 @@
 import { Card, Container } from "react-bootstrap";
 import { Cocktail, price } from "../API/CocktailFetch";
-import { NavigationButton, NavigationPath } from "./NavigationButton";
+import { NavigationPath } from "./NavigationButton";
 import { GetPercentage } from "../services/CocktailInfoService";
 import { ProductInfoData } from "./ProductInfo";
 import {
@@ -47,8 +47,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
           overflow: "hidden",
           padding: "0px",
           margin: "5px",
-        }}
-      >
+        }}>
         <div style={{ overflow: "hidden" }}>
           <img
             className="cardImage"
@@ -63,8 +62,7 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
         </div>
         <Card.Body
           className="d-flex flex-column mb-2"
-          style={{ padding: "0px 10px" }}
-        >
+          style={{ padding: "0px 10px" }}>
           <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
             <span className="fs-5">{data.cocktail.name}</span>
           </Card.Title>
@@ -77,11 +75,12 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
         <div>
           {findQuantity(state, data.cocktail.id) === 0 ? (
             <button
-              style={{ height: "40px", width: "100%" }}
+              className="addToCartButton"
+              //Have to keep this style here, otherwise it's overridden by other CSS classes
+              style={{ width: "100%" }}
               onClick={() =>
                 addToCart(dispatch, convertToProductInfoData(data.cocktail))
-              }
-            >
+              }>
               {GetIcon("Cart", "Medium")} $ 9
             </button>
           ) : (
