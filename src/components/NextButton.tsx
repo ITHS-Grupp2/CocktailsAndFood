@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { GetIcon } from "./Icons";
 
 interface NextButtonProps {
   targetPage: string;
@@ -9,13 +10,14 @@ export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
     <div
       style={{
         marginTop: "50px",
-      }}
-    >
+      }}>
       <div style={{ width: "30%", margin: "0 auto" }}>
         <Link to={targetPage}>
           <button className="nextButton">
             <span className="nextButtonText">NEXT</span>
-            <span className="nextButtonArrow">&#129130;</span>
+            <span className="nextButtonArrow">
+              {GetIcon("ArrowRight", "Large")}
+            </span>
           </button>
         </Link>
       </div>
@@ -30,8 +32,8 @@ export const NextButtonCocktail: React.FC<NextButtonProps> = ({
     <div className="next-button-cocktail">
       <Link to={targetPage}>
         <button className="shadow">
-          <span style={{ fontSize: "150px", paddingTop: "50px" }}>
-            &#129130;
+          <span style={{ paddingTop: "115px",paddingBottom:"15px" }}>
+            {GetIcon("ArrowRight", 110)}
           </span>
           <span>NEXT</span>
         </button>

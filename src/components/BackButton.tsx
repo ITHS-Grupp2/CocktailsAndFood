@@ -25,7 +25,7 @@ export const BackButton = () => {
         {hide ? (
           <div className="header-button" style={{ opacity: "0" }}></div>
         ) : (
-          <div className="header-button">{GetIcon("Arrow", "XLarge")}</div>
+          <div className="header-button">{GetIcon("ArrowLeft", "XLarge")}</div>
         )}
       </Link>
     </>
