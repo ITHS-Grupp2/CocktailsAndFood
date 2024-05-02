@@ -648,4 +648,24 @@ strong {
   padding-right: 40px;
 }
 
+.next-button-cocktail {
+  font-family: $font-stack-header;
+}
+
+.next-button-cocktail button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $next-button-color;
+  height: 409px;
+  width: 300px;
+  padding: 0px;
+  margin: 5px;
+  font-size: 50px;
+}
+
+.next-button-cocktail button:hover {
+  background: $next-button-color-hover;
+}
+
 /* NEXT-BUTTON CSS END*/
