@@ -4,9 +4,9 @@ export const ShoppingCart = () => {
   return (
     <>
       {PageTracker()}
-      <div className="siteSizeMin" style={{ width: "1176px" }}>
+      <div className="siteSize">
         <div
-          className="headerSmaller, first"
+          className="first"
           style={{ borderRadius: "0.8rem" }}
         >
           <h1 className="text-center" style={{ marginBottom: "0px" }}>

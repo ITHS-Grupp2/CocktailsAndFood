@@ -55,11 +55,11 @@ export const CartProductList = () => {
                     key={index}
                     className={`row ${
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
-                    }`}
+                    } shadowSubtle`}
                     style={{
                       borderRadius: "0.8rem",
                       padding: "10px",
-                      border: "0.5rem solid #fffcf8",
+                      marginBottom: "0.5 rem",
                     }}
                   >
                     <div
@@ -72,10 +72,12 @@ export const CartProductList = () => {
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
-                        className="img-fluid"
+                        className="shadowSubtle"
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                           transition: "opacity 0.15s",
+                          width: "177px",
+                          borderRadius: "0.8rem",
                         }}
                       />
                     </div>
@@ -92,6 +94,8 @@ export const CartProductList = () => {
                           >
                             {cartProduct.title} - ${cartProduct.price} x 1
                           </span>
+                        </span>
+                        <div className="amount-price-box">
                           <button
                             onClick={() => {
                               setDeletingItemId(cartProduct.id);
@@ -102,28 +106,25 @@ export const CartProductList = () => {
                             }}
                             className="remove-from-cart"
                           >
-                            {GetIcon("Cross", "Large")}
+                            {GetIcon("Cross", "Medium")}
                           </button>
-                        </span>
+                          <div className="text-end" style={{ width: "150px" }}>
+                            <CartQuantity
+                              radius="Standalone"
+                              data={{ cartProduct }}
+                            />
+                            <p className="price-amount-single">
+                              ${cartProduct.price * cartProduct.quantity}
+                            </p>
+                          </div>
+                        </div>
                       </h5>
                       <h6
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                         }}
                         className="card-text"
-                      >
-                      </h6>
-                      <div className="amount-price-box">
-                        <div className="text-end" style={{ width: "150px" }}>
-                          <CartQuantity
-                            radius="Standalone"
-                            data={{ cartProduct }}
-                          />
-                        </div>
-                        <p className="price-amount-single">
-                          ${cartProduct.price * cartProduct.quantity}
-                        </p>
-                      </div>
+                      ></h6>
                     </div>
                   </div>
                 ))}
@@ -160,7 +161,8 @@ export const CartProductList = () => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
                       }}
                     >
-                      Pay
+                      <FontAwesomeIcon icon={faCreditCard} />
+                      &nbsp;Pay
                     </button>
                   </Link>
                 </div>
