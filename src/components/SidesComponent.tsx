@@ -55,6 +55,7 @@ export const SidesComponent = () => {
         {groupedSides.map((side, index) => (
           <Row
             key={index}
+            className="g-3"
             style={{
               display: "flex",
               flexWrap: "nowrap",

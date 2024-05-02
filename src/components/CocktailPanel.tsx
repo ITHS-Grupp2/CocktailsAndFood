@@ -1,13 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Cocktail } from "../API/CocktailFetch";
 import { CocktailMiniComponent } from "./CocktailMiniComponent";
-import { NextButton, NextButtonCocktail } from "./NextButton";
+import { NextButton, NextButtonCard } from "./NextButton";
 
 export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
   for (let i = 0; i < cocktailArray.cocktails.length; i++) {
     rows.push(
-      <Col key={i}>
+      <Col key={i} style={{display:"flex", width:"33%"
+      }}>
         <CocktailMiniComponent cocktail={cocktailArray.cocktails[i]} />
       </Col>
     );
@@ -20,19 +21,23 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
 
   return (
     <>
-      <Container className="m-2">
-        <Row className="g-3">
+      <Container className="m-1">
+        <Row className="g-3" style={{display:"flex", justifyContent:"space-between"}}>
           {rows}
           {/* conditional rendering, based on whether the burger ID is null or not  */}
           {isBurgerIdNotNull && (
             <Col>
-              <NextButtonCocktail targetPage="/softdrinkselect" />
+              <NextButtonCard targetPage="/softdrinkselect" />
             </Col>
           )}
         </Row>
       </Container>
       {/* Button instead of the "no drink card" for when burgerId is null */}
-      {!isBurgerIdNotNull && <NextButton targetPage="/softdrinkselect" />}
+      {!isBurgerIdNotNull && (
+        <Container>
+          <NextButton targetPage="/softdrinkselect" />
+        </Container>
+      )}
     </>
   );
 };

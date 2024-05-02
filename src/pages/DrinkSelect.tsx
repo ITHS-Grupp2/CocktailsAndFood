@@ -65,7 +65,7 @@ export function DrinkSelect() {
               Select Drink
             </h1>
           </div>
-          <div style={{ width: "1176px", height: "1530px" }}>
+          <div style={{ width:"100%", height: "1530px" }}>
             <div className="center-page-items">
               <CocktailPanel cocktails={cocktails} />
             </div>

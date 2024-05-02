@@ -17,7 +17,6 @@ function App() {
     <>
       <div id="header">
         <Header />
- 
       </div>
       <Routes>
         <Route path="/" element={<Index />}></Route>

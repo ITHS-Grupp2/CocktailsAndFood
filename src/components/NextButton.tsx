@@ -5,6 +5,7 @@ interface NextButtonProps {
   targetPage: string;
 }
 
+//Smol NEXT button Variant
 export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
   return (
     <div
@@ -25,7 +26,8 @@ export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
   );
 };
 
-export const NextButtonCocktail: React.FC<NextButtonProps> = ({
+//Large NEXT button card Variant
+export const NextButtonCard: React.FC<NextButtonProps> = ({
   targetPage,
 }) => {
   return (

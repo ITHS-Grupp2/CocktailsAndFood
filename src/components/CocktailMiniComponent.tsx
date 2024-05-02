@@ -1,4 +1,4 @@
-import { Card, Container } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Cocktail, price } from "../API/CocktailFetch";
 import { NavigationPath } from "./NavigationButton";
 import { GetPercentage } from "../services/CocktailInfoService";
