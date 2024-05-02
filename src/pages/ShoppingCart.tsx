@@ -5,6 +5,7 @@ export const ShoppingCart = () => {
     <>
       {PageTracker()}
       <div className="siteSize">
+      <div className="siteSize">
         <div
           className="first"
           style={{ borderRadius: "0.8rem" }}
