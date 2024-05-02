@@ -40,7 +40,6 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
   const state = useContext(CartContext);
   const dispatch = useContext(CartDispatchContext);
   return (
-    <Container>
       <Card
         className="shadow"
         style={{
@@ -103,6 +102,6 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
         </div>
         {/* <NavigationButton navigationPath="/softdrinkselect"></NavigationButton> */}
       </Card>
-    </Container>
+  
   );
 };
