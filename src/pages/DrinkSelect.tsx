@@ -43,7 +43,8 @@ export function DrinkSelect() {
             navigationPath="/softdrinkselect"
             percentage={recommendedDrink.percentage}
             motivation={recommendedDrink.motivation}
-            quantity={1}></ProductInfo>
+            quantity={1}
+          ></ProductInfo>
           <div className="headerSmaller, second" style={{ margin: "30px 0px" }}>
             <h2 className="text-center" style={{ marginBottom: "0px" }}>
               Other Drinks

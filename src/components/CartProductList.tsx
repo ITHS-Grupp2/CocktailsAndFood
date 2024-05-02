@@ -55,39 +55,52 @@ export const CartProductList = () => {
                     key={index}
                     className={`row ${
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
-                    }`}
+                    } shadowSubtle`}
                     style={{
+                      backgroundColor: "#FFFFFF",
                       borderRadius: "0.8rem",
                       padding: "10px",
-                      border: "0.5rem solid #fffcf8",
+                      marginBottom: "6px",
+                      marginTop: "6px",
                     }}>
                     <div
                       className="col-3"
                       style={{
-                        maxWidth: "900px",
-                        marginLeft: "8px",
+                        maxWidth: "175px",
+                        padding: "0px",
                       }}>
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
-                        className="img-fluid"
+                        className="shadowSubtle"
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                           transition: "opacity 0.15s",
+                          width: "177px",
+                          borderRadius: "0.8rem",
                         }}
                       />
                     </div>
                     <div className="col">
-                      <h5
+                      <div
                         className="card-subtitle mb-2"
                         style={{ fontWeight: "700" }}>
                         <span>
                           <span
+                            className="fontBrown"
                             style={{
+                              fontSize: "1.6rem",
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                             }}>
-                            {cartProduct.title} - ${cartProduct.price} x 1
+                            {cartProduct.title}
                           </span>
+                          <span
+                            className="fontBrown"
+                            style={{ fontWeight: "450", fontSize: "1.2rem" }}>
+                            &nbsp; - ${cartProduct.price}.00 x 1
+                          </span>
+                        </span>
+                        <div className="amount-price-box">
                           <button
                             onClick={() => {
                               setDeletingItemId(cartProduct.id);
@@ -97,26 +110,26 @@ export const CartProductList = () => {
                               }, 750);
                             }}
                             className="remove-from-cart">
-                            {GetIcon("Cross", "XLarge")}
+                            {GetIcon("Cross", "Medium")}
                           </button>
-                        </span>
-                      </h5>
+                          <div
+                            className="text-end"
+                            style={{ width: "150px", fontSize: "1.2rem" }}>
+                            <CartQuantity
+                              radius="Standalone"
+                              data={{ cartProduct }}
+                            />
+                            <p className="price-amount-single">
+                              ${cartProduct.price * cartProduct.quantity}.00
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                       <h6
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                         }}
                         className="card-text"></h6>
-                      <div className="amount-price-box">
-                        <div className="text-end" style={{ width: "150px" }}>
-                          <CartQuantity
-                            radius="Standalone"
-                            data={{ cartProduct }}
-                          />
-                        </div>
-                        <p className="price-amount-single">
-                          ${cartProduct.price * cartProduct.quantity}
-                        </p>
-                      </div>
                     </div>
                   </div>
                 ))}
@@ -150,7 +163,8 @@ export const CartProductList = () => {
                       onClick={() => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
                       }}>
-                      Pay
+                      <FontAwesomeIcon icon={faCreditCard} />
+                      &nbsp;Pay
                     </button>
                   </Link>
                 </div>

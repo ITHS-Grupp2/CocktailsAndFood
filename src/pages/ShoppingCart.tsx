@@ -5,9 +5,7 @@ export const ShoppingCart = () => {
     <>
       {PageTracker()}
       <div className="siteSize">
-        <div
-          className="headerSmaller, first"
-          style={{ borderRadius: "0.8rem" }}>
+        <div className="first" style={{ borderRadius: "0.8rem" }}>
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
             YOUR ORDER:
           </h1>
