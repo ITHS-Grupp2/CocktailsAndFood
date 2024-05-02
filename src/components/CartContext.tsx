@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useReducer } from "react";
+import { ReactNode, createContext, useReducer } from "react";
 import { ProductInfoData } from "./ProductInfo";
 
 const initialContext: CartState = { cartProducts: [] };
