@@ -54,7 +54,7 @@ $ketchup-red-hover: #F4002C;
 }
 
 .salad{
-  width: 180px;
+  width: 100%;
   height: 40px;
   border-radius: 0 0 10px 10px;
   transition-duration: 0.3s;
@@ -72,7 +72,7 @@ $ketchup-red-hover: #F4002C;
 }
 
 .salad-row{
-  width: 1176px;
+  width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -213,7 +213,7 @@ body {
   justify-content: space-between;
   background-color: $brioche-brown;
   height: 150px;
-  width: 1176px;
+  width: 100%;
   margin-bottom: 10px;
   border-radius: 10px 10px 50px 50px;
   }
@@ -265,6 +265,7 @@ body {
 }
 
 .cartProductCheckoutButton {
+  position: relative;
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 45px;
@@ -355,14 +356,12 @@ body {
   height: 400px;
   min-width: 700px;
   width: 100%;
-  max-width: 950px;
   border-radius: 20px;
   text-align: center;
   padding-top: 180px;
   color: $inline-font-color;
   font-size: 3rem;
-  margin-left: 110px;
-  margin-top: 90px;
+  margin: 90px 0 90px 0;
 }
 
 .amount-price-box {

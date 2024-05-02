@@ -8,10 +8,16 @@ export const Header = () => {
   return (
     <>
       <div id="breader-header">
-        <div>
+        <div
+          style={{
+            width: "0px",
+            position: "relative",
+            left: "-100px",
+            top: "-25px",
+          }}>
           <BackButton />
         </div>
-        <div style={{width:"100%"}}>
+        <div style={{ width: "100%" }}>
           <div id="bread-crown">
             <SesameSeed />
             <Link to="/">
@@ -22,10 +28,17 @@ export const Header = () => {
 
           <LiveNavbar />
         </div>
-
-        <Link to="/shoppingcart">
-          <div className="header-button">{GetIcon("Cart", "Large")}</div>
-        </Link>
+        <div
+          style={{
+            width: "0px",
+            position: "relative",
+            right: "-15px",
+            top: "-25px",
+          }}>
+          <Link to="/shoppingcart">
+            <div className="header-button">{GetIcon("Cart", "Large")}</div>
+          </Link>
+        </div>
       </div>
     </>
   );
