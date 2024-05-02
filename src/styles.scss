@@ -26,7 +26,7 @@ $navbar-color-hover: #f4002c;
 $light-background: #fffcf8;
 $footer-background: #9f8c8c;
 $beef-brown: #400f0f;
-$egg-white: #fffcf8;
+$egg-white: #FFF0DA;
 $bacon-orange: #d95f18;
 $brioche-brown: #f29c50;
 $ketchup-red: #bf0426;
@@ -184,10 +184,11 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: $brioche-brown;
-  height: 100px;
+  height: 150px;
   width: 1176px;
-  border-radius: 10px 10px 80px 80px;
-}
+  margin-bottom: 10px;
+  border-radius: 10px 10px 50px 50px;
+  }
 
 .footer-content {
   padding-left: 20px;
