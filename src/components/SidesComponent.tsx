@@ -42,23 +42,6 @@ export const SidesComponent = () => {
   const state = useContext(CartContext);
 
   const dispatch = useContext(CartDispatchContext);
-  // const historyDispatch = useContext(PageHistoryDispatchContext);
-  // const location = useLocation();
-
-  // Adds the product to the cart and remembers which burger is clicked
-  // const handleAddToCart = () => {
-  //     addToCart(dispatch, );
-
-  //     if (productInfo.productType === "main") {
-  //       localStorage.setItem("burgerId", productInfo.id);
-  //     }
-  //     const pageHistory: PageHistory = {
-  //       page: location.pathname,
-  //       productId: productInfo.id,
-  //     };
-  //     addToVisit(historyDispatch, pageHistory);
-  //   }
-  // };
 
   const groupedSides = groupItems(sides, 3);
   return (
@@ -70,9 +53,16 @@ export const SidesComponent = () => {
       </div>
       <Container>
         {groupedSides.map((side, index) => (
-          <Row key={index}>
+          <Row
+            key={index}
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              flex: "0 0 33.3333%",
+              justifyContent: "space-evenly",
+            }}>
             {side.map((side, innerIndex) => (
-              <Col key={innerIndex} style={{ margin: "25px" }}>
+              <Col key={innerIndex} style={{ margin: "0.5 rem" }}>
                 <Card
                   className="shadow"
                   style={{
@@ -80,7 +70,8 @@ export const SidesComponent = () => {
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
-                  }}>
+                  }}
+                >
                   <div style={{ overflow: "hidden" }}>
                     <img
                       className="cardImage"
@@ -95,18 +86,18 @@ export const SidesComponent = () => {
                   </div>
                   <Card.Body
                     className="d-flex flex-column mb-2"
-                    style={{ padding: "0px 10px", height: "3rem" }}>
+                    style={{ padding: "0px 10px", height: "3rem" }}
+                  >
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
                       <span className="fs-5">{side.title}</span>
                     </Card.Title>
                   </Card.Body>
                   {findQuantity(state, side._id) === 0 ? (
                     <button
-                      style={{ height: "40px" }}
+                      className="addToCartButton"
                       onClick={() =>
                         addToCart(dispatch, convertToProductInfoData(side))
-                      }
-                    >
+                      }>
                       {GetIcon("Cart", "Medium")} ${side.price}
                     </button>
                   ) : (

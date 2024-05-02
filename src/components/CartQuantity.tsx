@@ -24,7 +24,6 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
   let radiusRight;
 
   if (radius === "Card") {
-
     radiusLeft = "0 0 0 10px";
     radiusRight = "0 0 10px 0";
   }

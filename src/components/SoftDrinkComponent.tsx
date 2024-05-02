@@ -50,9 +50,16 @@ export const SoftDrinkComponent = () => {
       </div>
       <Container>
         {groupedSoftDrinks.map((group, index) => (
-          <Row key={index}>
+          <Row
+            key={index}
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              flex: "0 0 33.3333%",
+              justifyContent: "space-evenly",
+            }}>
             {group.map((softDrink, innerIndex) => (
-              <Col key={innerIndex} style={{ margin: "25px" }}>
+              <Col key={innerIndex} style={{ margin: "0.5 rem" }}>
                 <Card
                   className="shadow"
                   style={{
@@ -60,7 +67,8 @@ export const SoftDrinkComponent = () => {
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
-                  }}>
+                  }}
+                >
                   <div style={{ overflow: "hidden" }}>
                     <img
                       className="cardImage"
@@ -75,14 +83,16 @@ export const SoftDrinkComponent = () => {
                   </div>
                   <Card.Body
                     className="d-flex flex-column mb-2"
-                    style={{ padding: "0px 10px", height: "3rem" }}>
+                    style={{ padding: "0px 10px", height: "3rem" }}
+                  >
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
                       <span className="fs-5">{softDrink.title}</span>
                     </Card.Title>
                   </Card.Body>
                   {findQuantity(state, softDrink._id) === 0 ? (
                     <button
-                      style={{ height: "40px", width: "100%" }}
+                      className="addToCartButton"
+                      style={{ width: "100%" }}
                       onClick={() =>
                         addToCart(dispatch, convertToProductInfoData(softDrink))
                       }>
