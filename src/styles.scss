@@ -682,6 +682,7 @@ strong {
   font-family: $font-stack-header;
   font-size: 35px;
   border: 1px solid $next-button-color;
+  height: 60px;
   padding: 0px;
   width: 100%;
   background: $next-button-color;
@@ -698,12 +699,16 @@ strong {
 
 .nextButtonText {
   flex: 1;
-  padding-left: 80px;
+  padding-left: 100px;
 }
 
 .nextButtonArrow {
   font-size: 40px;
-  padding: 0 40px 5px 0;
+  padding: 0 60px 0px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .next-button-cocktail {
