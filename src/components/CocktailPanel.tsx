@@ -27,11 +27,12 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
             display: "flex",
             flex: "0 0 33.3333%",
             justifyContent: "space-between",
-          }}>
+          }}
+        >
           {rows}
           {/* conditional rendering, based on whether the burger ID is null or not  */}
           {isBurgerIdNotNull && (
-            <Col>
+            <Col style={{ margin: "0.5rem" }}>
               <NextButtonCard targetPage="/softdrinkselect" />
             </Col>
           )}

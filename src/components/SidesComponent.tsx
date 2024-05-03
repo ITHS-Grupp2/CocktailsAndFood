@@ -92,7 +92,7 @@ export const SidesComponent = () => {
                     style={{ padding: "0px 10px", height: "3rem" }}
                   >
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
-                      <span className="fs-5">{side.title}</span>
+                      <span className="fontBrown">{side.title}</span>
                     </Card.Title>
                   </Card.Body>
                   <div
