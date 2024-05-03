@@ -14,20 +14,8 @@ export const Index = () => {
           </h1>
         </div>
 
-        <div className="center-page-items mx-4">
-          <Row>
-            <Col md="auto">
-              <Container>
-                <div
-                  style={{
-                    margin: "0",
-                  }}
-                >
-                  <MainComponent />
-                </div>
-              </Container>
-            </Col>
-          </Row>
+        <div className="center-page-items">
+          <MainComponent />
           <Container className="headerSmaller, second">
             <h2 style={{ marginBottom: "0px" }}>Drinks of the Month!</h2>
           </Container>

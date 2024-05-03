@@ -18,7 +18,7 @@ export function MainComponent() {
   const groupedMainCourses = groupItems(mainCourses, 3); // Group main courses into arrays of 3
 
   return (
-    <Container>
+    <>
       {groupedMainCourses.map((group, index) => (
         <div
           key={index}
@@ -69,6 +69,6 @@ export function MainComponent() {
           ))}
         </div>
       ))}
-    </Container>
+      </>
   );
 }
