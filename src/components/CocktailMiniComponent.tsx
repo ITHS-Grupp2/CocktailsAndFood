@@ -40,51 +40,60 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
   const state = useContext(CartContext);
   const dispatch = useContext(CartDispatchContext);
   return (
-      <Card
-        className="shadow"
+    <Card
+      className="shadow"
+      style={{
+        width: "auto",
+        overflow: "hidden",
+        padding: "0px",
+        margin: "5px",
+      }}
+    >
+      <div style={{ overflow: "hidden" }}>
+        <img
+          className="cardImage"
+          src={data.cocktail.img}
+          alt={`${data.cocktail.name}`}
+          style={{
+            objectFit: "cover",
+            height: "300px",
+            minWidth: "300px",
+            width: "100%",
+          }}
+        />
+      </div>
+      <Card.Body
+        className="d-flex flex-column mb-2"
+        style={{ padding: "0px 10px" }}
+      >
+        <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
+          <span className="fs-5">{data.cocktail.name}</span>
+        </Card.Title>
+        <Card.Subtitle>
+          <p>
+            <i>Alcohol Percentage: {GetPercentage(data.cocktail.id)}%</i>
+          </p>
+        </Card.Subtitle>
+      </Card.Body>
+      <div
         style={{
-          width: "auto",
           overflow: "hidden",
-          padding: "0px",
-          margin: "5px",
-        }}>
-        <div style={{ overflow: "hidden"}}>
-          <img
-            className="cardImage"
-            src={data.cocktail.img}
-            alt={`${data.cocktail.name}`}
-            style={{
-              objectFit: "cover",
-              height: "300px",
-              minWidth:"300px",
-              width: "100%",       
-            }}
-          />
-        </div>
-        <Card.Body
-          className="d-flex flex-column mb-2"
-          style={{ padding: "0px 10px" }}>
-          <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
-            <span className="fs-5">{data.cocktail.name}</span>
-          </Card.Title>
-          <Card.Subtitle>
-            <p>
-              <i>Alcohol Percentage: {GetPercentage(data.cocktail.id)}%</i>
-            </p>
-          </Card.Subtitle>
-        </Card.Body>
-        <div>
-          {findQuantity(state, data.cocktail.id) === 0 ? (
-            <button
-              className="addToCartButton"
-              //Have to keep this style here, otherwise it's overridden by other CSS classes
-              style={{ width: "100%" }}
-              onClick={() =>
-                addToCart(dispatch, convertToProductInfoData(data.cocktail))
-              }>
-              {GetIcon("Cart", "Medium")} $ 9
-            </button>
-          ) : (
+          height: "46px",
+        }}
+      >
+        {findQuantity(state, data.cocktail.id) === 0 ? (
+          <button
+            className="addToCartButton"
+            //Have to keep this style here, otherwise it's overridden by other CSS classes
+            style={{ width: "100%", borderRadius: "0px 0px 0px 0px" }}
+            onClick={() =>
+              addToCart(dispatch, convertToProductInfoData(data.cocktail))
+            }
+          >
+            {GetIcon("Cart", "Medium")} $ 9
+          </button>
+        ) : (
+          <div style={{ fontSize: "1.35rem", height: "46.59px" }}>
             <CartQuantity
               radius="Card"
               data={{
@@ -99,10 +108,10 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
                 },
               }}
             />
-          )}
-        </div>
-        {/* <NavigationButton navigationPath="/softdrinkselect"></NavigationButton> */}
-      </Card>
-  
+          </div>
+        )}
+      </div>
+      {/* <NavigationButton navigationPath="/softdrinkselect"></NavigationButton> */}
+    </Card>
   );
 };

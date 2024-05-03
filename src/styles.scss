@@ -36,13 +36,12 @@ $order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
 
-
 $radius: 0.8rem;
 $siteWidth: 1024px;
 
 .siteSize {
   width: $siteWidth; // 1247
- min-height: 1366px;
+  min-height: 1366px;
   margin-bottom: 10px;
 }
 
@@ -174,10 +173,14 @@ $siteWidth: 1024px;
   background-color: $red-button-color;
   fill: #ffffff; //Changed to white (added updated documentation to avoid confusion)
   color: #ffffff;
+  border: none;
+  border-radius: 0 0 10px 10px;
 }
 
 .addToCartButton:hover {
   background-color: $red-button-color-hover;
+  border: none;
+  border-radius: 0 0 10px 10px;
 }
 /* ADD TO CART BUTTON PRODUCTINFO END */
 
@@ -372,6 +375,9 @@ body {
   border: none;
   color: $egg-white;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .amount-btn:hover {
   background-color: $salad-green-hover;
@@ -401,10 +407,10 @@ h2 {
   text-align: center;
 }
 h4 {
- font: 200% $font-stack-header;
- text-transform: uppercase;
- text-align: center;
- margin-bottom: 0px;
+  font: 200% $font-stack-header;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 #header {
@@ -435,7 +441,7 @@ h4 {
   // color: $inline-font-color;
   font-weight: normal;
   // color: $main-font-color;
-margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .first {
