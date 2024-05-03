@@ -11,10 +11,11 @@ export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
     <div
       style={{
         marginTop: "50px",
-      }}>
-      <div style={{ width: "30%", margin: "0 auto" }}>
+      }}
+    >
+      <div style={{ width: "50%", margin: "0 auto" }}>
         <Link to={targetPage}>
-          <button className="nextButton">
+          <button className="nextButton" style={{ display: "flex" }}>
             <span className="nextButtonText">NEXT</span>
             <span className="nextButtonArrow">
               {GetIcon("ArrowRight", "Large")}
@@ -27,14 +28,12 @@ export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
 };
 
 //Large NEXT button card Variant
-export const NextButtonCard: React.FC<NextButtonProps> = ({
-  targetPage,
-}) => {
+export const NextButtonCard: React.FC<NextButtonProps> = ({ targetPage }) => {
   return (
     <div className="next-button-cocktail">
       <Link to={targetPage}>
         <button className="shadow">
-          <span style={{ paddingTop: "115px",paddingBottom:"15px" }}>
+          <span style={{ paddingTop: "115px", paddingBottom: "15px" }}>
             {GetIcon("ArrowRight", 110)}
           </span>
           <span>NEXT</span>

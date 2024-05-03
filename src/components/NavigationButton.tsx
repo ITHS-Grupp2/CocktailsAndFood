@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProductInfoData } from "./ProductInfo";
+import { Button } from "react-bootstrap";
+import { GetIcon } from "./Icons";
 
 export type NavigationPath =
   | "/drinkselect"
@@ -23,12 +25,31 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
       localStorage.setItem("burgerId", productData.id);
     }
   }
+
   return (
-    <Link to={"" + navigationPath}>
-      <button className="navigationButtonFill">
-        {/* {GetIcon("Cart", "white", "Medium")} */}
-        <span style={{ paddingLeft: "10px" }}>Next</span>
-      </button>
-    </Link>
+    <>
+      <div className="flexDC">
+        <Button className="nextButtonSmall" style={{ borderRadius: "10px" }}>
+          <Link
+            to={"" + navigationPath}
+            style={{
+              color: "white",
+            }}
+          >
+            <span
+              style={{
+                paddingLeft: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              NEXT &nbsp; {GetIcon("ArrowRight", "Large")}
+            </span>
+          </Link>
+        </Button>
+      </div>
+    </>
   );
 };

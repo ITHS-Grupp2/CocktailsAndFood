@@ -61,7 +61,8 @@ export const SidesComponent = () => {
               flexWrap: "nowrap",
               flex: "0 0 33.3333%",
               justifyContent: "space-evenly",
-            }}>
+            }}
+          >
             {side.map((side, innerIndex) => (
               <Col key={innerIndex} style={{ margin: "0.5 rem" }}>
                 <Card
@@ -81,7 +82,7 @@ export const SidesComponent = () => {
                       style={{
                         objectFit: "cover",
                         height: "300px",
-                        minWidth:"200px",
+                        minWidth: "200px",
                         width: "100%",
                       }}
                     />
@@ -91,33 +92,47 @@ export const SidesComponent = () => {
                     style={{ padding: "0px 10px", height: "3rem" }}
                   >
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
-                      <span className="fs-5">{side.title}</span>
+                      <span className="fontBrown">{side.title}</span>
                     </Card.Title>
                   </Card.Body>
-                  {findQuantity(state, side._id) === 0 ? (
-                    <button
-                      className="addToCartButton"
-                      onClick={() =>
-                        addToCart(dispatch, convertToProductInfoData(side))
-                      }>
-                      {GetIcon("Cart", "Medium")} ${side.price}
-                    </button>
-                  ) : (
-                    <CartQuantity
-                      radius="Card"
-                      data={{
-                        cartProduct: state.cartProducts.find(
-                          (product) => product.id === side._id
-                        ) || {
-                          id: "",
-                          title: "",
-                          price: 0,
-                          img: "",
-                          quantity: 0,
-                        },
-                      }}
-                    />
-                  )}
+                  <div
+                    style={{
+                      overflow: "hidden",
+                      height: "46px",
+                    }}
+                  >
+                    {findQuantity(state, side._id) === 0 ? (
+                      <button
+                        className="addToCartButton"
+                        style={{
+                          borderRadius: "0px 0px 0px 0px",
+                          width: "100%",
+                        }}
+                        onClick={() =>
+                          addToCart(dispatch, convertToProductInfoData(side))
+                        }
+                      >
+                        {GetIcon("Cart", "Medium")} ${side.price}
+                      </button>
+                    ) : (
+                      <div style={{ fontSize: "1.38rem" }}>
+                        <CartQuantity
+                          radius="Card"
+                          data={{
+                            cartProduct: state.cartProducts.find(
+                              (product) => product.id === side._id
+                            ) || {
+                              id: "",
+                              title: "",
+                              price: 0,
+                              img: "",
+                              quantity: 0,
+                            },
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </Card>
               </Col>
             ))}

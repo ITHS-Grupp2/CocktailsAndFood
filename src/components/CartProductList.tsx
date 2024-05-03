@@ -27,7 +27,12 @@ export const CartProductList = () => {
 
   // Used for an animation when a product is deleted from the Cart
   const [deletingItemId, setDeletingItemId] = useState<string | null>(null);
-
+  const colors = [
+    "rgba(191, 4, 38, 0.34)",
+    "rgba(64, 15, 15, 0.34)",
+    "rgba(217, 95, 24, 0.34)",
+    "rgba(85, 140, 3, 0.34)",
+  ];
   // Used to show the total price and total amount of products in the Cart
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
@@ -57,18 +62,36 @@ export const CartProductList = () => {
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     } shadowSubtle`}
                     style={{
-                      backgroundColor: "#FFFFFF",
+                      backgroundColor: "#ffffff",
                       borderRadius: "0.8rem",
                       padding: "10px",
                       marginBottom: "6px",
                       marginTop: "6px",
-                    }}>
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        backgroundColor: colors[index % colors.length],
+                        opacity: 0.4, // Change depending on what opacity you prefer.
+                        borderRadius: "0.8rem",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
+                      }}
+                    ></div>
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "175px",
                         padding: "0px",
-                      }}>
+                        position: "relative",
+                        zIndex: 1,
+                      }}
+                    >
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
@@ -81,22 +104,26 @@ export const CartProductList = () => {
                         }}
                       />
                     </div>
+
                     <div className="col">
                       <div
                         className="card-subtitle mb-2"
-                        style={{ fontWeight: "700" }}>
+                        style={{ fontWeight: "700" }}
+                      >
                         <span>
                           <span
                             className="fontBrown"
                             style={{
                               fontSize: "1.6rem",
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
-                            }}>
+                            }}
+                          >
                             {cartProduct.title}
                           </span>
                           <span
                             className="fontBrown"
-                            style={{ fontWeight: "450", fontSize: "1.2rem" }}>
+                            style={{ fontWeight: "450", fontSize: "1.2rem" }}
+                          >
                             &nbsp; - ${cartProduct.price}.00 x 1
                           </span>
                         </span>
@@ -109,12 +136,14 @@ export const CartProductList = () => {
                                 setDeletingItemId(null);
                               }, 750);
                             }}
-                            className="remove-from-cart">
+                            className="remove-from-cart"
+                          >
                             {GetIcon("Cross", "Medium")}
                           </button>
                           <div
                             className="text-end"
-                            style={{ width: "150px", fontSize: "1.2rem" }}>
+                            style={{ width: "150px", fontSize: "1.2rem" }}
+                          >
                             <CartQuantity
                               radius="Standalone"
                               data={{ cartProduct }}
@@ -129,7 +158,8 @@ export const CartProductList = () => {
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                         }}
-                        className="card-text"></h6>
+                        className="card-text"
+                      ></h6>
                     </div>
                   </div>
                 ))}
@@ -138,7 +168,10 @@ export const CartProductList = () => {
                 <Link to={"/"}>
                   <button
                     className="add-menu-btn"
-                    onClick={() => eraseHistory(dispatchPage)}>
+                    onClick={() => {
+                      eraseHistory(dispatchPage), localStorage.clear();
+                    }}
+                  >
                     <FontAwesomeIcon icon={faPlus} />
                     &nbsp; Add Extra
                   </button>
@@ -146,8 +179,9 @@ export const CartProductList = () => {
               </div>
               <div className="cartProductListBottom">
                 <h6
-                  className="text-end"
-                  style={{ color: "black", marginRight: "30px" }}>
+                  className="text-end fontBrown"
+                  style={{ marginRight: "30px" }}
+                >
                   <b>
                     {totalItems} products in cart | Total sum: $
                     {totalPrice.toFixed(2)}
@@ -161,8 +195,11 @@ export const CartProductList = () => {
                     <button
                       className="cartProductCheckoutButton"
                       onClick={() => {
-                        emptyCart(dispatch), eraseHistory(dispatchPage);
-                      }}>
+                        emptyCart(dispatch),
+                          eraseHistory(dispatchPage),
+                          localStorage.clear();
+                      }}
+                    >
                       <FontAwesomeIcon icon={faCreditCard} />
                       &nbsp;Pay
                     </button>

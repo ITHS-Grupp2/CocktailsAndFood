@@ -76,7 +76,7 @@ const DrinkCarousel = () => {
       className="parent"
       style={{
         width: "100%",
-        height: "418.95px"
+        height: "418.95px",
       }}
     >
       {/* React-multi-carousel properties to define how the carousel works */}
@@ -102,7 +102,7 @@ const DrinkCarousel = () => {
                 justifyContent: "space-evenly",
               }}
             >
-              <Col style={{margin: "0.5rem"}}>
+              <Col style={{ margin: "0.5rem" }}>
                 <Card
                   className="shadow"
                   style={{
@@ -131,10 +131,10 @@ const DrinkCarousel = () => {
                     className="d-flex flex-column mb-2"
                     style={{ padding: "0px 10px", height: "3rem" }}
                   >
-                    <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
+                    <Card.Title className="d-flex justify-content-between align-items-baseline mt-3 fontBrown">
                       <span className="fs-5">{imageUrl.name}</span>
                       <span
-                        className="text-muted align-self-end"
+                        className="fontBrown align-self-end"
                         style={{ minWidth: "4rem", textAlign: "right" }}
                       >
                         $9
