@@ -76,9 +76,7 @@ const DrinkCarousel = () => {
       className="parent"
       style={{
         width: "100%",
-        height: "418.95px",
-        marginBottom: "50px",
-        paddingLeft: "14px",
+        height: "418.95px"
       }}
     >
       {/* React-multi-carousel properties to define how the carousel works */}

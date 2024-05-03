@@ -18,7 +18,7 @@ export function MainComponent() {
   const groupedMainCourses = groupItems(mainCourses, 3); // Group main courses into arrays of 3
 
   return (
-    <>
+    <div style={{paddingBottom:"20px"}}>
       {groupedMainCourses.map((group, index) => (
         <div
           key={index}
@@ -27,6 +27,7 @@ export function MainComponent() {
             flexWrap: "nowrap",
             flex: "0 0 33.3333%",
             justifyContent: "space-evenly",
+      
           }}>
           {group.map((course, innerIndex) => (
             <Col key={innerIndex} style={{ margin: "0.5rem" }}>
@@ -69,6 +70,6 @@ export function MainComponent() {
           ))}
         </div>
       ))}
-      </>
+      </div>
   );
 }
