@@ -48,9 +48,6 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
           style={{
             borderRadius: radiusLeft,
             fontSize: "inherit",
-            textAlign: "center",
-            alignItems: "center",
-            justifyContent: "center",
           }}
         >
           <FontAwesomeIcon icon={faMinus} />
@@ -66,9 +63,6 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
           style={{
             borderRadius: radiusRight,
             fontSize: "inherit",
-            // textAlign: "center",
-            // alignItems: "center",
-            // justifyContent: "center",
           }}
         >
           <FontAwesomeIcon icon={faPlus} />

@@ -383,6 +383,11 @@ body {
   background-color: $salad-green-hover;
   border: none;
 }
+.amount-btn:active {
+  background-color: $salad-green-hover !important;
+  border: none;
+}
+//.amount-btn
 
 .remove-from-cart {
   background-color: $ketchup-red;
@@ -661,10 +666,17 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: $egg-white;
+  color: $egg-white;
 }
 .nextButtonSmall:hover {
   background: $next-button-color-hover;
   border: 1px solid $next-button-color-hover;
+}
+
+.nextButtonSmall:active {
+  background: $next-button-color-hover !important;
+  border: 1px solid $next-button-color-hover !important;
 }
 
 .nextButton {

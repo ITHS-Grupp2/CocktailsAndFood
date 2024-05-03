@@ -25,32 +25,15 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
     }
   }
 
-  const handleButtonClick = () => {
-    // Navigate to the desired path when the button is clicked
-    window.location.href = navigationPath || "/";
-  };
-
   return (
     <>
-      {/* <div className="flexDC">
-        <Link to={"" + navigationPath}>
-          <Button className="amount-btn">
-            <span style={{ paddingLeft: "10px" }}>Next</span>
-          </Button>
-        </Link>
-      </div> */}
       <div className="flexDC">
-        <Button
-          className="nextButtonSmall"
-          style={{ borderRadius: "10px" }}
-          onClick={handleButtonClick}
-        >
-          <span style={{ paddingLeft: "10px" }}>Next &#129130;</span>
+        <Button className="nextButtonSmall" style={{ borderRadius: "10px" }}>
+          <Link to={"" + navigationPath} style={{color:"white"}}>
+            <span style={{ paddingLeft: "10px" }}>Next &#129130;</span>
+          </Link>
         </Button>
       </div>
     </>
   );
 };
-{
-  /* <Link to={"" + navigationPath}> */
-}
