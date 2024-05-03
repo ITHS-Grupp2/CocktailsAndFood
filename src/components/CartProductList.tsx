@@ -138,7 +138,7 @@ export const CartProductList = () => {
                 <Link to={"/"}>
                   <button
                     className="add-menu-btn"
-                    onClick={() => eraseHistory(dispatchPage)}>
+                    onClick={() => {eraseHistory(dispatchPage), localStorage.clear()}}>
                     <FontAwesomeIcon icon={faPlus} />
                     &nbsp; Add Extra
                   </button>
@@ -161,7 +161,7 @@ export const CartProductList = () => {
                     <button
                       className="cartProductCheckoutButton"
                       onClick={() => {
-                        emptyCart(dispatch), eraseHistory(dispatchPage);
+                        emptyCart(dispatch), eraseHistory(dispatchPage), localStorage.clear();
                       }}>
                       <FontAwesomeIcon icon={faCreditCard} />
                       &nbsp;Pay
