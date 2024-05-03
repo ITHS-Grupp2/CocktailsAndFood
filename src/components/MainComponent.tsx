@@ -1,4 +1,4 @@
-import { Col, Container } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { Link } from "react-router-dom";

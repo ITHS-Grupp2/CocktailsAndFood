@@ -1,4 +1,4 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { ProductInfoData } from "./ProductInfo";
 import { NextButton } from "./NextButton";
