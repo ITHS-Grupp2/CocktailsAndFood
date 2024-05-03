@@ -27,7 +27,12 @@ export const CartProductList = () => {
 
   // Used for an animation when a product is deleted from the Cart
   const [deletingItemId, setDeletingItemId] = useState<string | null>(null);
-
+  const colors = [
+    "rgba(191, 4, 38, 0.34)",
+    "rgba(64, 15, 15, 0.34)",
+    "rgba(217, 95, 24, 0.34)",
+    "rgba(85, 140, 3, 0.34)",
+  ];
   // Used to show the total price and total amount of products in the Cart
   useEffect(() => {
     const totalPrice = state.cartProducts.reduce(
@@ -57,18 +62,34 @@ export const CartProductList = () => {
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
                     } shadowSubtle`}
                     style={{
-                      backgroundColor: "#FFFFFF",
+                      backgroundColor: "#ffffff",
                       borderRadius: "0.8rem",
                       padding: "10px",
                       marginBottom: "6px",
                       marginTop: "6px",
+                      position: "relative",
                     }}
                   >
+                    <div
+                      style={{
+                        backgroundColor: colors[index % colors.length],
+                        opacity: 0.2, // Change depending on what opacity you prefer.
+                        borderRadius: "0.8rem",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
+                      }}
+                    ></div>
                     <div
                       className="col-3"
                       style={{
                         maxWidth: "175px",
                         padding: "0px",
+                        position: "relative",
+                        zIndex: 1,
                       }}
                     >
                       <img
@@ -83,6 +104,7 @@ export const CartProductList = () => {
                         }}
                       />
                     </div>
+
                     <div className="col">
                       <div
                         className="card-subtitle mb-2"
