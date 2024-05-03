@@ -24,7 +24,6 @@ export type ProductInfoData = {
 };
 
 const ingredientList = (ingredients: string[]) => {
-
   return (
     <>
       <p>
@@ -62,18 +61,37 @@ export const ProductInfo = (data: ProductInfoData) => {
                   height: "500px",
                   borderRadius: "20px",
                   marginRight: "10px",
-                }}></img>
+                }}
+              ></img>
             </div>
             <div
               style={{ margin: "4px 4px 0px 4px", padding: "4px 4px 0px 4px" }}
-              className="d-flex flex-column justify-content-between w-75">
+              className="d-flex flex-column justify-content-between w-75"
+            >
               <div>
                 <p>
                   <strong>Ingredients</strong>
                   <br />
-                  {data.ingredients.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
+                  <div style={{ display: "flex" }}>
+                    <ul style={{ flex: 1 }}>
+                      {data.ingredients.map((item, index) => {
+                        if (index % 2 === 0) {
+                          return <li key={index}>{item}</li>;
+                        } else {
+                          return null;
+                        }
+                      })}
+                    </ul>
+                    <ul style={{ flex: 1 }}>
+                      {data.ingredients.map((item, index) => {
+                        if (index % 2 !== 0) {
+                          return <li key={index}>{item}</li>;
+                        } else {
+                          return null;
+                        }
+                      })}
+                    </ul>
+                  </div>
                 </p>
               </div>
               <div>
@@ -109,7 +127,8 @@ export const ProductInfo = (data: ProductInfoData) => {
                         fontSize: "2rem",
                       }}
                       className="addToCartButton"
-                      onClick={() => addToCart(dispatch, data)}>
+                      onClick={() => addToCart(dispatch, data)}
+                    >
                       {GetIcon("Cart", "Large")} ${data.price}.00
                     </button>
                   </div>
@@ -118,14 +137,16 @@ export const ProductInfo = (data: ProductInfoData) => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                    }}>
+                    }}
+                  >
                     <div
                       style={{
                         width: "100%",
                         height: "80px",
                         marginRight: "5px",
                         fontSize: "2.5rem",
-                      }}>
+                      }}
+                    >
                       <CartQuantity
                         radius="Standalone"
                         data={{
@@ -144,7 +165,8 @@ export const ProductInfo = (data: ProductInfoData) => {
                     <div style={{ height: "80px", width: "50%" }}>
                       <NavigationButton
                         navigationPath={data.navigationPath}
-                        productData={data}></NavigationButton>
+                        productData={data}
+                      ></NavigationButton>
                     </div>
                   </div>
                 )}
