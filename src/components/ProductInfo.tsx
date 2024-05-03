@@ -8,7 +8,6 @@ import {
 import { NavigationPath, NavigationButton } from "./NavigationButton";
 import { CartQuantity } from "./CartQuantity";
 import { GetIcon } from "./Icons";
-import { Button } from "react-bootstrap";
 
 export type ProductInfoData = {
   id: string;
