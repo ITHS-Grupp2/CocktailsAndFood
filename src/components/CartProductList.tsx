@@ -73,7 +73,7 @@ export const CartProductList = () => {
                     <div
                       style={{
                         backgroundColor: colors[index % colors.length],
-                        opacity: 0.2, // Change depending on what opacity you prefer.
+                        opacity: 0.4, // Change depending on what opacity you prefer.
                         borderRadius: "0.8rem",
                         position: "absolute",
                         top: 0,
