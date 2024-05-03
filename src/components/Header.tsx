@@ -12,7 +12,7 @@ export const Header = () => {
           style={{
             width: "0px",
             position: "relative",
-            left: "-100px",
+            left: "-130px",
             top: "-25px",
           }}>
           <BackButton />
@@ -32,7 +32,7 @@ export const Header = () => {
           style={{
             width: "0px",
             position: "relative",
-            right: "-15px",
+            right: "-30px",
             top: "-25px",
           }}>
           <Link to="/shoppingcart">

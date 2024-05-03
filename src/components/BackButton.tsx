@@ -23,9 +23,9 @@ export const BackButton = () => {
         }
         onClick={() => !hide && goBack(historyDispatch)}>
         {hide ? (
-          <div style={{ width: "60px", margin: "10px" }}></div>
+          <div className="header-button" style={{ opacity: "0" }}></div>
         ) : (
-          <div className="header-button">{GetIcon("Arrow", "Large")}</div>
+          <div className="header-button">{GetIcon("ArrowLeft", "XLarge")}</div>
         )}
       </Link>
     </>

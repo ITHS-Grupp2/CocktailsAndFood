@@ -4,12 +4,22 @@ $font-stack-logo: "Jolly Lodger", sans-serif;
 $font-stack-header: "Jockey One", sans-serif;
 $font-stack-navbar: "Jockey One", sans-serif;
 $font-stack-bread: Inter, sans-serif;
+
+$ketchup-red: #bf0426;
+$ketchup-red-hover: #f4002c;
+$egg-white: #fff0da;
+$beef-brown: #400f0f;
+$beef-brown-hover: #613232;
+$bacon-orange: #d95f18;
+$brioche-brown: #f29c50;
+$salad-green: #558c03;
+$salad-green-hover: #76b21d;
+$light-salad-green: #94b564;
+
 $main-font-color: #e9e9e9;
 $inline-font-color: #000000;
 $primary-color: #b60b0b;
-$ketchup-red: #bf0426;
-$green-button-color: #108832;
-$green-button-color-hover: #4da366;
+
 $button-color: #558c03;
 $button-color-light: #94b564;
 $button-color-hover: #76b21d;
@@ -20,37 +30,24 @@ $red-button-color-hover: #f4002c;
 $accent-background-color: #d9d9d9;
 $link-color: #3c0101;
 $link-hover: white;
-$radius: 0.8rem;
-$header-color: #684444;
-$navbar-color: #a17979;
 $navbar-color-hover: #f4002c;
 $light-background: #fffcf8;
-$footer-background: #9f8c8c;
-$beef-brown: #400f0f;
-$beef-brown-hover: #613232;
-$egg-white: #fff0da;
-$bacon-orange: #d95f18;
-$brioche-brown: #f29c50;
-$salad-green: #558c03;
-$salad-green-hover: #76b21d;
-$light-salad-green: #94b564;
 $order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
-$ketchup-red: #bf0426;
-$ketchup-red-hover: #f4002c;
 
-.hightlight {
-  color: greenyellow;
-}
+
+$radius: 0.8rem;
+$siteWidth: 1024px;
 
 .siteSize {
-  width: 1024px; // 1247
+  width: $siteWidth; // 1247
+ min-height: 1366px;
   margin-bottom: 10px;
 }
 
 .siteSizeMin {
-  min-width: 1024px;
+  min-width: $siteWidth;
 }
 
 .salad {
@@ -81,8 +78,8 @@ $ketchup-red-hover: #f4002c;
 }
 
 .header-button {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   background-color: $beef-brown;
   border-radius: 50%;
   color: $egg-white;
@@ -90,7 +87,6 @@ $ketchup-red-hover: #f4002c;
   align-items: center;
   justify-content: center;
   fill: $egg-white;
-  margin: 10px;
 }
 
 .header-button:hover {
@@ -146,15 +142,16 @@ $ketchup-red-hover: #f4002c;
   font: 100% $font-stack-bread;
   // width: 25vw;
   // height: 15vw;
-  background-color: $salad-green;
-  margin: 30px 0px;
-  color: white;
+  // background-color: $brioche-brown;
+  color: $beef-brown;
   padding: 15px;
   // font-size: 1vw;
   font-size: x-large;
   border-radius: 10px;
   text-align: center;
   overflow: hidden;
+  margin-bottom: 0.5rem;
+  margin: 2rem;
 }
 
 .text-start {
@@ -403,6 +400,12 @@ h2 {
   color: white;
   text-align: center;
 }
+h4 {
+ font: 200% $font-stack-header;
+ text-transform: uppercase;
+ text-align: center;
+ margin-bottom: 0px;
+}
 
 #header {
   width: 100%;
@@ -432,7 +435,7 @@ h2 {
   // color: $inline-font-color;
   font-weight: normal;
   // color: $main-font-color;
-  margin-bottom: 0.5rem;
+margin-bottom: 0.5rem;
 }
 
 .first {
@@ -587,7 +590,7 @@ strong {
 
 .drinkHeader {
   color: white;
-  background-color: $header-color;
+  background-color: $beef-brown;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -683,7 +686,7 @@ strong {
 
 .nextButtonArrow {
   font-size: 40px;
-  padding-right: 40px;
+  padding: 0 40px 5px 0;
 }
 
 .next-button-cocktail {

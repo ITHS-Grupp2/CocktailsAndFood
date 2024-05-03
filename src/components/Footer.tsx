@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="footer-content">
         <p>
           <strong>
-            <a href="https://maps.app.goo.gl/zut2pREhkCaJwi598">Visit</a>
+            <a target="_blank" href="https://maps.app.goo.gl/zut2pREhkCaJwi598">Visit</a>
           </strong>
         </p>
         <p>

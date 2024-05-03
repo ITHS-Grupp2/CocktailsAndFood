@@ -1,4 +1,4 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
 import { ProductInfoData } from "./ProductInfo";
 import { GetIcon } from "./Icons";
@@ -46,15 +46,16 @@ export const SidesComponent = () => {
   const groupedSides = groupItems(sides, 3);
   return (
     <>
-      <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
+      <div className="headerSmaller first">
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Select Sides
         </h1>
       </div>
-      <Container>
+      <div>
         {groupedSides.map((side, index) => (
           <Row
             key={index}
+            className="g-3"
             style={{
               display: "flex",
               flexWrap: "nowrap",
@@ -66,7 +67,7 @@ export const SidesComponent = () => {
                 <Card
                   className="shadow"
                   style={{
-                    width: "300px",
+                    width: "auto",
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
@@ -80,7 +81,8 @@ export const SidesComponent = () => {
                       style={{
                         objectFit: "cover",
                         height: "300px",
-                        width: "300px",
+                        minWidth:"200px",
+                        width: "100%",
                       }}
                     />
                   </div>
@@ -121,7 +123,7 @@ export const SidesComponent = () => {
             ))}
           </Row>
         ))}
-      </Container>
+      </div>
       <NextButton targetPage="/drinkselect" />
     </>
   );
