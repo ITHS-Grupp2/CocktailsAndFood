@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ProductInfoData } from "./ProductInfo";
+import { Button } from "react-bootstrap";
 
 export type NavigationPath =
   | "/drinkselect"
@@ -23,12 +24,16 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
       localStorage.setItem("burgerId", productData.id);
     }
   }
+
   return (
-    <Link to={"" + navigationPath}>
-      <button className="navigationButtonFill">
-        {/* {GetIcon("Cart", "white", "Medium")} */}
-        <span style={{ paddingLeft: "10px" }}>Next</span>
-      </button>
-    </Link>
+    <>
+      <div className="flexDC">
+        <Button className="nextButtonSmall" style={{ borderRadius: "10px" }}>
+          <Link to={"" + navigationPath} style={{color:"white"}}>
+            <span style={{ paddingLeft: "10px" }}>Next &#129130;</span>
+          </Link>
+        </Button>
+      </div>
+    </>
   );
 };

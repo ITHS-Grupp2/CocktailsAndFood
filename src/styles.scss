@@ -36,13 +36,12 @@ $order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
 
-
 $radius: 0.8rem;
 $siteWidth: 1024px;
 
 .siteSize {
   width: $siteWidth; // 1247
- min-height: 1366px;
+  min-height: 1366px;
   margin-bottom: 10px;
 }
 
@@ -171,11 +170,17 @@ $siteWidth: 1024px;
 /* ADD TO CART BUTTON PRODUCTINFO START */
 
 .addToCartButton {
-  height: "40px";
+  background-color: $red-button-color;
+  fill: #ffffff; //Changed to white (added updated documentation to avoid confusion)
+  color: #ffffff;
+  border: none;
+  border-radius: 0 0 10px 10px;
 }
 
 .addToCartButton:hover {
   background-color: $red-button-color-hover;
+  border: none;
+  border-radius: 0 0 10px 10px;
 }
 /* ADD TO CART BUTTON PRODUCTINFO END */
 
@@ -301,18 +306,6 @@ body {
   margin-bottom: 15px;
 }
 
-.amount-btn {
-  background-color: $salad-green;
-  height: 40px;
-  width: 100%;
-  border: none;
-  color: $egg-white;
-}
-.amount-btn:hover {
-  background-color: $salad-green-hover;
-  border: none;
-}
-
 .cart-qty-component {
   border-radius: 10px;
   overflow: hidden;
@@ -336,7 +329,8 @@ body {
 
 .flexDC {
   display: flex;
-  justify-content: end;
+  flex-direction: row;
+  height: 100%;
 }
 
 .fontBrown {
@@ -361,18 +355,39 @@ body {
 }
 
 .amount-box {
-  height: 40px;
-  width: 100%;
   background-color: $light-salad-green;
   padding: 10px;
   text-align: center;
   color: $egg-white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .amount-price-box .text-end {
   position: relative;
   bottom: -50px;
 }
+
+.amount-btn {
+  background-color: $salad-green;
+  border: none;
+  color: $egg-white;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.amount-btn:hover {
+  background-color: $salad-green-hover;
+  border: none;
+}
+.amount-btn:active {
+  background-color: $salad-green-hover !important;
+  border: none;
+}
+//.amount-btn
 
 .remove-from-cart {
   background-color: $ketchup-red;
@@ -397,10 +412,10 @@ h2 {
   text-align: center;
 }
 h4 {
- font: 200% $font-stack-header;
- text-transform: uppercase;
- text-align: center;
- margin-bottom: 0px;
+  font: 200% $font-stack-header;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 #header {
@@ -431,7 +446,7 @@ h4 {
   // color: $inline-font-color;
   font-weight: normal;
   // color: $main-font-color;
-margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .first {
@@ -442,14 +457,6 @@ margin-bottom: 0.5rem;
 .second {
   background-color: $salad-green;
   border-radius: 10px;
-}
-
-.shoppingIcon {
-  transition-duration: 0.4s;
-}
-
-.shoppingIcon:hover {
-  transform: rotate(-20deg) scale(110%);
 }
 
 a {
@@ -524,11 +531,11 @@ button {
   @extend .roundedStandard;
   color: #ffffff;
   font-weight: bold;
-  padding: 0.7em 1.7em;
+  // padding: 0.7em 1.7em;
   font-size: 18px;
   background-color: $ketchup-red;
   cursor: pointer;
-  border: 1px solid #e8e8e8;
+  // border: 1px solid #e8e8e8;
   transition: all 0.3s;
 }
 
@@ -648,6 +655,29 @@ strong {
 }
 
 /* NEXT-BUTTON CSS START*/
+
+.nextButtonSmall {
+  font-family: $font-stack-header;
+  font-size: 35px;
+  border: 1px solid $next-button-color;
+  padding: 0px;
+  width: 100%;
+  background: $next-button-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: $egg-white;
+  color: $egg-white;
+}
+.nextButtonSmall:hover {
+  background: $next-button-color-hover;
+  border: 1px solid $next-button-color-hover;
+}
+
+.nextButtonSmall:active {
+  background: $next-button-color-hover !important;
+  border: 1px solid $next-button-color-hover !important;
+}
 
 .nextButton {
   font-family: $font-stack-header;

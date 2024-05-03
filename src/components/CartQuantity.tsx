@@ -8,6 +8,8 @@ import {
   CartContext,
 } from "./CartContext";
 import { useContext } from "react";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type CartQuantityBorderRadius = "Card" | "Standalone";
 
@@ -43,9 +45,12 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
             }
           }}
           className="amount-btn"
-          style={{ borderRadius: radiusLeft }}
+          style={{
+            borderRadius: radiusLeft,
+            fontSize: "inherit",
+          }}
         >
-          -
+          <FontAwesomeIcon icon={faMinus} />
         </Button>
         <div className="amount-box">
           {findQuantity(state, data.cartProduct.id)}
@@ -55,9 +60,12 @@ export const CartQuantity: React.FC<CartQuantityProps> = ({ data, radius }) => {
             incrementQuantity(dispatch, data.cartProduct.id);
           }}
           className="amount-btn"
-          style={{ borderRadius: radiusRight }}
+          style={{
+            borderRadius: radiusRight,
+            fontSize: "inherit",
+          }}
         >
-          +
+          <FontAwesomeIcon icon={faPlus} />
         </Button>
       </div>
     </>
