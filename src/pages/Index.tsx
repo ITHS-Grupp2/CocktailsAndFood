@@ -8,7 +8,7 @@ export const Index = () => {
     <>
       {PageTracker()}
       <div className="siteSize">
-        <div className="headerSmaller first" style={{ margin: "30px 0px" }}>
+        <div className="headerSmaller first">
           <h1 className="text-center" style={{ marginBottom: "0px" }}>
             Most Popular Burgers
           </h1>

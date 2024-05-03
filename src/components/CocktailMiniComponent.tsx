@@ -43,12 +43,12 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
       <Card
         className="shadow"
         style={{
-          width: "300px",
+          width: "auto",
           overflow: "hidden",
           padding: "0px",
           margin: "5px",
         }}>
-        <div style={{ overflow: "hidden" }}>
+        <div style={{ overflow: "hidden"}}>
           <img
             className="cardImage"
             src={data.cocktail.img}
@@ -56,7 +56,8 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
             style={{
               objectFit: "cover",
               height: "300px",
-              width: "300px",
+              minWidth:"300px",
+              width: "100%",       
             }}
           />
         </div>

@@ -43,12 +43,12 @@ export const SoftDrinkComponent = () => {
   const dispatch = useContext(CartDispatchContext);
   return (
     <>
-      <div className="headerSmaller, first" style={{ margin: "30px 0px" }}>
+      <div className="headerSmaller first">
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Select Soft Drinks
         </h1>
       </div>
-      <Container>
+      <div style={{ justifyContent: "center" }}>
         {groupedSoftDrinks.map((group, index) => (
           <Row
             key={index}
@@ -63,12 +63,11 @@ export const SoftDrinkComponent = () => {
                 <Card
                   className="shadow"
                   style={{
-                    width: "300px",
+                    width: "auto",
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
-                  }}
-                >
+                  }}>
                   <div style={{ overflow: "hidden" }}>
                     <img
                       className="cardImage"
@@ -77,14 +76,15 @@ export const SoftDrinkComponent = () => {
                       style={{
                         objectFit: "cover",
                         height: "300px",
-                        width: "300px",
+                        width: "100%",
+                        minWidth: "200px",
+                        alignContent: "center",
                       }}
                     />
                   </div>
                   <Card.Body
                     className="d-flex flex-column mb-2"
-                    style={{ padding: "0px 10px", height: "3rem" }}
-                  >
+                    style={{ padding: "0px 10px", height: "3rem" }}>
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
                       <span className="fs-5">{softDrink.title}</span>
                     </Card.Title>
@@ -119,7 +119,7 @@ export const SoftDrinkComponent = () => {
             ))}
           </Row>
         ))}
-      </Container>
+      </div>
       <NextButton targetPage="/shoppingcart" />
     </>
   );

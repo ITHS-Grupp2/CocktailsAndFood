@@ -7,8 +7,7 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
   for (let i = 0; i < cocktailArray.cocktails.length; i++) {
     rows.push(
-      <Col key={i} style={{display:"flex", width:"33%"
-      }}>
+      <Col key={i} style={{ margin: "0.5rem" }}>
         <CocktailMiniComponent cocktail={cocktailArray.cocktails[i]} />
       </Col>
     );
@@ -21,8 +20,14 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
 
   return (
     <>
-      <Container className="m-1">
-        <Row className="g-3" style={{display:"flex", justifyContent:"space-between"}}>
+      <div style={{ justifyContent: "center" }}>
+        <Row
+          className="g-3"
+          style={{
+            display: "flex",
+            flex: "0 0 33.3333%",
+            justifyContent: "space-between",
+          }}>
           {rows}
           {/* conditional rendering, based on whether the burger ID is null or not  */}
           {isBurgerIdNotNull && (
@@ -31,7 +36,7 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
             </Col>
           )}
         </Row>
-      </Container>
+      </div>
       {/* Button instead of the "no drink card" for when burgerId is null */}
       {!isBurgerIdNotNull && (
         <Container>
