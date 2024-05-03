@@ -89,7 +89,7 @@ export const SoftDrinkComponent = () => {
                     style={{ padding: "0px 10px", height: "3rem" }}
                   >
                     <Card.Title className="d-flex justify-content-between align-items-baseline mt-3">
-                      <span className="fs-5">{softDrink.title}</span>
+                      <span className="fs-5 fontBrown">{softDrink.title}</span>
                     </Card.Title>
                   </Card.Body>
                   <div
@@ -98,34 +98,40 @@ export const SoftDrinkComponent = () => {
                       height: "46px",
                     }}
                   >
-                  {findQuantity(state, softDrink._id) === 0 ? (
-                    <button
-                      className="addToCartButton"
-                      style={{ width: "100%", borderRadius: "0px 0px 0px 0px" }}
-                      onClick={() =>
-                        addToCart(dispatch, convertToProductInfoData(softDrink))
-                      }
-                    >
-                      {GetIcon("Cart", "Medium")} $ 9
-                    </button>
-                  ) : (
-                    <div style={{ fontSize: "1.35rem", marginBottom: "0px" }}>
-                      <CartQuantity
-                        radius="Card"
-                        data={{
-                          cartProduct: state.cartProducts.find(
-                            (product) => product.id === softDrink._id
-                          ) || {
-                            id: "",
-                            title: "",
-                            price: 0,
-                            img: "",
-                            quantity: 0,
-                          },
+                    {findQuantity(state, softDrink._id) === 0 ? (
+                      <button
+                        className="addToCartButton"
+                        style={{
+                          width: "100%",
+                          borderRadius: "0px 0px 0px 0px",
                         }}
-                      />
-                    </div>
-                  )}
+                        onClick={() =>
+                          addToCart(
+                            dispatch,
+                            convertToProductInfoData(softDrink)
+                          )
+                        }
+                      >
+                        {GetIcon("Cart", "Medium")} $ 9
+                      </button>
+                    ) : (
+                      <div style={{ fontSize: "1.35rem", marginBottom: "0px" }}>
+                        <CartQuantity
+                          radius="Card"
+                          data={{
+                            cartProduct: state.cartProducts.find(
+                              (product) => product.id === softDrink._id
+                            ) || {
+                              id: "",
+                              title: "",
+                              price: 0,
+                              img: "",
+                              quantity: 0,
+                            },
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </Card>
               </Col>

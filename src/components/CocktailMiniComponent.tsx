@@ -62,17 +62,12 @@ export const CocktailMiniComponent = (data: { cocktail: Cocktail }) => {
           }}
         />
       </div>
-      <Card.Body
-        className="d-flex flex-column mb-2"
-        style={{ padding: "0px 10px" }}
-      >
-        <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
-          <span className="fs-5">{data.cocktail.name}</span>
+      <Card.Body className="text-card-center" style={{ padding: "0px 10px" }}>
+        <Card.Title className="mb-1">
+          <div className="fontBrown">{data.cocktail.name}</div>
         </Card.Title>
         <Card.Subtitle>
-          <p>
-            <i>Alcohol Percentage: {GetPercentage(data.cocktail.id)}%</i>
-          </p>
+          Alcohol Percentage: {GetPercentage(data.cocktail.id)}%
         </Card.Subtitle>
       </Card.Body>
       <div

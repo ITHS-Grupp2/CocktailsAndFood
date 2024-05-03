@@ -41,7 +41,6 @@ $siteWidth: 1024px;
 
 .siteSize {
   width: $siteWidth; // 1247
-  min-height: 1366px;
   margin-bottom: 10px;
 }
 
@@ -81,11 +80,11 @@ $siteWidth: 1024px;
   height: 100px;
   background-color: $beef-brown;
   border-radius: 50%;
-  color: $egg-white;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  fill: $egg-white;
+  fill: white;
 }
 
 .header-button:hover {
@@ -358,7 +357,7 @@ body {
   background-color: $light-salad-green;
   padding: 10px;
   text-align: center;
-  color: $egg-white;
+  color: white;
   flex: 1;
   display: flex;
   align-items: center;
@@ -666,8 +665,8 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: $egg-white;
-  color: $egg-white;
+  fill: white;
+  color: white;
 }
 .nextButtonSmall:hover {
   background: $next-button-color-hover;
@@ -716,16 +715,30 @@ strong {
   font-family: $font-stack-header;
 }
 
+.next-btn-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .next-button-cocktail button {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: $next-button-color;
-  height: 409px;
-  width: 300px;
+  height: 415px;
+  width: 305px;
   padding: 0px;
   margin: 5px;
   font-size: 50px;
+}
+
+.text-card-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 13px;
 }
 
 .next-button-cocktail button:hover {

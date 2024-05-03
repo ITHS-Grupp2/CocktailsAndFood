@@ -179,8 +179,8 @@ export const CartProductList = () => {
               </div>
               <div className="cartProductListBottom">
                 <h6
-                  className="text-end"
-                  style={{ color: "black", marginRight: "30px" }}
+                  className="text-end fontBrown"
+                  style={{ marginRight: "30px" }}
                 >
                   <b>
                     {totalItems} products in cart | Total sum: $

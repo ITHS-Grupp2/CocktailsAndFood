@@ -23,19 +23,7 @@ export type ProductInfoData = {
   quantity: number;
 };
 
-const ingredientList = (ingredients: string[]) => {
-  return (
-    <>
-      <p>
-        <strong>Ingredients</strong>
-        <br />
-        {ingredients.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </p>
-    </>
-  );
-};
+
 // A generic info page that takes in parameter data with type ProductInfoData and displays a specific product
 export const ProductInfo = (data: ProductInfoData) => {
   const state = useContext(CartContext);
