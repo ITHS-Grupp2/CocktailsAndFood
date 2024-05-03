@@ -37,7 +37,7 @@ export const About = () => {
               {lastName}
             </p>
             <p>
-              <i>{nickName}</i>
+              <i style={{fontSize:"80%",fontWeight:"300"}}>{nickName}</i>
             </p>
           </Card.Title>
         </Card.Body>
@@ -72,41 +72,45 @@ export const About = () => {
   return (
     <>
       {PageTracker()}
-      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
-        <h4 className="text-center" style={{ marginBottom: "0px" }}>
-          About Us
-        </h4>
-      </div>
-      <Container style={{ textAlign: "center" }}>
-        <h4>Project Leaders</h4>
-        <Row
-          lg={4}
-          md={3}
-          xs={2}
-          className="g-3 p-2 justify-content-center text-start">
-          {itpRows}
-        </Row>
-        <Row>
-          <h4>Developers</h4>
-        </Row>
+      <div className="siteSize">
+        <div className="headerSmaller first">
+          <h1 className="text-center" style={{ marginBottom: "0px" }}>
+            About Us
+          </h1>
+        </div>
 
-        <Row
-          lg={4}
-          md={3}
-          xs={2}
-          className="g-3 p-2 justify-content-center text-start">
-          {devRows}
-        </Row>
-        <Row className="g-3 p-2 justify-content-center">
-          <div className="aboutUsBox">
-            Hello there fiddling sizzle nizzlers. We are the crazy dev-team
-            creating this insane burger-site just for your hungry needs.
-            <br />
-            <br />
-            We can do backflips.
+        <div className="aboutUsBox">
+          Hello there fiddling sizzle nizzlers. We are the crazy dev-team
+          creating this insane burger-site just for your hungry needs.
+          <br />
+          <br />
+          We can do backflips.
+        </div>
+
+        <div className="headerSmaller second" style={{ width: "100%" }}>
+          <h4>Project Leaders</h4>
+        </div>
+        <Container style={{ textAlign: "center" }}>
+          <Row
+            lg={4}
+            md={3}
+            xs={2}
+            className="g-3 p-2 justify-content-center text-start">
+            {itpRows}
+          </Row>
+          <div className="headerSmaller second">
+            <h4>Developers</h4>
           </div>
-        </Row>
-      </Container>
+
+          <Row
+            lg={4}
+            md={3}
+            xs={2}
+            className="g-3 p-2 justify-content-center text-start">
+            {devRows}
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };

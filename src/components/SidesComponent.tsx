@@ -1,7 +1,15 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { FoodAPI, MainResponse } from "../API/FoodAPI";
-import { NavigationButton } from "./NavigationButton";
 import { ProductInfoData } from "./ProductInfo";
+import { GetIcon } from "./Icons";
+import {
+  addToCart,
+  CartContext,
+  CartDispatchContext,
+  findQuantity,
+} from "./CartContext";
+import { CartQuantity } from "./CartQuantity";
+import { useContext } from "react";
 import { NextButton } from "./NextButton";
 
 // Sends information to cart
@@ -30,23 +38,36 @@ const groupItems = (arr: MainResponse[], size: number) => {
 // A function that fetches all Sides-data from FoodAPI and populates the cards with its data
 export const SidesComponent = () => {
   const sides = FoodAPI("sides");
+
+  const state = useContext(CartContext);
+
+  const dispatch = useContext(CartDispatchContext);
+
   const groupedSides = groupItems(sides, 3);
   return (
     <>
-      <div className="headerSmaller" style={{ margin: "30px 0px" }}>
+      <div className="headerSmaller first">
         <h1 className="text-center" style={{ marginBottom: "0px" }}>
           Select Sides
         </h1>
       </div>
-      <Container>
+      <div>
         {groupedSides.map((side, index) => (
-          <Row key={index}>
+          <Row
+            key={index}
+            className="g-3"
+            style={{
+              display: "flex",
+              flexWrap: "nowrap",
+              flex: "0 0 33.3333%",
+              justifyContent: "space-evenly",
+            }}>
             {side.map((side, innerIndex) => (
-              <Col key={innerIndex} style={{ margin: "25px" }}>
+              <Col key={innerIndex} style={{ margin: "0.5 rem" }}>
                 <Card
                   className="shadow"
                   style={{
-                    width: "300px",
+                    width: "auto",
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",
@@ -60,7 +81,8 @@ export const SidesComponent = () => {
                       style={{
                         objectFit: "cover",
                         height: "300px",
-                        width: "300px",
+                        minWidth:"200px",
+                        width: "100%",
                       }}
                     />
                   </div>
@@ -72,17 +94,36 @@ export const SidesComponent = () => {
                       <span className="fs-5">{side.title}</span>
                     </Card.Title>
                   </Card.Body>
-                  <NavigationButton
-                    productInfo={convertToProductInfoData(side)}
-                    price={side.price}
-                    navigationPath="/drinkselect"
-                  />
+                  {findQuantity(state, side._id) === 0 ? (
+                    <button
+                      className="addToCartButton"
+                      onClick={() =>
+                        addToCart(dispatch, convertToProductInfoData(side))
+                      }>
+                      {GetIcon("Cart", "Medium")} ${side.price}
+                    </button>
+                  ) : (
+                    <CartQuantity
+                      radius="Card"
+                      data={{
+                        cartProduct: state.cartProducts.find(
+                          (product) => product.id === side._id
+                        ) || {
+                          id: "",
+                          title: "",
+                          price: 0,
+                          img: "",
+                          quantity: 0,
+                        },
+                      }}
+                    />
+                  )}
                 </Card>
               </Col>
             ))}
           </Row>
         ))}
-      </Container>
+      </div>
       <NextButton targetPage="/drinkselect" />
     </>
   );

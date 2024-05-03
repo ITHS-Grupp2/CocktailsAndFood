@@ -22,7 +22,7 @@ export const ProductPanel = (props:{panelLabel:string, labels:string[]}) => {
             </Row>
           }
         </Container>
-        <NavigationButton navigationPath="/drinkselect" id={""+1}></NavigationButton>
+        <NavigationButton navigationPath="/drinkselect"></NavigationButton>
       </>
     );
 }

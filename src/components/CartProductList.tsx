@@ -2,13 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import {
   CartContext,
   CartDispatchContext,
-  decrementQuantity,
   emptyCart,
-  incrementQuantity,
   removeFromCart,
 } from "./CartContext";
-import { Container, Button } from "react-bootstrap";
-import { faCreditCard, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { Container } from "react-bootstrap";
+import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +14,9 @@ import {
   eraseHistory,
   PageHistoryDispatchContext,
 } from "./PageHistoryProvider";
+import { CartQuantity } from "./CartQuantity";
+import { Salad } from "./Salad";
+import { GetIcon } from "./Icons";
 
 export const CartProductList = () => {
   const state = useContext(CartContext);
@@ -54,45 +55,52 @@ export const CartProductList = () => {
                     key={index}
                     className={`row ${
                       deletingItemId === cartProduct.id ? "fadeOut" : ""
-                    }`}
+                    } shadowSubtle`}
                     style={{
-                      borderBottom: "3px solid black",
-
-                      marginTop: "20px",
-                    }}
-                  >
+                      backgroundColor: "#FFFFFF",
+                      borderRadius: "0.8rem",
+                      padding: "10px",
+                      marginBottom: "6px",
+                      marginTop: "6px",
+                    }}>
                     <div
                       className="col-3"
                       style={{
-                        maxWidth: "900px",
-                        marginBottom: "20px",
-                        marginLeft: "8px",
-                      }}
-                    >
+                        maxWidth: "175px",
+                        padding: "0px",
+                      }}>
                       <img
                         src={cartProduct.img}
                         alt={cartProduct.title}
-                        className="img-fluid"
+                        className="shadowSubtle"
                         style={{
-                          borderRadius: "0.8rem",
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                           transition: "opacity 0.15s",
+                          width: "177px",
+                          borderRadius: "0.8rem",
                         }}
                       />
                     </div>
                     <div className="col">
-                      <h5
+                      <div
                         className="card-subtitle mb-2"
-                        style={{ fontWeight: "700" }}
-                      >
+                        style={{ fontWeight: "700" }}>
                         <span>
                           <span
+                            className="fontBrown"
                             style={{
+                              fontSize: "1.6rem",
                               opacity: cartProduct.quantity === 0 ? "0.5" : "1",
-                            }}
-                          >
+                            }}>
                             {cartProduct.title}
                           </span>
+                          <span
+                            className="fontBrown"
+                            style={{ fontWeight: "450", fontSize: "1.2rem" }}>
+                            &nbsp; - ${cartProduct.price}.00 x 1
+                          </span>
+                        </span>
+                        <div className="amount-price-box">
                           <button
                             onClick={() => {
                               setDeletingItemId(cartProduct.id);
@@ -101,50 +109,27 @@ export const CartProductList = () => {
                                 setDeletingItemId(null);
                               }, 750);
                             }}
-                            className="removeFromCart"
-                          >
-                            <FontAwesomeIcon icon={faTrashCan} />
+                            className="remove-from-cart">
+                            {GetIcon("Cross", "Medium")}
                           </button>
-                        </span>
-                      </h5>
+                          <div
+                            className="text-end"
+                            style={{ width: "150px", fontSize: "1.2rem" }}>
+                            <CartQuantity
+                              radius="Standalone"
+                              data={{ cartProduct }}
+                            />
+                            <p className="price-amount-single">
+                              ${cartProduct.price * cartProduct.quantity}.00
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                       <h6
                         style={{
                           opacity: cartProduct.quantity === 0 ? "0.5" : "1",
                         }}
-                        className="card-text"
-                      >
-                        ${cartProduct.price}
-                      </h6>
-                      <div className="text-end" style={{ marginTop: "55px" }}>
-                        <div className="flexDC">
-                          <Button
-                            onClick={() => {
-                              if (cartProduct.quantity !== 0) {
-                                decrementQuantity(dispatch, cartProduct.id);
-                              }
-                            }}
-                            className="cartProductAmountButton"
-                            style={{ borderRadius: "10px 0 0 10px" }}
-                          >
-                            -
-                          </Button>
-                          <div className="amountBox">
-                            {cartProduct.quantity}
-                          </div>
-                          <Button
-                            onClick={() => {
-                              incrementQuantity(dispatch, cartProduct.id);
-                            }}
-                            className="cartProductAmountButton"
-                            style={{ borderRadius: "0 10px 10px 0" }}
-                          >
-                            +
-                          </Button>
-                        </div>
-                        <p style={{ marginTop: "15px", marginRight: "5px" }}>
-                          ${cartProduct.price * cartProduct.quantity}
-                        </p>
-                      </div>
+                        className="card-text"></h6>
                     </div>
                   </div>
                 ))}
@@ -152,36 +137,37 @@ export const CartProductList = () => {
               <div>
                 <Link to={"/"}>
                   <button
-                    className="cartProductNewMenuButton"
-                    onClick={() => eraseHistory(dispatchPage)}
-                  >
+                    className="add-menu-btn"
+                    onClick={() => eraseHistory(dispatchPage)}>
                     <FontAwesomeIcon icon={faPlus} />
-                    &nbsp; Add menu
+                    &nbsp; Add Extra
                   </button>
                 </Link>
               </div>
               <div className="cartProductListBottom">
                 <h6
                   className="text-end"
-                  style={{ color: "white", marginRight: "30px" }}
-                >
-                  {totalItems} products in cart | Total price: $
-                  {totalPrice.toFixed(2)}
+                  style={{ color: "black", marginRight: "30px" }}>
+                  <b>
+                    {totalItems} products in cart | Total sum: $
+                    {totalPrice.toFixed(2)}
+                  </b>
                 </h6>
               </div>
-              <div className="text-end">
-                <span>
+              <div className="salad-row">
+                <Salad />
+                <div>
                   <Link to={`/orderconfirmation`}>
                     <button
                       className="cartProductCheckoutButton"
                       onClick={() => {
                         emptyCart(dispatch), eraseHistory(dispatchPage);
-                      }}
-                    >
-                      <FontAwesomeIcon icon={faCreditCard} /> Pay
+                      }}>
+                      <FontAwesomeIcon icon={faCreditCard} />
+                      &nbsp;Pay
                     </button>
                   </Link>
-                </span>
+                </div>
               </div>
             </div>
           ) : (

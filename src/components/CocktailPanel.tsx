@@ -1,15 +1,13 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Cocktail } from "../API/CocktailFetch";
 import { CocktailMiniComponent } from "./CocktailMiniComponent";
-import { Link } from "react-router-dom";
-import { GetIcon } from "./Icons";
-import { NextButton } from "./NextButton";
+import { NextButton, NextButtonCard } from "./NextButton";
 
 export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
   const rows = [];
   for (let i = 0; i < cocktailArray.cocktails.length; i++) {
     rows.push(
-      <Col key={i}>
+      <Col key={i} style={{ margin: "0.5rem" }}>
         <CocktailMiniComponent cocktail={cocktailArray.cocktails[i]} />
       </Col>
     );
@@ -22,62 +20,27 @@ export const CocktailPanel = (cocktailArray: { cocktails: Cocktail[] }) => {
 
   return (
     <>
-      <Container className="m-2">
-        <Row className="g-3">
+      <div style={{ justifyContent: "center" }}>
+        <Row
+          className="g-3"
+          style={{
+            display: "flex",
+            flex: "0 0 33.3333%",
+            justifyContent: "space-between",
+          }}>
           {rows}
           {/* conditional rendering, based on whether the burger ID is null or not  */}
           {isBurgerIdNotNull && (
             <Col>
-              <div style={{ paddingLeft: "12px" }}>
-                <Card
-                  className="shadow"
-                  style={{
-                    height: "421px",
-                    width: "300px",
-                    overflow: "hidden",
-                    padding: "0px",
-                    marginLeft: "15px",
-                    margin: "5px",
-                  }}
-                >
-                  <div style={{ overflow: "hidden" }}>
-                    <img
-                      className="cardImage"
-                      src={`https://img.freepik.com/premium-vector/drinking-alcoholic-beverages-forbidden-sign_204827-138.jpg`}
-                      alt={"No Drink"}
-                      style={{
-                        objectFit: "cover",
-                        height: "300px",
-                        width: "300px",
-                      }}
-                    />
-                  </div>
-                  <Card.Body
-                    className="d-flex flex-column mb-2"
-                    style={{ padding: "0px 10px" }}
-                  >
-                    <Card.Title className="d-flex justify-content-between align-items-baseline mb-1">
-                      <span className="fs-5">No Drink</span>
-                    </Card.Title>
-                  </Card.Body>
-                  <Link to={`/softdrinkselect`}>
-                    <button className="navigationButtonFill">
-                      {GetIcon("Cart", "Medium")}{" "}
-                      <span style={{ paddingLeft: "10px" }}>No Drink</span>
-                    </button>
-                  </Link>
-                </Card>
-              </div>
+              <NextButtonCard targetPage="/softdrinkselect" />
             </Col>
           )}
         </Row>
-      </Container>
+      </div>
       {/* Button instead of the "no drink card" for when burgerId is null */}
       {!isBurgerIdNotNull && (
         <Container>
-          <Row>
-            <NextButton targetPage="/shoppingcart" />
-          </Row>
+          <NextButton targetPage="/softdrinkselect" />
         </Container>
       )}
     </>

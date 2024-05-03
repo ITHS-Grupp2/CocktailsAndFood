@@ -14,7 +14,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 768 },
-    items: 2,
+    items: 3,
     slidesToSlide: 1,
   },
   mobile: {
@@ -75,10 +75,8 @@ const DrinkCarousel = () => {
     <div
       className="parent"
       style={{
-        width: "1090px",
-        height: "418.95px",
-        marginBottom: "50px",
-        paddingLeft: "14px",
+        width: "100%",
+        height: "418.95px"
       }}
     >
       {/* React-multi-carousel properties to define how the carousel works */}
@@ -98,17 +96,17 @@ const DrinkCarousel = () => {
             <div
               key={index}
               style={{
-                display: "flex",
-                flexWrap: "wrap",
+                display: "wrap",
+                flexWrap: "nowrap",
                 flex: "0 0 33.3333%",
                 justifyContent: "space-evenly",
               }}
             >
-              <Col style={{ margin: "25px" }}>
+              <Col style={{margin: "0.5rem"}}>
                 <Card
                   className="shadow"
                   style={{
-                    width: "300px",
+                    width: "290px",
                     overflow: "hidden",
                     padding: "0px",
                     margin: "5px",

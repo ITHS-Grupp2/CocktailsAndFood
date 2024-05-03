@@ -4,55 +4,82 @@ $font-stack-logo: "Jolly Lodger", sans-serif;
 $font-stack-header: "Jockey One", sans-serif;
 $font-stack-navbar: "Jockey One", sans-serif;
 $font-stack-bread: Inter, sans-serif;
+
+$ketchup-red: #bf0426;
+$ketchup-red-hover: #f4002c;
+$egg-white: #fff0da;
+$beef-brown: #400f0f;
+$beef-brown-hover: #613232;
+$bacon-orange: #d95f18;
+$brioche-brown: #f29c50;
+$salad-green: #558c03;
+$salad-green-hover: #76b21d;
+$light-salad-green: #94b564;
+
 $main-font-color: #e9e9e9;
 $inline-font-color: #000000;
 $primary-color: #b60b0b;
-$green-button-color: #108832;
-$green-button-color-hover: #4da366;
-$button-color: #0d5ca7;
-$button-color-hover: #3d7db8;
+
+$button-color: #558c03;
+$button-color-light: #94b564;
+$button-color-hover: #76b21d;
 $accent-color: #eaeaea;
 $primary-background-color: #0d0c0c;
+$red-button-color: $ketchup-red;
+$red-button-color-hover: #f4002c;
 $accent-background-color: #d9d9d9;
 $link-color: #3c0101;
 $link-hover: white;
-$radius: 0.8rem;
-$header-color: #684444;
-$navbar-color: #a17979;
-$light-background: #f4eaea;
-$footer-background: #9f8c8c;
-$beef-brown: #400F0F;
-$egg-white: #FFFCF8;
-$brioche-brown: #F29C50;
-$salad-green: #558c03;
-$light-salad-green: #94b564;
+$navbar-color-hover: #f4002c;
+$light-background: #fffcf8;
 $order-nr-green: #6b9d1f;
 $next-button-color: #bf0426;
 $next-button-color-hover: #f4002c;
 
-.hightlight {
-  color: greenyellow;
-}
+
+$radius: 0.8rem;
+$siteWidth: 1024px;
 
 .siteSize {
-  width: 1176px; // 1247
-  height: 1770px;
+  width: $siteWidth; // 1247
+ min-height: 1366px;
+  margin-bottom: 10px;
 }
 
 .siteSizeMin {
-  min-height: 1770px;
-  min-width: 1176px;
+  min-width: $siteWidth;
 }
 
-#root{
+.salad {
+  width: 100%;
+  height: 40px;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+}
+
+.salad-group {
+  display: flex;
+  position: relative;
+  left: 32px;
+}
+
+.salad-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: -16px;
+}
+
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.header-button{
-  width: 60px;
-  height: 60px;
+.header-button {
+  width: 100px;
+  height: 100px;
   background-color: $beef-brown;
   border-radius: 50%;
   color: $egg-white;
@@ -60,38 +87,38 @@ $next-button-color-hover: #f4002c;
   align-items: center;
   justify-content: center;
   fill: $egg-white;
-  margin: 10px;
+}
+
+.header-button:hover {
+  background-color: $beef-brown-hover;
 }
 
 .h1Header {
-  font: 300% $font-stack-logo;
+  font: 400% $font-stack-logo;
   color: $beef-brown;
   font-weight: bold;
   margin: 10px;
-  min-width: 350px;
+  min-width: 450px;
   text-transform: none;
   font-weight: bold;
 }
 
-.sesame-group{
+.sesame-group {
   display: flex;
   height: 100%;
   width: 100%;
-  margin: 0px 10px;
+  margin-top: 20px;
   justify-content: space-evenly;
 }
 
-.sesame-seed{
-  width: 10px;
-  height: 10px;
-  min-height: 10px;
-  min-width: 10px;
-  border-radius: 10px 10px 10px 0px;
+.sesame-seed {
+  width: 20px;
+  height: 13px;
+  border-radius: 50%;
   background-color: $egg-white;
-  margin: 5px;
 }
 
-#breader-header{
+#breader-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,23 +132,26 @@ $next-button-color-hover: #f4002c;
   background-color: $brioche-brown;
   padding-top: 10px;
   padding-bottom: 10px;
-  height: 100px;
-  width: 1176px;
+  height: 150px;
+  width: 100%;
   margin-top: 10px;
-  border-radius: 80px 80px 10px 10px;
+  border-radius: 50px 50px 10px 10px;
 }
 
 .aboutUsBox {
-  width: 25vw;
-  height: 15vw;
-  background-color: $header-color;
-  margin: 30px 0px;
-  color: $main-font-color;
-  padding: 10px;
-  font-size: 1.5vw;
-  border-radius: 20px;
-  text-align: start;
+  font: 100% $font-stack-bread;
+  // width: 25vw;
+  // height: 15vw;
+  // background-color: $brioche-brown;
+  color: $beef-brown;
+  padding: 15px;
+  // font-size: 1vw;
+  font-size: x-large;
+  border-radius: 10px;
+  text-align: center;
   overflow: hidden;
+  margin-bottom: 0.5rem;
+  margin: 2rem;
 }
 
 .text-start {
@@ -129,32 +159,75 @@ $next-button-color-hover: #f4002c;
 }
 
 .navigationButtonFill {
+  background-color: $red-button-color;
   width: 100%;
   fill: $egg-white;
 }
+
+.navigationButtonFill:hover {
+  background-color: $red-button-color-hover;
+}
+
+/* ADD TO CART BUTTON PRODUCTINFO START */
+
+.addToCartButton {
+  height: "40px";
+}
+
+.addToCartButton:hover {
+  background-color: $red-button-color-hover;
+}
+/* ADD TO CART BUTTON PRODUCTINFO END */
 
 body {
   font: 100% $font-stack-bread;
   display: flex;
   justify-content: center;
-  color: $main-font-color;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 35%,
-    rgba(70, 70, 70, 1) 100%
-  );
+  color: $beef-brown;
+  background-color: $egg-white;
+  // background: rgb(2, 0, 36);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(0, 0, 0, 1) 35%,
+  //   rgba(70, 70, 70, 1) 100%
+  // );
 }
 
+/* FOOTER START */
 .footer {
-  width: 100%;
-  background-color: $footer-background;
   display: flex;
-  justify-content: space-around;
-  color: white;
-  padding: 15px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $brioche-brown;
+  height: 150px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px 10px 50px 50px;
 }
+
+.footer-content {
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+
+.footer-content p {
+  margin: 0px;
+  padding-bottom: 5px;
+}
+
+.footer-social-icons {
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.footer-social-icons img {
+  padding: 4px;
+  height: 40px;
+}
+
+/* FOOTER END */
 
 .carousel-item {
   overflow: hidden;
@@ -165,52 +238,60 @@ body {
 }
 
 .cardItemList {
-  background-color: $light-background;
   color: $inline-font-color;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: $radius;
   padding: 1px 10px 0px 10px;
   margin-bottom: 0px;
 }
 
 .cartProductListBottom {
-  background-color: $header-color;
+  background-color: $brioche-brown;
   padding-bottom: 20px;
   padding-top: 20px;
-  border-radius: 0px 0px 0px 10px;
+  border-radius: $radius;
 }
 
 .cartProductCheckoutButton {
-  padding-right: 100px;
-  padding-left: 100px;
-  margin-bottom: 20px;
+  padding-right: 75px;
+  padding-left: 75px;
+  padding-bottom: 35px;
+  padding-top: 35px;
+  margin-right: 15px;
   border-radius: 0px 0px 10px 10px;
-  background-color: $green-button-color;
-  font-size: 1rem;
+  background-color: $salad-green;
+  font-size: 2rem;
   border: none;
   height: 40px;
   transition: 0ms;
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
 }
 
-.cartProductNewMenuButton {
+.add-menu-btn {
   padding-right: 100px;
   padding-left: 100px;
-  margin-bottom: 2px;
-  background-color: $button-color;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: $ketchup-red;
   font-size: 1rem;
   border: none;
   height: 40px;
   transition: 0ms;
   width: 100%;
-  border-radius: 0px;
+  border-radius: $radius;
 }
 
-.cartProductNewMenuButton:hover {
-  background-color: $button-color-hover;
+.add-menu-btn:hover {
+  background-color: $ketchup-red-hover;
   border: none;
 }
 
 .cartProductCheckoutButton:hover {
-  background-color: $green-button-color-hover;
+  background-color: $salad-green-hover;
   border: none;
 }
 
@@ -220,16 +301,37 @@ body {
   margin-bottom: 15px;
 }
 
-.cartProductAmountButton {
-  background-color: $button-color;
+.amount-btn {
+  background-color: $salad-green;
   height: 40px;
-  width: 40px;
-  border-radius: 5px;
+  width: 100%;
   border: none;
-  margin-top: 93px;
+  color: $egg-white;
 }
-.cartProductAmountButton:hover {
-  background-color: $button-color-hover;
+.amount-btn:hover {
+  background-color: $salad-green-hover;
+  border: none;
+}
+
+.cart-qty-component {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 150px;
+  float: right;
+}
+
+.price-amount-single {
+  float: right;
+  width: 150px;
+  height: 30px;
+  background-color: $brioche-brown;
+  margin-top: 5px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  font-weight: 700;
+  color: $beef-brown;
+  font-size: 1.2rem;
 }
 
 .flexDC {
@@ -237,70 +339,109 @@ body {
   justify-content: end;
 }
 
+.fontBrown {
+  color: $beef-brown;
+}
+
 .emptyCartBox {
   background-color: $light-background;
   height: 400px;
   min-width: 700px;
   width: 100%;
-  max-width: 950px;
   border-radius: 20px;
   text-align: center;
   padding-top: 180px;
   color: $inline-font-color;
   font-size: 3rem;
-  margin-left: 110px;
-  margin-top: 90px;
+  margin: 90px 0 90px 0;
 }
 
-.amountBox {
+.amount-price-box {
+  float: right;
+}
+
+.amount-box {
   height: 40px;
-  width: 40px;
-  background-color: #e6dcdc;
+  width: 100%;
+  background-color: $light-salad-green;
   padding: 10px;
   text-align: center;
-  margin-top: 93px;
+  color: $egg-white;
 }
 
-.removeFromCart {
-  float: right;
-  background-color: rgb(203, 0, 0);
-  padding: 12px;
-  font-size: x-large;
+.amount-price-box .text-end {
+  position: relative;
+  bottom: -50px;
 }
 
-.removeFromCart:hover {
-  background-color: rgb(172, 0, 0);
+.remove-from-cart {
+  background-color: $ketchup-red;
+  padding: 0px;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  right: -120px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.remove-from-cart:hover {
+  background-color: $ketchup-red-hover;
 }
 
 h1,
 h2 {
   font: 350% $font-stack-header;
   text-transform: uppercase;
-  color: $main-font-color;
+  color: white;
+  text-align: center;
+}
+h4 {
+ font: 200% $font-stack-header;
+ text-transform: uppercase;
+ text-align: center;
+ margin-bottom: 0px;
+}
+
+#header {
+  width: 100%;
+  text-align: center;
 }
 
 .headerTotal {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $header-color;
+  background-color: $brioche-brown;
   padding-top: 25px;
   padding-bottom: 25px;
   width: 100%;
+  color: $beef-brown;
 }
 
 .headerSmaller {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $header-color;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background-color: $beef-brown;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   width: 100%;
-  color: $inline-font-color;
+  color: white;
+  // color: $inline-font-color;
   font-weight: normal;
-  color: $main-font-color;
-  margin-bottom: 10px;
+  // color: $main-font-color;
+margin-bottom: 0.5rem;
+}
+
+.first {
+  background-color: $beef-brown;
+  border-radius: 10px;
+}
+
+.second {
+  background-color: $salad-green;
+  border-radius: 10px;
 }
 
 .shoppingIcon {
@@ -332,6 +473,10 @@ a:hover {
 .cardFooter {
   background-color: $accent-background-color;
   height: 60px;
+}
+
+.cart-img {
+  border-radius: 0.8rem;
 }
 
 .cartProductList {
@@ -381,7 +526,7 @@ button {
   font-weight: bold;
   padding: 0.7em 1.7em;
   font-size: 18px;
-  background: $button-color;
+  background-color: $ketchup-red;
   cursor: pointer;
   border: 1px solid #e8e8e8;
   transition: all 0.3s;
@@ -396,9 +541,20 @@ button:hover {
   border-radius: $radius;
 }
 
-.navbar-item a {
-  color: black;
+// Is added to get the right color to the text on selected burger and recommended cocktail, might be solved in better way?
+p {
+  color: $beef-brown;
 }
+
+strong {
+  color: $beef-brown;
+}
+
+.beef-brown {
+  color: $beef-brown;
+}
+
+/* NAVBAR CSS START*/
 
 .navbar {
   display: flex;
@@ -406,28 +562,39 @@ button:hover {
 }
 
 .navbar-list {
+  width: 100%;
   display: flex;
+  justify-content: stretch;
   list-style-type: none;
   padding: 0;
   margin: 0;
+  background-color: $bacon-orange;
+  border-radius: 10px;
 }
 
-.navbar-item {
+.navbar-list a {
+  width: 100%;
   font: 150% $font-stack-navbar;
+  text-wrap: nowrap;
   text-transform: uppercase;
-  margin: 0 20px;
-  padding: 6px 90px;
-  background-color: $navbar-color;
+  margin: 10px 16px;
+  padding: 6px;
+  // background-color: $navbar-color;
   border-radius: 20px;
-}
-
-.navbar-item:hover {
+  background-color: $ketchup-red;
   color: white;
 }
+
+.navbar-list a:hover {
+  color: white;
+  background-color: $next-button-color-hover;
+}
+
+/* NAVBAR CSS END*/
 
 .drinkHeader {
   color: white;
-  background-color: $header-color;
+  background-color: $beef-brown;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -507,7 +674,31 @@ button:hover {
 
 .nextButtonArrow {
   font-size: 40px;
-  padding-right: 40px;
+  padding: 0 40px 5px 0;
+}
+
+.next-button-cocktail {
+  font-family: $font-stack-header;
+}
+
+.next-button-cocktail button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $next-button-color;
+  height: 409px;
+  width: 300px;
+  padding: 0px;
+  margin: 5px;
+  font-size: 50px;
+}
+
+.next-button-cocktail button:hover {
+  background: $next-button-color-hover;
+}
+
+.shadowSubtle {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.04), 0 3px 3px 0 rgba(0, 0, 0, 0.04);
 }
 
 /* NEXT-BUTTON CSS END*/

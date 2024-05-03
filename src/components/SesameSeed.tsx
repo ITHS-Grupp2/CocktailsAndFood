@@ -1,12 +1,11 @@
 export const SesameSeed = () => {
   const sesameSeeds = [];
   let isUp = true;
-  for (let i = 0; i < 15; i++) {
-    let m = Math.floor(Math.random() * 20);
+  for (let i = 0; i < 5; i++) {
     sesameSeeds.push(
       <div
         className="sesame-seed"
-        style={{ marginTop: isUp ? `${m + 0}px` : `${m + 30}px` }}
+        style={{ marginTop: isUp ? 0+`px` : 40+`px` }}
       ></div>
     );
     isUp = !isUp;
