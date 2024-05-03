@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { Index } from "./pages/Index";
 import { About } from "./pages/About";
 import { ShoppingCart } from "./pages/ShoppingCart";
-import { LiveNavbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { SideSelect } from "./pages/SideSelect";
