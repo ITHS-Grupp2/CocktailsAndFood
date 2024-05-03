@@ -13,9 +13,9 @@ export const NextButton: React.FC<NextButtonProps> = ({ targetPage }) => {
         marginTop: "50px",
       }}
     >
-      <div style={{ width: "30%", margin: "0 auto" }}>
+      <div style={{ width: "50%", margin: "0 auto" }}>
         <Link to={targetPage}>
-          <button className="nextButton">
+          <button className="nextButton" style={{ display: "flex" }}>
             <span className="nextButtonText">NEXT</span>
             <span className="nextButtonArrow">
               {GetIcon("ArrowRight", "Large")}
@@ -32,9 +32,11 @@ export const NextButtonCard: React.FC<NextButtonProps> = ({ targetPage }) => {
   return (
     <div className="next-button-cocktail">
       <Link to={targetPage}>
-        <button className="next-btn-card shadow">
-          <div>{GetIcon("ArrowRight", 110)}</div>
-          <div>NEXT</div>
+        <button className="shadow">
+          <span style={{ paddingTop: "115px", paddingBottom: "15px" }}>
+            {GetIcon("ArrowRight", 110)}
+          </span>
+          <span>NEXT</span>
         </button>
       </Link>
     </div>

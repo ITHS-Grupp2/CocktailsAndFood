@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProductInfoData } from "./ProductInfo";
 import { Button } from "react-bootstrap";
+import { GetIcon } from "./Icons";
 
 export type NavigationPath =
   | "/drinkselect"
@@ -29,8 +30,23 @@ export const NavigationButton = (buttonData: NavigationButtonData) => {
     <>
       <div className="flexDC">
         <Button className="nextButtonSmall" style={{ borderRadius: "10px" }}>
-          <Link to={"" + navigationPath} style={{color:"white"}}>
-            <span style={{ paddingLeft: "10px" }}>Next &#129130;</span>
+          <Link
+            to={"" + navigationPath}
+            style={{
+              color: "white",
+            }}
+          >
+            <span
+              style={{
+                paddingLeft: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              NEXT &nbsp; {GetIcon("ArrowRight", "Large")}
+            </span>
           </Link>
         </Button>
       </div>

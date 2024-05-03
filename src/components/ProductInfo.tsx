@@ -23,6 +23,19 @@ export type ProductInfoData = {
   quantity: number;
 };
 
+const ingredientList = (ingredients: string[]) => {
+  return (
+    <>
+      <p>
+        <strong>Ingredients</strong>
+        <br />
+        {ingredients.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </p>
+    </>
+  );
+};
 // A generic info page that takes in parameter data with type ProductInfoData and displays a specific product
 export const ProductInfo = (data: ProductInfoData) => {
   const state = useContext(CartContext);
@@ -59,9 +72,26 @@ export const ProductInfo = (data: ProductInfoData) => {
                 <p>
                   <strong>Ingredients</strong>
                   <br />
-                  {data.ingredients.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
+                  <div style={{ display: "flex" }}>
+                    <ul style={{ flex: 1 }}>
+                      {data.ingredients.map((item, index) => {
+                        if (index % 2 === 0) {
+                          return <li key={index}>{item}</li>;
+                        } else {
+                          return null;
+                        }
+                      })}
+                    </ul>
+                    <ul style={{ flex: 1 }}>
+                      {data.ingredients.map((item, index) => {
+                        if (index % 2 !== 0) {
+                          return <li key={index}>{item}</li>;
+                        } else {
+                          return null;
+                        }
+                      })}
+                    </ul>
+                  </div>
                 </p>
               </div>
               <div>

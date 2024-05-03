@@ -27,7 +27,7 @@ export function DrinkSelect() {
       <>
         {PageTracker()}
         <div className="siteSize">
-          <div className="headerSmaller first">
+          <div className="headerSmaller first" style={{marginBottom:"1rem"}}>
             <h1 className="text-center" style={{ marginBottom: "0px" }}>
               Recommended Drink
             </h1>
@@ -45,7 +45,7 @@ export function DrinkSelect() {
             motivation={recommendedDrink.motivation}
             quantity={1}
           ></ProductInfo>
-          <div className="headerSmaller second">
+          <div className="headerSmaller second" style={{marginBottom: "1.5rem", marginTop: "1.5rem"}}>
             <h2 className="text-center" style={{ marginBottom: "0px" }}>
               Other Drinks
             </h2>
